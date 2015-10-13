@@ -1,0 +1,725 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div id="contentWrap">
+        <div id="content">
+
+            <ul id="bread-crumbs" class="breadcrumb">
+                <li>
+                    <a href="/" title="Home"><i class="icon-home"></i></a>
+                </li>
+                <li class="crumb-divider">  / </li>
+                <li>
+                    <a href="/administration">Administration</a>
+                </li>
+            </ul>
+
+            <h1>Prospect Fields</h1>
+
+            <div class="divider"></div>
+
+
+
+            <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div id="prospectFieldCustom">
+
+                    <div id="prfc_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                    <div id="prfc_module" class="module">
+
+                        <div class="header clearfix">
+
+                            <h2 id="prospectFieldCustom_h2">
+                                Custom Fields
+                            </h2>
+
+
+
+
+
+                            <form id="prospectFieldCustom_filter" class="inline" onsubmit="new Ajax.Updater('prospectFieldCustom_table_div', '/prospectFieldCustom/table/ajax/1/dateText/Date+Range%3A+', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('prfc_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('prospectFieldCustom_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/prospectFieldCustom/table/ajax/1/dateText/Date+Range%3A+" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="a0bc5ccc1dac1ca646e2cd86674ccd7381defe1b03cca6041030f0f4ab481863cb3a4c00e0616e8d8912f7c8ac71c2e7"></div>
+                                <p class="inline header">
+                                    Filter:<br>
+                                    <input type="text" name="table_filter" id="prospectFieldCustom_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;prospectFieldCustom_filter&quot;).onsubmit()',600);" class="input-medium">
+                                </p>
+                            </form>
+
+
+
+                            <br>												<span class="link_to_create pull-right">
+                                <a href="/prospectFieldCustom/createAjax" id="prfc_link_create" class="btn btn-warning"><i class="icon-plus"></i> Add custom field</a>
+                                <script type="text/javascript">
+	jQuery('a#prfc_link_create').click(function() {
+		jQuery("#indicator").show();
+		if(jQuery('html').is('.ie'))
+			toggleDisplay("prfc_table_footer", false);
+		jQuery.ajax({
+			url: "/prospectFieldCustom/createAjax",
+			beforeSend: function(jqXHR, settings) {
+				// TODO: Compensate for existing data?
+				settings.data += jQuery("#prfc_ajax_urlparams").attr('value');
+			},
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#prfc_status").html(data);
+				toggleDisplay("prfc_status", true);
+				new Effect.Highlight('prfc_status', {duration:2});
+			}
+		});
+		return false;
+	});
+                                </script>
+                            </span>
+                        </div>
+                        <div id="prfc_wrapper" class="module-wrapper">
+                            <div id="prospectFieldCustom_table_div">
+
+
+                                <input type="hidden" id="prospectFieldCustom_ajax_urlparams" value="sort=prospect_field_custom.name&amp;order=desc&amp;ajaxElement=prospectFieldCustom&amp;numResults=1">
+                                <table id="prospectFieldCustom_table" class="data-table table-bordered">
+                                    <thead>
+                                        <tr>
+
+
+
+
+                                            <th class="sortable sort-down first name-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('prospectFieldCustom_table_div', '/prospectFieldCustom/table/ajax/1/page/1/order/asc/sort/prospect_field_custom.name/ajaxElement/prospectFieldCustom', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=f00a05a4a87e12ac27986995396c16fbf8e508342dbbac2d3a0b4f12059d0eb54824ad3ce290f2a8a4e1a3d1c8b9a0a4'});; return false;">Name</a>
+
+                                                <i class="icon-circle-arrow-down muted"></i>
+                                            </th>
+
+
+
+                                            <th class="field-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('prospectFieldCustom_table_div', '/prospectFieldCustom/table/ajax/1/page/1/order/desc/sort/prospect_field_custom.field_id/ajaxElement/prospectFieldCustom', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=99e58841e6f25ae77a14597c32e1b08f272c3177a57018f80e3c0566892d38992ea95e297e5aa7a9b436fc18878b9aaa'});; return false;">Field</a>
+
+                                            </th>
+
+
+                                            <th class="salesforcecom-field-name-column">
+
+                                                salesforce.com Field Name
+                                            </th>
+
+
+
+                                            <th class="type-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('prospectFieldCustom_table_div', '/prospectFieldCustom/table/ajax/1/page/1/order/desc/sort/prospect_field_custom.type/ajaxElement/prospectFieldCustom', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=5a8241c012d1dfd2ada0fc82af9e6626d49a03b72f6e2f335834de3753a49d91a1b196a1804e9c77ee36b447da936dbc'});; return false;">Type</a>
+
+                                            </th>
+
+
+
+                                            <th class="updated-at-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('prospectFieldCustom_table_div', '/prospectFieldCustom/table/ajax/1/page/1/order/desc/sort/prospect_field_custom.updated_at/ajaxElement/prospectFieldCustom', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=8c81448d1f8be79b82d431df2562c77ab6c1185c180ef08f11dc1df4a9d8f564eff169e82eadf8f46fbec64dc070e2ac'});; return false;">Updated at</a>
+
+                                            </th>
+
+
+                                            <th class="actions-column last">
+
+                                                Actions
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr class="" id="prospectFieldCustom_row_a0">
+
+                                            <td class="first ">
+                                                <a href="/prospectFieldCustom/read/id/1902">Account Type</a>
+                                            </td>
+
+                                            <td>
+                                                Account_Type
+                                            </td>
+
+                                            <td>
+                                                Account_Type__c
+                                            </td>
+
+                                            <td>
+                                                Dropdown
+                                            </td>
+
+                                            <td>
+                                                Oct 2, 2015 10:35 AM
+                                            </td>
+
+                                            <td class="new-actions last">
+
+
+
+
+
+
+                                                <div class="actions-menu-wrapper">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog muted"></i></a>	<ul class="dropdown-menu pull-right" role="menu">
+                                                        <li>
+                                                            <a id="prospectFieldCustom_edit_link0" href="#"><i class="icon-edit muted" title="Edit"></i> Edit</a>
+                                                            <script type="text/javascript">
+	jQuery("a#prospectFieldCustom_edit_link0").click(function() {
+		jQuery("#indicator").show();
+		jQuery.ajax({
+			url: "/prospectFieldCustom/editAjax/id/1902/prefix/prospectFieldCustom",
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#prospectFieldCustom_row_b_cell0").html(data);
+				toggleDisplay("prospectFieldCustom_row_b0", true);
+				if(jQuery('html').is('.ie')) {
+					toggleDisplay("prospectFieldCustom_table_footer", false);
+				}
+				new Effect.Highlight('prospectFieldCustom_row_b_cell0', {duration:2});
+			}
+		});
+		hideAllActionMenus();
+		return false;
+	});
+                                                            </script>
+                                                        </li>
+                                                        <li><a href="#" onclick="if (window.confirm('Are you sure?')) { new Ajax.Updater('prospectFieldCustom_row_b_cell0', '/prospectFieldCustom/delete/id/1902/prefix/prospectFieldCustom', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplayAnimated('prospectFieldCustom_row_a0', false, null, true);if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('prospectFieldCustom_table_footer', false); }}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=ae17178a910dce31d0962e6c3bdc8f6b7fb7397eeb6550944817b414ddeba884a11f787f147b141d45e37eceea44d5e5'}); };; return false;"><i class="icon-trash muted" title="Delete"></i> Delete</a></li>
+                                                    </ul>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        <tr style="display:none" id="prospectFieldCustom_row_b0" class="ajax_row">
+                                            <td colspan="6" id="prospectFieldCustom_row_b_cell0" class="last"></td>
+                                        </tr>
+                                    </tbody>
+
+
+                                </table>
+
+
+
+                                <div class="table-foot clearfix">
+                                    <div id="prfc_table_footer">
+                                        <form id="prospectFieldCustomform" class="inline prfc-pager-form pager-form" onsubmit="new Ajax.Updater('prospectFieldCustom_table_div', '/prospectFieldCustom/table/ajax/1/sort/prospect_field_custom.name/order/desc/ajaxElement/prospectFieldCustom', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('prfc_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:Form.serialize(this)}); return false;" action="/prospectFieldCustom/table/ajax/1/sort/prospect_field_custom.name/order/desc/ajaxElement/prospectFieldCustom" method="post">
+                                            <div style="display:none;"><input type="hidden" name="_csrf_token" value="a0bc5ccc1dac1ca646e2cd86674ccd7381defe1b03cca6041030f0f4ab481863cb3a4c00e0616e8d8912f7c8ac71c2e7"></div>						<ul class="inline pull-right paging">
+                                                <li>
+                                                </li>
+
+                                                <li>
+                                                    Page
+                                                    1
+                                                    of
+                                                    <a class="pager-last" href="#" onclick="cancelAllPendingAjax(); new Ajax.Updater('prospectFieldCustom_table_div', '/prospectFieldCustom/table/ajax/1/page/1/sort/prospect_field_custom.name/order/desc/ajaxElement/prospectFieldCustom', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=3c1260f641af1e2ff3165fc6484f6e57fd27e9682b831300189e062b1a3d8dcc50241d61863041ce6a983a2f21f9d669'});; return false;">1</a>
+                                                </li>
+
+                                                <li class="last">
+                                                </li>
+                                            </ul>
+                                            <p class="inline pull-right">
+                                                Showing
+                                                <select name="pageSize" id="prfcpageSize" onchange="$(&quot;prospectFieldCustomform&quot;).onsubmit();return false;" class="input-auto">
+                                                    <option value="5" selected="selected">5</option>
+                                                    <option value="10">10</option>
+                                                    <option value="15">15</option>
+                                                    <option value="25">25</option>
+                                                    <option value="50">50</option>
+                                                </select>											 of <strong>1</strong>																															<input type="hidden" name="view" id="prfc1_view" value="">
+                                            </p>
+                                        </form>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+                <div id="prospectFieldDefault">
+
+                    <div id="prfd_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                    <div id="prfd_module" class="module">
+
+                        <div class="header clearfix">
+
+                            <h2 id="prospectFieldDefault_h2">
+                                Default Fields
+                            </h2>
+
+
+
+
+
+                            <form id="prospectFieldDefault_filter" class="inline" onsubmit="new Ajax.Updater('prospectFieldDefault_table_div', '/prospectFieldDefault/table/ajax/1/dateText/Date+Range%3A+', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('prfd_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('prospectFieldDefault_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/prospectFieldDefault/table/ajax/1/dateText/Date+Range%3A+" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="a0bc5ccc1dac1ca646e2cd86674ccd7381defe1b03cca6041030f0f4ab481863cb3a4c00e0616e8d8912f7c8ac71c2e7"></div>
+                                <p class="inline header">
+                                    Filter:<br>
+                                    <input type="text" name="table_filter" id="prospectFieldDefault_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;prospectFieldDefault_filter&quot;).onsubmit()',600);" class="input-medium">
+                                </p>
+                            </form>
+
+
+
+                        </div>
+                        <div id="prfd_wrapper" class="module-wrapper">
+                            <div id="prospectFieldDefault_table_div">
+
+
+                                <input type="hidden" id="prospectFieldDefault_ajax_urlparams" value="sort=prospect_field_default.name&amp;order=desc&amp;ajaxElement=prospectFieldDefault&amp;numResults=25">
+                                <table id="prospectFieldDefault_table" class="data-table table-bordered">
+                                    <thead>
+                                        <tr>
+
+
+
+
+                                            <th class="sortable sort-down first name-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('prospectFieldDefault_table_div', '/prospectFieldDefault/table/ajax/1/page/1/order/asc/sort/prospect_field_default.name/ajaxElement/prospectFieldDefault', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=0d8b92a34a6d5cdb0cdd51596a6b892f77b1271ac14d79b02dc1707e1c4042dc25ec9782265cdcae8f910312dab0225d'});; return false;">Name</a>
+
+                                                <i class="icon-circle-arrow-down muted"></i>
+                                            </th>
+
+
+
+                                            <th class="field-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('prospectFieldDefault_table_div', '/prospectFieldDefault/table/ajax/1/page/1/order/desc/sort/prospect_field_default.field_id/ajaxElement/prospectFieldDefault', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=cfe3ae1f640f0a958cc8fec1c8417f5859c38746770518789812a7e32155ad100a6ad0b0661759888f1003dd8911ab14'});; return false;">Field</a>
+
+                                            </th>
+
+
+                                            <th class="salesforcecom-field-name-column">
+
+                                                salesforce.com Field Name
+                                            </th>
+
+
+
+                                            <th class="type-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('prospectFieldDefault_table_div', '/prospectFieldDefault/table/ajax/1/page/1/order/desc/sort/prospect_field_default.type/ajaxElement/prospectFieldDefault', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=9f655eb76e57a091555d8c4e23152d6279f59c9ff4d79d665cbac3bd46d89ef30e58e843ca0846ee76ab266ad271406e'});; return false;">Type</a>
+
+                                            </th>
+
+
+
+                                            <th class="updated-at-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('prospectFieldDefault_table_div', '/prospectFieldDefault/table/ajax/1/page/1/order/desc/sort/prospect_field_default.updated_at/ajaxElement/prospectFieldDefault', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=a09ac9c7321ea7f4909b17ea2f20f99b0620551b9a96a54ff9dba41a5a2eccdb818c3693e4ea35c0a1847ba32402b28a'});; return false;">Updated at</a>
+
+                                            </th>
+
+
+                                            <th class="actions-column last">
+
+                                                Actions
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr class="" id="prospectFieldDefault_row_a0">
+
+                                            <td class="first ">
+                                                <a href="/prospectFieldDefault/read/id/3860">Zip</a>
+                                            </td>
+
+                                            <td>
+                                                zip
+                                            </td>
+
+                                            <td>
+                                                <i>MailingPostalCode</i>
+                                            </td>
+
+                                            <td>
+                                                Text
+                                            </td>
+
+                                            <td>
+                                                Aug 15, 2015 4:39 AM
+                                            </td>
+
+                                            <td class="new-actions last">
+
+
+
+
+
+
+                                                <div class="actions-menu-wrapper">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog muted"></i></a>	<ul class="dropdown-menu pull-right" role="menu">
+                                                        <li>
+                                                            <a id="prospectFieldDefault_edit_link0" href="#"><i class="icon-edit muted" title="Edit"></i> Edit</a>
+                                                            <script type="text/javascript">
+	jQuery("a#prospectFieldDefault_edit_link0").click(function() {
+		jQuery("#indicator").show();
+		jQuery.ajax({
+			url: "/prospectFieldDefault/editAjax/id/3860/prefix/prospectFieldDefault",
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#prospectFieldDefault_row_b_cell0").html(data);
+				toggleDisplay("prospectFieldDefault_row_b0", true);
+				if(jQuery('html').is('.ie')) {
+					toggleDisplay("prospectFieldDefault_table_footer", false);
+				}
+				new Effect.Highlight('prospectFieldDefault_row_b_cell0', {duration:2});
+			}
+		});
+		hideAllActionMenus();
+		return false;
+	});
+                                                            </script>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        <tr style="display:none" id="prospectFieldDefault_row_b0" class="ajax_row">
+                                            <td colspan="6" id="prospectFieldDefault_row_b_cell0" class="last"></td>
+                                        </tr>
+                                        <tr class="even" id="prospectFieldDefault_row_a1">
+
+                                            <td class="first ">
+                                                <a href="/prospectFieldDefault/read/id/3880">Years In Business</a>
+                                            </td>
+
+                                            <td>
+                                                years_in_business
+                                            </td>
+
+                                            <td></td>
+
+                                            <td>
+                                                Text
+                                            </td>
+
+                                            <td>
+                                                Aug 15, 2015 4:39 AM
+                                            </td>
+
+                                            <td class="new-actions last">
+
+
+
+
+
+
+                                                <div class="actions-menu-wrapper">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog muted"></i></a>	<ul class="dropdown-menu pull-right" role="menu">
+                                                        <li>
+                                                            <a id="prospectFieldDefault_edit_link1" href="#"><i class="icon-edit muted" title="Edit"></i> Edit</a>
+                                                            <script type="text/javascript">
+	jQuery("a#prospectFieldDefault_edit_link1").click(function() {
+		jQuery("#indicator").show();
+		jQuery.ajax({
+			url: "/prospectFieldDefault/editAjax/id/3880/prefix/prospectFieldDefault",
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#prospectFieldDefault_row_b_cell1").html(data);
+				toggleDisplay("prospectFieldDefault_row_b1", true);
+				if(jQuery('html').is('.ie')) {
+					toggleDisplay("prospectFieldDefault_table_footer", false);
+				}
+				new Effect.Highlight('prospectFieldDefault_row_b_cell1', {duration:2});
+			}
+		});
+		hideAllActionMenus();
+		return false;
+	});
+                                                            </script>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        <tr style="display:none" id="prospectFieldDefault_row_b1" class="ajax_row">
+                                            <td colspan="6" id="prospectFieldDefault_row_b_cell1" class="last"></td>
+                                        </tr>
+                                        <tr class="" id="prospectFieldDefault_row_a2">
+
+                                            <td class="first ">
+                                                <a href="/prospectFieldDefault/read/id/3842">Website</a>
+                                            </td>
+
+                                            <td>
+                                                website
+                                            </td>
+
+                                            <td>
+                                                <i>Website</i>
+                                            </td>
+
+                                            <td>
+                                                Text
+                                            </td>
+
+                                            <td>
+                                                Aug 15, 2015 4:39 AM
+                                            </td>
+
+                                            <td class="new-actions last">
+
+
+
+
+
+
+                                                <div class="actions-menu-wrapper">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog muted"></i></a>	<ul class="dropdown-menu pull-right" role="menu">
+                                                        <li>
+                                                            <a id="prospectFieldDefault_edit_link2" href="#"><i class="icon-edit muted" title="Edit"></i> Edit</a>
+                                                            <script type="text/javascript">
+	jQuery("a#prospectFieldDefault_edit_link2").click(function() {
+		jQuery("#indicator").show();
+		jQuery.ajax({
+			url: "/prospectFieldDefault/editAjax/id/3842/prefix/prospectFieldDefault",
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#prospectFieldDefault_row_b_cell2").html(data);
+				toggleDisplay("prospectFieldDefault_row_b2", true);
+				if(jQuery('html').is('.ie')) {
+					toggleDisplay("prospectFieldDefault_table_footer", false);
+				}
+				new Effect.Highlight('prospectFieldDefault_row_b_cell2', {duration:2});
+			}
+		});
+		hideAllActionMenus();
+		return false;
+	});
+                                                            </script>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        <tr style="display:none" id="prospectFieldDefault_row_b2" class="ajax_row">
+                                            <td colspan="6" id="prospectFieldDefault_row_b_cell2" class="last"></td>
+                                        </tr>
+                                        <tr class="even" id="prospectFieldDefault_row_a3">
+
+                                            <td class="first ">
+                                                <a href="/prospectFieldDefault/read/id/3858">Territory</a>
+                                            </td>
+
+                                            <td>
+                                                territory
+                                            </td>
+
+                                            <td></td>
+
+                                            <td>
+                                                Text
+                                            </td>
+
+                                            <td>
+                                                Aug 15, 2015 4:39 AM
+                                            </td>
+
+                                            <td class="new-actions last">
+
+
+
+
+
+
+                                                <div class="actions-menu-wrapper">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog muted"></i></a>	<ul class="dropdown-menu pull-right" role="menu">
+                                                        <li>
+                                                            <a id="prospectFieldDefault_edit_link3" href="#"><i class="icon-edit muted" title="Edit"></i> Edit</a>
+                                                            <script type="text/javascript">
+	jQuery("a#prospectFieldDefault_edit_link3").click(function() {
+		jQuery("#indicator").show();
+		jQuery.ajax({
+			url: "/prospectFieldDefault/editAjax/id/3858/prefix/prospectFieldDefault",
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#prospectFieldDefault_row_b_cell3").html(data);
+				toggleDisplay("prospectFieldDefault_row_b3", true);
+				if(jQuery('html').is('.ie')) {
+					toggleDisplay("prospectFieldDefault_table_footer", false);
+				}
+				new Effect.Highlight('prospectFieldDefault_row_b_cell3', {duration:2});
+			}
+		});
+		hideAllActionMenus();
+		return false;
+	});
+                                                            </script>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        <tr style="display:none" id="prospectFieldDefault_row_b3" class="ajax_row">
+                                            <td colspan="6" id="prospectFieldDefault_row_b_cell3" class="last"></td>
+                                        </tr>
+                                        <tr class="" id="prospectFieldDefault_row_a4">
+
+                                            <td class="first ">
+                                                <a href="/prospectFieldDefault/read/id/3856">State/Province</a>
+                                            </td>
+
+                                            <td>
+                                                state
+                                            </td>
+
+                                            <td>
+                                                State
+                                            </td>
+
+                                            <td>
+                                                Text
+                                            </td>
+
+                                            <td>
+                                                Oct 2, 2015 10:41 AM
+                                            </td>
+
+                                            <td class="new-actions last">
+
+
+
+
+
+
+                                                <div class="actions-menu-wrapper">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog muted"></i></a>	<ul class="dropdown-menu pull-right" role="menu">
+                                                        <li>
+                                                            <a id="prospectFieldDefault_edit_link4" href="#"><i class="icon-edit muted" title="Edit"></i> Edit</a>
+                                                            <script type="text/javascript">
+	jQuery("a#prospectFieldDefault_edit_link4").click(function() {
+		jQuery("#indicator").show();
+		jQuery.ajax({
+			url: "/prospectFieldDefault/editAjax/id/3856/prefix/prospectFieldDefault",
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#prospectFieldDefault_row_b_cell4").html(data);
+				toggleDisplay("prospectFieldDefault_row_b4", true);
+				if(jQuery('html').is('.ie')) {
+					toggleDisplay("prospectFieldDefault_table_footer", false);
+				}
+				new Effect.Highlight('prospectFieldDefault_row_b_cell4', {duration:2});
+			}
+		});
+		hideAllActionMenus();
+		return false;
+	});
+                                                            </script>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        <tr style="display:none" id="prospectFieldDefault_row_b4" class="ajax_row">
+                                            <td colspan="6" id="prospectFieldDefault_row_b_cell4" class="last"></td>
+                                        </tr>
+                                    </tbody>
+
+
+                                </table>
+
+
+
+                                <div class="table-foot clearfix">
+                                    <div id="prfd_table_footer">
+                                        <form id="prospectFieldDefaultform" class="inline prfd-pager-form pager-form" onsubmit="new Ajax.Updater('prospectFieldDefault_table_div', '/prospectFieldDefault/table/ajax/1/sort/prospect_field_default.name/order/desc/ajaxElement/prospectFieldDefault', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('prfd_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:Form.serialize(this)}); return false;" action="/prospectFieldDefault/table/ajax/1/sort/prospect_field_default.name/order/desc/ajaxElement/prospectFieldDefault" method="post">
+                                            <div style="display:none;"><input type="hidden" name="_csrf_token" value="a0bc5ccc1dac1ca646e2cd86674ccd7381defe1b03cca6041030f0f4ab481863cb3a4c00e0616e8d8912f7c8ac71c2e7"></div>						<ul class="inline pull-right paging">
+                                                <li>
+                                                </li>
+
+                                                <li>
+                                                    Page
+                                                    <input type="text" name="page" id="page_prospectFieldDefault" value="1" class="text-tiny" style="width: 18px;">
+                                                    <script>$j(".text-tiny").each(textTinyResize);</script>
+                                                    of
+                                                    <a class="pager-last" href="#" onclick="cancelAllPendingAjax(); new Ajax.Updater('prospectFieldDefault_table_div', '/prospectFieldDefault/table/ajax/1/page/5/sort/prospect_field_default.name/order/desc/ajaxElement/prospectFieldDefault', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=81328a8c5052044b546a14b7b00c89af07ec559e37356b44fc2ff520146921e091e26d96d21923f57d33521bc636a1a3'});; return false;">5</a>
+                                                </li>
+
+                                                <li class="last">
+                                                    <a class="pager-next" href="#" onclick="cancelAllPendingAjax(); new Ajax.Updater('prospectFieldDefault_table_div', '/prospectFieldDefault/table/ajax/1/page/2/sort/prospect_field_default.name/order/desc/ajaxElement/prospectFieldDefault', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=9f0119b7a074c75679a3961bf1fc9a19a91266b7674a81ec69e88752ced4fd784a6e7b268856184d156fcc5b9ac6f884'});; return false;">Next »</a>
+                                                </li>
+                                            </ul>
+                                            <p class="inline pull-right">
+                                                Showing
+                                                <select name="pageSize" id="prfdpageSize" onchange="$(&quot;prospectFieldDefaultform&quot;).onsubmit();return false;" class="input-auto">
+                                                    <option value="5" selected="selected">5</option>
+                                                    <option value="10">10</option>
+                                                    <option value="15">15</option>
+                                                    <option value="25">25</option>
+                                                    <option value="50">50</option>
+                                                </select>											 of <strong>25</strong>																															<input type="hidden" name="view" id="prfd1_view" value="">
+                                            </p>
+                                        </form>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+</body>
+</html>

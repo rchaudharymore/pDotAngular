@@ -1,0 +1,169 @@
+﻿
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+      <!--<link rel="shortcut icon" href="#/favicon.sfdc.ico?2013-07-22" type="image/ico">-->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+      <link href="styles/tooltip.css" rel="stylesheet" />
+      <link href="styles/styles-split.css" rel="stylesheet" />
+      <link rel="stylesheet" media="screen" href="styles/jquery-ui.css">
+      <link rel="stylesheet" media="screen" href="styles/theme.css">
+      <link href="styles/styles-split-blessed1.css" rel="stylesheet" />
+      <link rel="stylesheet" media="screen" href="styles/styles-split.css">
+      <link href="styles/ui.css" rel="stylesheet" />
+      <link href="styles/fullcalendar.css" rel="stylesheet" />
+      <link href="css/font/hover.css" rel="stylesheet" />
+
+      <link href="css/font/css_aYIN3mq1DmLT6Di-4-Gd2Se05n7P-awcXq0wcXZEGrI.css" rel="stylesheet" />
+      <link href="css/font/css_e9i1o2m_GsLXCsIe3pJwpeNkUjTw8sddNBrCOrjat7I.css" rel="stylesheet" />
+      <link href="css/font/css_Keowm4P-TN4WspeipSY7BvJOKCOfOp52oBcMbBovDXI.css" rel="stylesheet" />
+      <link href="css/font/css_QVPl6QX0Fd_zqzKjXaUaEb12JURLDRq8uBVeV3b9sVk.css" rel="stylesheet" />
+      <link href="css/font/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" rel="stylesheet" />
+
+
+      <link href="styles/contents.css" rel="stylesheet" />
+      <link href="styles/editor.css" rel="stylesheet" />
+      <link rel="stylesheet" type="text/css" media="screen" href="styles/theme.css">
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <!--<link rel="stylesheet" href="styles/main.css">-->
+    <!-- endbuild -->
+  </head>
+<body ng-app="anguApp" id="top" class="frontendApplication socialModule indexAction currentui" style="zoom: 1;">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- Add your site or application content here -->
+    <div id="wrap" class="clearfix">
+        <!--[if IE 7]>
+        <div id="ieCompatibility">
+            <img style="vertical-align: text-top;" src="/images/error.png"/>
+            <strong>Warning</strong>: Your browser is in Compatibility Mode. For things to work correctly, you need to <a href="http://help.pardot.com/faqs/administration/turning-off-compatibility-mode-in-ie" target="_blank">turn it off</a>.
+        </div>
+        <![endif]-->
+        <div id="wrapper">
+            <div id="contentWrap">
+                <div>
+                    <div>
+                        <!--Header loads here-->
+                        <section data-ng-include=" 'views/header.html' " id="header" class="top-header"></section>
+
+
+                    </div>
+
+                    <!--Main Section where all views will load -->
+                    <div class="view-container">
+                        <section data-ng-view="" id="content" ></section>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+       
+
+        
+        <div class="footer">
+            <div class="container">
+                <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+            </div>
+        </div>
+
+    </div>
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+   
+   
+   
+    <script src="scripts/vendor/jquery.min.js"></script>
+  
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="scripts/vendor/ng-table.min.js"></script>
+    <script src="scripts/vendor/bootstrap.min.js"></script>
+    
+   
+  
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script type="text/javascript" src="scripts/vendor/calendar.js"></script>
+    <script type="text/javascript" src="scripts/vendor/calendar-en.js"></script>
+    <script type="text/javascript" src="scripts/vendor/calendar-setup.js"></script>
+    <!--<script type="text/javascript" src="/scripts/vendor/jquery.piDataTableTagFilter.js"></script>-->
+    <script type="text/javascript" src="scripts/vendor/prototype.js"></script>
+    <script type="text/javascript" src="scripts/vendor/effects.js"></script>
+    <script type="text/javascript" src="scripts/vendor/dragdrop.js"></script>
+    <script type="text/javascript" src="scripts/vendor/controls.js"></script>
+    <script type="text/javascript" src="scripts/vendor/tabs.js"></script>
+    <script type="text/javascript" src="scripts/vendor/fieldFormHandler.js"></script>
+    <script type="text/javascript" src="scripts/vendor/bootstrap.min.js"></script>
+    <script type="text/javascript" src="scripts/vendor/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="scripts/vendor/bootstrap-timepicker.js"></script>
+    <script type="text/javascript" src="scripts/vendor/cookies.min.js"></script>
+
+    <script type="text/javascript" src="scripts/vendor/piPolyfill.js"></script>
+
+    <!--<script type="text/javascript" src="/scripts/vendor/jquery.min.js"></script>-->
+    <!--<script type="text/javascript" src="/scripts/vendor/underscore-all.js"></script>-->
+    <script type="text/javascript">
+        var $j = jQuery.noConflict();
+    </script>
+    <script type="text/javascript" src="scripts/vendor/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="scripts/vendor/jquery.waypoints.min.js"></script>
+    <script type="text/javascript" src="scripts/vendor/spin.min.js"></script>
+
+
+
+    <script type="text/javascript" src="scripts/vendor/chosen.jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/vendor/i18next.min.js"></script>
+    <!--<script type="text/javascript">
+        var cultureId = 'en-US';
+    //	cultureId = 'zz-zz';
+        var isI18nReady = i18n.init({
+            resGetPath: '/i18n/__ns__-__lng__.json',
+            lowerCaseLng: true,
+            lng: cultureId,
+            nsseparator: '::',
+            keyseparator: ':',
+            useCookie: false,
+            fallbackLng: false,
+            ns: {
+                namespaces: ['messages'],
+                defaultNs: 'messages'
+            },
+            load: 'current',
+            debug: false,
+            getAsync: false
+        });
+        </script>-->
+    <script type="text/javascript" src="scripts/vendor/script.js"></script>
+
+
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+
+    <script src="services/peoplesService.js"></script>
+    <script src="scripts/controllers/CtrlUser.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/controllers/ckeditor.js"></script>
+    <script src="scripts/controllers/config-email.js"></script>
+    <script src="scripts/controllers/plugin.js"></script>
+    <script src="scripts/controllers/skin.js"></script>
+    <!-- endbuild -->
+   
+</body>
+</html>

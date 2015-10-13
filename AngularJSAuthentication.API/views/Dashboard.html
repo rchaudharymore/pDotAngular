@@ -1,0 +1,987 @@
+﻿
+<div id="contentWrap">
+    <div id="content">
+
+
+        <h1>Dashboard</h1>
+
+        <div class="divider"></div>
+
+
+        <div id="center-stage">
+
+
+
+
+
+            <div class="alert dash-help-message" id="help-message_68822">
+                <span class="checklist-dismiss-all">
+                    <a href="#" onclick="new Ajax.Request('/home/globalMessageDismissAjax/messageId/68822', {asynchronous:true, evalScripts:false, onComplete:function(request, json){toggleDisplay('help-message_68822', false);$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=44a081e85f74e8b681b90d5e284ffe2fc21f58fe8b11455051dcab8f783dda5ebc8a6be625b0ff8631b3f02af7ab0bfe'});; return false;">×</a>
+                </span>
+                <p>
+                    <i class="icon-warning-sign"></i>&nbsp;We will be migrating <a href="http://www.pardot.com/faqs/administration/system-emails/" target="_blank">system emails</a> to use our Salesforce Marketing Cloud email infrastructure on <b>Monday, October 12, 2015</b>. Please work with your IT team to whitelist the new IP before the migration to ensure you continue receiving these emails: 13.111.0.111 (email-system.mc.pardot.com). Refer to the notification email sent to Admins on September 11 for more details.
+                </p>
+            </div>
+
+            <!--[if lte IE 8]>
+                <div style="border: 1px solid #F7941D; background-color: #FEEFDA; padding: 0.4em 0; margin-top: 0.7em;">
+                    <p style="font-size: 0.8em;">
+                        <img style="vertical-align: text-top" src="/images/en-us/error.png" />
+                        You are using an outdated browser; please <a href="http://help.pardot.com/faqs/account-questions/pardot-technical-requirements#Pardot+Web+Application+Supported+Browsers" target="_blank">update your browser</a>.		</p>
+                </div>
+            <![endif]-->
+
+
+
+
+
+
+            <div id="dashboard">
+
+
+
+
+                <div id="dashboard" class="no-create">
+
+                    <div id="pss_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                    <div id="pss_module" class="module">
+                        <div class="header clearfix">
+                            <h2 id="dashboard_h2">
+                                All Prospects
+                            </h2>
+
+
+                            <form id="dashboard_date_range_form" class="inline" onsubmit="new Ajax.Updater('dashboard_table_div', '/home/dashboardAnalytics/ajax/1', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('pss_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('dashboard_ajax_urlparams').value + '&amp;'  + Form.serialize(this) }); return false;" action="/home/dashboardAnalytics/ajax/1" method="post">
+                                <div style="display:none;"><input name="_csrf_token" value="24344f1a1d5f751a063a9d6e6d17d185edd5610eec7c9e6808fe172264a40e540a39684f1b7e2c23450d8ffd4f6d5c6c" type="hidden"></div>
+                                <p class="inline header">
+
+                                    <span id="datetext_header">
+                                        Date Range  <small>(Based on 12am EDT)</small>:
+                                    </span> <br>
+
+                                    <select name="dateRange" id="dateRange_pss" onchange="customDates = document.getElementById('pss_custom_dates');if(this.value==7) {
+								customDates.removeClassName(&quot;hidden&quot;);
+							 } else {
+							 	$('dashboard_date_range_form').onsubmit();
+							 	customDates.addClassName(&quot;hidden&quot;);
+							 }" class="input-auto">
+                                        <option value="1">Today</option>
+                                        <option value="2">Yesterday</option>
+                                        <option value="3" selected="selected">Last 7 Days</option>
+                                        <option value="4">This Month</option>
+                                        <option value="5">Last Month</option>
+                                        <option value="7">Custom</option>
+                                    </select>						<span id="pss_custom_dates" class="datepickerBS inline header hidden">
+                                        <input name="startDate" id="pssstartDate" value="2015-09-30" class="datepicker input-small" size="12" type="text"><button type="button" onclick="return false" id="trigger_pssstartDate">...</button>
+                                        <script type="text/javascript">
+    document.getElementById("trigger_pssstartDate").disabled = false;
+    Calendar.setup({
+      inputField : "pssstartDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_pssstartDate"
+    });
+                                        </script>
+                                        &nbsp;to&nbsp;
+
+                                        <input name="endDate" id="pssendDate" value="2015-10-08" class="datepicker input-small" size="12" type="text"><button type="button" onclick="return false" id="trigger_pssendDate">...</button>
+                                        <script type="text/javascript">
+    document.getElementById("trigger_pssendDate").disabled = false;
+    Calendar.setup({
+      inputField : "pssendDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_pssendDate"
+    });
+                                        </script>
+                                        &nbsp;
+                                        <input name="commit" value="Go" class="btn btn-primary" type="submit">
+                                    </span>
+                                </p>
+                            </form>
+
+
+
+
+
+                        </div>
+                        <div id="pss_wrapper" class="module-wrapper">
+                            <div id="dashboard_table_div">
+                                <input style="display:none" id="dashboard_ajax_urlparams" value="sort=&amp;order=&amp;ajax_element=dashboard&amp;numResults=0" type="hidden">
+                                <table id="dashboard_analytics">
+                                    <tbody>
+                                        <tr height="220px">
+                                            <td>
+
+                                                <div id="placeholder" style="height: 200px; margin-left: 5px; margin-right: 15px; position: relative;"><canvas height="200" width="966"></canvas><canvas style="position: absolute; left: 0px; top: 0px;" height="200" width="966"></canvas><div class="tickLabels" style="font-size:smaller;color:#545454"><div style="position:absolute;top:180px;left:-36px;width:120.75px;text-align:center" class="tickLabel">Oct 1</div><div style="position:absolute;top:180px;left:97px;width:120.75px;text-align:center" class="tickLabel">Oct 2</div><div style="position:absolute;top:180px;left:230px;width:120.75px;text-align:center" class="tickLabel">Oct 3</div><div style="position:absolute;top:180px;left:363px;width:120.75px;text-align:center" class="tickLabel">Oct 4</div><div style="position:absolute;top:180px;left:496px;width:120.75px;text-align:center" class="tickLabel">Oct 5</div><div style="position:absolute;top:180px;left:629px;width:120.75px;text-align:center" class="tickLabel">Oct 6</div><div style="position:absolute;top:180px;left:762px;width:120.75px;text-align:center" class="tickLabel">Oct 7</div><div style="position:absolute;top:180px;left:896px;width:120.75px;text-align:center" class="tickLabel">Oct 8</div><div style="position:absolute;top:159px;right:953px;width:13px;text-align:right" class="tickLabel">0</div><div style="position:absolute;top:127px;right:953px;width:13px;text-align:right" class="tickLabel">2</div><div style="position:absolute;top:95px;right:953px;width:13px;text-align:right" class="tickLabel">4</div><div style="position:absolute;top:64px;right:953px;width:13px;text-align:right" class="tickLabel">6</div><div style="position:absolute;top:32px;right:953px;width:13px;text-align:right" class="tickLabel">8</div><div style="position:absolute;top:0px;right:953px;width:13px;text-align:right" class="tickLabel">10</div></div></div>
+                                                <script type="text/javascript">
+	$j(function () {
+
+		// Gather the data for the graph
+	    var data = [];
+			    			// Modify the date to make the datapoints line up correctly with the gridlines (hack)
+	    	data.push(['1443657600000', '1']);
+	    				// Save the maximum value in this plot
+				    		    			    			// Modify the date to make the datapoints line up correctly with the gridlines (hack)
+	    	data.push(['1443744000000', '1']);
+	    				// Save the maximum value in this plot
+				    			// Modify the date to make the datapoints line up correctly with the gridlines (hack)
+	    	data.push(['1443830400000', '1']);
+	    				// Save the maximum value in this plot
+				    			// Modify the date to make the datapoints line up correctly with the gridlines (hack)
+	    	data.push(['1443916800000', '1']);
+	    				// Save the maximum value in this plot
+				    			// Modify the date to make the datapoints line up correctly with the gridlines (hack)
+	    	data.push(['1444003200000', '1']);
+	    				// Save the maximum value in this plot
+				    			// Modify the date to make the datapoints line up correctly with the gridlines (hack)
+	    	data.push(['1444089600000', '7']);
+	    				// Save the maximum value in this plot
+				    		    			    			// Modify the date to make the datapoints line up correctly with the gridlines (hack)
+	    	data.push(['1444176000000', '7']);
+	    				// Save the maximum value in this plot
+				    			// Modify the date to make the datapoints line up correctly with the gridlines (hack)
+	    	data.push(['1444262400000', '9']);
+	    				// Save the maximum value in this plot
+				    		    			    			var data2 = [];
+
+	    // Format the data in JSON-like format
+		data = [ data, data2 ];
+
+		// Define the options for this graph
+		var options = {
+				xaxis: {
+																		minTickSize: [ 1, "day" ],
+																mode: "time",
+					timeformat: "%b %d",
+					monthNames: [i18n.t("Graph.Label.Month.January"), i18n.t("Graph.Label.Month.February"),
+						i18n.t("Graph.Label.Month.March"), i18n.t("Graph.Label.Month.April"),
+						i18n.t("Graph.Label.Month.May"), i18n.t("Graph.Label.Month.June"),
+						i18n.t("Graph.Label.Month.July"), i18n.t("Graph.Label.Month.August"),
+						i18n.t("Graph.Label.Month.September"), i18n.t("Graph.Label.Month.October"),
+						i18n.t("Graph.Label.Month.November"), i18n.t("Graph.Label.Month.December")]
+				},
+		   	yaxis: {
+				// If the max value is 0, manually set the minimum value for y-axis
+				// We don't want the graph's y-axis going negative
+									minTickSize: 1,
+					tickDecimals: 0,
+					tickFormatter: axisNumberFormatter
+		   	},
+				series: {
+									lines: {
+						fill: 1,						fillColor: "rgba(36,136,184,0.5)",
+						lineWidth: 4,
+						show: true
+					},
+					points: {
+						radius: 4,
+						show: true
+					},
+									shadowSize: 0
+				},
+				colors: [ "#1e739c", "#CCCCCC" ],
+				grid: {
+					borderColor: "#999999",
+					borderWidth: 1,
+					clickable: true,
+					hoverable: true,
+					labelMargin: 10,
+					tickColor: "#dddddd"
+				},
+				legend: {
+					container: $j("#legend"),
+					noColumns: 2
+				}
+		};
+
+				// Draw the graph
+	   // var plot = $j.plot($j("#placeholder"), data, options);
+
+		$j(window).resize(function() {
+			$j('#placeholder').text(''); // Resizing issue: parent div doesn't seem to shrink. Clear contents to reset its size
+			$j.plot($j('#placeholder'), data, options);
+		});
+
+
+	    function showTooltip(x, y, contents) {
+        $j('<div id="tooltip" class="tooltip top"><div class="tooltip-inner">' + contents + '</div><div class="tooltip-arrow"></div></div>').css( {
+            top: y - 35,
+            left: x,
+	      }).appendTo("body").css({left : (x - $j("#tooltip").outerWidth()/2) });
+	    }
+
+		// Define a function to add commas to longer numbers in the axes
+		function axisNumberFormatter(number, axis) {
+			return addCommas(number);
+		}
+
+	    var previousPoint = null;
+	    $j("#placeholder").bind("plothover", function (event, pos, item) {
+	        $j("#x").text(pos.x.toFixed(2));
+	        $j("#y").text(pos.y.toFixed(2));
+
+	        if (item) {
+	            if (previousPoint != item.datapoint) {
+	                previousPoint = item.datapoint;
+
+	                $j("#tooltip").remove();
+	                // The extra (14400 * 1000) is the complement to the hack above
+	                // to get the datapoints to line up on the gridlines correctly
+	                var x = new Date(item.datapoint[0] + (14400 * 1000));
+	                var y = item.datapoint[1];
+
+					var monthArr = [i18n.t("Graph.Label.Month.January"), i18n.t("Graph.Label.Month.February"),
+						i18n.t("Graph.Label.Month.March"), i18n.t("Graph.Label.Month.April"),
+						i18n.t("Graph.Label.Month.May"), i18n.t("Graph.Label.Month.June"),
+						i18n.t("Graph.Label.Month.July"), i18n.t("Graph.Label.Month.August"),
+						i18n.t("Graph.Label.Month.September"), i18n.t("Graph.Label.Month.October"),
+						i18n.t("Graph.Label.Month.November"), i18n.t("Graph.Label.Month.December")];
+
+	                showTooltip(item.pageX, item.pageY, (monthArr[x.getMonth()]) + ' ' + x.getDate() + ' : ' + addCommas(y) + ((y != 1) ? " prospects" : " prospect"));
+	            }
+	        } else {
+	            $j("#tooltip").remove();
+	            previousPoint = null;
+	        }
+	    });
+	});
+                                                </script>
+                                                <script>
+	// Add some fanciness
+	$('placeholder').setOpacity(0);
+	new Effect.Appear('placeholder', {duration:0.5});</script>
+                                            </td>
+                                            <td style="width: 280px; vertical-align: top; font-size: 1em; padding: 0;">
+
+                                                <div id="dashboardAnalytics" style="float: left; width: 100%; margin-top: 10px;">
+                                                    <table>
+                                                        <tbody>
+                                                            <tr class=" even">
+                                                                <td class="first" style="border: 0;">
+                                                                    <a href="#" onclick="new Ajax.Updater('dashboard', '/home/dashboardAnalytics/ajax_element/dashboard/view/prospects_created', {asynchronous:true, evalScripts:true, onComplete:function(request, json){toggleDisplay('pss_status', true);$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=5edf4066b7dcbba74742a8f5e1bd6e7501e0998ffd74c20c68eb4d67604c2b1c59a3c334e94f42241671c214f277e7c2'});; return false;">Prospects Created</a>
+                                                                </td>
+                                                                <td style="border: 0;">
+                                                                    <a href="/prospect/index/clearView/true/sort/prospect.created_at/order/desc/dateType/2/dateRange/6">8</a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class=" ">
+                                                                <td class="first" style="border: 0;">
+                                                                    <a href="#" onclick="new Ajax.Updater('dashboard', '/home/dashboardAnalytics/ajax_element/dashboard/view/conversions', {asynchronous:true, evalScripts:true, onComplete:function(request, json){toggleDisplay('pss_status', true);$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=62abad268f24e7bd6095e8d252b66e799aad621888827aaa26505d7b38e693db140187504501bf0372cb4da3f7c3e94c'});; return false;">Conversions</a>
+                                                                </td>
+                                                                <td style="border: 0;">
+                                                                    <a href="/conversion/report?dateRange=3&amp;
+startDate=%401443672000&amp;
+endDate=now">
+                                                                        0
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class=" ">
+                                                                <td class="first" style="border: 0;">
+                                                                    <a href="#" onclick="new Ajax.Updater('dashboard', '/home/dashboardAnalytics/ajax_element/dashboard/view/opportunities_created', {asynchronous:true, evalScripts:true, onComplete:function(request, json){toggleDisplay('pss_status', true);$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=ee936dade8c6c724d665a3ab6f9ee22139107882dcadf13544ac2eb9a745b940e27b0059e3c2f5f3ed1b672404bbbb37'});; return false;">Opportunities Created</a>
+                                                                </td>
+                                                                <td style="border: 0;">
+                                                                    <a href="/opportunity/report/clearView/true/sort/opportunity-CREATED_AT/order/desc/dateRange/6">2</a>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr class="selected ">
+                                                                <td class="first" style="border: 0;">
+                                                                    <a href="#" onclick="new Ajax.Updater('dashboard', '/home/dashboardAnalytics/ajax_element/dashboard/view/database_size', {asynchronous:true, evalScripts:true, onComplete:function(request, json){toggleDisplay('pss_status', true);$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=a9d7dfa51c1ab6941288088d0652a9106d35b27fa6ba832c33466daf62e040015d8ff0d2a78ed5c7e91f37e9af0fab19'});; return false;">All Prospects</a>
+                                                                </td>
+                                                                <td style="border: 0;">
+                                                                    9
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div id="update"></div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="module">
+                <h2 class="pull-left">
+                    Marketing Calendar		<img style="display: none;" src="/images/indicator.gif" alt="Loading" id="calendar-indicator">
+                </h2>
+            </div>
+
+            <script type="text/javascript">
+	$j(document).ready(function() {
+
+		var sfUrlParam = function(param) {
+			// e.g. for uri /calendar/index/viewMoreTs/1379908800000
+			// pathArray will be ['calendar', 'index', 'viewMoreTs', '1379908800000']
+			var pathArray = $j.url().data.seg.path;
+			var index = $j.inArray(param, pathArray);
+
+			if (index >= 0) {
+				return pathArray[index+1];
+			}
+		}
+
+		var indicator = $j('#indicator');
+		var calendarDiv = $j('#calendar');
+
+		var afterPopoverShow = function(element, popover) {
+			if (element.data('popoverPosition') == 'bottom') {
+				return true;
+			}
+
+			var scrollDiv = getScrollDiv(element);
+			scrollDiv.css('overflow', 'hidden'); // disable scrolling
+
+			// we need to move the popover to allow it to break free of overflow: hidden
+			popover.insertAfter(scrollDiv);
+
+			// now we need to update the popover's "top" property since we moved it
+			// 48 is the # of pixels used by els such as the "all-day" row
+			var vertOffset = Math.max(element.position().top - scrollDiv.scrollTop(), 0) + 48;
+			popover.css('top', (vertOffset - popover.height()) + 'px');
+
+			return true;
+		}
+
+		var afterPopoverHide = function(element) {
+			if (element.data('popoverPosition') == 'bottom') {
+				return true;
+			}
+
+			var scrollDiv = getScrollDiv(element);
+			// re-enable scrolling
+			scrollDiv.css('overflow-x', 'hidden');
+			scrollDiv.css('overflow-y', 'auto');
+
+			return true;
+		}
+
+		// only for Agenda-view event elements
+		var getScrollDiv = function(eventEl) {
+			return eventEl.parent().parent().parent();
+		}
+
+		var drillDownTo = function(date) {
+							location.href = '/calendar/index/viewMoreTs/' + date.getTime();
+						return false;
+		}
+
+		var sources = [{
+			url: '/calendar/customEvents',
+			textColor: 'black'
+		}];
+
+						sources.push({
+					url: '/calendar/listEmails',
+					color: '#E0F7D9',
+					textColor: 'black'
+				});
+					sources.push({
+				url: '/calendar/socialMessages',
+				color: '#D9F3F7',
+				textColor: 'black'
+			});
+					sources.push({
+				url: '/calendar/webinars',
+				color: '#E3D9F7',
+				textColor: 'black'
+			});
+					sources.push({
+				url: '/calendar/events',
+				color: '#F7D9D9',
+				textColor: 'black'
+			});
+
+		var showCalendar = function() {
+			calendarDiv.fullCalendar({
+									header: false,
+					defaultView: 'twoweeks',
+					height: 300,
+					viewMoreClick: function(element, targetDate) {
+						location.href = '/calendar/index/viewMoreTs/' + targetDate.getTime();
+						return false;
+					},
+								viewMoreLink: true,
+				firstHour: 9,
+				// replaced in fullcalendar 1.6.3 by viewRender
+				viewDisplay: function(view) {
+					if (view.name == "agendaWeek") {
+						// see dayClick() function
+						$j('.fc-widget-content', calendarDiv).css('cursor', 'pointer');
+						$j('.fc-day-content', calendarDiv).css('cursor', 'pointer');
+					}
+					return false;
+				},
+				dayRender: function(date, cell) {
+					cell.css('cursor', 'pointer'); // see dayClick() function
+					return true;
+				},
+				dayClick: function(date, allDay, jsEvent, view) {
+					if ($j.inArray(view.name, ["month", "agendaWeek"]) >= 0) {
+						return drillDownTo(date);
+					}
+
+					return false;
+				},
+				eventClick: function(event) {
+					if (event.url && event.custom) {
+						window.open(event.url); // open in separate tab
+						return false;
+			        }
+					return true;
+				},
+				eventRender: function(event, element) {
+					var titleEl = element.find('.fc-event-title');
+					var iconHtml = '<i class="icon-' + event.icon + '"></i>';
+					titleEl.prepend(' ' + iconHtml + ' ');
+
+					if (event.custom) {
+						// this allows us to put ajax_links in the popovers
+												var statusHtml = '<div id="cevt_status' +
+							event.id + '" style="display:none;" class="ajax_status"></div>';
+
+						titleEl.prepend(statusHtml);
+					}
+
+					return true;
+				},
+				eventAfterRender: function(event, element, view) {
+					if ($j.inArray(view.name, ["agendaDay", "agendaWeek"]) >= 0) {
+						// don't overlap the edge of the slot below
+						element.height(element.height() - 1);
+
+						if (typeof(event.popoverUrl) !== 'undefined') {
+
+element.createPopover = function(title, content) {
+	element.popover({
+		title: $j('<div/>').text(title).html(), // html-escape
+		html: true,
+		content: content,
+		placement: function (context, source) {
+			// 300 is the approx. height of the tallest Marketing Calendar popover
+			if ($j(source).offset().top < 300) {
+				element.data('popoverPosition', 'bottom');
+				return "bottom";
+			}
+
+			element.data('popoverPosition', 'top');
+			return "top";
+		},
+		animation: false, // DON'T CHANGE THIS, see NOTE above
+		trigger: 'manual'
+	});
+
+	element.data('showingPopover', false);
+};
+
+element.showPopover = function() {
+	element.data('hoveringPopover', true);
+
+	var po = element.next('.popover');
+	if (po.length === 0) {
+		element.popover('show');
+		po = element.next('.popover');
+	}
+
+	if (!element.data('popoverHoverAllowed')) {
+		po.on({
+			mouseenter: function(e) {
+				element.trigger('mouseenter');
+				return true;
+			},
+			mouseleave: function(e) {
+				element.trigger('mouseleave');
+				return true;
+			}
+		});
+
+		element.data('popoverHoverAllowed', true);
+	};
+afterPopoverShow(element, po);
+};
+
+element.hidePopover = function() {
+	element.popover("hide");
+afterPopoverHide(element);
+};
+
+element.showHidePopoverDelayed = function(showHide){
+	if (typeof showHide === "undefined"){
+		return;
+	}
+
+	// Reset timeout checker
+	clearTimeout(element.data("popoverTO"));
+
+	// Flag for show and hide events
+	element.data("waitingForPopoverTO", true);
+
+	// In 250ms, check to see if the popover is still being hovered
+	element.data("popoverTO", setTimeout(function () {
+
+		if (showHide){
+			// If being hovered, show the popover
+			if (element.data("hoveringPopover") && !element.data('showingPopover')) {
+				element.data('showingPopover', true);
+				element.showPopover();
+			}
+		} else {
+			// If not being hovered, force the hide
+			if (!element.data("hoveringPopover") && element.data('showingPopover')) {
+				element.data('showingPopover', false);
+				element.hidePopover();
+			}
+		}
+
+		element.data("waitingForPopoverTO", false);
+	}, 250));
+};
+
+element.destroyPopover = function() {
+	element.popover('destroy');
+	element.data('popoverHoverAllowed', false);
+};
+
+element.bind('mouseover', function() {
+
+	element.unbind('mouseover');
+
+	element.on({
+		mouseenter: function(e) {
+			// Currently hovering popover
+			element.data('hoveringPopover', true);
+
+			// If it's still waiting to determine if it can be hovered,
+			// don't allow other handlers
+			if (element.data("waitingForPopoverTO")) {
+				e.stopImmediatePropagation();
+			}
+
+			element.showHidePopoverDelayed(true);
+
+			return false;
+		},
+		mouseleave: function(e) {
+			// No longer hovering popover
+			element.data("hoveringPopover", false);
+
+			// If it's still waiting to determine if it can be hovered,
+			// don't allow other handlers
+			if (element.data("waitingForPopoverTO")) {
+				e.stopImmediatePropagation();
+			}
+
+			element.showHidePopoverDelayed(false);
+
+			return false;
+		}
+	});
+
+	var loadingGif = '<img src="/images/indicator.gif" alt="Loading" />';
+	element.createPopover(event.title, loadingGif);
+	element.showHidePopoverDelayed(true);
+
+	$j.ajax({
+		url: event.popoverUrl,
+		success: function(data) {
+			element.destroyPopover();
+
+			element.createPopover(event.title, data);
+
+			if (element.data("hoveringPopover")) {
+				element.showPopover();
+				element.data('showingPopover', true);
+			}
+		},
+		error: function(xhr, textStatus) {
+			element.destroyPopover();
+		}
+	});
+});
+						}
+					} else if (typeof(event.popoverUrl) !== 'undefined') {
+
+element.createPopover = function(title, content) {
+	element.popover({
+		title: $j('<div/>').text(title).html(), // html-escape
+		html: true,
+		content: content,
+		placement: function (context, source) {
+			// 300 is the approx. height of the tallest Marketing Calendar popover
+			if ($j(source).offset().top < 300) {
+				element.data('popoverPosition', 'bottom');
+				return "bottom";
+			}
+
+			element.data('popoverPosition', 'top');
+			return "top";
+		},
+		animation: false, // DON'T CHANGE THIS, see NOTE above
+		trigger: 'manual'
+	});
+
+	element.data('showingPopover', false);
+};
+
+element.showPopover = function() {
+	element.data('hoveringPopover', true);
+
+	var po = element.next('.popover');
+	if (po.length === 0) {
+		element.popover('show');
+		po = element.next('.popover');
+	}
+
+	if (!element.data('popoverHoverAllowed')) {
+		po.on({
+			mouseenter: function(e) {
+				element.trigger('mouseenter');
+				return true;
+			},
+			mouseleave: function(e) {
+				element.trigger('mouseleave');
+				return true;
+			}
+		});
+
+		element.data('popoverHoverAllowed', true);
+	};
+
+};
+
+element.hidePopover = function() {
+	element.popover("hide");
+
+};
+
+element.showHidePopoverDelayed = function(showHide){
+	if (typeof showHide === "undefined"){
+		return;
+	}
+
+	// Reset timeout checker
+	clearTimeout(element.data("popoverTO"));
+
+	// Flag for show and hide events
+	element.data("waitingForPopoverTO", true);
+
+	// In 250ms, check to see if the popover is still being hovered
+	element.data("popoverTO", setTimeout(function () {
+
+		if (showHide){
+			// If being hovered, show the popover
+			if (element.data("hoveringPopover") && !element.data('showingPopover')) {
+				element.data('showingPopover', true);
+				element.showPopover();
+			}
+		} else {
+			// If not being hovered, force the hide
+			if (!element.data("hoveringPopover") && element.data('showingPopover')) {
+				element.data('showingPopover', false);
+				element.hidePopover();
+			}
+		}
+
+		element.data("waitingForPopoverTO", false);
+	}, 250));
+};
+
+element.destroyPopover = function() {
+	element.popover('destroy');
+	element.data('popoverHoverAllowed', false);
+};
+
+element.bind('mouseover', function() {
+
+	element.unbind('mouseover');
+
+	element.on({
+		mouseenter: function(e) {
+			// Currently hovering popover
+			element.data('hoveringPopover', true);
+
+			// If it's still waiting to determine if it can be hovered,
+			// don't allow other handlers
+			if (element.data("waitingForPopoverTO")) {
+				e.stopImmediatePropagation();
+			}
+
+			element.showHidePopoverDelayed(true);
+
+			return false;
+		},
+		mouseleave: function(e) {
+			// No longer hovering popover
+			element.data("hoveringPopover", false);
+
+			// If it's still waiting to determine if it can be hovered,
+			// don't allow other handlers
+			if (element.data("waitingForPopoverTO")) {
+				e.stopImmediatePropagation();
+			}
+
+			element.showHidePopoverDelayed(false);
+
+			return false;
+		}
+	});
+
+	var loadingGif = '<img src="/images/indicator.gif" alt="Loading" />';
+	element.createPopover(event.title, loadingGif);
+	element.showHidePopoverDelayed(true);
+
+	$j.ajax({
+		url: event.popoverUrl,
+		success: function(data) {
+			element.destroyPopover();
+
+			element.createPopover(event.title, data);
+
+			if (element.data("hoveringPopover")) {
+				element.showPopover();
+				element.data('showingPopover', true);
+			}
+		},
+		error: function(xhr, textStatus) {
+			element.destroyPopover();
+		}
+	});
+});
+					}
+
+					return true;
+				},
+				loading: function(isLoading) {
+											var indicator = $j('#calendar-indicator');
+										var calcont = $j('.fc-content');
+					if (isLoading) {
+						indicator.show();
+						calcont.fadeTo(500, 0.3);
+					} else {
+						indicator.fadeOut();
+						calcont.fadeTo(500, 1);
+					}
+
+					return true;
+				},
+				eventSources: sources
+			});
+		}
+
+					showCalendar();
+			});
+            </script>
+            <div id="event_crud"></div>
+            <span class="link_to_create pull-right">
+                <a class="btn btn-warning" href="/calendar/index/createEvent/1"><i class="icon-plus"></i> Create New Event</a>
+            </span>
+
+            <div class="fc fc-ltr" id="calendar" style="margin:3em 0 1em;font-size:13px"><div class="fc-content" style="position: relative; min-height: 1px; opacity: 1;"><div unselectable="on" class="fc-view fc-view-twoweeks fc-grid" style="position: relative; -moz-user-select: none; min-height: 1px;"><div style="position:absolute;z-index:8;top:0;left:0"><a href="/socialMessage/read/id/202" class="fc-event fc-event-hori fc-event-start fc-event-end" style="position: absolute; z-index: 8; left: 373.3px; background-color: rgb(217, 243, 247); border-color: rgb(217, 243, 247); color: black; width: 164px; top: 54px;"><div class="fc-event-inner"><span class="fc-event-time">6:02a</span><span class="fc-event-title"> <i class="icon-retweet"></i> Breakfast seminar on 10/7 Room 343/344  http://bit.ly/1JQECF8 #ASHG15</span></div></a></div><table class="fc-border-separate" style="width:100%" cellspacing="0"><thead><tr class="fc-first fc-last"><th style="width: 168.2px;" class="fc-day-header fc-sun fc-widget-header fc-first">Sun</th><th style="width: 168.2px;" class="fc-day-header fc-mon fc-widget-header">Mon</th><th style="width: 168.2px;" class="fc-day-header fc-tue fc-widget-header">Tue</th><th style="width: 168.2px;" class="fc-day-header fc-wed fc-widget-header">Wed</th><th style="width: 168.2px;" class="fc-day-header fc-thu fc-widget-header">Thu</th><th style="width: 168.2px;" class="fc-day-header fc-fri fc-widget-header">Fri</th><th class="fc-day-header fc-sat fc-widget-header fc-last">Sat</th></tr></thead><tbody><tr class="fc-week fc-first"><td style="cursor: pointer;" class="fc-day fc-sun fc-widget-content fc-first" data-date="2015-10-04"><div style="min-height: 125.5px;"><div class="fc-day-number">4</div><div class="fc-day-content"><div style="position: relative; height: 69px;">&nbsp;</div></div></div></td><td style="cursor: pointer;" class="fc-day fc-mon fc-widget-content" data-date="2015-10-05"><div><div class="fc-day-number">5</div><div class="fc-day-content"><div style="position: relative; height: 69px;">&nbsp;</div></div><div class="events-view-more" data-date="2015-10-05"><a href="#view-more"><span>+5 More</span></a></div></div></td><td style="cursor: pointer;" class="fc-day fc-tue fc-widget-content" data-date="2015-10-06"><div><div class="fc-day-number">6</div><div class="fc-day-content"><div style="position: relative; height: 69px;">&nbsp;</div></div><div class="events-view-more" data-date="2015-10-06"><a href="#view-more"><span>+1 More</span></a></div></div></td><td style="cursor: pointer;" class="fc-day fc-wed fc-widget-content" data-date="2015-10-07"><div><div class="fc-day-number">7</div><div class="fc-day-content"><div style="position: relative; height: 69px;">&nbsp;</div></div></div></td><td style="cursor: pointer;" class="fc-day fc-thu fc-widget-content fc-today fc-state-highlight" data-date="2015-10-08"><div><div class="fc-day-number">8</div><div class="fc-day-content"><div style="position: relative; height: 69px;">&nbsp;</div></div></div></td><td style="cursor: pointer;" class="fc-day fc-fri fc-widget-content" data-date="2015-10-09"><div><div class="fc-day-number">9</div><div class="fc-day-content"><div style="position: relative; height: 69px;">&nbsp;</div></div></div></td><td style="cursor: pointer;" class="fc-day fc-sat fc-widget-content fc-last" data-date="2015-10-10"><div><div class="fc-day-number">10</div><div class="fc-day-content"><div style="position: relative; height: 69px;">&nbsp;</div></div></div></td></tr><tr class="fc-week fc-last"><td style="cursor: pointer;" class="fc-day fc-sun fc-widget-content fc-first" data-date="2015-10-11"><div style="min-height: 124.9px;"><div class="fc-day-number">11</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td style="cursor: pointer;" class="fc-day fc-mon fc-widget-content" data-date="2015-10-12"><div><div class="fc-day-number">12</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td style="cursor: pointer;" class="fc-day fc-tue fc-widget-content" data-date="2015-10-13"><div><div class="fc-day-number">13</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td style="cursor: pointer;" class="fc-day fc-wed fc-widget-content" data-date="2015-10-14"><div><div class="fc-day-number">14</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td style="cursor: pointer;" class="fc-day fc-thu fc-widget-content" data-date="2015-10-15"><div><div class="fc-day-number">15</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td style="cursor: pointer;" class="fc-day fc-fri fc-widget-content" data-date="2015-10-16"><div><div class="fc-day-number">16</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td style="cursor: pointer;" class="fc-day fc-sat fc-widget-content fc-last" data-date="2015-10-17"><div><div class="fc-day-number">17</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td></tr></tbody></table></div></div></div>
+            <p class="pull-right"><a href="/calendar">View Full Calendar »</a></p>
+            <div class="clearfix"></div>
+            <div class="column-a">
+
+                <div id="prospects" class="no-create">
+
+
+
+
+                    <div id="newProspectCache" class="no-create">
+
+                        <div id="pr_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                        <div id="pr_module" class="module">
+                            <div class="header clearfix">
+                                <h2 id="newProspectCache_h2" class="pull-left">
+                                    Active Prospects for Review
+                                </h2>
+
+
+
+
+
+
+
+                            </div>
+                            <div id="pr_wrapper" class="module-wrapper">
+                                <div id="newProspectCache_table_div">
+
+
+                                    <input style="display:none" id="newProspectCache_ajax_urlparams" value="sort=&amp;order=&amp;mode=simple&amp;view=active&amp;tableName=newProspectCache&amp;pageSize=5&amp;prefix=pr&amp;export=false&amp;startDate=%401167627600&amp;endDate=now&amp;dateText=Date+Range%3A&amp;numResults=0" type="hidden">
+                                    <input style="display:none" id="newProspectCache_export_urlparams" value="sort=&amp;order=&amp;mode=simple&amp;view=active&amp;tableName=newProspectCache&amp;pageSize=5&amp;prefix=pr&amp;export=false&amp;startDate=%401167627600&amp;endDate=now&amp;dateText=Date+Range%3A&amp;numResults=0" type="hidden">
+                                    <table id="newProspectCache_table" class="data-table table-bordered " style="height:0px;">
+                                        <thead>
+                                            <tr>
+
+
+
+                                                <th class="name-column">
+                                                    Name
+                                                </th>
+
+
+
+
+                                                <th class="company-column last">
+                                                    Company
+                                                </th>
+
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="2" class="empty last">
+                                                    No new prospects
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <div class="table-foot">
+                                        <div id="pr_table_footer" class="pull-right">
+                                            <a href="/prospect/index/view/new">More Prospects »</a>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column-b">
+
+                <script type="text/javascript" src="/js/backbone.js"></script>
+                <script type="text/javascript" src="/js/modules/tableCustom.js?id=2013-09-05"></script>
+
+                <script type="text/javascript">
+if( ! window.tableCustomTemplate ) {
+	window.tableCustomTemplate = { };
+}
+window.tableCustomTemplate["recentVisitorIp1444306802_0-table"] = "\n\t\r\n\r\n\r\n\t\r\n\r\n                \r\n\t\t\t<div id=\"recentVisitorIp1444306802_0\" class=\"no-create\">\r\n\t\r\n\t<div id=\"recentVisitorIp1444306802_0_status\" style=\"display:none;\" class=\"ajax_status\"><\/div>\r\n\t\t\t\t\t\r\n\t\t\t\t\r\n\t\r\n\t<div id=\"recentVisitorIp1444306802_0_module\" class=\"module\">\r\n\r\n\t\t<div class=\"header clearfix\">\r\n\r\n\t\t\t\t\t\t\t\t\t\t<h2 id=\"recentVisitorIp1444306802_0_h2\" class='pull-left'>\r\n\t\t\tIdentified Companies\t\t\t<\/h2>\r\n\r\n\t\t\t\r\n\t\t\r\n\t\t\t\r\n\t\t\t\r\n\t\t\t\t\t\t\t\t\t\r\n\t\t\t\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t<\/div>\r\n\t\t<div id=\"recentVisitorIp1444306802_0_wrapper\" class=\"module-wrapper\" >\r\n\t\t\t<div id=\"recentVisitorIp1444306802_0_table_div\">\r\n\r\n\t<div class=\"custom-object-table-wrapper\">\n\t\t\t\t<table id=\"recentVisitorIp1444306802_0_custom_datatable\" class=\"data-table table-bordered\">\n\t\t\t<thead>\n\t\t\t<\/thead>\n\n\t\t\t<tbody>\n\t\t\t<\/tbody>\n\t\t<\/table>\n\t<\/div>\n\t<div class='table-foot'>\n\t\t\t<div id=\"none_table_footer\" class=\"pull-right\">\n\t<a href=\"\/visitor\">More Visitors \u00bb<\/a><\/div> \n\t\t<\/div>\n\n\n\n\t\n\t\t\t<\/div>\n\t\t<\/div>\n\t<\/div>\n\t<\/div>\n\n" + "";
+                </script>
+                <div id="recentVisitorIp1444306802_0_customTable">
+                    <div class="backbone-contents">
+
+
+
+
+                        <div id="recentVisitorIp1444306802_0" class="no-create">
+
+                            <div id="recentVisitorIp1444306802_0_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                            <div id="recentVisitorIp1444306802_0_module" class="module">
+                                <div class="header clearfix">
+                                    <h2 id="recentVisitorIp1444306802_0_h2" class="pull-left">
+                                        Identified Companies
+                                    </h2>
+
+
+
+
+
+
+
+                                </div>
+                                <div id="recentVisitorIp1444306802_0_wrapper" class="module-wrapper">
+                                    <div id="recentVisitorIp1444306802_0_table_div">
+                                        <div class="custom-object-table-wrapper">
+                                            <table id="recentVisitorIp1444306802_0_custom_datatable" class="data-table table-bordered">
+                                                <thead>
+                                                    <tr>
+
+
+                                                        <th>Company</th>
+
+
+
+                                                        <th class="last">Location</th>
+
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr id="recentVisitorIp1444306802_0_row_a0">
+                                                        <td class="empty last" colspan="2">
+                                                            There are no identified companies
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="table-foot">
+                                            <div id="none_table_footer" class="pull-right">
+                                                <a href="/visitor">More Visitors »</a>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script>
+	(function($) {
+		var TableCustom = window.Pardot.tableCustom;
+		var rows = new TableCustom.Model.Rows([]);
+
+		var table = new TableCustom.Model.Table({
+			prefix: "recentVisitorIp1444306802_0"			,headerText: "Identified Companies"			,renderHead: true			,columns: [{"header":"Company","sort":"sort_none"},{"header":"Location","sort":"sort_none"}]			,columnCount: 2			,rows: rows
+						,emptyMessage: "There are no identified companies"
+			,paged: false			,pageOffset: 0
+			,countPerPage: parseInt(localStorage.getItem("recentVisitorIp1444306802_0" + "countPerPage")) || 5
+			,useTextFilter: false
+			,evenRowClasses: "class=\"even\""			,oddRowClasses: "class=\"\""
+			,sumRow: false		});
+
+		window.TableCustom = TableCustom;
+		// Late-generated template - has to render first by php
+		var templates = {
+			table: _.template(window.tableCustomTemplate["recentVisitorIp1444306802_0-table"])
+		};
+
+		var tableView = new TableCustom.App.TableView({
+			el: "#" + "recentVisitorIp1444306802_0" + "_customTable"
+			,tableId: "recentVisitorIp1444306802_0" + "_custom_datatable"
+			,model: table
+			,templates: templates
+		});
+	})(jQuery);
+                </script>
+            </div>
+            <div id="update"></div>
+            <script>
+	var pdType = Cookies.get('pdType');
+	var isLinkedToSalesforce = "false";
+	if(isLinkedToSalesforce == "true") {
+		googleAnalytics('set', 'Log in with Salesforce', 'Linked');
+	} else {
+		googleAnalytics('set', 'Log in with Salesforce', 'Uninked');
+	}
+	if(!pdType) {
+						Cookies.set('pdType', 22, { expires: 31536000, domain: '.pardot.com' }); //1 year expiration.
+		googleAnalytics('set', 'User Type', 22);
+	}
+            </script>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+</div>

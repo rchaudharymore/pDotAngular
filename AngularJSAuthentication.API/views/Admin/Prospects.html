@@ -1,0 +1,340 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div id="contentWrap">
+        <div id="content">
+
+            <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="center">
+                    <div class="wizard-navigation">
+
+
+
+
+
+
+                        <div class="step current">
+
+                            <span class="badge badge-info">1</span> <a href="#" onclick="wizardSubmitAndJump('12', '/import/wizardStep1'); return false;">Choose File</a>
+
+
+                        </div>
+
+
+
+
+
+
+                        <div class="step">
+
+                            <span class="badge badge-info">2</span> Map Fields
+
+                        </div>
+
+
+
+
+
+
+                        <div class="step">
+
+                            <span class="badge badge-info">3</span> Select Campaign and Tag
+
+                        </div>
+
+
+
+
+
+
+                        <div class="step">
+
+                            <span class="badge badge-info">4</span> Select Action
+
+                        </div>
+
+
+
+
+
+
+
+
+                        <div class="step last">
+
+                            <span class="badge badge-info">5</span> Confirm &amp; Save
+
+                        </div>
+                    </div>
+                </div><div id="im_form_update" class="wizard-content">
+                    <form class="form form-horizontal" name="wizard_form" id="wizard_form" enctype="multipart/form-data" method="post" action="/import/wizardStep1">
+                        <div style="display:none;"><input type="hidden" name="_csrf_token" value="9885132efc0826b4a1f4d97ae063fd3e8b7939b2b381d1c2cb187712a500bee321a49551c5d9004f404d85526e59bdb8"></div>		<h3>Choose File</h3>
+
+                        <p>
+                            Import allows you to easily import a CSV file of new prospects or perform a
+                            mass update of existing prospects in the application. Email address is the
+                            unique key used to either create new records or locate and update data to
+                            existing records. The first row in a CSV is reserved for headings and is ignored during the import.
+                        </p>
+
+
+                        <div class="alert alert-error alert-block" style="display:none;" id="error_for_prospects_csv_file"></div>
+
+                        <div id="import-upload">
+                            <div class="qq-uploader-selector qq-uploader">
+                                <div id="import-file-upload-dropzones">
+                                    <div id="file-upload-well" class="well text-center qq-upload-drop-area-selector qq-upload-drop-area qq-upload-button-selector qq-upload-button" style="position: relative; overflow: hidden; direction: ltr;">
+                                        <span class="lead muted">Drag and drop .csv file here or </span>
+                                        <a href="#" class="btn btn-warning "><i class="icon-plus"></i> Upload File</a>
+                                        <input qq-button-id="e0f337d0-1123-4cee-aa50-b4256814976d" multiple="" type="file" name="qqfile" style="position: absolute; right: 0px; top: 0px; font-family: Arial; font-size: 118px; margin: 0px; padding: 0px; cursor: pointer; opacity: 0;">
+                                    </div>
+                                    <div id="file-upload-drop-area" style="display:none;"><span class="lead muted">Drop files here</span></div>
+                                </div>
+
+                                <ul class="qq-upload-list-selector qq-upload-list text-center alert" style="display:none"></ul>
+                            </div>
+                        </div>
+
+                        <script src="/js/backbone_dev.js"></script>
+                        <script src="/js/s3.fineuploader-4.1.0.js"></script>
+                        <script src="/js/import-file-upload.js"></script>
+                        <script>
+				jQuery(function() {
+					new ImportS3App({
+						el: "#import-upload",
+						csrf: "b6da16956718a481aaba43028c60477fb975ec03ebd95d44929d24aa01f6849aa4681185edef45358cb4f3be3828e50b",
+						bucket: "pardot-csv-imports.s3.amazonaws.com",
+						awsKey: "AKIAIGJITSOJJ6MR6EPQ",
+						sizeLimit: 100000000,
+						folder: "0000107592"					});
+				});
+                        </script>
+
+                        <div class="control-group required ">
+                            <label class="control-label">
+                                Compliance
+                            </label>
+                            <div class="controls">
+                                <label class="checkbox no-asterisk normal">
+                                    <input type="checkbox" name="opted_in_agreement" id="opted_in_agreement" value="1">
+                                    I have read
+                                    <a target="_blank" href="http://www.pardot.com/company/legal/permission-based-marketing-policy/">Pardot's Permission Based Marketing Policy</a>					and confirm that any emails sent to these prospects will be in compliance.
+                                </label>
+                                <span class="error" style="display:none;" id="error_for_opted_in_agreement"></span>
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="skip_to_step_id" id="skip_to_step_id" value="0">
+                        <div class="form-actions">
+                            &nbsp;&nbsp;<input class="btn btn-primary btn-wizard-next" onclick="wizardSubmitAndJump('next', '/import/wizardStep2'); return false;" type="button" value="Next »" disabled="">&nbsp;&nbsp;&nbsp;
+                            <script type="text/javascript">
+//<![CDATA[
+prepareAjaxForm("im_form_update");
+//]]>
+                            </script>&nbsp;<a class="cancel-link btn pull-right" onclick="return confirm('Are you sure you want to cancel the wizard and completely discard your saved progress?');" href="/import/resetWizard/reset/true/go_back/true">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+
+
+
+
+
+
+
+
+
+                <div id="import">
+
+                    <div id="im_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                    <div id="im_module" class="module">
+
+                        <div class="header clearfix">
+
+                            <h2 id="import_h2">
+                                Past Imports
+                            </h2>
+
+                            <form id="import_view" class="views inline" onsubmit="new Ajax.Updater('import_table_div', '/import/table/ajax/1', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('im_status', true);$('import_h2').innerHTML = $('import_view_field').options[$('import_view_field').selectedIndex].text;}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('import_ajax_urlparams').value + '&amp;'  + Form.serialize(this) }); return false;" action="/import/table/ajax/1" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="9885132efc0826b4a1f4d97ae063fd3e8b7939b2b381d1c2cb187712a500bee321a49551c5d9004f404d85526e59bdb8"></div>				<p class="inline header table-views">
+                                    View:<br>
+                                    <select name="view" id="import_view_field" onchange="$(&quot;import_view&quot;).onsubmit();return false;" class="input-auto">
+                                        <option value="my" selected="selected">My Imports</option>
+                                        <option value="all">All Imports</option>
+                                    </select>					<input type="hidden" name="view_change" id="view_change" value="true">
+                                </p>
+                            </form>
+
+
+                            <form id="import_date_range_form" class="inline" onsubmit="new Ajax.Updater('import_table_div', '/import/table/ajax/1', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('im_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('import_ajax_urlparams').value + '&amp;'  + Form.serialize(this) }); return false;" action="/import/table/ajax/1" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="9885132efc0826b4a1f4d97ae063fd3e8b7939b2b381d1c2cb187712a500bee321a49551c5d9004f404d85526e59bdb8"></div>
+                                <p class="inline header">
+
+                                    <span id="datetext_header">
+                                        Date Range  <small>(Based on 12am EDT)</small>:
+                                    </span> <br>
+
+                                    <select name="dateRange" id="dateRange_im" onchange="customDates = document.getElementById('im_custom_dates');if(this.value==7) {
+								customDates.removeClassName(&quot;hidden&quot;);
+							 } else {
+							 	$('import_date_range_form').onsubmit();
+							 	customDates.addClassName(&quot;hidden&quot;);
+							 }" class="input-auto">
+                                        <option value="1">Today</option>
+                                        <option value="2">Yesterday</option>
+                                        <option value="4">This Month</option>
+                                        <option value="10">This Quarter</option>
+                                        <option value="11">This Year</option>
+                                        <option value="3">Last 7 Days</option>
+                                        <option value="14">Last Week</option>
+                                        <option value="5">Last Month</option>
+                                        <option value="12">Last Quarter</option>
+                                        <option value="13">Last Year</option>
+                                        <option value="6" selected="selected">All Time</option>
+                                        <option value="7">Custom</option>
+                                    </select>						<span id="im_custom_dates" class="datepickerBS inline header hidden">
+                                        <input type="text" name="startDate" id="imstartDate" value="2006-12-31" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_imstartDate">...</button>
+                                        <script type="text/javascript">
+    document.getElementById("trigger_imstartDate").disabled = false;
+    Calendar.setup({
+      inputField : "imstartDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_imstartDate"
+    });
+                                        </script>
+                                        &nbsp;to&nbsp;
+
+                                        <input type="text" name="endDate" id="imendDate" value="2015-10-08" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_imendDate">...</button>
+                                        <script type="text/javascript">
+    document.getElementById("trigger_imendDate").disabled = false;
+    Calendar.setup({
+      inputField : "imendDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_imendDate"
+    });
+                                        </script>
+                                        &nbsp;
+                                        <input type="submit" name="commit" value="Go" class="btn btn-primary">
+                                    </span>
+                                </p>
+                            </form>
+
+
+
+                            <br>			<div class="btn-group pull-right">
+                                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Tools			    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+
+
+                                    <li><a onclick="location='/import/export?' + $('import_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                </ul>
+                            </div>
+
+
+                        </div>
+                        <div id="im_wrapper" class="module-wrapper">
+                            <div id="import_table_div">
+
+
+                                <input type="hidden" id="import_ajax_urlparams" value="sort=import.created_at&amp;order=desc&amp;dateRange=6&amp;view=my&amp;ajaxElement=import&amp;startDate=%401167627600&amp;endDate=now&amp;numResults=0">
+                                <table id="import_table" class="data-table table-bordered">
+                                    <thead>
+                                        <tr>
+
+
+                                            <th class="first file-name-column">
+
+                                                File name
+                                            </th>
+
+
+
+                                            <th class="user-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('import_table_div', '/import/table/ajax/1/page/1/order/desc/sort/import.user_id/dateRange/6/view/my/ajaxElement/import/startDate/%401167627600/endDate/now', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=344a1a8627853b4017d722016d160fcd13804477a0dff1475a38454b7ae526f56302d91fb4e718c7287922ec46bc0c02'});; return false;">User</a>
+
+                                            </th>
+
+
+
+
+                                            <th class="sortable sort-down created-at-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('import_table_div', '/import/table/ajax/1/page/1/order/asc/sort/import.created_at/dateRange/6/view/my/ajaxElement/import/startDate/%401167627600/endDate/now', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=cd47a8661518db33f87d69823b631f4503e4a3de97192682a971fa08548587651ba4b9085b0b8bb4d80378906d21c935'});; return false;">Created at</a>
+
+                                                <i class="icon-circle-arrow-down muted"></i>
+                                            </th>
+
+
+                                            <th class="status-column">
+
+                                                Status
+                                            </th>
+
+
+
+                                            <th class="created-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('import_table_div', '/import/table/ajax/1/page/1/order/desc/sort/created/dateRange/6/view/my/ajaxElement/import/startDate/%401167627600/endDate/now', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=bb9059fb7f596d482cfd72f76f48a74794ac2738a88f85140fd606cadadf97f31bfb2f7eec46c8af963afc4c3734ae0a'});; return false;">Created</a>
+
+                                            </th>
+
+
+
+                                            <th class="updated-column last">
+
+                                                <a href="#" onclick="new Ajax.Updater('import_table_div', '/import/table/ajax/1/page/1/order/desc/sort/updated/dateRange/6/view/my/ajaxElement/import/startDate/%401167627600/endDate/now', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=f3823ff0ba7e16a9fd2689f724dbfdd989e22dd78df1106da1a5cfcc90a7257e86cc44e563174633e3e6545e7da9c193'});; return false;">Updated</a>
+
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="6" class="last">
+                                                There are no past imports for this area.
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+
+
+                                </table>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+</body>
+</html>

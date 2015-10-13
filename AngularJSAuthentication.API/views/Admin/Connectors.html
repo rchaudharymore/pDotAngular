@@ -1,0 +1,458 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div id="contentWrap">
+        <div id="content">
+
+            <ul id="bread-crumbs" class="breadcrumb">
+                <li>
+                    <a href="/" title="Home"><i class="icon-home"></i></a>
+                </li>
+                <li class="crumb-divider">  / </li>
+                <li>
+                    <a href="/administration">Administration</a>
+                </li>
+            </ul>
+
+            <h1>Connectors</h1>
+
+            <div class="divider"></div>
+
+
+
+            <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div id="connector">
+
+                    <div id="co_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                    <div id="co_module" class="module">
+
+                        <div class="header clearfix">
+
+                            <h2 id="connector_h2" class="pull-left"></h2>
+
+
+
+
+
+
+
+
+                            <br>												<span class="link_to_create pull-right">
+                                <a href="/connector/createAjax" id="co_link_create" class="btn btn-warning"><i class="icon-plus"></i> Add connector</a>
+                                <script type="text/javascript">
+	jQuery('a#co_link_create').click(function() {
+		jQuery("#indicator").show();
+		if(jQuery('html').is('.ie'))
+			toggleDisplay("co_table_footer", false);
+		jQuery.ajax({
+			url: "/connector/createAjax",
+			beforeSend: function(jqXHR, settings) {
+				// TODO: Compensate for existing data?
+				settings.data += jQuery("#co_ajax_urlparams").attr('value');
+			},
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#co_status").html(data);
+				toggleDisplay("co_status", true);
+				new Effect.Highlight('co_status', {duration:2});
+			}
+		});
+		return false;
+	});
+                                </script>
+                            </span>
+                        </div>
+                        <div id="co_wrapper" class="module-wrapper">
+                            <div id="connector_table_div">
+
+
+                                <input type="hidden" id="connector_ajax_urlparams" value="sort=connector.updated_at&amp;order=desc&amp;mode=manage&amp;tableName=connector&amp;pageSize=5&amp;prefix=co&amp;startDate=%401167627600&amp;endDate=now&amp;dateText=Date+Range%3A&amp;ajaxElement=connector&amp;numResults=8">
+                                <table id="connector_table" class="data-table table-bordered">
+                                    <thead>
+                                        <tr>
+
+
+
+                                            <th class="first name-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('connector_table_div', '/connector/table/ajax/1/page/1/order/desc/sort/connector.name/mode/manage/tableName/connector/pageSize/5/prefix/co/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/connector', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=5fc8e44283bdc7f0bf642e8deeff387d3f24a1a60f9a9434bc7241f1815932ca9dedc9a38e6b9626ca5e75994237b56a'});; return false;">Name</a>
+
+                                            </th>
+
+
+
+                                            <th class="category-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('connector_table_div', '/connector/table/ajax/1/page/1/order/desc/sort/connector.connector_category_id/mode/manage/tableName/connector/pageSize/5/prefix/co/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/connector', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=709b9800b42913d7889896bb4f7f17e3ae66bf5627a46cd1f7c13c45db2c1c42a5215f67bb5f8d6874991b7130abf12f'});; return false;">Category</a>
+
+                                            </th>
+
+
+
+                                            <th class="vendor-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('connector_table_div', '/connector/table/ajax/1/page/1/order/desc/sort/connector.connector_vendor_id/mode/manage/tableName/connector/pageSize/5/prefix/co/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/connector', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=566ef4a57006a328c464e9e6c8b41e2d9139696071cf3da16a7db2efcc62809cabc1cdc7fd1f469e2c8ed37424ac059c'});; return false;">Vendor</a>
+
+                                            </th>
+
+
+
+                                            <th class="username-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('connector_table_div', '/connector/table/ajax/1/page/1/order/desc/sort/connector.username/mode/manage/tableName/connector/pageSize/5/prefix/co/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/connector', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=6d72fe75ae8e6d464c7c95d43ef3e9e0eaa68ed956afebaf2a04dbd755211bf83d62f2997fb515c047097c7ff4bab58b'});; return false;">Username</a>
+
+                                            </th>
+
+
+                                            <th class="verified-column">
+
+                                                Verified
+                                            </th>
+
+
+
+
+                                            <th class="sortable sort-down updated-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('connector_table_div', '/connector/table/ajax/1/page/1/order/asc/sort/connector.updated_at/mode/manage/tableName/connector/pageSize/5/prefix/co/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/connector', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=0a7fff0324943631a900f3c82d1628ab486a52c4f9103b7fc793fb00c768e136b3f8da307357e38da3e0f12869bcfbf6'});; return false;">Updated</a>
+
+                                                <i class="icon-circle-arrow-down muted"></i>
+                                            </th>
+
+
+
+                                            <th class="actions-column last">
+
+                                                <a href="#" onclick="new Ajax.Updater('connector_table_div', '/connector/table/ajax/1/page/1/order/desc/sort/connector.id/mode/manage/tableName/connector/pageSize/5/prefix/co/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/connector', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=9083f2bfd230fb41f23c2bf50caaa23f6bdedbe4befd745606077a87ee340931bde264a6a46597042061e088279d4c99'});; return false;">Actions</a>
+
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr class="" id="connector_row_a0">
+
+                                            <td class="first ">
+                                                salesforce.com
+                                            </td>
+
+                                            <td>
+                                                CRM
+                                            </td>
+
+                                            <td>
+                                                salesforce.com	<img src="/images/salesforce.png" alt="salesforce.com" height="16">
+                                            </td>
+
+                                            <td>
+                                                pardot@affymetrix.com.test
+                                            </td>
+
+                                            <td>
+                                                <i class="icon-check text-success" title="Check"></i>
+                                            </td>
+
+                                            <td>
+                                                Sep 25, 2015 2:14 PM
+                                            </td>
+
+                                            <td class="new-actions last">
+
+                                                <div class="actions-menu-wrapper">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog muted"></i></a>	<ul class="dropdown-menu pull-right" role="menu">
+                                                        <li><a href="/connector/editSfdcConnector"><i class="icon-edit muted" title="Edit"></i> Edit</a></li>
+
+
+                                                        <li>
+                                                        </li>
+                                                        <li>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/prospectSyncQueue/prospects"><i class="icon-group text-success" title="Sync Queue (0)"></i> Sync Queue (0)</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/prospectSyncError/prospects"><i class="icon-group text-warning" title="Sync Errors (0)"></i> Sync Errors (0)</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/connector/verify/id/762"><i class="icon-check text-success" title="Reverify"></i> Reverify</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" onclick="if (window.confirm('Are you sure?')) { new Ajax.Updater('connector_row_b_cell0', '/connector/unverify/id/762/prefix/co', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('connector_row_b0', true);if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('co_table_footer', false); }new Effect.Highlight('connector_row_b_cell0', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=29b21fcffbe55043a3f52052372ea09dc8d10960a88621806573e4502d31a69310e00acd440bb2562aa3a34896aa1067'}); };; return false;"><img src="/images/cross.png" alt="Cross">&nbsp;Unverify</a>
+                                                        </li>
+                                                        <li><a href="#" onclick="if (window.confirm('Are you sure?')) { new Ajax.Updater('connector_row_b_cell0', '/connector/delete/id/762/prefix/connector', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplayAnimated('connector_row_a0', false, null, true);if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('connector_table_footer', false); }}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=c948b79497474932929c2dc52b5e48777e6b6f43bf8ce7e35ca7a1c2b3b343771fb557455f78af6cabc2f4b472bdc005'}); };; return false;"><i class="icon-trash muted" title="Delete"></i> Delete</a></li>
+
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr style="display:none" id="connector_row_b0" class="ajax_row">
+                                            <td colspan="7" id="connector_row_b_cell0" class="last"></td>
+                                        </tr>
+                                        <tr class="even" id="connector_row_a1">
+
+                                            <td class="first ">
+                                                LinkedIn
+                                            </td>
+
+                                            <td>
+                                                Social Posting
+                                            </td>
+
+                                            <td>
+                                                LinkedIn	<img src="/images/linkedin.png" alt="LinkedIn" height="16">
+                                            </td>
+
+                                            <td>
+                                                John Green
+                                            </td>
+
+                                            <td>
+                                                <i class="icon-check text-success" title="Check"></i>
+                                            </td>
+
+                                            <td>
+                                                Sep 23, 2015 2:00 PM
+                                            </td>
+
+                                            <td class="new-actions last">
+
+                                                <div class="actions-menu-wrapper">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog muted"></i></a>	<ul class="dropdown-menu pull-right" role="menu">
+                                                        <li><a href="#" onclick="new Ajax.Updater('connector_row_b_cell1', '/connector/editAjax/id/728/prefix/connector', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('connector_row_b1', true);if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('connector_table_footer', false); }new Effect.Highlight('connector_row_b_cell1', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=77e33fe6db97728d0af7010b4cfc2a8b1ae46dcb5792ec38e207fa23c8f71f9b6a41584d860fbdbd4277df34678a097d'});; return false;"><i class="icon-edit muted" title="Edit"></i> Edit</a></li>
+
+
+                                                        <li>
+                                                            <a href="/connector/verify/id/728"><i class="icon-check text-success" title="Reverify"></i> Reverify</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" onclick="if (window.confirm('Are you sure?')) { new Ajax.Updater('connector_row_b_cell1', '/connector/unverify/id/728/prefix/co', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('connector_row_b1', true);if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('co_table_footer', false); }new Effect.Highlight('connector_row_b_cell1', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=99d086e59277b042ca9d95fc4570964185c88b23808217e4481e5076e1c5ddd75a5f1bcbbed57a3950aced1566ed271d'}); };; return false;"><img src="/images/cross.png" alt="Cross">&nbsp;Unverify</a>
+                                                        </li>
+                                                        <li><a href="#" onclick="if (window.confirm('Are you sure?')) { new Ajax.Updater('connector_row_b_cell1', '/connector/delete/id/728/prefix/connector', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplayAnimated('connector_row_a1', false, null, true);if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('connector_table_footer', false); }}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=621a7390030e51d2112d32863ac5c2ab1499292592e1ea0163e28e03eeab2b3536f5f90fd868899568cfc0a3ffcd80a3'}); };; return false;"><i class="icon-trash muted" title="Delete"></i> Delete</a></li>
+
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr style="display:none" id="connector_row_b1" class="ajax_row">
+                                            <td colspan="7" id="connector_row_b_cell1" class="last"></td>
+                                        </tr>
+                                        <tr class="" id="connector_row_a2">
+
+                                            <td class="first ">
+                                                Facebook
+                                            </td>
+
+                                            <td>
+                                                Social Posting
+                                            </td>
+
+                                            <td>
+                                                Facebook	<img src="/images/facebook-ico.png" alt="Facebook" height="16">
+                                            </td>
+
+                                            <td>
+                                                Affymetrix, Inc. - Biotechnology
+                                            </td>
+
+                                            <td>
+                                                <i class="icon-check text-success" title="Check"></i>
+                                            </td>
+
+                                            <td>
+                                                Sep 23, 2015 9:22 AM
+                                            </td>
+
+                                            <td class="new-actions last">
+
+                                                <div class="actions-menu-wrapper">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog muted"></i></a>	<ul class="dropdown-menu pull-right" role="menu">
+                                                        <li><a href="#" onclick="new Ajax.Updater('connector_row_b_cell2', '/connector/editAjax/id/706/prefix/connector', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('connector_row_b2', true);if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('connector_table_footer', false); }new Effect.Highlight('connector_row_b_cell2', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=87f94984b8db27f0fdf6616210ec6a2cb8a8961c03f321bed3d034768812c46cf035e0b0e57372294f6341db8ab3a6ce'});; return false;"><i class="icon-edit muted" title="Edit"></i> Edit</a></li>
+
+
+                                                        <li>
+                                                            <a href="/connector/verify/id/706"><i class="icon-check text-success" title="Reverify"></i> Reverify</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" onclick="if (window.confirm('Are you sure?')) { new Ajax.Updater('connector_row_b_cell2', '/connector/unverify/id/706/prefix/co', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('connector_row_b2', true);if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('co_table_footer', false); }new Effect.Highlight('connector_row_b_cell2', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=d4ee38609269b895c5398ad6067d2058ac1d5f30e5fd618f4b0dbe7b3baca0f35e4cbab2dbd89223b2e180c5da634a87'}); };; return false;"><img src="/images/cross.png" alt="Cross">&nbsp;Unverify</a>
+                                                        </li>
+                                                        <li><a href="#" onclick="if (window.confirm('Are you sure?')) { new Ajax.Updater('connector_row_b_cell2', '/connector/delete/id/706/prefix/connector', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplayAnimated('connector_row_a2', false, null, true);if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('connector_table_footer', false); }}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=7f6840af74e1d536267929719a86c2a1c5dae2c53260c98e12db492a3b28bef41c6630f9bcf81d0e36fd064005260802'}); };; return false;"><i class="icon-trash muted" title="Delete"></i> Delete</a></li>
+
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr style="display:none" id="connector_row_b2" class="ajax_row">
+                                            <td colspan="7" id="connector_row_b_cell2" class="last"></td>
+                                        </tr>
+                                        <tr class="even" id="connector_row_a3">
+
+                                            <td class="first ">
+                                                Google Analytics
+                                            </td>
+
+                                            <td>
+                                                Other
+                                            </td>
+
+                                            <td>
+                                                Google Analytics	<img src="/images/google-ico.png" alt="Google Analytics" height="16">
+                                            </td>
+
+                                            <td>
+                                                N/A
+                                            </td>
+
+                                            <td>
+                                                <i class="icon-check text-success" title="Check"></i>
+                                            </td>
+
+                                            <td>
+                                                Sep 21, 2015 3:42 PM
+                                            </td>
+
+                                            <td class="new-actions last">
+
+                                                <div class="actions-menu-wrapper">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog muted"></i></a>	<ul class="dropdown-menu pull-right" role="menu">
+                                                        <li><a href="#" onclick="new Ajax.Updater('connector_row_b_cell3', '/connector/editAjax/id/710/prefix/connector', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('connector_row_b3', true);if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('connector_table_footer', false); }new Effect.Highlight('connector_row_b_cell3', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=3c49f08b527b7e5ecb1a18f8546df8ea2c3cdfe1bc74f051ca7f8c84f0bed4bf716fe236e7d1be47e06c569406cfb044'});; return false;"><i class="icon-edit muted" title="Edit"></i> Edit</a></li>
+
+
+                                                        <li><a href="#" onclick="if (window.confirm('Are you sure?')) { new Ajax.Updater('connector_row_b_cell3', '/connector/delete/id/710/prefix/connector', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplayAnimated('connector_row_a3', false, null, true);if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('connector_table_footer', false); }}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=5d53d03dbf759a210b464e69d664958985369e77887bc580e6557ccd923454af20b1fef167375ab69059bc114c8e2bc7'}); };; return false;"><i class="icon-trash muted" title="Delete"></i> Delete</a></li>
+
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr style="display:none" id="connector_row_b3" class="ajax_row">
+                                            <td colspan="7" id="connector_row_b_cell3" class="last"></td>
+                                        </tr>
+                                        <tr class="" id="connector_row_a4">
+
+                                            <td class="first ">
+                                                bit.ly
+                                            </td>
+
+                                            <td>
+                                                Other
+                                            </td>
+
+                                            <td>
+                                                bit.ly	<img src="/images/bitly.png" alt="bit.ly" height="16">
+                                            </td>
+
+                                            <td>
+                                                corporate1
+                                            </td>
+
+                                            <td>
+                                                <i class="icon-check text-success" title="Check"></i>
+                                            </td>
+
+                                            <td>
+                                                Sep 21, 2015 3:40 PM
+                                            </td>
+
+                                            <td class="new-actions last">
+
+                                                <div class="actions-menu-wrapper">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog muted"></i></a>	<ul class="dropdown-menu pull-right" role="menu">
+                                                        <li><a href="#" onclick="new Ajax.Updater('connector_row_b_cell4', '/connector/editAjax/id/708/prefix/connector', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('connector_row_b4', true);if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('connector_table_footer', false); }new Effect.Highlight('connector_row_b_cell4', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=995659f575b59333608ea3f01776a073fe775808d80e7619f2aebda3e0180c471033333d52d2e2f4738033c9191569a5'});; return false;"><i class="icon-edit muted" title="Edit"></i> Edit</a></li>
+
+
+                                                        <li>
+                                                            <a href="#" onclick="if (window.confirm('Are you sure?')) { new Ajax.Updater('connector_row_b_cell4', '/connector/reverify/id/708/prefix/co', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('connector_row_b4', true);if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('co_table_footer', false); }new Effect.Highlight('connector_row_b_cell4', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=2fcb9c8b39bab85a9a42712d5f59fbacf1b686ccb521eb6edf1bfd52ab0da50d5dfcef8d83a21e2964833384abfbdc1c'}); };; return false;"><i class="icon-check text-success" title="Reverify"></i> Reverify</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" onclick="if (window.confirm('Are you sure?')) { new Ajax.Updater('connector_row_b_cell4', '/connector/unverify/id/708/prefix/co', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('connector_row_b4', true);if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('co_table_footer', false); }new Effect.Highlight('connector_row_b_cell4', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=66f148bb3becd58bcae926dccd6e5f4c857433f56bfde2a567e0f3e97ad06c0c609ee00e6f6dba57f42c2bd3d32a6fe9'}); };; return false;"><img src="/images/cross.png" alt="Cross">&nbsp;Unverify</a>
+                                                        </li>
+                                                        <li><a href="#" onclick="if (window.confirm('Are you sure?')) { new Ajax.Updater('connector_row_b_cell4', '/connector/delete/id/708/prefix/connector', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplayAnimated('connector_row_a4', false, null, true);if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('connector_table_footer', false); }}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=d0e1eb799432db71dfb0b46f54b4ba04d138697cba9408fd96c3a70d5af0d54e73883eaba3a6b35e27363d0306c76379'}); };; return false;"><i class="icon-trash muted" title="Delete"></i> Delete</a></li>
+
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr style="display:none" id="connector_row_b4" class="ajax_row">
+                                            <td colspan="7" id="connector_row_b_cell4" class="last"></td>
+                                        </tr>
+                                    </tbody>
+
+
+                                </table>
+
+
+
+                                <div class="table-foot clearfix">
+                                    <div id="co_table_footer">
+                                        <form id="connectorform" class="inline co-pager-form pager-form" onsubmit="new Ajax.Updater('connector_table_div', '/connector/table/ajax/1/sort/connector.updated_at/order/desc/mode/manage/tableName/connector/pageSize/5/prefix/co/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/connector', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('co_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:Form.serialize(this)}); return false;" action="/connector/table/ajax/1/sort/connector.updated_at/order/desc/mode/manage/tableName/connector/pageSize/5/prefix/co/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/connector" method="post">
+                                            <div style="display:none;"><input type="hidden" name="_csrf_token" value="78255cee777f4c107a012410b07a2d08ab3e828e31eb2474000bf60cb4af8bec41eafbc4b3d49132028f27622efef350"></div>						<ul class="inline pull-right paging">
+                                                <li>
+                                                </li>
+
+                                                <li>
+                                                    Page
+                                                    <input type="text" name="page" id="page_connector" value="1" class="text-tiny" style="width: 18px;">
+                                                    <script>$j(".text-tiny").each(textTinyResize);</script>
+                                                    of
+                                                    <a class="pager-last" href="#" onclick="cancelAllPendingAjax(); new Ajax.Updater('connector_table_div', '/connector/table/ajax/1/page/2/sort/connector.updated_at/order/desc/mode/manage/tableName/connector/pageSize/5/prefix/co/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/connector', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=58f5500bf55376ace75ebe65fd6a0e1777f5d48537b75b197e178b29fb341d03067c66a3cd778d51849d57832d99ecb9'});; return false;">2</a>
+                                                </li>
+
+                                                <li class="last">
+                                                    <a class="pager-next" href="#" onclick="cancelAllPendingAjax(); new Ajax.Updater('connector_table_div', '/connector/table/ajax/1/page/2/sort/connector.updated_at/order/desc/mode/manage/tableName/connector/pageSize/5/prefix/co/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/connector', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=f31acc6960a8dc38a39ed465b5a832ff8b5b83a01b7fc0cf3863c0e8ea81eea074d0363cdfe03eb3992b5a537a4936df'});; return false;">Next »</a>
+                                                </li>
+                                            </ul>
+                                            <p class="inline pull-right">
+                                                Showing
+                                                <select name="pageSize" id="copageSize" onchange="$(&quot;connectorform&quot;).onsubmit();return false;" class="input-auto">
+                                                    <option value="5" selected="selected">5</option>
+                                                    <option value="10">10</option>
+                                                    <option value="15">15</option>
+                                                    <option value="25">25</option>
+                                                    <option value="50">50</option>
+                                                </select>											 of <strong>8</strong>																															<input type="hidden" name="view" id="co1_view" value="">																								<input type="hidden" name="mode" id="co1_mode" value="manage">																								<input type="hidden" name="tableName" id="co1_tableName" value="connector">																								<input type="hidden" name="campaign_id" id="co1_campaign_id" value="">																								<input type="hidden" name="prospect_id" id="co1_prospect_id" value="">																								<input type="hidden" name="visitor_id" id="co1_visitor_id" value="">																								<input type="hidden" name="visit_id" id="co1_visit_id" value="">																								<input type="hidden" name="user_id" id="co1_user_id" value="">																								<input type="hidden" name="query" id="co1_query" value="">																																			<input type="hidden" name="prefix" id="co1_prefix" value="co">																								<input type="hidden" name="export" id="co1_export" value="">																								<input type="hidden" name="startDate" id="co1_startDate" value="@1167627600">																								<input type="hidden" name="endDate" id="co1_endDate" value="now">																								<input type="hidden" name="dateText" id="co1_dateText" value="Date Range:">
+                                            </p>
+                                        </form>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+</body>
+</html>

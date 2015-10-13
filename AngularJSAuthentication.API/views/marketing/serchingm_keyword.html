@@ -1,0 +1,245 @@
+﻿<div id="wrapper">
+
+    <div id="contentWrap">
+        <div id="content">
+
+            <ul id="bread-crumbs" class="breadcrumb">
+                <li>
+                    <a href="/" title="Home"><i class="icon-home"></i></a>
+                </li>
+                <li class="crumb-divider">  / </li>
+                <li>
+                    <a href="/marketing">Marketing</a>
+                </li>
+                <li class="crumb-divider">  / </li>
+                <li>
+                    <a href="/searchMarketing">Search Marketing</a>
+                </li>
+            </ul>
+
+            <h1>Keywords</h1>
+
+            <div class="divider"></div>
+
+
+
+            <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+                <ul class="nav nav-pills">
+                    <li>
+                        <a accesskey="b" title="Access key b" href="#" onclick="new Ajax.Updater('kwd_status3258362', '/keyword/bulkImportAjax/id/3258362/prefix/kwd', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('kwd_status3258362', true);new Effect.Highlight('kwd_status3258362', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=a978796a0d566d83c64660970b64f5cc87f513f77132b750e31c2237521b81a70be211eaf8003b62f6d78feef0ee7583'});; return false;">Bulk Import</a>
+                    </li>
+                    <li>
+                    </li>
+
+                    <li>
+                    </li>
+                    <li>
+                    </li>
+                </ul>
+
+                <div id="kwd_status3258362" style="display:none" class="ajax_status"></div>
+
+
+
+
+
+
+
+
+
+                <div id="keyword">
+
+                    <div id="kwd_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                    <div id="tagFilterkeyword" class="tagfilter-pop-up dropdown-menu" style="display: none;"><input type="text" id="tagFilterSearchkeyword" value=""><div class="scroller"><ul id="tagFilterSelectorkeyword"><li></li></ul></div><a href="#"  style="float: left;">Clear filter</a>  <a href="/tag" style="float: right;">Manage tags</a></div><div id="kwd_module" class="module">
+
+                        <div class="header clearfix">
+
+                            <h2 id="keyword_h2"></h2>
+
+
+
+
+
+                            <form id="keyword_filter" class="inline" onsubmit="new Ajax.Updater('keyword_table_div', '/keyword/table/ajax/1/dateText/Date+Range%3A+', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('kwd_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('keyword_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/keyword/table/ajax/1/dateText/Date+Range%3A+" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="30bb3bd52310e015db735aa0ce6d5112b6f0f74514fd3e1816c019b501ba4a1d7ec7ea994dd5f79ca1a89e69d91da507"></div>
+                                <p class="inline header">
+                                    Filter:<br>
+                                    <input type="text" name="table_filter" id="keyword_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;keyword_filter&quot;).onsubmit()',600);" class="input-medium">
+                                </p>
+                            </form>
+                            <br>
+                            <form id="keyword_tagFilter" class="aaa inline tag-filter-form" onsubmit="new Ajax.Updater('keyword_table_div', '/keyword/table/ajax/1/dateText/Date+Range%3A+/table_filter', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('kwd_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('keyword_ajax_urlparams').value.replace('tagFilter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/keyword/table/ajax/1/dateText/Date+Range%3A+/table_filter" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="30bb3bd52310e015db735aa0ce6d5112b6f0f74514fd3e1816c019b501ba4a1d7ec7ea994dd5f79ca1a89e69d91da507"></div>					<p class="inline header" id="tagFilterContainerkeyword"><button  class="btn">Tags <span class="caret"></span></button><span id="tagFilterListkeyword"></span><input type="hidden" id="tagFilterInputkeyword" name="tagFilter" value=""></p>
+                               
+                            </form>
+
+                            <div class="btn-group pull-right">
+                                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Tools			    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+
+                                    <li><a href="#" onclick="new Ajax.Updater('kwd_status', '/tagObject/tagTableAjax', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('kwd_status', true);new Effect.Highlight('kwd_status', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('kwd_table_footer', false); }}, parameters:'ajaxParams='+encodeURIComponent($('keyword_ajax_urlparams').value) + '&amp;ajaxUrl=keyword%2Ftable&amp;objectName=Keywords' + '&amp;_csrf_token=1d45502e58aa6abbcb3fb3b9ffb7481c426aa09114338ed4af909409c3e535557f20883847012818296c076ff57289a9'});; return false;"><i class="icon-tag"></i> Tag Entire Table</a>						</li>
+
+                                    <li><a onclick="location='/keyword/export?' + $('keyword_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                </ul>
+                            </div>
+
+
+                            <span class="link_to_create pull-right">
+                                <a href="/keyword/createAjax" id="kwd_link_create" class="btn btn-warning"><i class="icon-plus"></i> Add keyword</a>
+                                <script type="text/javascript">
+	jQuery('a#kwd_link_create').click(function() {
+		jQuery("#indicator").show();
+		if(jQuery('html').is('.ie'))
+			toggleDisplay("kwd_table_footer", false);
+		jQuery.ajax({
+			url: "/keyword/createAjax",
+			beforeSend: function(jqXHR, settings) {
+				// TODO: Compensate for existing data?
+				settings.data += jQuery("#kwd_ajax_urlparams").attr('value');
+			},
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#kwd_status").html(data);
+				toggleDisplay("kwd_status", true);
+				new Effect.Highlight('kwd_status', {duration:2});
+			}
+		});
+		return false;
+	});
+                                </script>
+                            </span>
+                        </div>
+                        <div id="kwd_wrapper" class="module-wrapper">
+                            <div id="keyword_table_div">
+
+
+                                <input type="hidden" id="keyword_ajax_urlparams" value="sort=keyword.name&amp;order=asc&amp;tagFilter=+&amp;ajaxElement=keyword&amp;numResults=0">
+                                <table id="keyword_table" class="data-table table-bordered">
+                                    <thead>
+                                        <tr>
+
+
+                                            <th class="first checkbox-column checkbox">
+
+
+                                            </th>
+
+
+
+                                            <th class="sortable sort-up keyword-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('keyword_table_div', '/keyword/table/ajax/1/page/1/order/desc/sort/keyword.name/tagFilter/+/ajaxElement/keyword', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=f979fedcc5854d6a128906799a44339207b2a90d810dbdec564bb3fadc77101cb905e2b8a6ae9c0fdbe4aa88714f89d6'});; return false;">Keyword</a>
+
+                                                <i class="icon-circle-arrow-up muted"></i>
+                                            </th>
+
+
+
+                                            <th class="google-rank-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('keyword_table_div', '/keyword/table/ajax/1/page/1/order/desc/sort/keyword_stats.google_rank/tagFilter/+/ajaxElement/keyword', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=cfbc71a47e952ab4aacd16abbf8b0063c7707d33b98ac0c34ca562317b11bf9557b4cc7665085e9b77dc8ede547e6a89'});; return false;">Google Rank</a>
+
+                                            </th>
+
+
+
+                                            <th class="bingyahoo-rank-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('keyword_table_div', '/keyword/table/ajax/1/page/1/order/desc/sort/keyword_stats.bing_rank/tagFilter/+/ajaxElement/keyword', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=460e267ce00fab604831757e665943d44503e3c201b56615a3638356dd7b15d005676565aacd4ff8c49c4610463772bb'});; return false;">Bing/Yahoo Rank</a>
+
+                                            </th>
+
+
+
+                                            <th class="google-monthly-volume-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('keyword_table_div', '/keyword/table/ajax/1/page/1/order/desc/sort/keyword_stats.monthly_search_volume/tagFilter/+/ajaxElement/keyword', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=b8d9e31ad0a840d4af27d2f8a5d89757ab4b6444c4c7fb999a1f9e62f28e190287f4779d357951b6a480618455795031'});; return false;">Google Monthly Volume</a>
+
+                                            </th>
+
+
+
+                                            <th class="google-cpc-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('keyword_table_div', '/keyword/table/ajax/1/page/1/order/desc/sort/keyword_stats.cost_per_click/tagFilter/+/ajaxElement/keyword', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=33a76556417c2d3ad078b55a49f89f88e2b2a622e03226f142f9b6be940750bdf2caad287ca394c4de69fdadcd8cc07b'});; return false;">Google CPC</a>
+
+                                            </th>
+
+
+
+                                            <th class="ranking-difficulty-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('keyword_table_div', '/keyword/table/ajax/1/page/1/order/desc/sort/keyword_stats.ranking_difficulty/tagFilter/+/ajaxElement/keyword', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=a2abf6b718dc25e01dd6be6131ae5fb762b1360ae2886fa3bb5d66193de49e0552075fdd7b93a84863901ecb1d5392fb'});; return false;">Ranking Difficulty</a>
+
+                                            </th>
+
+
+
+                                            <th class="last-checked-date-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('keyword_table_div', '/keyword/table/ajax/1/page/1/order/desc/sort/keyword_stats.stats_date/tagFilter/+/ajaxElement/keyword', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=f2fc45c599e711877daa6c882fcfc2bdea16a7d3f9c7eb988400bdc644763752ad2a8e0df76a4fabbffcff0dfc15d115'});; return false;">Last Checked Date</a>
+
+                                            </th>
+
+
+                                            <th class="actions-column last">
+
+                                                Actions
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="9" class="last">
+                                                There are no keywords for this area.
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+
+
+                                </table>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-table-footer">
+                    Initial lookup may take up to 48 hours. Data is then refreshed weekly. Volume data provided by <a href="http://www.semrush.com">SEMrush</a>.
+                </div>
+
+                <script>
+	$j(function(){
+		$j("#kwd_link_create").click(function(){
+			googleAnalytics('send', 'event', 'Search Marketing Keywords', 'Add Keyword');
+		});
+	});
+                </script>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,294 @@
+﻿<div id="wrapper">
+
+    <div id="contentWrap">
+        <div id="content">
+
+            <ul id="bread-crumbs" class="breadcrumb">
+                <li>
+                    <a href="/" title="Home"><i class="icon-home"></i></a>
+                </li>
+                <li class="crumb-divider">  / </li>
+                <li>
+                    <a href="/marketing">Marketing</a>
+                </li>
+                <li class="crumb-divider">  / </li>
+                <li>
+                    <a href="/email">Emails</a>
+                </li>
+            </ul>
+
+            <h1>
+                Email Preference Pages
+            </h1>
+
+            <div class="divider"></div>
+
+
+
+            <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div id="emailPreferencesPage">
+
+                    <div id="epp_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                    <div id="epp_module" class="module">
+
+                        <div class="header clearfix">
+
+                            <h2 id="emailPreferencesPage_h2" class="pull-left">
+                                Email Preference Pages
+                            </h2>
+
+
+
+
+
+
+                            <div class="btn-group pull-right">
+                                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Tools			    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+
+
+                                    <li><a onclick="location='/emailPreferencesPage/export?' + $('emailPreferencesPage_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                </ul>
+                            </div>
+
+
+                            <span class="link_to_create pull-right">
+                                <a href="/emailPreferencesPage/createAjax" id="epp_link_create" class="btn btn-warning"><i class="icon-plus"></i> Add email preferences page</a>
+                                <script type="text/javascript">
+	jQuery('a#epp_link_create').click(function() {
+		jQuery("#indicator").show();
+		if(jQuery('html').is('.ie'))
+			toggleDisplay("epp_table_footer", false);
+		jQuery.ajax({
+			url: "/emailPreferencesPage/createAjax",
+			beforeSend: function(jqXHR, settings) {
+				// TODO: Compensate for existing data?
+				settings.data += jQuery("#epp_ajax_urlparams").attr('value');
+			},
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#epp_status").html(data);
+				toggleDisplay("epp_status", true);
+				new Effect.Highlight('epp_status', {duration:2});
+			}
+		});
+		return false;
+	});
+                                </script>
+                            </span>
+                        </div>
+                        <div id="epp_wrapper" class="module-wrapper">
+                            <div id="emailPreferencesPage_table_div">
+
+
+                                <input type="hidden" id="emailPreferencesPage_ajax_urlparams" value="sort=email_preferences_page.id&amp;order=asc&amp;mode=manage&amp;tableName=emailPreferencesPage&amp;pageSize=5&amp;prefix=epp&amp;startDate=%401167627600&amp;endDate=now&amp;dateText=Date+Range%3A&amp;ajaxElement=emailPreferencesPage&amp;numResults=1">
+                                <table id="emailPreferencesPage_table" class="data-table table-bordered">
+                                    <thead>
+                                        <tr>
+
+
+                                            <th class="first checkbox-column checkbox">
+                                                <input type="checkbox" class="check-all">
+
+
+                                            </th>
+
+
+
+                                            <th class="name-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('emailPreferencesPage_table_div', '/emailPreferencesPage/table/ajax/1/page/1/order/desc/sort/email_preferences_page.name/mode/manage/tableName/emailPreferencesPage/pageSize/5/prefix/epp/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/emailPreferencesPage', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=4ff937d3a0e7bcb5378e474a6a29073db7259b674b1f9e1d72d8fb219cbacf203737471fe252534dde74a4e2e1feb28b'});; return false;">Name</a>
+
+                                            </th>
+
+
+                                            <th class="link-column">
+
+                                                Link
+                                            </th>
+
+
+                                            <th class="list-count-column">
+
+                                                List Count
+                                            </th>
+
+
+
+                                            <th class="updated-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('emailPreferencesPage_table_div', '/emailPreferencesPage/table/ajax/1/page/1/order/desc/sort/email_preferences_page.updated_at/mode/manage/tableName/emailPreferencesPage/pageSize/5/prefix/epp/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/emailPreferencesPage', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=686e4a33f595591d2298880b0fde4f4964ee121d146a066a78a10a3006902dbe38c8e440a50613f6a445eb376916ddc7'});; return false;">Updated</a>
+
+                                            </th>
+
+
+                                            <th class="actions-column last">
+
+                                                Actions
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr class="" id="emailPreferencesPage_row_a0">
+
+                                            <td class="first checkbox">
+                                                <input type="checkbox" name="checkbox_emailPreferencesPage_142" id="checkbox_emailPreferencesPage_142" value="142" class="datatable-checkbox">
+                                            </td>
+
+                                            <td>
+                                                <a href="/emailPreferencesPage/read/id/142">Default Email Preferences Page</a>
+                                            </td>
+
+                                            <td>
+                                                <a class="new-window" onclick="var w=window.open(this.href);w.focus();return false;" href="http://go.affymetrix.com/emailPreference/e/107592/142">http://go.affymetrix.com/emailPreference/e/107592/142</a>
+                                            </td>
+
+                                            <td>
+                                                <a href="/emailPreferencesPage/read/id/142">0</a>
+                                            </td>
+
+                                            <td>
+                                                Oct 2, 2015 4:50 PM
+                                            </td>
+
+                                            <td class="new-actions last">
+
+
+
+
+
+
+                                                <div class="actions-menu-wrapper">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog muted"></i></a>	<ul class="dropdown-menu pull-right" role="menu">
+                                                        <li>
+                                                            <a id="emailPreferencesPage_edit_link0" href="#"><i class="icon-edit muted" title="Edit"></i> Edit</a>
+                                                            <script type="text/javascript">
+	jQuery("a#emailPreferencesPage_edit_link0").click(function() {
+		jQuery("#indicator").show();
+		jQuery.ajax({
+			url: "/emailPreferencesPage/editAjax/id/142/prefix/emailPreferencesPage",
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#emailPreferencesPage_row_b_cell0").html(data);
+				toggleDisplay("emailPreferencesPage_row_b0", true);
+				if(jQuery('html').is('.ie')) {
+					toggleDisplay("emailPreferencesPage_table_footer", false);
+				}
+				new Effect.Highlight('emailPreferencesPage_row_b_cell0', {duration:2});
+			}
+		});
+		hideAllActionMenus();
+		return false;
+	});
+                                                            </script>
+                                                        </li>
+                                                        <li><a href="#" onclick="new Ajax.Updater('emailPreferencesPage_row_b_cell0', '/emailPreferencesPage/copyAjax/id/142/prefix/emailPreferencesPage', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('emailPreferencesPage_row_b0', true);if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('emailPreferencesPage_table_footer', false); }new Effect.Highlight('emailPreferencesPage_row_b_cell0', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=82adc0de0eeb0dbab1983189c224ace49744fdfbaf63c51dfe3c329bae4019f685335f2848c8acadd1c1017ae556a71d'});; return false;"><i class="icon-copy muted" title="Copy"></i> Copy</a></li>
+                                                        <li><a href="#" onclick="if (window.confirm('Are you sure?')) { new Ajax.Updater('emailPreferencesPage_row_b_cell0', '/emailPreferencesPage/delete/id/142/prefix/emailPreferencesPage', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplayAnimated('emailPreferencesPage_row_a0', false, null, true);if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('emailPreferencesPage_table_footer', false); }}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=aa13f92f959d6fdf9bf481d6404d82c58e26163ac3a54a49596df7db97853f79537a831a305f8e8bf5326cbe920b19c1'}); };; return false;"><i class="icon-trash muted" title="Delete"></i> Delete</a></li>
+                                                        <li><a href="#" onclick="if (window.confirm('Are you sure?')) { new Ajax.Updater('emailPreferencesPage_row_b_cell0', '/emailPreferencesPage/undelete/id/142/prefix/emailPreferencesPage', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('emailPreferencesPage_row_b0', true);if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('emailPreferencesPage_table_footer', false); }new Effect.Highlight('emailPreferencesPage_row_b_cell0', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=a521578ffd30f8fb1942d56edd1b9560222de6eab3096b9e3364192ad7f0c9913daa38dfe24985ed0d8fdbf978ee4414'}); };; return false;">Undelete</a></li>
+                                                    </ul>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        <tr style="display:none" id="emailPreferencesPage_row_b0" class="ajax_row">
+                                            <td colspan="6" id="emailPreferencesPage_row_b_cell0" class="last"></td>
+                                        </tr>
+                                    </tbody>
+
+
+                                </table>
+
+
+
+                                <div class="table-foot clearfix">
+                                    <div id="epp_table_footer">
+                                        <form action="#" class="inline pull-left">
+                                            <input type="hidden" name="check_all_params" value="&amp;mode=manage&amp;tableName=emailPreferencesPage&amp;pageSize=5&amp;prefix=epp&amp;startDate=%401167627600&amp;endDate=now&amp;dateText=Date+Range%3A&amp;ajaxElement=emailPreferencesPage">
+                                            <div class="multi-checkbox-buttons pull-left">
+                                                With <span class="checkbox-num-selected">0</span> selected:
+
+                                                <select name="multi-select" id="multi-select" onchange="
+				if (this.value == &quot;deletes&quot;) {
+					jQuery(this).siblings(&quot;.MultiSelect_Delete&quot;).show();
+				}
+				else {
+					jQuery(this).siblings(&quot;.MultiSelect_Delete&quot;).hide();
+				}
+			" class="multi-select input-auto">
+                                                    <option value="" selected="selected">&nbsp;</option>
+                                                    <option value="deletes">Delete</option>
+                                                </select>
+                                                <span class="MultiSelect_Delete" style="display: none;"></span>
+                                                <input class="btn" type="button" onclick="if(confirmBatchAction(&quot;emailPreferencesPage&quot;, &quot;Email Preference Pages&quot;)){new Ajax.Updater('epp_status', '/emailPreferencesPage/table/objectName/Email+Preference+Pages/mode/manage/tableName/emailPreferencesPage/pageSize/5/prefix/epp/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/emailPreferencesPage', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('epp_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:Form.serialize(this.form) + '&amp;_csrf_token=c677419a4829066752238d30fe540b88440cfb620fc625e3464754378bc4f36a438492df09d6a0005c8355e1da171421'});} return false;" name="ajax_submit" value="Go"><input type="hidden" name="multiCheckIds" id="" value="" class="multiCheckIds">
+                                            </div>
+                                        </form>
+                                        <form id="emailPreferencesPageform" class="inline epp-pager-form pager-form" onsubmit="new Ajax.Updater('emailPreferencesPage_table_div', '/emailPreferencesPage/table/ajax/1/sort/email_preferences_page.id/order/asc/mode/manage/tableName/emailPreferencesPage/pageSize/5/prefix/epp/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/emailPreferencesPage', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('epp_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:Form.serialize(this)}); return false;" action="/emailPreferencesPage/table/ajax/1/sort/email_preferences_page.id/order/asc/mode/manage/tableName/emailPreferencesPage/pageSize/5/prefix/epp/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/emailPreferencesPage" method="post">
+                                            <div style="display:none;"><input type="hidden" name="_csrf_token" value="8b5dc6caa7b37a74b8cc4bcf1d50bb1d50ee48da96842e42221c1fd510845f1fb437bf5b1582fda5a988cf9e6066674b"></div>						<ul class="inline pull-right paging">
+                                                <li>
+                                                </li>
+
+                                                <li>
+                                                    Page
+                                                    1
+                                                    of
+                                                    <a class="pager-last" href="#" onclick="cancelAllPendingAjax(); new Ajax.Updater('emailPreferencesPage_table_div', '/emailPreferencesPage/table/ajax/1/page/1/sort/email_preferences_page.id/order/asc/mode/manage/tableName/emailPreferencesPage/pageSize/5/prefix/epp/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/emailPreferencesPage', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=1a8eb8d3b42bed2987e2aa5d052409db59c2afdd9ea7ea7eda0e2dbb6046cad7bdf0954b039968a6beb7542eab7b5d0e'});; return false;">1</a>
+                                                </li>
+
+                                                <li class="last">
+                                                </li>
+                                            </ul>
+                                            <p class="inline pull-right">
+                                                Showing
+                                                <select name="pageSize" id="epppageSize" onchange="$(&quot;emailPreferencesPageform&quot;).onsubmit();return false;" class="input-auto">
+                                                    <option value="5" selected="selected">5</option>
+                                                    <option value="10">10</option>
+                                                    <option value="15">15</option>
+                                                    <option value="25">25</option>
+                                                    <option value="50">50</option>
+                                                </select>											 of <strong>1</strong>																															<input type="hidden" name="listxId" id="epp1_listxId" value="">																								<input type="hidden" name="view" id="epp1_view" value="">																								<input type="hidden" name="mode" id="epp1_mode" value="manage">																								<input type="hidden" name="tableName" id="epp1_tableName" value="emailPreferencesPage">																								<input type="hidden" name="campaign_id" id="epp1_campaign_id" value="">																								<input type="hidden" name="prospect_id" id="epp1_prospect_id" value="">																								<input type="hidden" name="visitor_id" id="epp1_visitor_id" value="">																								<input type="hidden" name="visit_id" id="epp1_visit_id" value="">																								<input type="hidden" name="user_id" id="epp1_user_id" value="">																								<input type="hidden" name="query" id="epp1_query" value="">																																			<input type="hidden" name="prefix" id="epp1_prefix" value="epp">																								<input type="hidden" name="export" id="epp1_export" value="">																								<input type="hidden" name="startDate" id="epp1_startDate" value="@1167627600">																								<input type="hidden" name="endDate" id="epp1_endDate" value="now">																								<input type="hidden" name="dateText" id="epp1_dateText" value="Date Range:">
+                                            </p>
+                                        </form>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+
+</div>

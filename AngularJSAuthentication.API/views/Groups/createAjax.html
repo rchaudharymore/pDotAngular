@@ -1,0 +1,184 @@
+﻿<div id="wrapper">
+
+    <div id="contentWrap">
+        <div id="content">
+
+            <ul id="bread-crumbs" class="breadcrumb">
+                <li>
+                    <a href="/" title="Home"><i class="icon-home"></i></a>
+                </li>
+                <li class="crumb-divider">  / </li>
+                <li>
+                    <a href="/administration">Administration</a>
+                </li>
+                <li class="crumb-divider">  / </li>
+                <li>
+                    <a href="/user">Users</a>
+                </li>
+            </ul>
+
+            <h1>User Groups</h1>
+
+            <div class="divider"></div>
+
+
+
+            <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div id="groupx">
+
+                    <div id="groupoupx_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                    <div id="tagFiltergroupx" class="tagfilter-pop-up dropdown-menu" style="display: none;"><input type="text" id="tagFilterSearchgroupx" value=""><div class="scroller"><ul id="tagFilterSelectorgroupx"><li></li></ul></div><a href="#"  style="float: left;">Clear filter</a>  <a href="/tag" style="float: right;">Manage tags</a></div><div id="groupoupx_module" class="module">
+
+                        <div class="header clearfix">
+
+                            <h2 id="groupx_h2"></h2>
+
+
+
+
+
+                            <form id="groupx_filter" class="inline" onsubmit="new Ajax.Updater('groupx_table_div', '/group/table/ajax/1/dateText/Date+Range%3A+', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('groupoupx_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('groupx_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/group/table/ajax/1/dateText/Date+Range%3A+" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="ccaf83973c01308f8c819cf96458eaa0e1ea6ddf38f57f9eda90df80d4b1b58e34ecbccb3030909e7cb5ee24861f3006"></div>
+                                <p class="inline header">
+                                    Filter:<br>
+                                    <input type="text" name="table_filter" id="groupx_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;groupx_filter&quot;).onsubmit()',600);" class="input-medium">
+                                </p>
+                            </form>
+                            <br>
+                            <form id="groupx_tagFilter" class="aaa inline tag-filter-form" onsubmit="new Ajax.Updater('groupx_table_div', '/group/table/ajax/1/dateText/Date+Range%3A+/table_filter', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('groupoupx_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('groupx_ajax_urlparams').value.replace('tagFilter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/group/table/ajax/1/dateText/Date+Range%3A+/table_filter" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="ccaf83973c01308f8c819cf96458eaa0e1ea6ddf38f57f9eda90df80d4b1b58e34ecbccb3030909e7cb5ee24861f3006"></div>					<p class="inline header" id="tagFilterContainergroupx"><button  class="btn">Tags <span class="caret"></span></button><span id="tagFilterListgroupx"></span><input type="hidden" id="tagFilterInputgroupx" name="tagFilter" value=""></p>
+                               
+                            </form>
+
+                            <div class="btn-group pull-right">
+                                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Tools			    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+
+                                    <li><a href="#" onclick="new Ajax.Updater('groupoupx_status', '/tagObject/tagTableAjax', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('groupoupx_status', true);new Effect.Highlight('groupoupx_status', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('groupoupx_table_footer', false); }}, parameters:'ajaxParams='+encodeURIComponent($('groupx_ajax_urlparams').value) + '&amp;ajaxUrl=group%2Ftable&amp;objectName=User+Groups' + '&amp;_csrf_token=0bcc22bdb181c985e7803a393e1ebbf26b591e6ecd21b2fdf06def60ccb5f9ca2b25f70de21b75074bba259332c379f3'});; return false;"><i class="icon-tag"></i> Tag Entire Table</a>						</li>
+
+
+                                </ul>
+                            </div>
+
+
+                            <span class="link_to_create pull-right">
+                                <a href="/group/createAjax" id="groupoupx_link_create" class="btn btn-warning"><i class="icon-plus"></i> Add user group</a>
+                                <script type="text/javascript">
+	jQuery('a#groupoupx_link_create').click(function() {
+		jQuery("#indicator").show();
+		if(jQuery('html').is('.ie'))
+			toggleDisplay("groupoupx_table_footer", false);
+		jQuery.ajax({
+			url: "/group/createAjax",
+			beforeSend: function(jqXHR, settings) {
+				// TODO: Compensate for existing data?
+				settings.data += jQuery("#groupoupx_ajax_urlparams").attr('value');
+			},
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#groupoupx_status").html(data);
+				toggleDisplay("groupoupx_status", true);
+				new Effect.Highlight('groupoupx_status', {duration:2});
+			}
+		});
+		return false;
+	});
+                                </script>
+                            </span>
+                        </div>
+                        <div id="groupoupx_wrapper" class="module-wrapper">
+                            <div id="groupx_table_div">
+
+
+                                <input type="hidden" id="groupx_ajax_urlparams" value="sort=groupx.name&amp;order=asc&amp;mode=manage&amp;tableName=group&amp;pageSize=5&amp;prefix=gr&amp;startDate=%401167627600&amp;endDate=now&amp;dateText=Date+Range%3A&amp;tagFilter=+&amp;ajaxElement=groupx&amp;numResults=0">
+                                <table id="groupx_table" class="data-table table-bordered">
+                                    <thead>
+                                        <tr>
+
+
+                                            <th class="first checkbox-column checkbox">
+
+
+                                            </th>
+
+
+
+                                            <th class="sortable sort-up name-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('groupx_table_div', '/group/table/ajax/1/page/1/order/desc/sort/groupx.name/mode/manage/tableName/group/pageSize/5/prefix/gr/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/tagFilter/+/ajaxElement/groupx', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=bf5fe8454425840e24e5013090b98fd844dcc2c87c6b0d166900c169c70187c4b3434cbca639d9caaa58dee267effd4f'});; return false;">Name</a>
+
+                                                <i class="icon-circle-arrow-up muted"></i>
+                                            </th>
+
+
+                                            <th class="users-column">
+
+                                                Users
+                                            </th>
+
+
+
+                                            <th class="updated-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('groupx_table_div', '/group/table/ajax/1/page/1/order/desc/sort/groupx.updated_at/mode/manage/tableName/group/pageSize/5/prefix/gr/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/tagFilter/+/ajaxElement/groupx', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=6f0f01b6d7bc68404d09031ba82632ad2f65217234a4fdc7fdcb6f2fd1436709641ed715495b4e4561d392032ffdaf7b'});; return false;">Updated</a>
+
+                                            </th>
+
+
+                                            <th class="actions-column last">
+
+                                                Actions
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="5" class="last">
+                                                There are no user groups for this area.
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+
+
+                                </table>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+
+</div>

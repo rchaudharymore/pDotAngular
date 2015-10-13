@@ -1,0 +1,199 @@
+﻿<div id="wrapper">
+
+    <div id="contentWrap">
+        <div id="content">
+
+            <ul id="bread-crumbs" class="breadcrumb">
+                <li>
+                    <a href="/" title="Home"><i class="icon-home"></i></a>
+                </li>
+                <li class="crumb-divider">  / </li>
+                <li>
+                    <a href="/marketing">Marketing</a>
+                </li>
+            </ul>
+
+            <h1>Email Rendering Tests</h1>
+
+            <div class="divider"></div>
+
+
+
+            <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+                <script type="text/javascript" src="/js/jquery/jquery.fancybox.js?id=012413"></script>
+                <link rel="stylesheet" type="text/css" media="screen" href="/css/jquery.fancybox.css?v=1.1">
+
+
+
+
+
+
+
+
+                <div id="emailTest">
+
+                    <div id="litmutSet_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                    <div id="litmutSet_module" class="module">
+
+                        <div class="header clearfix">
+
+                            <h2 id="emailTest_h2" class="pull-left"></h2>
+
+
+
+
+
+
+
+
+                        </div>
+                        <div id="litmutSet_wrapper" class="module-wrapper">
+                            <div id="emailTest_table_div">
+
+
+                                <input type="hidden" id="emailTest_ajax_urlparams" value="sort=litmus_test_set.created_at&amp;order=desc&amp;pageSize=5&amp;startDate=%401439638788&amp;endDate=%401444287599&amp;dateText=Date+Range%3A&amp;ajaxElement=emailTest&amp;numResults=1">
+                                <table id="emailTest_table" class="data-table table-bordered">
+                                    <thead>
+                                        <tr>
+
+
+                                            <th class="first name-column">
+
+                                                Name
+                                            </th>
+
+
+                                            <th class="subject-column">
+
+                                                Subject
+                                            </th>
+
+
+                                            <th class="owner-column">
+
+                                                Owner
+                                            </th>
+
+
+
+
+                                            <th class="sortable sort-down created-at-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('emailTest_table_div', '/emailTest/table/ajax/1/page/1/order/asc/sort/litmus_test_set.created_at/pageSize/5/startDate/%401439638788/endDate/%401444287599/dateText/Date+Range%3A/ajaxElement/emailTest', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=c8eb9b1bcbfde3f7594f99d94ad3ea934085181b277b4b071be992bee95bb564539b1227091b2f789c96d1f6fe7e3acf'});; return false;">Created at</a>
+
+                                                <i class="icon-circle-arrow-down muted"></i>
+                                            </th>
+
+
+
+                                            <th class="status-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('emailTest_table_div', '/emailTest/table/ajax/1/page/1/order/desc/sort/litmus_test_set.status/pageSize/5/startDate/%401439638788/endDate/%401444287599/dateText/Date+Range%3A/ajaxElement/emailTest', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=5a3111704372fa12f3396b94e586830ee1e6b08f97c9ca6718407b9147efb48e650640e7f4476a2a0fa62beac3d3917e'});; return false;">Status</a>
+
+                                            </th>
+
+
+                                            <th class="actions-column last">
+
+                                                Actions
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr class="" id="emailTest_row_a0">
+
+                                            <td class="first ">
+                                                <a class="ajaxFancybox" href="/emailTest/read/id/266">RSG Promotion</a>
+                                            </td>
+
+                                            <td>
+                                                Proof - HURRY! Limited time promo on ...
+                                            </td>
+
+                                            <td>
+                                                Pardot Support
+                                            </td>
+
+                                            <td>
+                                                Sep 25, 2015 1:45 PM
+                                            </td>
+
+                                            <td>
+                                                Complete
+                                            </td>
+
+                                            <td class="new-actions last">
+                                                <div class="actions-menu-wrapper">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog muted"></i></a>	<ul class="dropdown-menu pull-right" role="menu">
+                                                        <li><a href="#" onclick="if (window.confirm('Are you sure?')) { new Ajax.Updater('emailTest_row_b_cell0', '/emailTest/delete/id/266/prefix/emailTest', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplayAnimated('emailTest_row_a0', false, null, true);if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('emailTest_table_footer', false); }}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=40065f0787258605cc243005d338240ca59c44576942b0ea7c8f97afd4dd926dac9f07c6b5054f90eb1a6b61f14b9cd1'}); };; return false;"><i class="icon-trash muted" title="Delete"></i> Delete</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr style="display:none" id="emailTest_row_b0" class="ajax_row">
+                                            <td colspan="6" id="emailTest_row_b_cell0" class="last"></td>
+                                        </tr>
+                                    </tbody>
+
+
+                                </table>
+
+
+
+                                <div class="table-foot clearfix">
+                                    <div id="litmutSet_table_footer">
+                                        <form id="emailTestform" class="inline litmutSet-pager-form pager-form" onsubmit="new Ajax.Updater('emailTest_table_div', '/emailTest/table/ajax/1/sort/litmus_test_set.created_at/order/desc/pageSize/5/startDate/%401439638788/endDate/%401444287599/dateText/Date+Range%3A/ajaxElement/emailTest', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('litmutSet_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:Form.serialize(this)}); return false;" action="/emailTest/table/ajax/1/sort/litmus_test_set.created_at/order/desc/pageSize/5/startDate/%401439638788/endDate/%401444287599/dateText/Date+Range%3A/ajaxElement/emailTest" method="post">
+                                            <div style="display:none;"><input type="hidden" name="_csrf_token" value="32ac3ce070c0597c98ad4e1d2c00d7bfb38aa9ec036325cd3efe18e74833182900eab72e46e41784581f61dae59f95ab"></div>						<ul class="inline pull-right paging">
+                                                <li>
+                                                </li>
+
+                                                <li>
+                                                    Page
+                                                    1
+                                                    of
+                                                    <a class="pager-last" href="#" onclick="cancelAllPendingAjax(); new Ajax.Updater('emailTest_table_div', '/emailTest/table/ajax/1/page/1/sort/litmus_test_set.created_at/order/desc/pageSize/5/startDate/%401439638788/endDate/%401444287599/dateText/Date+Range%3A/ajaxElement/emailTest', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=a53f69f1b54c85fe1379f95b2acaa8ecffd348ae4d7a951528c36632054d7cf6734048971f6793efb0591ee5b2b10c7d'});; return false;">1</a>
+                                                </li>
+
+                                                <li class="last">
+                                                </li>
+                                            </ul>
+                                            <p class="inline pull-right">
+                                                Showing
+                                                <select name="pageSize" id="litmutSetpageSize" onchange="$(&quot;emailTestform&quot;).onsubmit();return false;" class="input-auto">
+                                                    <option value="5" selected="selected">5</option>
+                                                    <option value="10">10</option>
+                                                    <option value="15">15</option>
+                                                    <option value="25">25</option>
+                                                    <option value="50">50</option>
+                                                </select>											 of <strong>1</strong>																															<input type="hidden" name="view" id="litmutSet1_view" value="">																								<input type="hidden" name="mode" id="litmutSet1_mode" value="">																								<input type="hidden" name="tableName" id="litmutSet1_tableName" value="">																								<input type="hidden" name="campaign_id" id="litmutSet1_campaign_id" value="">																								<input type="hidden" name="prospect_id" id="litmutSet1_prospect_id" value="">																								<input type="hidden" name="visitor_id" id="litmutSet1_visitor_id" value="">																								<input type="hidden" name="visit_id" id="litmutSet1_visit_id" value="">																								<input type="hidden" name="user_id" id="litmutSet1_user_id" value="">																								<input type="hidden" name="query" id="litmutSet1_query" value="">																																			<input type="hidden" name="prefix" id="litmutSet1_prefix" value="">																								<input type="hidden" name="export" id="litmutSet1_export" value="">																								<input type="hidden" name="startDate" id="litmutSet1_startDate" value="@1439638788">																								<input type="hidden" name="endDate" id="litmutSet1_endDate" value="@1444287599">																								<input type="hidden" name="dateText" id="litmutSet1_dateText" value="Date Range:">
+                                            </p>
+                                        </form>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+
+</div>

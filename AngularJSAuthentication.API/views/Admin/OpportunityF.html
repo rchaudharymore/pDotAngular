@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div id="contentWrap">
+        <div id="content">
+
+            <ul id="bread-crumbs" class="breadcrumb">
+                <li>
+                    <a href="/" title="Home"><i class="icon-home"></i></a>
+                </li>
+                <li class="crumb-divider">  / </li>
+                <li>
+                    <a href="/opportunity">Opportunities</a>
+                </li>
+            </ul>
+
+            <h1>Opportunities</h1>
+
+            <div class="divider"></div>
+
+
+
+            <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div id="custom_fields">
+
+                    <div id="custom_fields_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                    <div id="custom_fields_module" class="module">
+
+                        <div class="header clearfix">
+
+                            <h2 id="custom_fields_h2">
+                                Custom Fields
+                            </h2>
+
+
+
+                            <form id="custom_fields_date_range_form" class="inline" onsubmit="new Ajax.Updater('custom_fields_table_div', '/field/table/ajax/1', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('custom_fields_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('custom_fields_ajax_urlparams').value + '&amp;'  + Form.serialize(this) }); return false;" action="/field/table/ajax/1" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="dc8b33eaa5b85984048e8fa31801b4ffe6bdb27d5daeca59c289a4712985df0e24f77a03c18d3438cb4a0eefd3ff0e51"></div>
+                                <p class="inline header">
+
+                                    <span id="datetext_header">
+                                        Updated <small>(Based on 12am EDT)</small>:
+                                    </span> <br>
+
+                                    <select name="dateRange" id="dateRange_custom_fields" onchange="customDates = document.getElementById('custom_fields_custom_dates');if(this.value==7) {
+								customDates.removeClassName(&quot;hidden&quot;);
+							 } else {
+							 	$('custom_fields_date_range_form').onsubmit();
+							 	customDates.addClassName(&quot;hidden&quot;);
+							 }" class="input-auto">
+                                        <option value="1">Today</option>
+                                        <option value="2">Yesterday</option>
+                                        <option value="4">This Month</option>
+                                        <option value="10">This Quarter</option>
+                                        <option value="11">This Year</option>
+                                        <option value="3">Last 7 Days</option>
+                                        <option value="14">Last Week</option>
+                                        <option value="5">Last Month</option>
+                                        <option value="12">Last Quarter</option>
+                                        <option value="13">Last Year</option>
+                                        <option value="6" selected="selected">All Time</option>
+                                        <option value="7">Custom</option>
+                                    </select>						<span id="custom_fields_custom_dates" class="datepickerBS inline header hidden">
+                                        <input type="text" name="startDate" id="custom_fieldsstartDate" value="2015-08-15" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_custom_fieldsstartDate">...</button>
+                                        <script type="text/javascript">
+    document.getElementById("trigger_custom_fieldsstartDate").disabled = false;
+    Calendar.setup({
+      inputField : "custom_fieldsstartDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_custom_fieldsstartDate"
+    });
+                                        </script>
+                                        &nbsp;to&nbsp;
+
+                                        <input type="text" name="endDate" id="custom_fieldsendDate" value="2015-10-08" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_custom_fieldsendDate">...</button>
+                                        <script type="text/javascript">
+    document.getElementById("trigger_custom_fieldsendDate").disabled = false;
+    Calendar.setup({
+      inputField : "custom_fieldsendDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_custom_fieldsendDate"
+    });
+                                        </script>
+                                        &nbsp;
+                                        <input type="submit" name="commit" value="Go" class="btn btn-primary">
+                                    </span>
+                                </p>
+                            </form>
+
+
+                            <form id="custom_fields_filter" class="inline" onsubmit="new Ajax.Updater('custom_fields_table_div', '/field/table/ajax/1/dateText/Updated%3A', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('custom_fields_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('custom_fields_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/field/table/ajax/1/dateText/Updated%3A" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="dc8b33eaa5b85984048e8fa31801b4ffe6bdb27d5daeca59c289a4712985df0e24f77a03c18d3438cb4a0eefd3ff0e51"></div>
+                                <p class="inline header">
+                                    Filter:<br>
+                                    <input type="text" name="table_filter" id="custom_fields_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;custom_fields_filter&quot;).onsubmit()',600);" class="input-medium">
+                                </p>
+                            </form>
+
+                            <br>			<div class="btn-group pull-right">
+                                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Tools			    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+
+
+                                    <li><a onclick="location='/field/export?' + $('custom_fields_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                </ul>
+                            </div>
+
+
+                            <span class="link_to_create pull-right">
+                                <a href="/field/createAjax/object_type/2" id="custom_fields_link_create" class="btn btn-warning"><i class="icon-plus"></i> Add custom field</a>
+                                <script type="text/javascript">
+	jQuery('a#custom_fields_link_create').click(function() {
+		jQuery("#indicator").show();
+		if(jQuery('html').is('.ie'))
+			toggleDisplay("custom_fields_table_footer", false);
+		jQuery.ajax({
+			url: "/field/createAjax/object_type/2",
+			beforeSend: function(jqXHR, settings) {
+				// TODO: Compensate for existing data?
+				settings.data += jQuery("#custom_fields_ajax_urlparams").attr('value');
+			},
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#custom_fields_status").html(data);
+				toggleDisplay("custom_fields_status", true);
+				new Effect.Highlight('custom_fields_status', {duration:2});
+			}
+		});
+		return false;
+	});
+                                </script>
+                            </span>
+                        </div>
+                        <div id="custom_fields_wrapper" class="module-wrapper">
+                            <div id="custom_fields_table_div">
+
+
+                                <input type="hidden" id="custom_fields_ajax_urlparams" value="sort=field.name&amp;order=desc&amp;dateRange=6&amp;objectType=2&amp;fieldType=custom&amp;ajaxElement=custom_fields&amp;startDate=%401439638788&amp;endDate=%401444373999&amp;numResults=0">
+                                <table id="custom_fields_table" class="data-table table-bordered">
+                                    <thead>
+                                        <tr>
+
+
+
+
+                                            <th class="sortable sort-down first name-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('custom_fields_table_div', '/field/table/ajax/1/page/1/order/asc/sort/field.name/dateRange/6/objectType/2/fieldType/custom/ajaxElement/custom_fields/startDate/%401439638788/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=b4a621713f93182016fb6bc712ca6c99d53327908dfaf17d3b9832990d19c9744065448b009d0428c0d4164a419dec41'});; return false;">Name</a>
+
+                                                <i class="icon-circle-arrow-down muted"></i>
+                                            </th>
+
+
+
+                                            <th class="type-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('custom_fields_table_div', '/field/table/ajax/1/page/1/order/desc/sort/field.type/dateRange/6/objectType/2/fieldType/custom/ajaxElement/custom_fields/startDate/%401439638788/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=573928069166d793a3f9189895d7dabe255c6353c0d5609d7586554226151e20d8576e424e987f413b5713a5c64af8f7'});; return false;">Type</a>
+
+                                            </th>
+
+
+
+                                            <th class="crm-field-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('custom_fields_table_div', '/field/table/ajax/1/page/1/order/desc/sort/field.crm_field_fid/dateRange/6/objectType/2/fieldType/custom/ajaxElement/custom_fields/startDate/%401439638788/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=d907943271fd80e86d730ae537286b836f8b6c73e9993664015a650d7ec15473ee8986af188eb4563082cb38a183ad4c'});; return false;">CRM Field</a>
+
+                                            </th>
+
+
+
+                                            <th class="updated-at-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('custom_fields_table_div', '/field/table/ajax/1/page/1/order/desc/sort/field.updated_at/dateRange/6/objectType/2/fieldType/custom/ajaxElement/custom_fields/startDate/%401439638788/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=e12323fe2ebff099bd0de623076984cb3bb922117aaa555ec2540106192d731d38c6d77016d1fb4baeacbd0d755c1b60'});; return false;">Updated At</a>
+
+                                            </th>
+
+
+                                            <th class="actions-column last">
+
+                                                Actions
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="5" class="last">
+                                                There are no custom fields for this area.
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+
+
+                                </table>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,813 @@
+﻿<div id="wrap" class="clearfix">
+    <!--[if IE 7]>
+    <div id="ieCompatibility">
+        <img style="vertical-align: text-top;" src="/images/error.png"/>
+        <strong>Warning</strong>: Your browser is in Compatibility Mode. For things to work correctly, you need to <a href="http://help.pardot.com/faqs/administration/turning-off-compatibility-mode-in-ie" target="_blank">turn it off</a>.
+    </div>
+    <![endif]-->
+    <p class="hidden">
+        <a href="#content">Skip navigation</a>
+    </p>
+    <div id="wrapper">
+
+        <div id="contentWrap">
+            <div id="content">
+
+
+                <h1>Reports</h1>
+
+                <div class="divider"></div>
+
+
+
+                <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div id="ca-bubble-wrapper" class="bubble-chart">
+                        <div id="tagFilterca-bubble-tagFilter" class="tagfilter-pop-up dropdown-menu" style="display: none;"><input type="text" id="tagFilterSearchca-bubble-tagFilter" value=""><div class="scroller"><ul id="tagFilterSelectorca-bubble-tagFilter"><li></li></ul></div><a href="#" style="float: left;">Clear filter</a>  <a href="/tag" style="float: right;">Manage tags</a></div><div class="module">
+                            <div class="header clearfix">
+                                <h2>Campaign Performance</h2>
+
+                                <!-- VIEW FILTER -->
+                                <form class="views inline" id="ca-bubble-viewFilter">
+                                    <p class="inline header table-views">
+                                        View:<br>
+                                        <select name="view" id="view" onchange="return false;" class="input-auto">
+                                            <option value="current">Current Campaigns</option>
+                                            <option value="archived" selected="selected">Archived Campaigns</option>
+                                            <option value="all">All Campaigns</option>
+                                        </select>
+                                    </p>
+                                </form>
+
+                                <!-- DATE FILTER -->
+                                <div id="ca-bubble-dateFilter">
+                                    <form class="inline date-filter" method="GET">
+                                        <p class="inline header">
+                                            Date Range <small>(Based on 12am EDT)</small>:		<br>
+                                            <select name="dateRange" id="dateRange" class="input-auto">
+                                                <option value="1">Today</option>
+                                                <option value="2">Yesterday</option>
+                                                <option value="4">This Month</option>
+                                                <option value="10">This Quarter</option>
+                                                <option value="11">This Year</option>
+                                                <option value="3">Last 7 Days</option>
+                                                <option value="14">Last Week</option>
+                                                <option value="5" selected="selected">Last Month</option>
+                                                <option value="12">Last Quarter</option>
+                                                <option value="13">Last Year</option>
+                                                <option value="6">All Time</option>
+                                                <option value="7">Custom</option>
+                                            </select>		<span class="custom-range" style="display: none">
+                                                <input type="text" name="startDate" id="startDate" value="2015-09-01" class="datepicker start input-small" maxlength="10" size="12">			-
+                                                <input type="text" name="endDate" id="endDate" value="2015-10-01" class="datepicker end input-small" maxlength="10" size="12">
+                                                <button type="submit" class="btn btn-primary">Go</button>
+                                            </span>
+                                        </p>
+                                    </form>
+                                </div>
+
+                                <!-- TAG FILTER -->
+                                <br>
+                                <form id="ca-bubble-tagFilter" class="inline tag-filter-form" onsubmit="return false;">
+                                    <p class="inline header" id="tagFilterContainerca-bubble-tagFilter"><button  class="btn">Tags <span class="caret"></span></button><span id="tagFilterListca-bubble-tagFilter"></span><input type="hidden" id="tagFilterInputca-bubble-tagFilter" name="tagFilter" value=""></p>
+                               
+                                </form>
+
+                            </div>
+
+                            <div class="row-fluid">
+                                <div id="ca-bubble-chart" style="height: 400px;" class="span10"><div style="position: relative;"><div dir="ltr" style="position: relative; width: 1061px; height: 400px;"><div style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;" aria-label="A chart."><svg width="1061" height="400" aria-label="A chart." style="overflow: hidden;"><defs id="defs"><linearGradient id="_ABSTRACT_RENDERER_ID_0" x1="94.35788383248865" y1="6" x2="532.5" y2="6" gradientUnits="userSpaceOnUse"><stop offset="0%" style="stop-color:#4eb1cb;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#eac95a;stop-opacity:1"></stop></linearGradient><linearGradient id="_ABSTRACT_RENDERER_ID_1" x1="532.5" y1="6" x2="970.6421161675114" y2="6" gradientUnits="userSpaceOnUse"><stop offset="0%" style="stop-color:#eac95a;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#cf5c60;stop-opacity:1"></stop></linearGradient><clipPath id="_ABSTRACT_RENDERER_ID_2"><rect x="80" y="25" width="902" height="320"></rect></clipPath></defs><g><rect x="94.35788383248865" y="11.95" width="438.14211616751135" height="9.05" stroke="none" stroke-width="0" fill="url(#_ABSTRACT_RENDERER_ID_0)"></rect><rect x="532.5" y="11.95" width="438.1421161675114" height="9.05" stroke="none" stroke-width="0" fill="url(#_ABSTRACT_RENDERER_ID_1)"></rect><text text-anchor="start" x="80" y="19.5" font-family="Arial" font-size="10" stroke="none" stroke-width="0" fill="#666666">-1</text><text text-anchor="start" x="976" y="19.5" font-family="Arial" font-size="10" stroke="none" stroke-width="0" fill="#666666">1</text><rect x="80" y="6" width="902" height="15" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g><g><rect x="80" y="25" width="902" height="320" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g clip-path="url(#_ABSTRACT_RENDERER_ID_2)"><g><rect x="80" y="25" width="1" height="320" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="125" y="25" width="1" height="320" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="170" y="25" width="1" height="320" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="215" y="25" width="1" height="320" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="260" y="25" width="1" height="320" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="305" y="25" width="1" height="320" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="350" y="25" width="1" height="320" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="395" y="25" width="1" height="320" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="440" y="25" width="1" height="320" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="485" y="25" width="1" height="320" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="531" y="25" width="1" height="320" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="576" y="25" width="1" height="320" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="621" y="25" width="1" height="320" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="666" y="25" width="1" height="320" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="711" y="25" width="1" height="320" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="756" y="25" width="1" height="320" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="801" y="25" width="1" height="320" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="846" y="25" width="1" height="320" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="891" y="25" width="1" height="320" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="936" y="25" width="1" height="320" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="981" y="25" width="1" height="320" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="80" y="344" width="902" height="1" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="80" y="264" width="902" height="1" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="80" y="185" width="902" height="1" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="80" y="105" width="902" height="1" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="80" y="25" width="902" height="1" stroke="none" stroke-width="0" fill="#cccccc"></rect></g><g><rect x="531" y="25" width="1" height="320" stroke="none" stroke-width="0" fill="#888888"></rect><rect x="80" y="185" width="902" height="1" stroke="none" stroke-width="0" fill="#888888"></rect></g></g><g></g><g><g><text text-anchor="middle" x="80.5" y="359.5" font-family="Arial" font-size="10" stroke="none" stroke-width="0" fill="#666666">-£1</text></g><g><text text-anchor="middle" x="125.54999999999998" y="359.5" font-family="Arial" font-size="10" stroke="none" stroke-width="0" fill="#666666">-£1</text></g><g><text text-anchor="middle" x="170.59999999999997" y="359.5" font-family="Arial" font-size="10" stroke="none" stroke-width="0" fill="#666666">-£1</text></g><g><text text-anchor="middle" x="215.65000000000003" y="359.5" font-family="Arial" font-size="10" stroke="none" stroke-width="0" fill="#666666">-£1</text></g><g><text text-anchor="middle" x="260.70000000000005" y="359.5" font-family="Arial" font-size="10" stroke="none" stroke-width="0" fill="#666666">-£1</text></g><g><text text-anchor="middle" x="305.75" y="359.5" font-family="Arial" font-size="10" stroke="none" stroke-width="0" fill="#666666">-£1</text></g><g><text text-anchor="middle" x="350.8" y="359.5" font-family="Arial" font-size="10" stroke="none" stroke-width="0" fill="#666666">-£0</text></g><g><text text-anchor="middle" x="395.84999999999997" y="359.5" font-family="Arial" font-size="10" stroke="none" stroke-width="0" fill="#666666">-£0</text></g><g><text text-anchor="middle" x="440.90000000000003" y="359.5" font-family="Arial" font-size="10" stroke="none" stroke-width="0" fill="#666666">-£0</text></g><g><text text-anchor="middle" x="485.95" y="359.5" font-family="Arial" font-size="10" stroke="none" stroke-width="0" fill="#666666">-£0</text></g><g><text text-anchor="middle" x="531" y="359.5" font-family="Arial" font-size="10" stroke="none" stroke-width="0" fill="#666666">£0</text></g><g><text text-anchor="middle" x="576.0500000000001" y="359.5" font-family="Arial" font-size="10" stroke="none" stroke-width="0" fill="#666666">£0</text></g><g><text text-anchor="middle" x="621.1" y="359.5" font-family="Arial" font-size="10" stroke="none" stroke-width="0" fill="#666666">£0</text></g><g><text text-anchor="middle" x="666.15" y="359.5" font-family="Arial" font-size="10" stroke="none" stroke-width="0" fill="#666666">£0</text></g><g><text text-anchor="middle" x="711.1999999999999" y="359.5" font-family="Arial" font-size="10" stroke="none" stroke-width="0" fill="#666666">£0</text></g><g><text text-anchor="middle" x="756.25" y="359.5" font-family="Arial" font-size="10" stroke="none" stroke-width="0" fill="#666666">£1</text></g><g><text text-anchor="middle" x="801.3000000000001" y="359.5" font-family="Arial" font-size="10" stroke="none" stroke-width="0" fill="#666666">£1</text></g><g><text text-anchor="middle" x="846.35" y="359.5" font-family="Arial" font-size="10" stroke="none" stroke-width="0" fill="#666666">£1</text></g><g><text text-anchor="middle" x="891.4" y="359.5" font-family="Arial" font-size="10" stroke="none" stroke-width="0" fill="#666666">£1</text></g><g><text text-anchor="middle" x="936.4499999999999" y="359.5" font-family="Arial" font-size="10" stroke="none" stroke-width="0" fill="#666666">£1</text></g><g><text text-anchor="middle" x="981.5" y="359.5" font-family="Arial" font-size="10" stroke="none" stroke-width="0" fill="#666666">£1</text></g><g><text text-anchor="end" x="70" y="348" font-family="Arial" font-size="10" stroke="none" stroke-width="0" fill="#666666">-100%</text></g><g><text text-anchor="end" x="70" y="268.25" font-family="Arial" font-size="10" stroke="none" stroke-width="0" fill="#666666">-50%</text></g><g><text text-anchor="end" x="70" y="188.5" font-family="Arial" font-size="10" stroke="none" stroke-width="0" fill="#666666">0%</text></g><g><text text-anchor="end" x="70" y="108.75" font-family="Arial" font-size="10" stroke="none" stroke-width="0" fill="#666666">50%</text></g><g><text text-anchor="end" x="70" y="29" font-family="Arial" font-size="10" stroke="none" stroke-width="0" fill="#666666">100%</text></g></g></g><g><g><text text-anchor="middle" x="531" y="385.4" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#666666">Cost</text></g><g><text text-anchor="middle" x="24.9" y="185" font-family="Arial" font-size="14" transform="rotate(-90 24.9 185)" stroke="none" stroke-width="0" fill="#666666">ROI</text></g></g><g></g></svg><div aria-label="A tabular representation of the data in the chart." style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;"><table><thead><tr><th>Name</th><th>Cost</th><th>ROI</th><th>Opportunities</th><th>Prospects</th></tr></thead><tbody></tbody></table></div></div></div><div aria-hidden="true" style="display: none; position: absolute; top: 410px; left: 1071px; white-space: nowrap; font-family: Arial; font-size: 10px;">1</div><div></div></div></div>
+                                <div style="height: 400px" class="span2">
+                                    <div class="control-group">
+                                        <label class="control-label muted" for="x"><small>X-Axis:</small></label>
+                                        <div class="controls">
+                                            <select name="ca-bubble-x" id="ca-bubble-x" onchange="return false;" class="input-block-level bubble-chart-dimension-select">
+                                                <option value="Cost" selected="selected">Cost</option>
+                                                <option value="Visitors">Visitors</option>
+                                                <option value="Prospects" disabled="disabled">Prospects</option>
+                                                <option value="Assigned Prospects">Assigned Prospects</option>
+                                                <option value="Opportunities" disabled="disabled">Opportunities</option>
+                                                <option value="Value">Value</option>
+                                                <option value="Revenue">Revenue</option>
+                                                <option value="Opportunities / Prospect">Opportunities / Prospect</option>
+                                                <option value="Cost / Opportunity">Cost / Opportunity</option>
+                                                <option value="ROI" disabled="disabled">ROI</option>
+                                            </select>												<div class="range-slider clearfix" id="ca-x-range">
+                                                <input type="text" class="input-micro pull-right no-margin" placeholder="max" id="ca-x-range-max" disabled="">
+                                                <input type="text" class="input-micro pull-left no-margin" placeholder="min" id="ca-x-range-min" disabled="">
+                                                <div class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all ui-slider-disabled ui-state-disabled" id="ca-x-range-slider" aria-disabled="true"><div class="ui-slider-range ui-widget-header" style="left: 0%; width: 100%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 0%;"></a><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 100%;"></a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label muted" for="y"><small>Y-Axis:</small></label>
+                                        <div class="controls">
+                                            <select name="ca-bubble-y" id="ca-bubble-y" onchange="return false;" class="input-block-level bubble-chart-dimension-select">
+                                                <option value="Cost" disabled="disabled">Cost</option>
+                                                <option value="Visitors">Visitors</option>
+                                                <option value="Prospects" disabled="disabled">Prospects</option>
+                                                <option value="Assigned Prospects">Assigned Prospects</option>
+                                                <option value="Opportunities" disabled="disabled">Opportunities</option>
+                                                <option value="Value">Value</option>
+                                                <option value="Revenue">Revenue</option>
+                                                <option value="Opportunities / Prospect">Opportunities / Prospect</option>
+                                                <option value="Cost / Opportunity">Cost / Opportunity</option>
+                                                <option value="ROI" selected="selected">ROI</option>
+                                            </select>												<div class="range-slider clearfix" id="ca-y-range">
+                                                <input type="text" class="input-micro pull-right no-margin" placeholder="max" id="ca-y-range-max" disabled="">
+                                                <input type="text" class="input-micro pull-left no-margin" placeholder="min" id="ca-y-range-min" disabled="">
+                                                <div class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all ui-slider-disabled ui-state-disabled" id="ca-y-range-slider" aria-disabled="true"><div class="ui-slider-range ui-widget-header" style="left: 0%; width: 100%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 0%;"></a><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 100%;"></a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label muted" for="size"><small>Size:</small></label>
+                                        <div class="controls">
+                                            <select name="ca-bubble-size" id="ca-bubble-size" onchange="return false;" class="input-block-level bubble-chart-dimension-select">
+                                                <option value="Cost" disabled="disabled">Cost</option>
+                                                <option value="Visitors">Visitors</option>
+                                                <option value="Prospects" selected="selected">Prospects</option>
+                                                <option value="Assigned Prospects">Assigned Prospects</option>
+                                                <option value="Opportunities" disabled="disabled">Opportunities</option>
+                                                <option value="Value">Value</option>
+                                                <option value="Revenue">Revenue</option>
+                                                <option value="Opportunities / Prospect">Opportunities / Prospect</option>
+                                                <option value="Cost / Opportunity">Cost / Opportunity</option>
+                                                <option value="ROI" disabled="disabled">ROI</option>
+                                            </select>												<div class="range-slider clearfix" id="ca-size-range">
+                                                <input type="text" class="input-micro pull-right no-margin" placeholder="max" id="ca-size-range-max" disabled="">
+                                                <input type="text" class="input-micro pull-left no-margin" placeholder="min" id="ca-size-range-min" disabled="">
+                                                <div class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all ui-slider-disabled ui-state-disabled" id="ca-size-range-slider" aria-disabled="true"><div class="ui-slider-range ui-widget-header" style="left: 0%; width: 100%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 0%;"></a><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 100%;"></a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label muted" for="color"><small>Color:</small></label>
+                                        <div class="controls">
+                                            <select name="ca-bubble-color" id="ca-bubble-color" onchange="return false;" class="input-block-level bubble-chart-dimension-select">
+                                                <option value="Cost" disabled="disabled">Cost</option>
+                                                <option value="Visitors">Visitors</option>
+                                                <option value="Prospects" disabled="disabled">Prospects</option>
+                                                <option value="Assigned Prospects">Assigned Prospects</option>
+                                                <option value="Opportunities" selected="selected">Opportunities</option>
+                                                <option value="Value">Value</option>
+                                                <option value="Revenue">Revenue</option>
+                                                <option value="Opportunities / Prospect">Opportunities / Prospect</option>
+                                                <option value="Cost / Opportunity">Cost / Opportunity</option>
+                                                <option value="ROI" disabled="disabled">ROI</option>
+                                            </select>												<div class="range-slider clearfix" id="ca-color-range">
+                                                <input type="text" class="input-micro pull-right no-margin" placeholder="max" id="ca-color-range-max" disabled="">
+                                                <input type="text" class="input-micro pull-left no-margin" placeholder="min" id="ca-color-range-min" disabled="">
+                                                <div class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all ui-slider-disabled ui-state-disabled" id="ca-color-range-slider" aria-disabled="true"><div class="ui-slider-range ui-widget-header" style="left: 0%; width: 100%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 0%;"></a><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 100%;"></a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-fluid">
+                                <div class="alert alert-error" id="ca-bubble-error" style="display: none;">
+                                    An error has occurred.  Please contact support@pardot.com for more information.
+                                </div>
+                            </div>
+                        </div>
+
+                        <script type="text/javascript">
+	// Don't do anything when date filter submits, BubbleChartView code will set up the real onchange event
+	$j('#ca-bubble-dateFilter form').submit(function(){return false;});
+
+	// Draw chart
+	var createChart = function() {
+		new BubbleChart('ca', 'campaign/getCampaignStatsBubbleData', 'campaign/saveDataForCampaignStatsBubbleChart', 100, [], {"columns":[{"label":"Name","value":"Name","type":"string","id":"0"},{"label":"Cost","value":"Cost","type":"number","id":"1"},{"label":"Visitors","value":"Visitors","type":"number","id":"2"},{"label":"Prospects","value":"Prospects","type":"number","id":"3"},{"label":"Assigned Prospects","value":"Assigned Prospects","type":"number","id":"4"},{"label":"Opportunities","value":"Opportunities","type":"number","id":"5"},{"label":"Value","value":"Value","type":"number","id":"6"},{"label":"Revenue","value":"Revenue","type":"number","id":"7"},{"label":"Opportunities \/ Prospect","value":"Opportunities \/ Prospect","type":"number","id":"8"},{"label":"Cost \/ Opportunity","value":"Cost \/ Opportunity","type":"number","id":"9"},{"label":"ROI","value":"ROI","type":"number","id":"10"}],"columnMap":{"name":{"value":"Name","label":"Name"},"x":{"value":"Cost","label":"Cost"},"y":{"value":"ROI","label":"ROI"},"size":{"value":"Prospects","label":"Prospects"},"color":{"value":"Opportunities","label":"Opportunities"}},"columnRanges":{"1min":"false","1max":"false","2min":"false","2max":"false","3min":"false","3max":"false","4min":"false","4max":"false","5min":"false","5max":"false","6min":"false","6max":"false","7min":"false","7max":"false","8min":"false","8max":"false","9min":"false","9max":"false","10min":"false","10max":"false"},"columnFormat":{"Cost":{"pattern":"\u00a4#,###"},"Value":{"pattern":"\u00a4#,###"},"Revenue":{"pattern":"\u00a4#,###"},"Cost \/ Opportunity":{"pattern":"\u00a4#,###"},"ROI":{"pattern":"#.##%"},"Opportunities \/ Prospect":{"pattern":"#.##"}}}, {"date":{"dateRange":"5","startDate":"@1441090800","endDate":"@1443682799"},"view":"archived","tag":""}, 'db82fa0301a87f3df6db2bd091cf604194c81bc603d00f3d812568277c0a0c3837c055fa40ba31cda66e807e045b25a7');
+	};
+
+	google.load("visualization", "1", {packages:["corechart"]});
+	google.setOnLoadCallback(createChart);
+
+	$j(function(){
+		var $bubbleChartSelects = $j(".bubble-chart-dimension-select");
+
+		function sendGoogleAnalytics(element, isInitialValue) {
+			var $this = $j(element);
+			var action = "";
+			var category = "Campaign Bubble Chart ";
+
+			if (isInitialValue) {
+				action = "Initial Dimension";
+				category = category + "Initial Dimension";
+			} else {
+				action = "Change Dimension";
+				category = category + "Change Dimension";
+			}
+
+			var axis = $this.closest('.controls').siblings('.control-label').text();
+			axis = axis.substring(0, axis.length - 1);
+			var selectedValue = $j("option[value='" + $this.val() + "']", $this).text();
+			googleAnalytics("send", "event", category, axis, selectedValue);
+		}
+
+		$bubbleChartSelects.each(function(index, element){
+			sendGoogleAnalytics(element, true);
+		});
+
+		$bubbleChartSelects.change(function(e){
+			sendGoogleAnalytics(this, false);
+		});
+
+
+	});
+                        </script>
+                        <script src="https://www.google.com/uds/?file=visualization&amp;v=1&amp;packages=corechart" type="text/javascript"></script><link href="https://www.google.com/uds/api/visualization/1.0/d90be93871e947a274f6a5157bd75fb0/ui+en_GB.css" type="text/css" rel="stylesheet">
+                        <script src="https://www.google.com/uds/api/visualization/1.0/d90be93871e947a274f6a5157bd75fb0/format+en_GB,default+en_GB,ui+en_GB,corechart+en_GB.I.js" type="text/javascript"></script>
+                    </div>
+
+
+
+
+
+
+
+
+                    <div id="campaign">
+
+                        <div id="ca_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                        <div id="tagFiltercampaign" class="tagfilter-pop-up dropdown-menu" style="display: none;"><input type="text" id="tagFilterSearchcampaign" value=""><div class="scroller"><ul id="tagFilterSelectorcampaign"><li></li></ul></div><a href="#"  style="float: left;">Clear filter</a>  <a href="/tag" style="float: right;">Manage tags</a></div><div id="ca_module" class="module">
+
+                            <div class="header clearfix">
+
+                                <h2 id="campaign_h2">
+                                    Campaign Report
+                                </h2>
+
+                                <form id="campaign_view" class="views inline" onsubmit="new Ajax.Updater('campaign_table_div', '/campaign/reportTable/ajax/1', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('ca_status', true);$('campaign_h2').innerHTML = $('campaign_view_field').options[$('campaign_view_field').selectedIndex].text;}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('campaign_ajax_urlparams').value + '&amp;'  + Form.serialize(this) }); return false;" action="/campaign/reportTable/ajax/1" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="2d98ac6438950531a942d4a0c4bca11b0ff1f1446b87e119c218aff252be8e97e23f5e719a63ecf11d8f836559ca975b"></div>				<p class="inline header table-views">
+                                        View:<br>
+                                        <select name="view" id="campaign_view_field" onchange="$(&quot;campaign_view&quot;).onsubmit();return false;" class="input-auto">
+                                            <option value="current" selected="selected">Current Campaigns</option>
+                                            <option value="archived">Archived Campaigns</option>
+                                            <option value="all">All Campaigns</option>
+                                        </select>					<input type="hidden" name="view_change" id="view_change" value="true">
+                                    </p>
+                                </form>
+
+
+                                <form id="campaign_date_range_form" class="inline" onsubmit="new Ajax.Updater('campaign_table_div', '/campaign/reportTable/ajax/1', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('ca_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('campaign_ajax_urlparams').value + '&amp;'  + Form.serialize(this) }); return false;" action="/campaign/reportTable/ajax/1" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="2d98ac6438950531a942d4a0c4bca11b0ff1f1446b87e119c218aff252be8e97e23f5e719a63ecf11d8f836559ca975b"></div>
+                                    <p class="inline header">
+
+                                        <span id="datetext_header">
+                                            Date Range  <small>(Based on 12am EDT)</small>:
+                                        </span> <br>
+
+                                        <select name="dateRange" id="dateRange_ca" onchange="customDates = document.getElementById('ca_custom_dates');if(this.value==7) {
+								customDates.removeClassName(&quot;hidden&quot;);
+							 } else {
+							 	$('campaign_date_range_form').onsubmit();
+							 	customDates.addClassName(&quot;hidden&quot;);
+							 }" class="input-auto">
+                                            <option value="1">Today</option>
+                                            <option value="2">Yesterday</option>
+                                            <option value="4">This Month</option>
+                                            <option value="10">This Quarter</option>
+                                            <option value="11">This Year</option>
+                                            <option value="3">Last 7 Days</option>
+                                            <option value="14">Last Week</option>
+                                            <option value="5" selected="selected">Last Month</option>
+                                            <option value="12">Last Quarter</option>
+                                            <option value="13">Last Year</option>
+                                            <option value="6">All Time</option>
+                                            <option value="7">Custom</option>
+                                        </select>						<span id="ca_custom_dates" class="datepickerBS inline header hidden">
+                                            <input type="text" name="startDate" id="castartDate" value="2015-09-01" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_castartDate">...</button>
+                                            <script type="text/javascript">
+    document.getElementById("trigger_castartDate").disabled = false;
+    Calendar.setup({
+      inputField : "castartDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_castartDate"
+    });
+                                            </script>
+                                            &nbsp;to&nbsp;
+
+                                            <input type="text" name="endDate" id="caendDate" value="2015-09-30" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_caendDate">...</button>
+                                            <script type="text/javascript">
+    document.getElementById("trigger_caendDate").disabled = false;
+    Calendar.setup({
+      inputField : "caendDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_caendDate"
+    });
+                                            </script>
+                                            &nbsp;
+                                            <input type="submit" name="commit" value="Go" class="btn btn-primary">
+                                        </span>
+                                    </p>
+                                </form>
+
+
+                                <form id="campaign_filter" class="inline" onsubmit="new Ajax.Updater('campaign_table_div', '/campaign/reportTable/ajax/1/dateText/Date+Range%3A+', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('ca_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('campaign_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/campaign/reportTable/ajax/1/dateText/Date+Range%3A+" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="2d98ac6438950531a942d4a0c4bca11b0ff1f1446b87e119c218aff252be8e97e23f5e719a63ecf11d8f836559ca975b"></div>
+                                    <p class="inline header">
+                                        Filter:<br>
+                                        <input type="text" name="table_filter" id="campaign_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;campaign_filter&quot;).onsubmit()',600);" class="input-medium">
+                                    </p>
+                                </form>
+                                <br>
+                                <form id="campaign_tagFilter" class="aaa inline tag-filter-form" onsubmit="new Ajax.Updater('campaign_table_div', '/campaign/reportTable/ajax/1/dateText/Date+Range%3A+/table_filter', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('ca_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('campaign_ajax_urlparams').value.replace('tagFilter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/campaign/reportTable/ajax/1/dateText/Date+Range%3A+/table_filter" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="2d98ac6438950531a942d4a0c4bca11b0ff1f1446b87e119c218aff252be8e97e23f5e719a63ecf11d8f836559ca975b"></div>					<p class="inline header" id="tagFilterContainercampaign"><button  class="btn">Tags <span class="caret"></span></button><span id="tagFilterListcampaign"></span><input type="hidden" id="tagFilterInputcampaign" name="tagFilter" value=""></p>
+                               
+                                </form>
+
+                                <div class="btn-group pull-right">
+                                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                        Tools			    <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+
+
+                                        <li><a onclick="location='/campaign/exportReport?' + $('campaign_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                            <div id="ca_wrapper" class="module-wrapper">
+                                <div id="campaign_table_div">
+
+
+                                    <input type="hidden" id="campaign_ajax_urlparams" value="sort=campaign.name&amp;order=asc&amp;tableName=campaignReport&amp;pageSize=5&amp;prefix=none&amp;export=icon&amp;startDate=%401441090800&amp;endDate=%401443682799&amp;dateText=Date+Range%3A&amp;dateRange=5&amp;tagFilter=+&amp;ajaxElement=campaign&amp;startDate=%401441090800&amp;endDate=%401443682799&amp;numResults=2">
+                                    <table class="data-table table-bordered">
+                                        <thead>
+                                            <tr>
+
+
+
+                                                <th class="sortable sort-up first name-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('campaign_table_div', '/campaign/reportTable/ajax/1/page/1/order/desc/sort/campaign.name/tableName/campaignReport/pageSize/5/prefix/none/export/icon/startDate/%401441090800/endDate/%401443682799/dateText/Date+Range%3A/dateRange/5/tagFilter/+/ajaxElement/campaign', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=29988b05033d4bc7529758e010bfb3bc288184f7bb0d3e8480d26ca8b9fbdd74f009dd12c7fea8b0530f225ea5e0dd2b'});; return false;">Name</a>
+
+                                                    <i class="icon-circle-arrow-up muted"></i>
+                                                </th>
+
+
+
+                                                <th class="visitors-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('campaign_table_div', '/campaign/reportTable/ajax/1/page/1/order/desc/sort/campaign_stats.visitors/tableName/campaignReport/pageSize/5/prefix/none/export/icon/startDate/%401441090800/endDate/%401443682799/dateText/Date+Range%3A/dateRange/5/tagFilter/+/ajaxElement/campaign', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=296beba8da0aea5917f80f9ba15916864035b7c050df23477671d425bb2ac62146a4df02f3a7f8aa016ea93d2707c71e'});; return false;">Visitors</a>
+
+                                                </th>
+
+
+
+                                                <th class="prospects-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('campaign_table_div', '/campaign/reportTable/ajax/1/page/1/order/desc/sort/campaign_stats.prospects/tableName/campaignReport/pageSize/5/prefix/none/export/icon/startDate/%401441090800/endDate/%401443682799/dateText/Date+Range%3A/dateRange/5/tagFilter/+/ajaxElement/campaign', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=9ae42dac756e278c10ad22d29ce382788b6c0defd2e867f1e26a3175d363c3319f3d5cb214bc1543e2d04da708ba42bc'});; return false;">Prospects</a>
+
+                                                </th>
+
+
+
+                                                <th class="assigned-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('campaign_table_div', '/campaign/reportTable/ajax/1/page/1/order/desc/sort/campaign_stats.assigned_prospects/tableName/campaignReport/pageSize/5/prefix/none/export/icon/startDate/%401441090800/endDate/%401443682799/dateText/Date+Range%3A/dateRange/5/tagFilter/+/ajaxElement/campaign', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=117a078c6bbbfb538cb784ff59a7f580f94f25a48903759030ebcf1aa4cb7ebe43e7bd64dc1573595007fd092151f44f'});; return false;">Assigned</a>
+
+                                                </th>
+
+
+                                                <th class="cost--prospect-column">
+
+                                                    Cost / Prospect
+                                                </th>
+
+
+                                                <th class="opportunities-column">
+
+                                                    Opportunities
+                                                </th>
+
+
+                                                <th class="opps--prospects-column">
+
+                                                    Opps / Prospects
+                                                </th>
+
+
+                                                <th class="cost--opp-column">
+
+                                                    Cost / Opp
+                                                </th>
+
+
+                                                <th class="value-column">
+
+                                                    Value
+                                                </th>
+
+
+                                                <th class="revenue-column">
+
+                                                    Revenue
+                                                </th>
+
+
+                                                <th class="roi-column last">
+
+                                                    ROI
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr id="ca_row_a934">
+                                                <td class="first ">
+                                                    <a href="/report/read/campaign_id/934">Sync from Salesforce</a>
+                                                </td>
+                                                <td class="">
+                                                    0
+                                                </td>
+                                                <td class="">
+                                                    1
+                                                </td>
+                                                <td class="">
+                                                    1
+                                                </td>
+                                                <td class="">
+                                                    $0.00
+                                                </td>
+                                                <td class="">
+                                                    0
+                                                </td>
+                                                <td class="">
+                                                    0.00%
+                                                </td>
+                                                <td class="">
+                                                    $0.00
+                                                </td>
+                                                <td class="">
+                                                    $0.00
+                                                </td>
+                                                <td class="">
+                                                    $0.00
+                                                </td>
+                                                <td class="last">
+                                                    0.00%
+                                                </td>
+                                            </tr>
+                                            <tr style="display:none" id="ca_row_b934" class="ajax_row">
+                                                <td colspan="2" id="ca_row_b_cell934" class="last"></td>
+                                            </tr>
+                                            <tr class="even" id="ca_row_a286">
+                                                <td class="first ">
+                                                    <a href="/report/read/campaign_id/286">Website Tracking</a>
+                                                </td>
+                                                <td class="">
+                                                    701
+                                                </td>
+                                                <td class="">
+                                                    0
+                                                </td>
+                                                <td class="">
+                                                    0
+                                                </td>
+                                                <td class="">
+                                                    $0.00
+                                                </td>
+                                                <td class="">
+                                                    0
+                                                </td>
+                                                <td class="">
+                                                    0.00%
+                                                </td>
+                                                <td class="">
+                                                    $0.00
+                                                </td>
+                                                <td class="">
+                                                    $0.00
+                                                </td>
+                                                <td class="">
+                                                    $0.00
+                                                </td>
+                                                <td class="last">
+                                                    0.00%
+                                                </td>
+                                            </tr>
+                                            <tr style="display:none" id="ca_row_b286" class="ajax_row">
+                                                <td colspan="2" id="ca_row_b_cell286" class="last"></td>
+                                            </tr>
+                                            <tr class="totals" id="ca_row_total">
+                                                <td class="first">
+                                                    Total: 2
+                                                </td>
+                                                <td>
+                                                    701
+                                                </td>
+                                                <td>
+                                                    1
+                                                </td>
+                                                <td>
+                                                    1
+                                                </td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td class="last"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+
+
+                                    <div class="table-foot clearfix">
+                                        <div id="ca_table_footer">
+                                            <form id="campaignform" class="inline ca-pager-form pager-form" onsubmit="new Ajax.Updater('campaign_table_div', '/campaign/reportTable/ajax/1/sort/campaign.name/order/asc/tableName/campaignReport/pageSize/5/prefix/none/export/icon/startDate/%401441090800/endDate/%401443682799/dateText/Date+Range%3A/dateRange/5/tagFilter/+/ajaxElement/campaign', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('ca_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:Form.serialize(this)}); return false;" action="/campaign/reportTable/ajax/1/sort/campaign.name/order/asc/tableName/campaignReport/pageSize/5/prefix/none/export/icon/startDate/%401441090800/endDate/%401443682799/dateText/Date+Range%3A/dateRange/5/tagFilter/+/ajaxElement/campaign" method="post">
+                                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="2d98ac6438950531a942d4a0c4bca11b0ff1f1446b87e119c218aff252be8e97e23f5e719a63ecf11d8f836559ca975b"></div>						<ul class="inline pull-right paging">
+                                                    <li>
+                                                    </li>
+
+                                                    <li>
+                                                        Page
+                                                        1
+                                                        of
+                                                        <a class="pager-last" href="#" onclick="cancelAllPendingAjax(); new Ajax.Updater('campaign_table_div', '/campaign/reportTable/ajax/1/page/1/sort/campaign.name/order/asc/tableName/campaignReport/pageSize/5/prefix/none/export/icon/startDate/%401441090800/endDate/%401443682799/dateText/Date+Range%3A/dateRange/5/tagFilter/+/ajaxElement/campaign', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=9cf29b561fe03f0fced0cfa8e24e75a6605d6955afb3cbf7b8dd697ac727db6d07d7f943be17270ff0562f7c8e3f98ca'});; return false;">1</a>
+                                                    </li>
+
+                                                    <li class="last">
+                                                    </li>
+                                                </ul>
+                                                <p class="inline pull-right">
+                                                    Showing
+                                                    <select name="pageSize" id="capageSize" onchange="$(&quot;campaignform&quot;).onsubmit();return false;" class="input-auto">
+                                                        <option value="5" selected="selected">5</option>
+                                                        <option value="10">10</option>
+                                                        <option value="15">15</option>
+                                                        <option value="25">25</option>
+                                                        <option value="50">50</option>
+                                                    </select>											 of <strong>2</strong>																															<input type="hidden" name="view" id="ca1_view" value="">																								<input type="hidden" name="mode" id="ca1_mode" value="">																								<input type="hidden" name="tableName" id="ca1_tableName" value="campaignReport">																								<input type="hidden" name="campaign_id" id="ca1_campaign_id" value="">																								<input type="hidden" name="prospect_id" id="ca1_prospect_id" value="">																								<input type="hidden" name="visitor_id" id="ca1_visitor_id" value="">																								<input type="hidden" name="visit_id" id="ca1_visit_id" value="">																								<input type="hidden" name="user_id" id="ca1_user_id" value="">																								<input type="hidden" name="query" id="ca1_query" value="">																																			<input type="hidden" name="prefix" id="ca1_prefix" value="none">																								<input type="hidden" name="export" id="ca1_export" value="icon">																								<input type="hidden" name="startDate" id="ca1_startDate" value="@1441090800">																								<input type="hidden" name="endDate" id="ca1_endDate" value="@1443682799">																								<input type="hidden" name="dateText" id="ca1_dateText" value="Date Range:">																								<input type="hidden" name="dateRange" id="ca1_dateRange" value="5">																								<input type="hidden" name="tagFilter" id="ca1_tagFilter" value=" ">
+                                                </p>
+                                            </form>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="read">
+                        <div class="header">
+                            <form id="landing_page_stats" class="inline" method="POST" action="#">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="2d98ac6438950531a942d4a0c4bca11b0ff1f1446b87e119c218aff252be8e97e23f5e719a63ecf11d8f836559ca975b"></div>
+                                <p class="inline header">
+                                    <span>
+                                        Date Range  <small>(Based on 12am EDT)</small>:
+                                    </span>
+                                    <select name="dateRange" id="dateRange_none" onchange="$customDates = $j('#none_custom_dates');if(this.value==7) {
+								$customDates.removeClass(&quot;hidden&quot;);
+							 } else {
+							 	$('landing_page_stats').submit();
+								$customDates.addClass(&quot;hidden&quot;);
+							 }">
+                                        <option value="1">Today</option>
+                                        <option value="2">Yesterday</option>
+                                        <option value="4">This Month</option>
+                                        <option value="10">This Quarter</option>
+                                        <option value="11">This Year</option>
+                                        <option value="3">Last 7 Days</option>
+                                        <option value="14">Last Week</option>
+                                        <option value="5" selected="selected">Last Month</option>
+                                        <option value="12">Last Quarter</option>
+                                        <option value="13">Last Year</option>
+                                        <option value="6">All Time</option>
+                                        <option value="7">Custom</option>
+                                    </select>						<span id="none_custom_dates" class="datepickerBS inline header hidden">
+                                        <input type="text" name="startDate" id="startDate" value="2015-09-01" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_startDate">...</button>
+                                        <script type="text/javascript">
+    document.getElementById("trigger_startDate").disabled = false;
+    Calendar.setup({
+      inputField : "startDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_startDate"
+    });
+                                        </script>
+                                        &nbsp;to&nbsp;
+
+                                        <input type="text" name="endDate" id="noneendDate" value="2015-09-30" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_noneendDate">...</button>
+                                        <script type="text/javascript">
+    document.getElementById("trigger_noneendDate").disabled = false;
+    Calendar.setup({
+      inputField : "noneendDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_noneendDate"
+    });
+                                        </script>
+                                        &nbsp;
+                                        <input type="submit" name="commit" value="Go" class="btn btn-primary">
+                                    </span>
+                                </p>
+                            </form>
+
+                            <h2>Monthly Cohort</h2>
+                        </div>
+                        <div class="module-wrapper" style="overflow:hidden">
+                            <div style="border-top:1px solid #ddd; padding-left:20px; padding-top:20px; font-size:0.8em; text-align:center; height:275px">
+                                <style type="text/css">
+                                    #content div.read table td.legendColorBox, #content div.read table td.legendLabel {
+                                        border-top: 0;
+                                        border-right: 0;
+                                    }
+                                </style>
+
+
+                                <div id="legend" style="width: 340px; margin-left: 25px;"><table style="font-size:smaller;color:#545454"><tbody><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(30,115,156);overflow:hidden"></div></div></td><td class="legendLabel"> Prospects</td><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(204,204,204);overflow:hidden"></div></div></td><td class="legendLabel"> Opportunities</td></tr></tbody></table></div>
+                                <div id="placeholder" style="height: 200px; margin-left: 5px; margin-right: 15px; position: relative;"><canvas width="1240" height="200"></canvas><canvas width="1240" height="200" style="position: absolute; left: 0px; top: 0px;"></canvas><div class="tickLabels" style="font-size:smaller;color:#545454"><div style="position:absolute;top:180px;left:-294px;width:620px;text-align:center" class="tickLabel">Sep 1</div><div style="position:absolute;top:180px;left:903px;width:620px;text-align:center" class="tickLabel">Oct 1</div><div style="position:absolute;top:159px;right:1235px;width:5px;text-align:right" class="tickLabel">0</div><div style="position:absolute;top:136px;right:1235px;width:5px;text-align:right" class="tickLabel">1</div><div style="position:absolute;top:114px;right:1235px;width:5px;text-align:right" class="tickLabel">2</div><div style="position:absolute;top:91px;right:1235px;width:5px;text-align:right" class="tickLabel">3</div><div style="position:absolute;top:68px;right:1235px;width:5px;text-align:right" class="tickLabel">4</div><div style="position:absolute;top:45px;right:1235px;width:5px;text-align:right" class="tickLabel">5</div><div style="position:absolute;top:23px;right:1235px;width:5px;text-align:right" class="tickLabel">6</div><div style="position:absolute;top:0px;right:1235px;width:5px;text-align:right" class="tickLabel">7</div><div style="position:absolute;top:159px;left:1224px;width:16px;text-align:left" class="tickLabel">-1.0</div><div style="position:absolute;top:119px;left:1224px;width:16px;text-align:left" class="tickLabel">-0.5</div><div style="position:absolute;top:80px;left:1224px;width:16px;text-align:left" class="tickLabel">0.0</div><div style="position:absolute;top:40px;left:1224px;width:16px;text-align:left" class="tickLabel">0.5</div><div style="position:absolute;top:0px;left:1224px;width:16px;text-align:left" class="tickLabel">1.0</div></div></div>
+                                <script type="text/javascript">
+	$j(function () {
+
+		// Gather the data for the graph
+	    var data = [];
+			    			// Modify the date to make the datapoints line up correctly with the gridlines (hack)
+	    	data.push(['1441065600000', '1']);
+	    				// Save the maximum value in this plot
+				    		    			    			// Modify the date to make the datapoints line up correctly with the gridlines (hack)
+	    	data.push(['1443657600000', '6']);
+	    				// Save the maximum value in this plot
+				    		    			    			var data2 = [];
+						// Modify the date to make the datapoints line up correctly with the gridlines (hack)
+	    	data2.push(['1441065600000', '0']);
+	    				// Save the maximum value in this plot
+				    			// Modify the date to make the datapoints line up correctly with the gridlines (hack)
+	    	data2.push(['1443657600000', '0']);
+	    				// Save the maximum value in this plot
+
+	    // Format the data in JSON-like format
+		data = [ {data: data, label: ' Prospects'}, {data: data2, label: ' Opportunities', yaxis:2} ];
+
+		// Define the options for this graph
+		var options = {
+				xaxis: {
+										minTickSize: [ 1, "month" ],
+										mode: "time",
+					timeformat: "%b %d",
+					monthNames: [i18n.t("Graph.Label.Month.January"), i18n.t("Graph.Label.Month.February"),
+						i18n.t("Graph.Label.Month.March"), i18n.t("Graph.Label.Month.April"),
+						i18n.t("Graph.Label.Month.May"), i18n.t("Graph.Label.Month.June"),
+						i18n.t("Graph.Label.Month.July"), i18n.t("Graph.Label.Month.August"),
+						i18n.t("Graph.Label.Month.September"), i18n.t("Graph.Label.Month.October"),
+						i18n.t("Graph.Label.Month.November"), i18n.t("Graph.Label.Month.December")]
+				},
+		   	yaxis: {
+				// If the max value is 0, manually set the minimum value for y-axis
+				// We don't want the graph's y-axis going negative
+									minTickSize: 1,
+					tickDecimals: 0,
+					tickFormatter: axisNumberFormatter
+		   	},
+				series: {
+									lines: {
+												fillColor: "rgba(36,136,184,0.5)",
+						lineWidth: 4,
+						show: true
+					},
+					points: {
+						radius: 4,
+						show: true
+					},
+									shadowSize: 0
+				},
+				colors: [ "#1e739c", "#CCCCCC" ],
+				grid: {
+					borderColor: "#999999",
+					borderWidth: 1,
+					clickable: true,
+					hoverable: true,
+					labelMargin: 10,
+					tickColor: "#dddddd"
+				},
+				legend: {
+					container: $j("#legend"),
+					noColumns: 2
+				}
+		};
+
+				// Draw the graph
+	    var plot = $j.plot($j("#placeholder"), data, options);
+
+		$j(window).resize(function() {
+			$j('#placeholder').text(''); // Resizing issue: parent div doesn't seem to shrink. Clear contents to reset its size
+			$j.plot($j('#placeholder'), data, options);
+		});
+
+
+	    function showTooltip(x, y, contents) {
+        $j('<div id="tooltip" class="tooltip top"><div class="tooltip-inner">' + contents + '</div><div class="tooltip-arrow"></div></div>').css( {
+            top: y - 35,
+            left: x,
+	      }).appendTo("body").css({left : (x - $j("#tooltip").outerWidth()/2) });
+	    }
+
+		// Define a function to add commas to longer numbers in the axes
+		function axisNumberFormatter(number, axis) {
+			return addCommas(number);
+		}
+
+	    var previousPoint = null;
+	    $j("#placeholder").bind("plothover", function (event, pos, item) {
+	        $j("#x").text(pos.x.toFixed(2));
+	        $j("#y").text(pos.y.toFixed(2));
+
+	        if (item) {
+	            if (previousPoint != item.datapoint) {
+	                previousPoint = item.datapoint;
+
+	                $j("#tooltip").remove();
+	                // The extra (14400 * 1000) is the complement to the hack above
+	                // to get the datapoints to line up on the gridlines correctly
+	                var x = new Date(item.datapoint[0] + (14400 * 1000));
+	                var y = item.datapoint[1];
+
+					var monthArr = [i18n.t("Graph.Label.Month.January"), i18n.t("Graph.Label.Month.February"),
+						i18n.t("Graph.Label.Month.March"), i18n.t("Graph.Label.Month.April"),
+						i18n.t("Graph.Label.Month.May"), i18n.t("Graph.Label.Month.June"),
+						i18n.t("Graph.Label.Month.July"), i18n.t("Graph.Label.Month.August"),
+						i18n.t("Graph.Label.Month.September"), i18n.t("Graph.Label.Month.October"),
+						i18n.t("Graph.Label.Month.November"), i18n.t("Graph.Label.Month.December")];
+
+	                showTooltip(item.pageX, item.pageY, (monthArr[x.getMonth()]) + ' ' + x.getDate() + ' : ' + addCommas(y));
+	            }
+	        } else {
+	            $j("#tooltip").remove();
+	            previousPoint = null;
+	        }
+	    });
+	});
+                                </script>
+                                <script>
+	// Add some fanciness
+	$('placeholder').setOpacity(0);
+	new Effect.Appear('placeholder', {duration:0.5});</script>
+                            </div>
+                        </div>
+
+                        <span class="tableHelp"></span>
+                    </div>
+
+                    <script>
+	$j(function(){
+		$j("#campaign_tagFilter, #source_campaign_tagFilter").siblings().find(".dropdown-menu a").click(function(){
+			var $this = $j(this);
+			var title = $j.trim($this.closest(".module").find("h2").text());
+
+			googleAnalytics('send', 'event', title, 'CSV Export')
+		});
+
+		$j("#campaign_view_field, #source_campaign_view_field").change(function(e){
+			var $this = $j(this);
+			var selectedValue = $this.find("option[value='" + $this.val() + "']").text();
+			var name = $this.closest("form").attr("id").replace(/_/g, " ");
+
+			googleAnalytics('send', 'event', name, selectedValue);
+		});
+
+		$j("#dateRange_ca, #dateRange_ca_overhaul").change(function(e){
+			var $this = $j(this);
+			var selectedValue = $this.find("option[value='" + $this.val() + "']").text();
+			var name = $this.closest("form").attr("id").replace(/_/g, " ").replace("form", "");
+
+			googleAnalytics('send', 'event', name, selectedValue);
+		});
+	});
+                    </script>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+
+    </div>
+</div>

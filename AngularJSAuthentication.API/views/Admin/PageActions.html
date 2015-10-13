@@ -1,0 +1,229 @@
+﻿ <div id="wrapper">
+
+    <div id="contentWrap">
+        <div id="content">
+
+            <ul id="bread-crumbs" class="breadcrumb">
+                <li>
+                    <a href="/" title="Home"><i class="icon-home"></i></a>
+                </li>
+                <li class="crumb-divider">  / </li>
+                <li>
+                    <a href="/administration">Administration</a>
+                </li>
+            </ul>
+
+            <h1>Page Actions</h1>
+
+            <div class="divider"></div>
+
+
+
+            <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div id="pageAction">
+
+                    <div id="pgactn_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                    <div id="pgactn_module" class="module">
+
+                        <div class="header clearfix">
+
+                            <h2 id="pageAction_h2">
+                                Page action
+                            </h2>
+
+
+
+                            <form id="pageAction_date_range_form" class="inline" onsubmit="new Ajax.Updater('pageAction_table_div', '/pageAction/table/ajax/1', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('pgactn_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('pageAction_ajax_urlparams').value + '&amp;'  + Form.serialize(this) }); return false;" action="/pageAction/table/ajax/1" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="277a2c0e341474087d73a3b052a8a0eb4c9b52abdc2a72bc11fb8eaa0514de53eba8481633ae290edd17a11f238413e2"></div>
+                                <p class="inline header">
+
+                                    <span id="datetext_header">
+                                        Created at <small>(Based on 12am EDT)</small>:
+                                    </span> <br>
+
+                                    <select name="dateRange" id="dateRange_pgactn" onchange="customDates = document.getElementById('pgactn_custom_dates');if(this.value==7) {
+								customDates.removeClassName(&quot;hidden&quot;);
+							 } else {
+							 	$('pageAction_date_range_form').onsubmit();
+							 	customDates.addClassName(&quot;hidden&quot;);
+							 }" class="input-auto">
+                                        <option value="1">Today</option>
+                                        <option value="2">Yesterday</option>
+                                        <option value="4">This Month</option>
+                                        <option value="10">This Quarter</option>
+                                        <option value="11">This Year</option>
+                                        <option value="3">Last 7 Days</option>
+                                        <option value="14">Last Week</option>
+                                        <option value="5">Last Month</option>
+                                        <option value="12">Last Quarter</option>
+                                        <option value="13">Last Year</option>
+                                        <option value="6" selected="selected">All Time</option>
+                                        <option value="7">Custom</option>
+                                    </select>						<span id="pgactn_custom_dates" class="datepickerBS inline header hidden">
+                                        <input type="text" name="startDate" id="pgactnstartDate" value="2015-08-15" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_pgactnstartDate">...</button>
+                                        <script type="text/javascript">
+    document.getElementById("trigger_pgactnstartDate").disabled = false;
+    Calendar.setup({
+      inputField : "pgactnstartDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_pgactnstartDate"
+    });
+                                        </script>
+                                        &nbsp;to&nbsp;
+
+                                        <input type="text" name="endDate" id="pgactnendDate" value="2015-10-08" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_pgactnendDate">...</button>
+                                        <script type="text/javascript">
+    document.getElementById("trigger_pgactnendDate").disabled = false;
+    Calendar.setup({
+      inputField : "pgactnendDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_pgactnendDate"
+    });
+                                        </script>
+                                        &nbsp;
+                                        <input type="submit" name="commit" value="Go" class="btn btn-primary">
+                                    </span>
+                                </p>
+                            </form>
+
+
+                            <form id="pageAction_filter" class="inline" onsubmit="new Ajax.Updater('pageAction_table_div', '/pageAction/table/ajax/1/dateText/Created+at%3A', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('pgactn_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('pageAction_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/pageAction/table/ajax/1/dateText/Created+at%3A" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="277a2c0e341474087d73a3b052a8a0eb4c9b52abdc2a72bc11fb8eaa0514de53eba8481633ae290edd17a11f238413e2"></div>
+                                <p class="inline header">
+                                    Filter:<br>
+                                    <input type="text" name="table_filter" id="pageAction_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;pageAction_filter&quot;).onsubmit()',600);" class="input-medium">
+                                </p>
+                            </form>
+
+                            <br>			<div class="btn-group pull-right">
+                                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Tools			    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+
+
+                                    <li><a onclick="location='/pageAction/export?' + $('pageAction_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                </ul>
+                            </div>
+
+
+                            <span class="link_to_create pull-right">
+                                <a href="/pageAction/create" class="btn btn-warning"><i class="icon-plus"></i> Add page action</a>
+                            </span>
+                        </div>
+                        <div id="pgactn_wrapper" class="module-wrapper">
+                            <div id="pageAction_table_div">
+
+
+                                <input type="hidden" id="pageAction_ajax_urlparams" value="sort=page_action.name&amp;order=desc&amp;dateRange=6&amp;ajaxElement=pageAction&amp;startDate=%401439638788&amp;endDate=%401444373999&amp;numResults=0">
+                                <table id="pageAction_table" class="data-table table-bordered">
+                                    <thead>
+                                        <tr>
+
+
+                                            <th class="first checkbox-column checkbox">
+
+
+                                            </th>
+
+
+
+
+                                            <th class="sortable sort-down name-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('pageAction_table_div', '/pageAction/table/ajax/1/page/1/order/asc/sort/page_action.name/dateRange/6/ajaxElement/pageAction/startDate/%401439638788/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=f84d77bf92067eb11df7c8b43f2c7e79b87e251875eb7d2bcff5fbda700a49e4498d6bd1882a6efc5fc6be8fb0384802'});; return false;">Name</a>
+
+                                                <i class="icon-circle-arrow-down muted"></i>
+                                            </th>
+
+
+
+                                            <th class="page-url-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('pageAction_table_div', '/pageAction/table/ajax/1/page/1/order/desc/sort/page_action.url_pattern/dateRange/6/ajaxElement/pageAction/startDate/%401439638788/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=8a71c75b89ae6d16b609bc86322a1aacccd8fdca6c0cd9733bcae14b02a55d28678649739bc5913e7ba0d63a6c1a4c9d'});; return false;">Page URL</a>
+
+                                            </th>
+
+
+
+                                            <th class="score-change-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('pageAction_table_div', '/pageAction/table/ajax/1/page/1/order/desc/sort/page_action.score_change/dateRange/6/ajaxElement/pageAction/startDate/%401439638788/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=42a269cdbb2095111838a2abeb46854c3e5f060ef1bd697359eff20b4bdad2e92a8b7008a142cd78c41c822cf7f4fa34'});; return false;">Score Change</a>
+
+                                            </th>
+
+
+
+                                            <th class="priority-page-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('pageAction_table_div', '/pageAction/table/ajax/1/page/1/order/desc/sort/page_action.is_priority/dateRange/6/ajaxElement/pageAction/startDate/%401439638788/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=b5b494b3acbcc1d0c3fe1b3407771fb7c56af7d3ed316f9c49bf004a77cefa1470bf2325dea565f6650395c56c395961'});; return false;">Priority Page?</a>
+
+                                            </th>
+
+
+
+                                            <th class="created-at-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('pageAction_table_div', '/pageAction/table/ajax/1/page/1/order/desc/sort/page_action.created_at/dateRange/6/ajaxElement/pageAction/startDate/%401439638788/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=a6ce50fb4396da2ff085fd8db9d0a1cd228500d1f73f8b1de6c32630041e2345f5ebffe2da25c59872f5bea1399e4313'});; return false;">Created At</a>
+
+                                            </th>
+
+
+                                            <th class="actions-column last">
+
+                                                Actions
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="7" class="last">
+                                                There are no page action for this area.
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+
+
+                                </table>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-table-footer">
+                    ** Currently using 0 of 250 (0%)
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+
+</div>

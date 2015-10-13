@@ -1,0 +1,180 @@
+﻿<div id="wrapper">
+
+    <div id="contentWrap">
+        <div id="content">
+
+            <ul id="bread-crumbs" class="breadcrumb">
+                <li>
+                    <a href="/" title="Home"><i class="icon-home"></i></a>
+                </li>
+                <li class="crumb-divider">  / </li>
+                <li>
+                    <a href="/marketing">Marketing</a>
+                </li>
+                <li class="crumb-divider">  / </li>
+                <li>
+                    <a href="/segmentation">Segmentation</a>
+                </li>
+            </ul>
+
+            <h1>Tags</h1>
+
+            <div class="divider"></div>
+
+
+
+            <div id="center-stage">
+
+
+
+
+
+
+
+
+
+                <div id="tag">
+
+
+
+
+
+
+
+
+                    <div id="tag">
+
+                        <div id="tag_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                        <div id="tag_module" class="module">
+
+                            <div class="header clearfix">
+
+                                <h2 id="tag_h2"></h2>
+
+
+
+
+
+                                <form id="tag_filter" class="inline" onsubmit="new Ajax.Updater('tag_table_div', '/tag/table/ajax/1/dateText/Date+Range%3A+', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('tag_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('tag_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/tag/table/ajax/1/dateText/Date+Range%3A+" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="f1367392b5aa67723dbe792d944215430dc57a85081a679e5545668c6dc110aea61cea6134f0d57a4a3d7685db102c4e"></div>
+                                    <p class="inline header">
+                                        Filter:<br>
+                                        <input type="text" name="table_filter" id="tag_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;tag_filter&quot;).onsubmit()',600);" class="input-medium">
+                                    </p>
+                                </form>
+
+                                <br>			<div class="btn-group pull-right">
+                                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                        Tools			    <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+
+
+                                        <li><a onclick="location='/tag/export?' + $('tag_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                    </ul>
+                                </div>
+
+
+                                <span class="link_to_create pull-right">
+                                    <a href="/tag/createAjax" id="tag_link_create" class="btn btn-warning"><i class="icon-plus"></i> Add tag</a>
+                                    <script type="text/javascript">
+	jQuery('a#tag_link_create').click(function() {
+		jQuery("#indicator").show();
+		if(jQuery('html').is('.ie'))
+			toggleDisplay("tag_table_footer", false);
+		jQuery.ajax({
+			url: "/tag/createAjax",
+			beforeSend: function(jqXHR, settings) {
+				// TODO: Compensate for existing data?
+				settings.data += jQuery("#tag_ajax_urlparams").attr('value');
+			},
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#tag_status").html(data);
+				toggleDisplay("tag_status", true);
+				new Effect.Highlight('tag_status', {duration:2});
+			}
+		});
+		return false;
+	});
+                                    </script>
+                                </span>
+                            </div>
+                            <div id="tag_wrapper" class="module-wrapper">
+                                <div id="tag_table_div">
+
+
+                                    <input type="hidden" id="tag_ajax_urlparams" value="sort=tag.name&amp;order=desc&amp;pageSize=5&amp;prefix=tag&amp;startDate=%401167627600&amp;endDate=now&amp;dateText=Date+Range%3A&amp;ajaxElement=tag&amp;numResults=0">
+                                    <table id="tag_table" class="data-table table-bordered">
+                                        <thead>
+                                            <tr>
+
+
+                                                <th class="first checkbox-column checkbox">
+
+
+                                                </th>
+
+
+
+
+                                                <th class="sortable sort-down name-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('tag_table_div', '/tag/table/ajax/1/page/1/order/asc/sort/tag.name/pageSize/5/prefix/tag/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/tag', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=1c784cc798e319c5241c92a0effb0efa7c6c4efdb4b2e15390319439e64e1b5ebb990287fdac877984e41cbe7b2bc6e3'});; return false;">Name</a>
+
+                                                    <i class="icon-circle-arrow-down muted"></i>
+                                                </th>
+
+
+                                                <th class="count-column">
+
+                                                    Count
+                                                </th>
+
+
+
+                                                <th class="created-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('tag_table_div', '/tag/table/ajax/1/page/1/order/desc/sort/tag.created_at/pageSize/5/prefix/tag/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/tag', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=a1dec619639a811b5402a334bb0f150c3ba1aaf0cdc5190cbba84fdc6798fc3320ed06254bdad9cc13b52288253ce3dd'});; return false;">Created</a>
+
+                                                </th>
+
+
+                                                <th class="actions-column last">
+
+                                                    Actions
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="5" class="last">
+                                                    There are no tags for this area.
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+
+
+                                    </table>
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+
+</div>

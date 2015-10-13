@@ -1,0 +1,182 @@
+﻿<div id="wrapper">
+
+    <div id="contentWrap">
+        <div id="content">
+
+            <ul id="bread-crumbs" class="breadcrumb">
+                <li>
+                    <a href="/" title="Home"><i class="icon-home"></i></a>
+                </li>
+                <li class="crumb-divider">  / </li>
+                <li>
+                    <a href="/marketing">Marketing</a>
+                </li>
+                <li class="crumb-divider">  / </li>
+                <li>
+                    <a href="/landingPage">Landing Pages</a>
+                </li>
+            </ul>
+
+            <h1>Multivariate Tests</h1>
+
+            <div class="divider"></div>
+
+
+
+            <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div id="multivariateTest">
+
+                    <div id="mvt_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                    <div id="mvt_module" class="module">
+
+                        <div class="header clearfix">
+
+                            <h2 id="multivariateTest_h2" class="pull-left"></h2>
+
+
+
+
+
+
+                            <div class="btn-group pull-right">
+                                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Tools			    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+
+
+                                    <li><a onclick="location='/multivariateTest/export?' + $('multivariateTest_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                </ul>
+                            </div>
+
+
+                            <span class="link_to_create pull-right">
+                                <a href="/multivariateTest/createAjax" id="mvt_link_create" class="btn btn-warning"><i class="icon-plus"></i> Add multivariate test</a>
+                                <script type="text/javascript">
+	jQuery('a#mvt_link_create').click(function() {
+		jQuery("#indicator").show();
+		if(jQuery('html').is('.ie'))
+			toggleDisplay("mvt_table_footer", false);
+		jQuery.ajax({
+			url: "/multivariateTest/createAjax",
+			beforeSend: function(jqXHR, settings) {
+				// TODO: Compensate for existing data?
+				settings.data += jQuery("#mvt_ajax_urlparams").attr('value');
+			},
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#mvt_status").html(data);
+				toggleDisplay("mvt_status", true);
+				new Effect.Highlight('mvt_status', {duration:2});
+			}
+		});
+		return false;
+	});
+                                </script>
+                            </span>
+                        </div>
+                        <div id="mvt_wrapper" class="module-wrapper">
+                            <div id="multivariateTest_table_div">
+
+
+                                <input type="hidden" id="multivariateTest_ajax_urlparams" value="sort=multivariate_test.name&amp;order=asc&amp;ajaxElement=multivariateTest&amp;numResults=0">
+                                <table id="multivariateTest_table" class="data-table table-bordered">
+                                    <thead>
+                                        <tr>
+
+
+                                            <th class="first checkbox-column checkbox">
+
+
+                                            </th>
+
+
+
+                                            <th class="sortable sort-up name-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('multivariateTest_table_div', '/multivariateTest/table/ajax/1/page/1/order/desc/sort/multivariate_test.name/ajaxElement/multivariateTest', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=b82abaa6315d178bfc225e1080fc9af178a8849102414184da90a9284fa4c20c86a4721b2a4561b75333ea67abc46477'});; return false;">Name</a>
+
+                                                <i class="icon-circle-arrow-up muted"></i>
+                                            </th>
+
+
+                                            <th class="landing-pages-column">
+
+                                                Landing Pages
+                                            </th>
+
+
+                                            <th class="link-column">
+
+                                                Link
+                                            </th>
+
+
+                                            <th class="short-url-column">
+
+                                                Short URL
+                                            </th>
+
+
+
+                                            <th class="updated-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('multivariateTest_table_div', '/multivariateTest/table/ajax/1/page/1/order/desc/sort/multivariate_test.updated_at/ajaxElement/multivariateTest', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=5bc731db93df4ac7e968e064d1df494d0417eadd64aed0c61a4336a6534f2588d91ff4108ee9ecd178d2095e451a8fbc'});; return false;">Updated</a>
+
+                                            </th>
+
+
+                                            <th class="actions-column last">
+
+                                                Actions
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="7" class="last">
+                                                There are no multivariate tests for this area.
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+
+
+                                </table>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+
+</div>

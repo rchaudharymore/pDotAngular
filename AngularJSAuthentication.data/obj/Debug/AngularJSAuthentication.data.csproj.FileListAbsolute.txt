@@ -1,0 +1,87 @@
+C:\Users\user\Documents\Visual Studio 2015\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\AngularJSAuthentication.data.dll.config
+C:\Users\user\Documents\Visual Studio 2015\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\AngularJSAuthentication.data.dll
+C:\Users\user\Documents\Visual Studio 2015\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\AngularJSAuthentication.data.pdb
+C:\Users\user\Documents\Visual Studio 2015\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\AngularJSAuthentication.Model.dll
+C:\Users\user\Documents\Visual Studio 2015\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\EntityFramework.dll
+C:\Users\user\Documents\Visual Studio 2015\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\user\Documents\Visual Studio 2015\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\user\Documents\Visual Studio 2015\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\user\Documents\Visual Studio 2015\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.Owin.dll
+C:\Users\user\Documents\Visual Studio 2015\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\user\Documents\Visual Studio 2015\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Owin.dll
+C:\Users\user\Documents\Visual Studio 2015\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\AngularJSAuthentication.Model.pdb
+C:\Users\user\Documents\Visual Studio 2015\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\EntityFramework.xml
+C:\Users\user\Documents\Visual Studio 2015\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\user\Documents\Visual Studio 2015\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\user\Documents\Visual Studio 2015\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\user\Documents\Visual Studio 2015\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.Owin.xml
+C:\Users\user\Documents\Visual Studio 2015\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.Owin.Security.xml
+C:\Users\user\Documents\Visual Studio 2015\AngularJSAuthentication\AngularJSAuthentication.data\obj\Debug\AngularJSAuthentication.data.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\Visual Studio 2015\AngularJSAuthentication\AngularJSAuthentication.data\obj\Debug\AngularJSAuthentication.data.dll
+C:\Users\user\Documents\Visual Studio 2015\AngularJSAuthentication\AngularJSAuthentication.data\obj\Debug\AngularJSAuthentication.data.pdb
+C:\Akhilesh\Projects\AngularJSAuthentication(1)\AngularJSAuthentication\AngularJSAuthentication.data\obj\Debug\AngularJSAuthentication.data.csprojResolveAssemblyReference.cache
+C:\Akhilesh\Projects\AngularJSAuthentication(1)\AngularJSAuthentication\AngularJSAuthentication.data\obj\Debug\AngularJSAuthentication.data.dll
+C:\Akhilesh\Projects\AngularJSAuthentication(1)\AngularJSAuthentication\AngularJSAuthentication.data\obj\Debug\AngularJSAuthentication.data.pdb
+C:\Akhilesh\Projects\AngularJSAuthentication(1)\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\AngularJSAuthentication.data.dll.config
+C:\Akhilesh\Projects\AngularJSAuthentication(1)\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\AngularJSAuthentication.data.dll
+C:\Akhilesh\Projects\AngularJSAuthentication(1)\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\AngularJSAuthentication.data.pdb
+C:\Akhilesh\Projects\AngularJSAuthentication(1)\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\AngularJSAuthentication.Model.dll
+C:\Akhilesh\Projects\AngularJSAuthentication(1)\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\EntityFramework.dll
+C:\Akhilesh\Projects\AngularJSAuthentication(1)\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Akhilesh\Projects\AngularJSAuthentication(1)\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Akhilesh\Projects\AngularJSAuthentication(1)\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Akhilesh\Projects\AngularJSAuthentication(1)\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.Owin.dll
+C:\Akhilesh\Projects\AngularJSAuthentication(1)\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.Owin.Security.dll
+C:\Akhilesh\Projects\AngularJSAuthentication(1)\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Owin.dll
+C:\Akhilesh\Projects\AngularJSAuthentication(1)\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\AngularJSAuthentication.Model.pdb
+C:\Akhilesh\Projects\AngularJSAuthentication(1)\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\EntityFramework.xml
+C:\Akhilesh\Projects\AngularJSAuthentication(1)\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Akhilesh\Projects\AngularJSAuthentication(1)\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Akhilesh\Projects\AngularJSAuthentication(1)\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Akhilesh\Projects\AngularJSAuthentication(1)\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.Owin.xml
+C:\Akhilesh\Projects\AngularJSAuthentication(1)\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.Owin.Security.xml
+C:\Akhilesh\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\AngularJSAuthentication.data.dll.config
+C:\Akhilesh\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\AngularJSAuthentication.data.dll
+C:\Akhilesh\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\AngularJSAuthentication.data.pdb
+C:\Akhilesh\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\AngularJSAuthentication.Model.dll
+C:\Akhilesh\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\EntityFramework.dll
+C:\Akhilesh\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Akhilesh\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Akhilesh\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Akhilesh\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.Owin.dll
+C:\Akhilesh\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.Owin.Security.dll
+C:\Akhilesh\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Owin.dll
+C:\Akhilesh\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\AngularJSAuthentication.Model.pdb
+C:\Akhilesh\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\EntityFramework.xml
+C:\Akhilesh\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Akhilesh\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Akhilesh\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Akhilesh\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.Owin.xml
+C:\Akhilesh\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.Owin.Security.xml
+C:\Akhilesh\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\obj\Debug\AngularJSAuthentication.data.csprojResolveAssemblyReference.cache
+C:\Akhilesh\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\obj\Debug\AngularJSAuthentication.data.dll
+C:\Akhilesh\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\obj\Debug\AngularJSAuthentication.data.pdb
+C:\Users\user\Downloads\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\obj\Debug\AngularJSAuthentication.data.csprojResolveAssemblyReference.cache
+C:\Users\user\Downloads\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\obj\Debug\AngularJSAuthentication.data.dll
+C:\Users\user\Downloads\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\obj\Debug\AngularJSAuthentication.data.pdb
+C:\Users\user\Downloads\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\AngularJSAuthentication.data.dll.config
+C:\Users\user\Downloads\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\AngularJSAuthentication.data.dll
+C:\Users\user\Downloads\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\AngularJSAuthentication.data.pdb
+C:\Users\user\Downloads\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\AngularJSAuthentication.Model.dll
+C:\Users\user\Downloads\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\EntityFramework.dll
+C:\Users\user\Downloads\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\user\Downloads\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\user\Downloads\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\user\Downloads\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.Owin.dll
+C:\Users\user\Downloads\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\user\Downloads\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Owin.dll
+C:\Users\user\Downloads\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\AngularJSAuthentication.Model.pdb
+C:\Users\user\Downloads\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\EntityFramework.xml
+C:\Users\user\Downloads\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\user\Downloads\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\user\Downloads\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\user\Downloads\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.Owin.xml
+C:\Users\user\Downloads\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\bin\Debug\Microsoft.Owin.Security.xml
+C:\Users\user\Downloads\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\obj\Debug\AngularJSAuthentication.data.Migrations.paradot.resources
+C:\Users\user\Downloads\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\obj\Debug\AngularJSAuthentication.data.csproj.GenerateResource.Cache
+C:\Users\user\Downloads\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.data\obj\Debug\AngularJSAuthentication.data.Migrations.paradot1.resources

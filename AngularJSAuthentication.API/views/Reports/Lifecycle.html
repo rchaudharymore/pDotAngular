@@ -1,0 +1,251 @@
+﻿<div id="wrap" class="clearfix">
+    <!--[if IE 7]>
+    <div id="ieCompatibility">
+        <img style="vertical-align: text-top;" src="/images/error.png"/>
+        <strong>Warning</strong>: Your browser is in Compatibility Mode. For things to work correctly, you need to <a href="http://help.pardot.com/faqs/administration/turning-off-compatibility-mode-in-ie" target="_blank">turn it off</a>.
+    </div>
+    <![endif]-->
+    <p class="hidden">
+        <a href="#content">Skip navigation</a>
+    </p>
+    <div id="wrapper">
+
+        <div id="contentWrap">
+            <div id="content">
+
+                <ul id="bread-crumbs" class="breadcrumb">
+                    <li>
+                        <a href="/" title="Home"><i class="icon-home"></i></a>
+                    </li>
+                    <li class="crumb-divider">  / </li>
+                    <li>
+                        <a href="/report">Reports</a>
+                    </li>
+                </ul>
+
+                <h1>Lifecycle Report</h1>
+
+                <div class="divider"></div>
+
+
+
+                <div id="center-stage">
+
+
+
+
+
+
+
+
+
+                    <script type="text/javascript">
+function setPercent(data, numNewId, percentSignId, percentDisplayId, noSpan) {
+	var jsonObj = JSON.parse(data.responseText);
+	$j('#'+numNewId).html(jsonObj.numNew);
+	$j('#'+percentSignId).attr('class', 'diff '+jsonObj.sign);
+	if(noSpan) {
+		$j('#'+percentSignId).html(jsonObj.displayValue);
+	} else {
+		$j('#'+percentDisplayId).html(jsonObj.displayValue);
+	}
+}
+
+function setVelocities(data) {
+	var jsonObj = JSON.parse(data.responseText);
+	$j('#conversionVelocity').html(jsonObj.conversionVelocity);
+	$j('#assignmentVelocity').html(jsonObj.assignmentVelocity);
+	$j('#oppCreationVelocity').html(jsonObj.oppCreationVelocity);
+	$j('#oppWonVelocity').html(jsonObj.oppWonVelocity);
+	$j('#totalVelocity').html(jsonObj.totalVelocity);
+}
+                    </script>
+                    <div class="header">
+                        <form class="date-filter" method="GET">
+                            <p class="inline header">
+                                Prospect Creation Date Range <small>(Based on 12am EDT)</small>:<br>
+                                <select name="dateRange" id="dateRange">
+                                    <option value="3">Last 7 Days</option>
+                                    <option value="15" selected="selected">Last 30 Days</option>
+                                    <option value="16">Last 90 Days</option>
+                                    <option value="17">Last 180 Days</option>
+                                    <option value="18">Last 365 Days</option>
+                                    <option value="4">Month to Date</option>
+                                    <option value="10">Quarter to Date</option>
+                                    <option value="11">Year to Date</option>
+                                    <option value="7">Custom</option>
+                                </select>
+                            </p>
+
+                            <p class="inline header">
+                                <span class="custom-range" style="display: none">
+                                    <br>
+                                    <input type="text" name="startDate" id="startDate" value="2015-09-09" class="datepicker start input-small" maxlength="10" size="12">			&nbsp;to&nbsp;
+                                    <input type="text" name="endDate" id="endDate" value="2015-10-08" class="datepicker end input-small" maxlength="10" size="12">			<button type="submit" class="btn btn-primary">Go</button>
+                                </span>
+                            </p>
+                            <p class="inline header"><small><br>Comparing Sep 9, 2015 - Oct 9, 2015 to Aug 9, 2015 - Sep 9, 2015</small></p>
+                        </form>
+                    </div>
+
+                    <div class="well-group clearfix">
+                        <div class="pardot-well">
+                            <h4 id="lifecycle_indicator_prospects_top">9</h4>
+                            <h5 id="numNewProspectsPercentChangeSignTop" class="diff ">--</h5>
+                            <span>Net New Prospects</span>
+                        </div>
+
+                        <div class="pardot-well">
+                            <h4>2</h4>
+                            <h5 class="">
+                                --
+                            </h5>
+                            <span>New Opportunities</span>
+                        </div>
+
+                        <div class="pardot-well">
+                            <h4>0</h4>
+                            <h5 class="">
+                                --
+                            </h5>
+                            <span>Won Opportunities</span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="span8 pardot-well pipeline" style="height: 685px;">
+                            <h1>Pipeline</h1>
+
+                            <div class="funnel-row" style="display: block;">
+                                <span class="label">Visitors</span>
+                                <span id="numNewVisitorsPercentChangeSign" class="diff ">
+                                    <span id="numNewVisitorsPercentChangeDisplay">--</span>
+                                </span>
+                                <div class="funnel-slice" style="z-index: 14;">
+                                    <span id="lifecycle_indicator_visitors" class="amount">1,147</span>
+                                    <span class="slice-body"></span>
+                                </div>
+                            </div>
+                            <div class="funnel-row" style="display: block;">
+                                <a href="/lifecycle/index/lifecycleStageId/710/startDate/@1441771200/endDate/@1444363199/dateRange/15" class="label">Prospects</a>
+                                <a href="/lifecycle/index/lifecycleStageId/710/startDate/@1441771200/endDate/@1444363199/dateRange/15" id="numNewProspectsPercentChangeSign" class="diff ">
+                                    <span id="numNewProspectsPercentChangeDisplay">--</span>
+                                </a>
+                                <div class="funnel-slice" style="z-index: 13; width: 277.5px;">
+                                    <a href="/lifecycle/index/lifecycleStageId/710/startDate/@1441771200/endDate/@1444363199/dateRange/15" class="amount">
+                                        <span id="lifecycle_indicator_prospects">9</span>
+                                    </a>
+                                    <span class="slice-body"></span>
+                                </div>
+                            </div>
+                            <div class="funnel-row" style="display: block;">
+                                <a href="/lifecycle/index/lifecycleStageId/712/startDate/@1441771200/endDate/@1444363199/dateRange/15" class="label">Marketing Qualified (MQL)</a>
+                                <a href="/lifecycle/index/lifecycleStageId/712/startDate/@1441771200/endDate/@1444363199/dateRange/15" id="numNewMqlsPercentChangeSign" class="diff ">
+                                    <span id="numNewMqlsPercentChangeDisplay">--</span>
+                                </a>
+                                <div class="funnel-slice" style="z-index: 12; width: 215px;">
+                                    <a href="/lifecycle/index/lifecycleStageId/712/startDate/@1441771200/endDate/@1444363199/dateRange/15" class="amount">
+                                        <span id="lifecycle_indicator_mql">6</span>
+                                    </a>
+                                    <span class="slice-body"></span>
+                                </div>
+                            </div>
+                            <div class="funnel-row" style="display: block;">
+                                <a href="/lifecycle/index/lifecycleStageId/714/startDate/@1441771200/endDate/@1444363199/dateRange/15" class="label">Sales Qualified (SQL)</a>
+                                <a href="/lifecycle/index/lifecycleStageId/714/startDate/@1441771200/endDate/@1444363199/dateRange/15" id="numNewSqlsPercentChangeSign" class="diff ">
+                                    <span id="numNewSqlsPercentChangeDisplay">--</span>
+                                </a>
+                                <div class="funnel-slice" style="z-index: 11; width: 152.5px;">
+                                    <a href="/lifecycle/index/lifecycleStageId/714/startDate/@1441771200/endDate/@1444363199/dateRange/15" class="amount">
+                                        <span id="lifecycle_indicator_sql">0</span>
+                                    </a>
+                                    <span class="slice-body"></span>
+                                </div>
+                            </div>
+                            <div class="funnel-row" style="display: block;">
+                                <a href="/lifecycle/opportunities/lifecycleStageId/716/startDate/@1441771200/endDate/@1444363199/dateRange/15" class="label">Won Deals</a>
+                                <a href="/lifecycle/opportunities/lifecycleStageId/716/startDate/@1441771200/endDate/@1444363199/dateRange/15" class="diff ">
+                                    --
+                                </a>
+                                <div class="funnel-slice last-slice" style="width: 90px; z-index: 10;">
+                                    <a href="/lifecycle/opportunities/lifecycleStageId/716/startDate/@1441771200/endDate/@1444363199/dateRange/15" class="amount">0</a>
+                                    <span class="slice-body"></span>
+                                </div>
+                                <hr>
+
+                                <h3>
+                                    $0.00				Total Revenue
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+                        <div class="span4 pardot-well velocity">
+                            <h1 title="On average, how long does a prospect stay in each stage before moving forward?">Velocity</h1>
+                            <p>Average Transition Time</p>
+                            <p>&nbsp;</p>
+
+                            <h3>Visitor to Prospect</h3>
+                            <h1><span id="conversionVelocity">No data</span></h1>
+
+                            <h3>Prospect to MQL</h3>
+                            <h1><span id="assignmentVelocity">No data</span></h1>
+
+                            <h3>MQL to SQL</h3>
+                            <h1><span id="oppCreationVelocity">No data</span></h1>
+
+                            <h3>SQL to Won</h3>
+                            <h1><span id="oppWonVelocity">No data</span></h1>
+
+                            <hr>
+
+                            <h3>Total:</h3>
+                            <h1 class="no-arrow"><span id="totalVelocity">0 seconds</span></h1>
+
+                        </div>
+                    </div>
+                    <span class="help-block">The date range filter for this report selects prospects / visitors who were created during the specified time frame.  It does not filter based on entrance date to each lifecycle stage.</span>
+
+                    <script>
+	var pHoriginal = 0;
+
+	function equalize () {
+		var pH = $j('.pipeline').outerHeight(),
+				vH = $j('.velocity').outerHeight();
+		if (pH < vH) {
+			$j('.pipeline').animate({height: vH}, 300);
+		} else if (pH > vH && vH > pHoriginal) {
+			$j('.pipeline').animate({height: vH}, 300);
+		}
+	}
+
+	$j(function(){
+		pHoriginal = $j('.pipeline').outerHeight();
+		var slices = $j(".funnel-slice").length;
+		var i = 1;
+		var wHelper = 250/(slices-1);
+
+		$j(".funnel-slice").each(function(){
+			var $slice = $j(this);
+			$slice.css({'z-index' : 10+slices-i});
+			if(i !== 1 && i !== slices) {
+				var w = 90+wHelper*(slices-i);
+				$slice.css({'width' : w});
+			}
+			i++;
+		});
+
+		$j('.funnel-row').fadeIn('fast');
+
+		equalize();
+		setTimeout(equalize, 5000);
+	});
+                    </script>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+
+    </div>
+</div>

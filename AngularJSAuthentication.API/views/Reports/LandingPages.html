@@ -1,0 +1,577 @@
+﻿<div id="wrap" class="clearfix">
+    <!--[if IE 7]>
+    <div id="ieCompatibility">
+        <img style="vertical-align: text-top;" src="/images/error.png"/>
+        <strong>Warning</strong>: Your browser is in Compatibility Mode. For things to work correctly, you need to <a href="http://help.pardot.com/faqs/administration/turning-off-compatibility-mode-in-ie" target="_blank">turn it off</a>.
+    </div>
+    <![endif]-->
+    <p class="hidden">
+        <a href="#content">Skip navigation</a>
+    </p>
+    <div id="wrapper">
+
+        <div id="contentWrap">
+            <div id="content">
+
+                <ul id="bread-crumbs" class="breadcrumb">
+                    <li>
+                        <a href="/" title="Home"><i class="icon-home"></i></a>
+                    </li>
+                    <li class="crumb-divider">  / </li>
+                    <li>
+                        <a href="/report">Reports</a>
+                    </li>
+                </ul>
+
+                <h1>Landing Pages</h1>
+
+                <div class="divider"></div>
+
+
+
+                <div id="center-stage">
+
+
+
+
+
+
+
+
+
+                    <ul class="nav nav-pills">
+                        <li>
+                            <a href="/landingPage/allSubmissions">All Submissions</a>
+                        </li>
+                    </ul>
+
+
+
+
+
+
+
+
+                    <div id="landingPageStats">
+
+                        <div id="laps_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                        <div id="tagFilterlandingPageStats" class="tagfilter-pop-up dropdown-menu" style="display: none;"><input type="text" id="tagFilterSearchlandingPageStats" value=""><div class="scroller"><ul id="tagFilterSelectorlandingPageStats"><li></li></ul></div><a href="#"  style="float: left;">Clear filter</a>  <a href="/tag" style="float: right;">Manage tags</a></div><div id="laps_module" class="module">
+
+                            <div class="header clearfix">
+
+                                <h2 id="landingPageStats_h2">
+                                    Landing Page Statistics
+                                </h2>
+
+
+
+                                <form id="landingPageStats_date_range_form" class="inline" onsubmit="new Ajax.Updater('landingPageStats_table_div', '/landingPage/reportTable/ajax/1', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('laps_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('landingPageStats_ajax_urlparams').value + '&amp;'  + Form.serialize(this) }); return false;" action="/landingPage/reportTable/ajax/1" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="ee1cea3242b1cd8e900c4fd21416192ac7e4c6080669344e9d594d1cb3f25f9c67e50982212c0b057a1ad02d0deaadcf"></div>
+                                    <p class="inline header">
+                                        Campaign:<br>
+                                        <select name="campaign_filter" id="campaign_filter_laps" onchange="$('landingPageStats_date_range_form').onsubmit();">
+                                            <option value="0" selected="selected">All Campaigns</option>
+                                            <optgroup label="Current">
+                                                <option value="288">Email Plug-in</option>
+                                                <option value="932">Pre-Pardot Initial Import</option>
+                                                <option value="934">Sync from Salesforce</option>
+                                                <option value="1460">Test Campaign</option>
+                                                <option value="1852">Webinars</option>
+                                                <option value="286">Website Tracking</option>
+                                            </optgroup>
+                                            <optgroup label="Archived"></optgroup>
+                                        </select>
+                                    </p>
+                                    <p class="inline header">
+
+                                        <span id="datetext_header">
+                                            Date Range  <small>(Based on 12am EDT)</small>:
+                                        </span> <br>
+
+                                        <select name="dateRange" id="dateRange_laps" onchange="customDates = document.getElementById('laps_custom_dates');if(this.value==7) {
+								customDates.removeClassName(&quot;hidden&quot;);
+							 } else {
+							 	$('landingPageStats_date_range_form').onsubmit();
+							 	customDates.addClassName(&quot;hidden&quot;);
+							 }" class="input-auto">
+                                            <option value="1">Today</option>
+                                            <option value="2">Yesterday</option>
+                                            <option value="4">This Month</option>
+                                            <option value="10">This Quarter</option>
+                                            <option value="11">This Year</option>
+                                            <option value="3">Last 7 Days</option>
+                                            <option value="14">Last Week</option>
+                                            <option value="5">Last Month</option>
+                                            <option value="12">Last Quarter</option>
+                                            <option value="13">Last Year</option>
+                                            <option value="6" selected="selected">All Time</option>
+                                            <option value="7">Custom</option>
+                                        </select>						<span id="laps_custom_dates" class="datepickerBS inline header hidden">
+                                            <input type="text" name="startDate" id="lapsstartDate" value="2006-12-31" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_lapsstartDate">...</button>
+                                            <script type="text/javascript">
+    document.getElementById("trigger_lapsstartDate").disabled = false;
+    Calendar.setup({
+      inputField : "lapsstartDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_lapsstartDate"
+    });
+                                            </script>
+                                            &nbsp;to&nbsp;
+
+                                            <input type="text" name="endDate" id="lapsendDate" value="2015-10-08" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_lapsendDate">...</button>
+                                            <script type="text/javascript">
+    document.getElementById("trigger_lapsendDate").disabled = false;
+    Calendar.setup({
+      inputField : "lapsendDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_lapsendDate"
+    });
+                                            </script>
+                                            &nbsp;
+                                            <input type="submit" name="commit" value="Go" class="btn btn-primary">
+                                        </span>
+                                    </p>
+                                </form>
+
+
+                                <form id="landingPageStats_filter" class="inline" onsubmit="new Ajax.Updater('landingPageStats_table_div', '/landingPage/reportTable/ajax/1/dateText/Date+Range%3A+', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('laps_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('landingPageStats_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/landingPage/reportTable/ajax/1/dateText/Date+Range%3A+" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="ee1cea3242b1cd8e900c4fd21416192ac7e4c6080669344e9d594d1cb3f25f9c67e50982212c0b057a1ad02d0deaadcf"></div>
+                                    <p class="inline header">
+                                        Filter:<br>
+                                        <input type="text" name="table_filter" id="landingPageStats_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;landingPageStats_filter&quot;).onsubmit()',600);" class="input-medium">
+                                    </p>
+                                </form>
+                                <br>
+                                <form id="landingPageStats_tagFilter" class="aaa inline tag-filter-form" onsubmit="new Ajax.Updater('landingPageStats_table_div', '/landingPage/reportTable/ajax/1/dateText/Date+Range%3A+/table_filter', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('laps_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('landingPageStats_ajax_urlparams').value.replace('tagFilter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/landingPage/reportTable/ajax/1/dateText/Date+Range%3A+/table_filter" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="ee1cea3242b1cd8e900c4fd21416192ac7e4c6080669344e9d594d1cb3f25f9c67e50982212c0b057a1ad02d0deaadcf"></div>					<p class="inline header" id="tagFilterContainerlandingPageStats"><button  class="btn">Tags <span class="caret"></span></button><span id="tagFilterListlandingPageStats"></span><input type="hidden" id="tagFilterInputlandingPageStats" name="tagFilter" value=""></p>
+                               
+                                </form>
+
+                                <div class="btn-group pull-right">
+                                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                        Tools			    <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+
+
+                                        <li><a onclick="location='/landingPage/exportReport?' + $('landingPageStats_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                            <div id="laps_wrapper" class="module-wrapper">
+                                <div id="landingPageStats_table_div">
+
+
+                                    <input type="hidden" id="landingPageStats_ajax_urlparams" value="sort=landing_page.name&amp;order=asc&amp;dateRange=6&amp;tableName=landingPage&amp;pageSize=5&amp;prefix=laps&amp;export=icon&amp;startDate=%401167627600&amp;endDate=now&amp;dateText=Viewed+date+range%3A&amp;tagFilter=+&amp;ajaxElement=landingPageStats&amp;startDate=%401167627600&amp;endDate=now&amp;numResults=3">
+                                    <table class="data-table table-bordered">
+                                        <thead>
+                                            <tr>
+
+
+
+                                                <th class="sortable sort-up first name-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('landingPageStats_table_div', '/landingPage/reportTable/ajax/1/page/1/order/desc/sort/landing_page.name/dateRange/6/tableName/landingPage/pageSize/5/prefix/laps/export/icon/startDate/%401167627600/endDate/now/dateText/Viewed+date+range%3A/tagFilter/+/ajaxElement/landingPageStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=51c625682c78fcc241defe9efdef612a9de991cacca360596531da5079154b389697183c208724405b80322dd80c6f45'});; return false;">Name</a>
+
+                                                    <i class="icon-circle-arrow-up muted"></i>
+                                                </th>
+
+
+
+                                                <th class="total-views-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('landingPageStats_table_div', '/landingPage/reportTable/ajax/1/page/1/order/desc/sort/landing_page_stats.total_views/dateRange/6/tableName/landingPage/pageSize/5/prefix/laps/export/icon/startDate/%401167627600/endDate/now/dateText/Viewed+date+range%3A/tagFilter/+/ajaxElement/landingPageStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=760a86eb1555946c2f78d4a92f1900b0633ed3c1c0fb0f5e8f53b214bdfe87ae3e9b539a9e420ffc9b1a84fe7f923c36'});; return false;">Total Views</a>
+
+                                                </th>
+
+
+
+                                                <th class="total-submissions-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('landingPageStats_table_div', '/landingPage/reportTable/ajax/1/page/1/order/desc/sort/landing_page_stats.total_submissions/dateRange/6/tableName/landingPage/pageSize/5/prefix/laps/export/icon/startDate/%401167627600/endDate/now/dateText/Viewed+date+range%3A/tagFilter/+/ajaxElement/landingPageStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=22ffecc7f8bc8c7558d10a1cae807b7a03819ea237787a7397b95b5aec996d25af74f66f8afae18176ae2cbb99e7f120'});; return false;">Total Submissions</a>
+
+                                                </th>
+
+
+                                                <th class="submission-rate-column">
+
+                                                    Submission Rate
+                                                </th>
+
+
+
+                                                <th class="total-errors-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('landingPageStats_table_div', '/landingPage/reportTable/ajax/1/page/1/order/desc/sort/landing_page_stats.total_errors/dateRange/6/tableName/landingPage/pageSize/5/prefix/laps/export/icon/startDate/%401167627600/endDate/now/dateText/Viewed+date+range%3A/tagFilter/+/ajaxElement/landingPageStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=69facc2773d08a79e938df0f369d3fe65d84608c55b51b58cd2aa2ea93b6365f9f16da2347a022baa5f3c6708bb58555'});; return false;">Total Errors</a>
+
+                                                </th>
+
+
+                                                <th class="error-rate-column last">
+
+                                                    Error Rate
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr id="laps_row_a40942">
+                                                <td class="first ">
+                                                    <a href="/landingPage/readReport/id/188">ICL Webinar Landing Page [PD Support - GH]</a>
+                                                </td>
+                                                <td class="">
+                                                    <a href="/landingPage/readReport/id/188/activityType/2">1</a>
+                                                </td>
+                                                <td class="">
+                                                    <a href="/landingPage/readReport/id/188/activityType/4">0</a>
+                                                </td>
+                                                <td class="">
+                                                    0.00%
+                                                </td>
+                                                <td class="">
+                                                    <a href="/landingPage/readReport/id/188/activityType/3">0</a>
+                                                </td>
+                                                <td class="last">
+                                                    0.00%
+                                                </td>
+                                            </tr>
+                                            <tr style="display:none" id="laps_row_b40942" class="ajax_row">
+                                                <td colspan="3" id="laps_row_b_cell40942" class="last"></td>
+                                            </tr>
+                                            <tr class="even" id="laps_row_a40884">
+                                                <td class="first ">
+                                                    <a href="/landingPage/readReport/id/186">ILC Webinar Landing Page [PD Support]</a>
+                                                </td>
+                                                <td class="">
+                                                    <a href="/landingPage/readReport/id/186/activityType/2">12</a>
+                                                </td>
+                                                <td class="">
+                                                    <a href="/landingPage/readReport/id/186/activityType/4">0</a>
+                                                </td>
+                                                <td class="">
+                                                    0.00%
+                                                </td>
+                                                <td class="">
+                                                    <a href="/landingPage/readReport/id/186/activityType/3">1</a>
+                                                </td>
+                                                <td class="last">
+                                                    8.33%
+                                                </td>
+                                            </tr>
+                                            <tr style="display:none" id="laps_row_b40884" class="ajax_row">
+                                                <td colspan="3" id="laps_row_b_cell40884" class="last"></td>
+                                            </tr>
+                                            <tr id="laps_row_a41040">
+                                                <td class="first ">
+                                                    <a href="/landingPage/readReport/id/190">ILC Webinar Thank You Landing Page [PD Support]</a>
+                                                </td>
+                                                <td class="">
+                                                    <a href="/landingPage/readReport/id/190/activityType/2">2</a>
+                                                </td>
+                                                <td class="">
+                                                    <a href="/landingPage/readReport/id/190/activityType/4">0</a>
+                                                </td>
+                                                <td class="">
+                                                    0.00%
+                                                </td>
+                                                <td class="">
+                                                    <a href="/landingPage/readReport/id/190/activityType/3">0</a>
+                                                </td>
+                                                <td class="last">
+                                                    0.00%
+                                                </td>
+                                            </tr>
+                                            <tr style="display:none" id="laps_row_b41040" class="ajax_row">
+                                                <td colspan="3" id="laps_row_b_cell41040" class="last"></td>
+                                            </tr>
+                                            <tr class="totals" id="laps_row_total">
+                                                <td class="first">
+                                                    Total: 3
+                                                </td>
+                                                <td>
+                                                    15
+                                                </td>
+                                                <td>
+                                                    0
+                                                </td>
+                                                <td>
+                                                    0.00%
+                                                </td>
+                                                <td>
+                                                    1
+                                                </td>
+                                                <td class="last">
+                                                    6.67%
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+
+
+                                    <div class="table-foot clearfix">
+                                        <div id="laps_table_footer">
+                                            <form id="landingPageStatsform" class="inline laps-pager-form pager-form" onsubmit="new Ajax.Updater('landingPageStats_table_div', '/landingPage/reportTable/ajax/1/sort/landing_page.name/order/asc/dateRange/6/tableName/landingPage/pageSize/5/prefix/laps/export/icon/startDate/%401167627600/endDate/now/dateText/Viewed+date+range%3A/tagFilter/+/ajaxElement/landingPageStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('laps_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:Form.serialize(this)}); return false;" action="/landingPage/reportTable/ajax/1/sort/landing_page.name/order/asc/dateRange/6/tableName/landingPage/pageSize/5/prefix/laps/export/icon/startDate/%401167627600/endDate/now/dateText/Viewed+date+range%3A/tagFilter/+/ajaxElement/landingPageStats" method="post">
+                                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="ee1cea3242b1cd8e900c4fd21416192ac7e4c6080669344e9d594d1cb3f25f9c67e50982212c0b057a1ad02d0deaadcf"></div>						<ul class="inline pull-right paging">
+                                                    <li>
+                                                    </li>
+
+                                                    <li>
+                                                        Page
+                                                        1
+                                                        of
+                                                        <a class="pager-last" href="#" onclick="cancelAllPendingAjax(); new Ajax.Updater('landingPageStats_table_div', '/landingPage/reportTable/ajax/1/page/1/sort/landing_page.name/order/asc/dateRange/6/tableName/landingPage/pageSize/5/prefix/laps/export/icon/startDate/%401167627600/endDate/now/dateText/Viewed+date+range%3A/tagFilter/+/ajaxElement/landingPageStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=9930116aa9dc443ace9b93998a1b76e112098691d6ecae1b0d39987cc4741d3e6ac39e8214dea203d84f5a3a9ec24668'});; return false;">1</a>
+                                                    </li>
+
+                                                    <li class="last">
+                                                    </li>
+                                                </ul>
+                                                <p class="inline pull-right">
+                                                    Showing
+                                                    <select name="pageSize" id="lapspageSize" onchange="$(&quot;landingPageStatsform&quot;).onsubmit();return false;" class="input-auto">
+                                                        <option value="5" selected="selected">5</option>
+                                                        <option value="10">10</option>
+                                                        <option value="15">15</option>
+                                                        <option value="25">25</option>
+                                                        <option value="50">50</option>
+                                                    </select>											 of <strong>3</strong>																															<input type="hidden" name="dateRange" id="laps1_dateRange" value="6">																								<input type="hidden" name="view" id="laps1_view" value="">																								<input type="hidden" name="mode" id="laps1_mode" value="">																								<input type="hidden" name="tableName" id="laps1_tableName" value="landingPage">																								<input type="hidden" name="campaign_id" id="laps1_campaign_id" value="">																								<input type="hidden" name="prospect_id" id="laps1_prospect_id" value="">																								<input type="hidden" name="visitor_id" id="laps1_visitor_id" value="">																								<input type="hidden" name="visit_id" id="laps1_visit_id" value="">																								<input type="hidden" name="user_id" id="laps1_user_id" value="">																								<input type="hidden" name="query" id="laps1_query" value="">																																			<input type="hidden" name="prefix" id="laps1_prefix" value="laps">																								<input type="hidden" name="export" id="laps1_export" value="icon">																								<input type="hidden" name="startDate" id="laps1_startDate" value="@1167627600">																								<input type="hidden" name="endDate" id="laps1_endDate" value="now">																								<input type="hidden" name="dateText" id="laps1_dateText" value="Viewed date range:">																								<input type="hidden" name="tagFilter" id="laps1_tagFilter" value=" ">
+                                                </p>
+                                            </form>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                    <div id="multivariateTest">
+
+                        <div id="mvt_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                        <div id="mvt_module" class="module">
+
+                            <div class="header clearfix">
+
+                                <h2 id="multivariateTest_h2">
+                                    Multivariate Test Statistics
+                                </h2>
+
+
+
+                                <form id="multivariateTest_date_range_form" class="inline" onsubmit="new Ajax.Updater('multivariateTest_table_div', '/multivariateTest/report/ajax/1', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('mvt_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('multivariateTest_ajax_urlparams').value + '&amp;'  + Form.serialize(this) }); return false;" action="/multivariateTest/report/ajax/1" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="ee1cea3242b1cd8e900c4fd21416192ac7e4c6080669344e9d594d1cb3f25f9c67e50982212c0b057a1ad02d0deaadcf"></div>
+                                    <p class="inline header">
+                                        Campaign:<br>
+                                        <select name="campaign_filter" id="campaign_filter_mvt" onchange="$('multivariateTest_date_range_form').onsubmit();">
+                                            <option value="0" selected="selected">All Campaigns</option>
+                                            <optgroup label="Current">
+                                                <option value="288">Email Plug-in</option>
+                                                <option value="932">Pre-Pardot Initial Import</option>
+                                                <option value="934">Sync from Salesforce</option>
+                                                <option value="1460">Test Campaign</option>
+                                                <option value="1852">Webinars</option>
+                                                <option value="286">Website Tracking</option>
+                                            </optgroup>
+                                            <optgroup label="Archived"></optgroup>
+                                        </select>
+                                    </p>
+                                    <p class="inline header">
+
+                                        <span id="datetext_header">
+                                            Created at filter <small>(Based on 12am EDT)</small>:
+                                        </span> <br>
+
+                                        <select name="dateRange" id="dateRange_mvt" onchange="customDates = document.getElementById('mvt_custom_dates');if(this.value==7) {
+								customDates.removeClassName(&quot;hidden&quot;);
+							 } else {
+							 	$('multivariateTest_date_range_form').onsubmit();
+							 	customDates.addClassName(&quot;hidden&quot;);
+							 }" class="input-auto">
+                                            <option value="1">Today</option>
+                                            <option value="2">Yesterday</option>
+                                            <option value="4">This Month</option>
+                                            <option value="10">This Quarter</option>
+                                            <option value="11">This Year</option>
+                                            <option value="3">Last 7 Days</option>
+                                            <option value="14">Last Week</option>
+                                            <option value="5">Last Month</option>
+                                            <option value="12">Last Quarter</option>
+                                            <option value="13">Last Year</option>
+                                            <option value="6" selected="selected">All Time</option>
+                                            <option value="7">Custom</option>
+                                        </select>						<span id="mvt_custom_dates" class="datepickerBS inline header hidden">
+                                            <input type="text" name="startDate" id="mvtstartDate" value="2006-12-31" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_mvtstartDate">...</button>
+                                            <script type="text/javascript">
+    document.getElementById("trigger_mvtstartDate").disabled = false;
+    Calendar.setup({
+      inputField : "mvtstartDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_mvtstartDate"
+    });
+                                            </script>
+                                            &nbsp;to&nbsp;
+
+                                            <input type="text" name="endDate" id="mvtendDate" value="2015-10-08" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_mvtendDate">...</button>
+                                            <script type="text/javascript">
+    document.getElementById("trigger_mvtendDate").disabled = false;
+    Calendar.setup({
+      inputField : "mvtendDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_mvtendDate"
+    });
+                                            </script>
+                                            &nbsp;
+                                            <input type="submit" name="commit" value="Go" class="btn btn-primary">
+                                        </span>
+                                    </p>
+                                </form>
+
+
+                                <form id="multivariateTest_filter" class="inline" onsubmit="new Ajax.Updater('multivariateTest_table_div', '/multivariateTest/report/ajax/1/dateText/Created+at+filter', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('mvt_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('multivariateTest_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/multivariateTest/report/ajax/1/dateText/Created+at+filter" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="ee1cea3242b1cd8e900c4fd21416192ac7e4c6080669344e9d594d1cb3f25f9c67e50982212c0b057a1ad02d0deaadcf"></div>
+                                    <p class="inline header">
+                                        Filter:<br>
+                                        <input type="text" name="table_filter" id="multivariateTest_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;multivariateTest_filter&quot;).onsubmit()',600);" class="input-medium">
+                                    </p>
+                                </form>
+
+                                <br>			<div class="btn-group pull-right">
+                                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                        Tools			    <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+
+
+                                        <li><a onclick="location='/multivariateTest/exportReport?' + $('multivariateTest_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                            <div id="mvt_wrapper" class="module-wrapper">
+                                <div id="multivariateTest_table_div">
+
+
+                                    <input type="hidden" id="multivariateTest_ajax_urlparams" value="sort=multivariate_test.name&amp;order=asc&amp;dateRange=6&amp;ajaxElement=multivariateTest&amp;startDate=%401167627600&amp;endDate=now&amp;numResults=0">
+                                    <table class="data-table table-bordered">
+                                        <thead>
+                                            <tr>
+
+
+
+                                                <th class="sortable sort-up first name-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('multivariateTest_table_div', '/multivariateTest/report/ajax/1/page/1/order/desc/sort/multivariate_test.name/dateRange/6/ajaxElement/multivariateTest/startDate/%401167627600/endDate/now', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=3e299427a677012e1841596ab91ad59893885b73b4cf485ff371b39c5d65b88e79a0713e155377a05b95ff2ec52465ee'});; return false;">Name</a>
+
+                                                    <i class="icon-circle-arrow-up muted"></i>
+                                                </th>
+
+
+                                                <th class="views-column">
+
+                                                    Views
+                                                </th>
+
+
+                                                <th class="conversions-column">
+
+                                                    Conversions
+                                                </th>
+
+
+                                                <th class="conversion-rate-column">
+
+                                                    Conversion Rate
+                                                </th>
+
+
+                                                <th class="top-performer-column last">
+
+                                                    Top Performer
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                    </table>
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script type="text/javascript">
+	function calcPercentTotal(data, numColumnsOver, numRetries) {
+		if(numRetries==null) {
+			numRetries=0;
+		}
+
+		//get numerator by row
+		var denominator = $j('#'+data.request.container.success).parent().prev().html().replace(',','');
+		denominator = parseInt(denominator);
+		if(isNaN(denominator)) {
+			// first check if this is just a lazy column with the extra <span> around the number, and remove it with children()
+			denominator = $j('#'+data.request.container.success).parent().prev().children().html().replace(',','');
+			denominator = parseInt(denominator);
+			if(isNaN(denominator)) {
+				// if it's still NaN then the column must not have finished loading yet, so wait a second and try again (but don't try too many times
+				if(numRetries < 30) {
+					setTimeout(function() { calcPercentTotal(data, numColumnsOver, numRetries+1); }, 1000);
+					return;
+				} else {
+					// give up and return 0
+					denominator = 0;
+				}
+			}
+		}
+
+		var numerator = data.responseText.replace(',','');
+		numerator = parseInt(numerator);
+
+		//calc completed percentage
+		var percentage = 0;
+		if(denominator > 0) {
+			percentage = (numerator / denominator) * 100;
+		}
+		percentage = percentage.toFixed(2);
+		var percentageColumn = $j('#'+data.request.container.success).parent().next();
+		var curColumn = 1;
+		while(curColumn < numColumnsOver) {
+			percentageColumn = percentageColumn.next();
+			curColumn++;
+		}
+		percentageColumn.html(percentage + '%');
+	}
+                    </script>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+
+    </div>
+</div>

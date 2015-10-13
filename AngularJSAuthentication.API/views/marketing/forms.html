@@ -1,0 +1,1668 @@
+﻿<div id="wrapper">
+
+    <div id="contentWrap">
+        <div id="content">
+
+            <ul id="bread-crumbs" class="breadcrumb">
+                <li>
+                    <a href="/" title="Home"><i class="icon-home"></i></a>
+                </li>
+                <li class="crumb-divider">  / </li>
+                <li>
+                    <a href="/marketing">Marketing</a>
+                </li>
+            </ul>
+
+            <h1>Forms</h1>
+
+            <div class="divider"></div>
+
+
+
+            <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div id="form">
+
+                    <div id="fo_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                    <div id="tagFilterform" class="tagfilter-pop-up dropdown-menu" style="display: none;"><input type="text" id="tagFilterSearchform" value=""><div class="scroller"><ul id="tagFilterSelectorform"><li></li></ul></div><a href="#"  style="float: left;">Clear filter</a>  <a href="/tag" style="float: right;">Manage tags</a></div><div id="fo_module" class="module">
+
+                        <div class="header clearfix">
+
+                            <h2 id="form_h2"></h2>
+
+
+
+
+
+                            <form id="form_filter" class="inline" onsubmit="new Ajax.Updater('form_table_div', '/form/table/ajax/1/dateText/Date+Range%3A+', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('fo_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('form_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/form/table/ajax/1/dateText/Date+Range%3A+" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="5c6fe52d0098b7c3f5f368dede7eeea9433d4b4f87ab76555d0d3f778e25b156f3a6fd47759bbe723750f2695b0b55bb"></div>
+                                <p class="inline header">
+                                    Filter:<br>
+                                    <input type="text" name="table_filter" id="form_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;form_filter&quot;).onsubmit()',600);" class="input-medium">
+                                </p>
+                            </form>
+                            <br>
+                            <form id="form_tagFilter" class="aaa inline tag-filter-form" onsubmit="new Ajax.Updater('form_table_div', '/form/table/ajax/1/dateText/Date+Range%3A+/table_filter', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('fo_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('form_ajax_urlparams').value.replace('tagFilter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/form/table/ajax/1/dateText/Date+Range%3A+/table_filter" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="5c6fe52d0098b7c3f5f368dede7eeea9433d4b4f87ab76555d0d3f778e25b156f3a6fd47759bbe723750f2695b0b55bb"></div>					<p class="inline header" id="tagFilterContainerform"><button  class="btn">Tags <span class="caret"></span></button><span id="tagFilterListform"></span><input type="hidden" id="tagFilterInputform" name="tagFilter" value=""></p>
+                               
+                            </form>
+
+                            <div class="btn-group pull-right">
+                                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Tools			    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+
+                                    <li><a href="#" onclick="new Ajax.Updater('fo_status', '/tagObject/tagTableAjax', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('fo_status', true);new Effect.Highlight('fo_status', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('fo_table_footer', false); }}, parameters:'ajaxParams='+encodeURIComponent($('form_ajax_urlparams').value) + '&amp;ajaxUrl=form%2Ftable&amp;objectName=Forms' + '&amp;_csrf_token=2ae31f16e1928ca3c330da83870a95f5f5d8b6fe1b853fca120e66dc9c99f35bebff1187ce0c7e6695362f47e5a30287'});; return false;"><i class="icon-tag"></i> Tag Entire Table</a>						</li>
+
+                                    <li><a onclick="location='/form/export?' + $('form_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                </ul>
+                            </div>
+
+                            <span class="link_to_create pull-right">
+                                <a class="btn btn-warning" href="/form/wizard"><i class="icon-plus"></i> Add Form</a>
+                            </span>
+
+                        </div>
+                        <div id="fo_wrapper" class="module-wrapper">
+                            <div id="form_table_div">
+
+
+                                <input type="hidden" id="form_ajax_urlparams" value="sort=form.name&amp;order=desc&amp;mode=manage&amp;tagFilter=+&amp;ajaxElement=form&amp;numResults=2">
+                                <table id="form_table" class="data-table table-bordered">
+                                    <thead>
+                                        <tr>
+
+
+                                            <th class="first checkbox-column checkbox">
+                                                <input type="checkbox" class="check-all">
+
+
+                                            </th>
+
+
+
+
+                                            <th class="sortable sort-down forms-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('form_table_div', '/form/table/ajax/1/page/1/order/asc/sort/form.name/mode/manage/tagFilter/+/ajaxElement/form', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=62ba17a235f7e92c67f346424026a625521d11efba373509205ff9e3ffe6f9f4037d8c58db21e0f95f7d1e3c0386e75d'});; return false;">Forms</a>
+
+                                                <i class="icon-circle-arrow-down muted"></i>
+                                            </th>
+
+
+                                            <th class="total-views-column">
+
+                                                Total Views
+                                            </th>
+
+
+                                            <th class="autoresponder-column">
+
+                                                Autoresponder
+                                            </th>
+
+
+
+                                            <th class="updated-at-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('form_table_div', '/form/table/ajax/1/page/1/order/desc/sort/form.updated_at/mode/manage/tagFilter/+/ajaxElement/form', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=d830384fcf2e71097f431cdc44a71501a3feabeffe30746547b552256df64514211fa9105cc164023081c9ab19cdc188'});; return false;">Updated at</a>
+
+                                            </th>
+
+
+                                            <th class="actions-column last">
+
+                                                Actions
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr class="" id="form_row_a0">
+
+                                            <td class="first checkbox">
+                                                <input type="checkbox" name="checkbox_form_142" id="checkbox_form_142" value="142" class="datatable-checkbox">
+                                            </td>
+
+                                            <td>
+                                                <a href="/form/read/id/142">Standard Form</a>		<br>
+                                                <span style="font-size: 12px; color: #999">
+                                                    <i class="icon icon-folder-close"></i>
+                                                    <a href="/folder#/2111">
+                                                        /Uncategorized/Forms
+                                                    </a>
+                                                </span>
+                                            </td>
+
+                                            <td>
+                                                1
+                                            </td>
+
+                                            <td></td>
+
+                                            <td>
+                                                Aug 15, 2015 4:39 AM
+                                            </td>
+
+                                            <td class="new-actions last">
+
+
+
+
+
+
+                                                <div class="actions-menu-wrapper">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog muted"></i></a>	<ul class="dropdown-menu pull-right" role="menu">
+                                                        <li><a href="/form/wizard/object_id/142/prefix/fo"><i class="icon-edit muted" title="Edit"></i> Edit</a></li>
+                                                        <li><a href="#" onclick="new Ajax.Updater('form_row_b_cell0', '/form/copyAjax/id/142/prefix/form', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('form_row_b0', true);if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('form_table_footer', false); }new Effect.Highlight('form_row_b_cell0', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=8d173f52f3eb6d083c228234a1c4289b9d593ace80a65a41172fbfe4a376fd7b508eab7b1592cdd6f32171783cc6068d'});; return false;"><i class="icon-copy muted" title="Copy"></i> Copy</a></li>
+                                                        <li><a href="#" onclick="if (window.confirm('Are you sure?')) { new Ajax.Updater('form_row_b_cell0', '/form/delete/id/142/prefix/form', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplayAnimated('form_row_a0', false, null, true);if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('form_table_footer', false); }}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=c1156a0cd6e2c5d035fcafce6b539383b796859f143cbf447a00ac87f7052513264db22980ff02e57d957df13a6801e6'}); };; return false;"><i class="icon-trash muted" title="Delete"></i> Delete</a></li>
+                                                    </ul>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        <tr style="display:none" id="form_row_b0" class="ajax_row">
+                                            <td colspan="6" id="form_row_b_cell0" class="last"></td>
+                                        </tr>
+                                        <tr class="even" id="form_row_a1">
+
+                                            <td class="first checkbox">
+                                                <input type="checkbox" name="checkbox_form_646" id="checkbox_form_646" value="646" class="datatable-checkbox">
+                                            </td>
+
+                                            <td>
+                                                <a href="/form/read/id/646">ILC Webinar Form</a>		<br>
+                                                <span style="font-size: 12px; color: #999">
+                                                    <i class="icon icon-folder-close"></i>
+                                                    <a href="/folder#/2111">
+                                                        /Uncategorized/Forms
+                                                    </a>
+                                                </span>
+                                            </td>
+
+                                            <td>
+                                                1
+                                            </td>
+
+                                            <td></td>
+
+                                            <td>
+                                                Oct 2, 2015 3:24 PM
+                                            </td>
+
+                                            <td class="new-actions last">
+
+
+
+
+
+
+                                                <div class="actions-menu-wrapper">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog muted"></i></a>	<ul class="dropdown-menu pull-right" role="menu">
+                                                        <li><a href="/form/wizard/object_id/646/prefix/fo"><i class="icon-edit muted" title="Edit"></i> Edit</a></li>
+                                                        <li><a href="#" onclick="new Ajax.Updater('form_row_b_cell1', '/form/copyAjax/id/646/prefix/form', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('form_row_b1', true);if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('form_table_footer', false); }new Effect.Highlight('form_row_b_cell1', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=cdf5403d21930b971f5f5d468576095b1aa9cca653f45b6088da2d3d4a378d5e7bae3a56320847fccbe3cf13ecc1a060'});; return false;"><i class="icon-copy muted" title="Copy"></i> Copy</a></li>
+                                                        <li><a href="#" onclick="if (window.confirm('Are you sure?')) { new Ajax.Updater('form_row_b_cell1', '/form/delete/id/646/prefix/form', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplayAnimated('form_row_a1', false, null, true);if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('form_table_footer', false); }}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=9125d049e6f8be932b83da9e2d7774c2b91b7d322cb9cc107c8d7a08f60bce03328f6e4f3843e05ea220d7b99de1a5b3'}); };; return false;"><i class="icon-trash muted" title="Delete"></i> Delete</a></li>
+                                                    </ul>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        <tr style="display:none" id="form_row_b1" class="ajax_row">
+                                            <td colspan="6" id="form_row_b_cell1" class="last"></td>
+                                        </tr>
+                                    </tbody>
+
+
+                                </table>
+
+
+
+                                <div class="table-foot clearfix">
+                                    <div id="fo_table_footer">
+                                        <form action="#" class="inline pull-left">
+                                            <input type="hidden" name="check_all_params" value="&amp;mode=manage&amp;tagFilter=+&amp;ajaxElement=form">
+                                            <div class="multi-checkbox-buttons pull-left">
+                                                With <span class="checkbox-num-selected">0</span> selected:
+
+                                                <select name="multi-select" id="multi-select" onchange="
+				if (this.value == &quot;multiAddTags&quot;) {
+					jQuery(this).siblings(&quot;.MultiSelect_AddTags&quot;).show();
+				}
+				else {
+					jQuery(this).siblings(&quot;.MultiSelect_AddTags&quot;).hide();
+				}
+
+				if (this.value == &quot;multiRemoveTags&quot;) {
+					jQuery(this).siblings(&quot;.MultiSelect_RemoveTags&quot;).show();
+				}
+				else {
+					jQuery(this).siblings(&quot;.MultiSelect_RemoveTags&quot;).hide();
+				}
+
+				if (this.value == &quot;multiAddToFolder&quot;) {
+					jQuery(this).siblings(&quot;.MultiSelect_AddToFolder&quot;).show();
+				}
+				else {
+					jQuery(this).siblings(&quot;.MultiSelect_AddToFolder&quot;).hide();
+				}
+
+				if (this.value == &quot;deletes&quot;) {
+					jQuery(this).siblings(&quot;.MultiSelect_Delete&quot;).show();
+				}
+				else {
+					jQuery(this).siblings(&quot;.MultiSelect_Delete&quot;).hide();
+				}
+			" class="multi-select input-auto">
+                                                    <option value="" selected="selected">&nbsp;</option>
+                                                    <option value="multiAddTags">Add tags</option>
+                                                    <option value="deletes">Delete</option>
+                                                    <option value="multiAddToFolder">Move to folder</option>
+                                                    <option value="multiRemoveTags">Remove tags</option>
+                                                </select>
+                                                <span class="MultiSelect_AddTags" style="display: none;">
+                                                    <input name="addTags" class="tagComponent tagComponentReady" id="addTagsMultiSelect_AddTags1" value="" style="display: none;"><div id="addTagsMultiSelect_AddTags1_tagsinput" class="tagsinput" style="margin-top: -1px;"><div id="addTagsMultiSelect_AddTags1_addTag"><input id="addTagsMultiSelect_AddTags1_tag" value="" data-default="add a tag" class="ui-autocomplete-input" autocomplete="off" style="color: rgb(102, 102, 102); width: 206px;"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span></div><div class="tags_clear"></div></div>
+
+                                                </span><div class="MultiSelect_AddToFolder inline" style="display: none; margin-right: 5px;">
+                                                    <input type="hidden" name="object_type" value="3"><div class="input-prepend input-append folder-chooser inline">
+                                                        <span class="add-on" onclick="AssetChooserApp.chooseFolder(jQuery(this).parent())" style="cursor: pointer;"><i class="icon-folder-open-alt"></i></span>
+                                                        <span class="input-xlarge uneditable-input folder-name" style="cursor: pointer;" onclick="AssetChooserApp.chooseFolder(jQuery(this).parent())">Choose A Folder</span>
+                                                        <input type="hidden" id="folder_id" name="folder_id" value="">
+                                                        <button class="btn choose-asset" type="button" onclick="AssetChooserApp.chooseFolder(jQuery(this).parent())">Choose</button>
+                                                    </div>
+
+
+
+
+                                                    <script type="text/javascript">
+	window._csrf_token = window._csrf_token || "2b0a790b89d409b443d47459b997ea7750b26efefb39f8f43c021147faadf1121522ecbada0f0130524586106800e47f";
+	window.enableFolderFeature = true;
+                                                    </script>
+
+
+
+
+                                                    <script type="text/javascript">
+		PreloadStore.store("folders",[]);
+		PreloadStore.store("tags",[]);
+		PreloadStore.store("abilities", {"canManagePermissions":true,"canEditFolders":true,"canCreateFolders":true,"canDeleteFolders":true,"canCreateCampaigns":true});
+		AssetChooserApp.start();
+                                                    </script>
+
+                                                </div><span class="MultiSelect_Delete" style="display: none;"></span>
+                                                <input class="btn" type="button" onclick="if(confirmBatchAction(&quot;form&quot;, &quot;Forms&quot;)){new Ajax.Updater('fo_status', '/form/table/objectName/Forms/mode/manage/tagFilter/+/ajaxElement/form', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('fo_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:Form.serialize(this.form) + '&amp;_csrf_token=3ec370930f15a738cf217a26c248a705a591eff8ab9b38c1acbcfe0d06902fcb9c3c292430f082365dbdccb8f54227dd'});} return false;" name="ajax_submit" value="Go"><input type="hidden" name="multiCheckIds" id="" value="" class="multiCheckIds">
+                                            </div>
+                                        </form>
+                                        <form id="formform" class="inline fo-pager-form pager-form" onsubmit="new Ajax.Updater('form_table_div', '/form/table/ajax/1/sort/form.name/order/desc/mode/manage/tagFilter/+/ajaxElement/form', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('fo_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:Form.serialize(this)}); return false;" action="/form/table/ajax/1/sort/form.name/order/desc/mode/manage/tagFilter/+/ajaxElement/form" method="post">
+                                            <div style="display:none;"><input type="hidden" name="_csrf_token" value="5c6fe52d0098b7c3f5f368dede7eeea9433d4b4f87ab76555d0d3f778e25b156f3a6fd47759bbe723750f2695b0b55bb"></div>						<ul class="inline pull-right paging">
+                                                <li>
+                                                </li>
+
+                                                <li>
+                                                    Page
+                                                    1
+                                                    of
+                                                    <a class="pager-last" href="#" onclick="cancelAllPendingAjax(); new Ajax.Updater('form_table_div', '/form/table/ajax/1/page/1/sort/form.name/order/desc/mode/manage/tagFilter/+/ajaxElement/form', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=17f93dd6fb63e2ac1db5271fee36bd4c6b5bc85b6c813dca7696ae6d521ed959f73272ba4c3edad011310066497cb8d6'});; return false;">1</a>
+                                                </li>
+
+                                                <li class="last">
+                                                </li>
+                                            </ul>
+                                            <p class="inline pull-right">
+                                                Showing
+                                                <select name="pageSize" id="fopageSize" onchange="$(&quot;formform&quot;).onsubmit();return false;" class="input-auto">
+                                                    <option value="5" selected="selected">5</option>
+                                                    <option value="10">10</option>
+                                                    <option value="15">15</option>
+                                                    <option value="25">25</option>
+                                                    <option value="50">50</option>
+                                                </select>											 of <strong>2</strong>																															<input type="hidden" name="mode" id="fo1_mode" value="manage">																								<input type="hidden" name="view" id="fo1_view" value="">																								<input type="hidden" name="tagFilter" id="fo1_tagFilter" value=" ">
+                                            </p>
+                                        </form>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><div id="asset-chooser-app" class="ember-application">
+                <div id="ember365" class="ember-view">
+
+                    <div id="asset-chooser-app-modal" class="ember-view modal hide" data-backdrop="static" data-keyboard="false" style="display: none;" aria-hidden="true">
+                        <div class="modal-header">
+                            <h3>
+                            <script id="metamorph-2-start" type="text/x-placeholder">
+                            </script>Please make a selection
+                            <script id="metamorph-2-end" type="text/x-placeholder">
+                            </script></h3>
+                        </div>
+                        <div id="asset-chooser-alert"></div>
+                        <div class="modal-body asset-modal">
+
+                            <div class="folders-app-container row-fluid">
+                                <div class="folders-stage-left span3">
+
+                                    <div class="accordion" id="folders-accordion">
+
+
+                                        <div class="accordion-group">
+                                            <div id="ember385" class="ember-view accordion-heading">
+                                                <a data-toggle="collapse" class="pull-left accordion-toggle" data-path-name="folder" data-parent="folders-accordion" href="folders-collapse" style="width:58%" data-bindattr-1="1">
+                                                    <i class="icon-folder-close" data-bindattr-2="2"></i>
+                                                    <script id="metamorph-3-start" type="text/x-placeholder">
+                                                    </script>Folders
+                                                    <script id="metamorph-3-end" type="text/x-placeholder">
+                                                    </script>
+                                                </a>
+
+                                                <script id="metamorph-4-start" type="text/x-placeholder">
+                                                </script>
+                                                <script id="metamorph-5-start" type="text/x-placeholder">
+                                                </script>
+                                                <a id="ember392" class="ember-view pull-right accordion-toggle active" href="/search">
+                                                    <i class="icon-search" data-toggle="tooltip" data-placement="right" title="Search Through All Folders"></i>
+                                                </a>
+                                                <script id="metamorph-5-end" type="text/x-placeholder">
+                                                </script>
+                                                <script id="metamorph-4-end" type="text/x-placeholder">
+                                                </script>
+
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div id="folders-collapse" class="accordion-body in collapse">
+                                                <div class="accordion-inner tree-container" data-bindattr-3="3">
+                                                    <div id="ember402" class="ember-view tree-node">
+                                                        <script id="metamorph-6-start" type="text/x-placeholder">
+                                                        </script>
+                                                        <div id="ember420" class="ember-view">
+                                                            <script id="metamorph-7-start" type="text/x-placeholder">
+                                                            </script>
+                                                            <span class="pull-left" data-ember-action="11">
+                                                                <i class="icon icon-collapse-alt" data-bindattr-12="12"></i>
+                                                            </span>
+                                                            <script id="metamorph-7-end" type="text/x-placeholder">
+                                                            </script>
+
+
+                                                            <div id="ember429" class="ember-view">
+                                                                <div id="ember430" class="ember-view">
+                                                                    <a id="ember431" class="ember-view" href="/root">
+                                                                        <i id="ember444" class="ember-view icon-folder-open"></i>
+                                                                        <script id="metamorph-8-start" type="text/x-placeholder">
+                                                                        </script>
+                                                                        <script id="metamorph-8-end" type="text/x-placeholder">
+                                                                        </script>
+                                                                        <script id="metamorph-9-start" type="text/x-placeholder">
+                                                                        </script>
+                                                                        <script id="metamorph-9-end" type="text/x-placeholder">
+                                                                        </script>
+
+                                                                        <script id="metamorph-10-start" type="text/x-placeholder">
+                                                                        </script>
+                                                                        <script id="metamorph-10-end" type="text/x-placeholder">
+                                                                        </script>
+                                                                    </a>
+
+                                                                    <script id="metamorph-11-start" type="text/x-placeholder">
+                                                                    </script>
+                                                                    <script id="metamorph-11-end" type="text/x-placeholder">
+                                                                    </script>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                        <script id="metamorph-12-start" type="text/x-placeholder">
+                                                        </script>
+                                                        <script id="metamorph-21-start" type="text/x-placeholder">
+                                                        </script>
+                                                        <script id="metamorph-22-start" type="text/x-placeholder">
+                                                        </script>
+                                                        <div id="ember509" class="ember-view tree-node child-node">
+                                                            <script id="metamorph-24-start" type="text/x-placeholder">
+                                                            </script>
+                                                            <div id="ember511" class="ember-view">
+                                                                <script id="metamorph-25-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <span class="pull-left" data-ember-action="9">
+                                                                    <i class="icon icon-collapse-alt" data-bindattr-10="10"></i>
+                                                                </span>
+                                                                <script id="metamorph-25-end" type="text/x-placeholder">
+                                                                </script>
+
+
+                                                                <div id="ember514" class="ember-view">
+                                                                    <div id="ember515" class="ember-view">
+                                                                        <a id="ember516" class="ember-view" href="/2027">
+                                                                            <i id="ember517" class="ember-view icon-folder-open"></i>
+                                                                            <script id="metamorph-26-start" type="text/x-placeholder">
+                                                                            </script>Uncategorized
+                                                                            <script id="metamorph-26-end" type="text/x-placeholder">
+                                                                            </script>
+                                                                            <script id="metamorph-27-start" type="text/x-placeholder">
+                                                                            </script>
+                                                                            <script id="metamorph-27-end" type="text/x-placeholder">
+                                                                            </script>
+
+                                                                            <script id="metamorph-28-start" type="text/x-placeholder">
+                                                                            </script>
+                                                                            <script id="metamorph-28-end" type="text/x-placeholder">
+                                                                            </script>
+                                                                        </a>
+
+                                                                        <script id="metamorph-29-start" type="text/x-placeholder">
+                                                                        </script>
+                                                                        <script id="metamorph-29-end" type="text/x-placeholder">
+                                                                        </script>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <script id="metamorph-30-start" type="text/x-placeholder">
+                                                            </script>
+                                                            <script id="metamorph-54-start" type="text/x-placeholder">
+                                                            </script>
+                                                            <script id="metamorph-38-start" type="text/x-placeholder">
+                                                            </script>
+                                                            <div id="ember556" class="ember-view tree-node child-node">
+                                                                <script id="metamorph-55-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <div id="ember558" class="ember-view">
+                                                                    <script id="metamorph-56-start" type="text/x-placeholder">
+                                                                    </script>
+                                                                    <script id="metamorph-56-end" type="text/x-placeholder">
+                                                                    </script>
+
+
+                                                                    <div id="ember561" class="ember-view">
+                                                                        <div id="ember562" class="ember-view">
+                                                                            <a id="ember563" class="ember-view no-icon" href="/2063">
+                                                                                <i id="ember564" class="ember-view icon-folder-close"></i>
+                                                                                <script id="metamorph-57-start" type="text/x-placeholder">
+                                                                                </script>Automations
+                                                                                <script id="metamorph-57-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-58-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-58-end" type="text/x-placeholder">
+                                                                                </script>
+
+                                                                                <script id="metamorph-59-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-59-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                            </a>
+
+                                                                            <script id="metamorph-60-start" type="text/x-placeholder">
+                                                                            </script>
+                                                                            <script id="metamorph-60-end" type="text/x-placeholder">
+                                                                            </script>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <script id="metamorph-61-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-168-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-168-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-61-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-55-end" type="text/x-placeholder">
+                                                                </script>
+                                                            </div>
+                                                            <script id="metamorph-38-end" type="text/x-placeholder">
+                                                            </script>
+                                                            <script id="metamorph-39-start" type="text/x-placeholder">
+                                                            </script>
+                                                            <div id="ember569" class="ember-view tree-node child-node">
+                                                                <script id="metamorph-62-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <div id="ember571" class="ember-view">
+                                                                    <script id="metamorph-63-start" type="text/x-placeholder">
+                                                                    </script>
+                                                                    <script id="metamorph-63-end" type="text/x-placeholder">
+                                                                    </script>
+
+
+                                                                    <div id="ember574" class="ember-view">
+                                                                        <div id="ember575" class="ember-view">
+                                                                            <a id="ember576" class="ember-view no-icon" href="/2069">
+                                                                                <i id="ember577" class="ember-view icon-folder-close"></i>
+                                                                                <script id="metamorph-64-start" type="text/x-placeholder">
+                                                                                </script>Campaigns
+                                                                                <script id="metamorph-64-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-65-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-65-end" type="text/x-placeholder">
+                                                                                </script>
+
+                                                                                <script id="metamorph-66-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-66-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                            </a>
+
+                                                                            <script id="metamorph-67-start" type="text/x-placeholder">
+                                                                            </script>
+                                                                            <script id="metamorph-67-end" type="text/x-placeholder">
+                                                                            </script>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <script id="metamorph-68-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-169-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-169-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-68-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-62-end" type="text/x-placeholder">
+                                                                </script>
+                                                            </div>
+                                                            <script id="metamorph-39-end" type="text/x-placeholder">
+                                                            </script>
+                                                            <script id="metamorph-40-start" type="text/x-placeholder">
+                                                            </script>
+                                                            <div id="ember582" class="ember-view tree-node child-node">
+                                                                <script id="metamorph-69-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <div id="ember584" class="ember-view">
+                                                                    <script id="metamorph-70-start" type="text/x-placeholder">
+                                                                    </script>
+                                                                    <script id="metamorph-70-end" type="text/x-placeholder">
+                                                                    </script>
+
+
+                                                                    <div id="ember587" class="ember-view">
+                                                                        <div id="ember588" class="ember-view">
+                                                                            <a id="ember589" class="ember-view no-icon" href="/2151">
+                                                                                <i id="ember590" class="ember-view icon-folder-close"></i>
+                                                                                <script id="metamorph-71-start" type="text/x-placeholder">
+                                                                                </script>Custom Urls
+                                                                                <script id="metamorph-71-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-72-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-72-end" type="text/x-placeholder">
+                                                                                </script>
+
+                                                                                <script id="metamorph-73-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-73-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                            </a>
+
+                                                                            <script id="metamorph-74-start" type="text/x-placeholder">
+                                                                            </script>
+                                                                            <script id="metamorph-74-end" type="text/x-placeholder">
+                                                                            </script>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <script id="metamorph-75-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-170-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-170-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-75-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-69-end" type="text/x-placeholder">
+                                                                </script>
+                                                            </div>
+                                                            <script id="metamorph-40-end" type="text/x-placeholder">
+                                                            </script>
+                                                            <script id="metamorph-41-start" type="text/x-placeholder">
+                                                            </script>
+                                                            <div id="ember595" class="ember-view tree-node child-node">
+                                                                <script id="metamorph-76-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <div id="ember597" class="ember-view">
+                                                                    <script id="metamorph-77-start" type="text/x-placeholder">
+                                                                    </script>
+                                                                    <script id="metamorph-77-end" type="text/x-placeholder">
+                                                                    </script>
+
+
+                                                                    <div id="ember600" class="ember-view">
+                                                                        <div id="ember601" class="ember-view">
+                                                                            <a id="ember602" class="ember-view no-icon" href="/2077">
+                                                                                <i id="ember603" class="ember-view icon-folder-close"></i>
+                                                                                <script id="metamorph-78-start" type="text/x-placeholder">
+                                                                                </script>Drip Programs
+                                                                                <script id="metamorph-78-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-79-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-79-end" type="text/x-placeholder">
+                                                                                </script>
+
+                                                                                <script id="metamorph-80-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-80-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                            </a>
+
+                                                                            <script id="metamorph-81-start" type="text/x-placeholder">
+                                                                            </script>
+                                                                            <script id="metamorph-81-end" type="text/x-placeholder">
+                                                                            </script>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <script id="metamorph-82-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-171-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-171-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-82-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-76-end" type="text/x-placeholder">
+                                                                </script>
+                                                            </div>
+                                                            <script id="metamorph-41-end" type="text/x-placeholder">
+                                                            </script>
+                                                            <script id="metamorph-42-start" type="text/x-placeholder">
+                                                            </script>
+                                                            <div id="ember608" class="ember-view tree-node child-node">
+                                                                <script id="metamorph-83-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <div id="ember610" class="ember-view">
+                                                                    <script id="metamorph-84-start" type="text/x-placeholder">
+                                                                    </script>
+                                                                    <script id="metamorph-84-end" type="text/x-placeholder">
+                                                                    </script>
+
+
+                                                                    <div id="ember613" class="ember-view">
+                                                                        <div id="ember614" class="ember-view">
+                                                                            <a id="ember615" class="ember-view no-icon" href="/2081">
+                                                                                <i id="ember616" class="ember-view icon-folder-close"></i>
+                                                                                <script id="metamorph-85-start" type="text/x-placeholder">
+                                                                                </script>Dynamic Contents
+                                                                                <script id="metamorph-85-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-86-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-86-end" type="text/x-placeholder">
+                                                                                </script>
+
+                                                                                <script id="metamorph-87-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-87-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                            </a>
+
+                                                                            <script id="metamorph-88-start" type="text/x-placeholder">
+                                                                            </script>
+                                                                            <script id="metamorph-88-end" type="text/x-placeholder">
+                                                                            </script>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <script id="metamorph-89-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-172-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-172-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-89-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-83-end" type="text/x-placeholder">
+                                                                </script>
+                                                            </div>
+                                                            <script id="metamorph-42-end" type="text/x-placeholder">
+                                                            </script>
+                                                            <script id="metamorph-43-start" type="text/x-placeholder">
+                                                            </script>
+                                                            <div id="ember621" class="ember-view tree-node child-node">
+                                                                <script id="metamorph-90-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <div id="ember623" class="ember-view">
+                                                                    <script id="metamorph-91-start" type="text/x-placeholder">
+                                                                    </script>
+                                                                    <script id="metamorph-91-end" type="text/x-placeholder">
+                                                                    </script>
+
+
+                                                                    <div id="ember626" class="ember-view">
+                                                                        <div id="ember627" class="ember-view">
+                                                                            <a id="ember628" class="ember-view no-icon" href="/2103">
+                                                                                <i id="ember629" class="ember-view icon-folder-close"></i>
+                                                                                <script id="metamorph-92-start" type="text/x-placeholder">
+                                                                                </script>Email Template Drafts
+                                                                                <script id="metamorph-92-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-93-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-93-end" type="text/x-placeholder">
+                                                                                </script>
+
+                                                                                <script id="metamorph-94-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-94-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                            </a>
+
+                                                                            <script id="metamorph-95-start" type="text/x-placeholder">
+                                                                            </script>
+                                                                            <script id="metamorph-95-end" type="text/x-placeholder">
+                                                                            </script>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <script id="metamorph-96-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-173-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-173-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-96-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-90-end" type="text/x-placeholder">
+                                                                </script>
+                                                            </div>
+                                                            <script id="metamorph-43-end" type="text/x-placeholder">
+                                                            </script>
+                                                            <script id="metamorph-44-start" type="text/x-placeholder">
+                                                            </script>
+                                                            <div id="ember634" class="ember-view tree-node child-node">
+                                                                <script id="metamorph-97-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <div id="ember636" class="ember-view">
+                                                                    <script id="metamorph-98-start" type="text/x-placeholder">
+                                                                    </script>
+                                                                    <script id="metamorph-98-end" type="text/x-placeholder">
+                                                                    </script>
+
+
+                                                                    <div id="ember639" class="ember-view">
+                                                                        <div id="ember640" class="ember-view">
+                                                                            <a id="ember641" class="ember-view no-icon" href="/2093">
+                                                                                <i id="ember642" class="ember-view icon-folder-close"></i>
+                                                                                <script id="metamorph-99-start" type="text/x-placeholder">
+                                                                                </script>Email Templates
+                                                                                <script id="metamorph-99-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-100-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-100-end" type="text/x-placeholder">
+                                                                                </script>
+
+                                                                                <script id="metamorph-101-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-101-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                            </a>
+
+                                                                            <script id="metamorph-102-start" type="text/x-placeholder">
+                                                                            </script>
+                                                                            <script id="metamorph-102-end" type="text/x-placeholder">
+                                                                            </script>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <script id="metamorph-103-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-174-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-174-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-103-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-97-end" type="text/x-placeholder">
+                                                                </script>
+                                                            </div>
+                                                            <script id="metamorph-44-end" type="text/x-placeholder">
+                                                            </script>
+                                                            <script id="metamorph-45-start" type="text/x-placeholder">
+                                                            </script>
+                                                            <div id="ember647" class="ember-view tree-node child-node">
+                                                                <script id="metamorph-104-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <div id="ember649" class="ember-view">
+                                                                    <script id="metamorph-105-start" type="text/x-placeholder">
+                                                                    </script>
+                                                                    <script id="metamorph-105-end" type="text/x-placeholder">
+                                                                    </script>
+
+
+                                                                    <div id="ember652" class="ember-view">
+                                                                        <div id="ember653" class="ember-view">
+                                                                            <a id="ember654" class="ember-view no-icon" href="/2087">
+                                                                                <i id="ember655" class="ember-view icon-folder-close"></i>
+                                                                                <script id="metamorph-106-start" type="text/x-placeholder">
+                                                                                </script>Emails
+                                                                                <script id="metamorph-106-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-107-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-107-end" type="text/x-placeholder">
+                                                                                </script>
+
+                                                                                <script id="metamorph-108-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-108-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                            </a>
+
+                                                                            <script id="metamorph-109-start" type="text/x-placeholder">
+                                                                            </script>
+                                                                            <script id="metamorph-109-end" type="text/x-placeholder">
+                                                                            </script>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <script id="metamorph-110-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-175-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-175-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-110-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-104-end" type="text/x-placeholder">
+                                                                </script>
+                                                            </div>
+                                                            <script id="metamorph-45-end" type="text/x-placeholder">
+                                                            </script>
+                                                            <script id="metamorph-46-start" type="text/x-placeholder">
+                                                            </script>
+                                                            <div id="ember660" class="ember-view tree-node child-node">
+                                                                <script id="metamorph-111-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <div id="ember662" class="ember-view">
+                                                                    <script id="metamorph-112-start" type="text/x-placeholder">
+                                                                    </script>
+                                                                    <span class="pull-left" data-ember-action="13">
+                                                                        <i class="icon icon-collapse-alt" data-bindattr-14="14"></i>
+                                                                    </span>
+                                                                    <script id="metamorph-112-end" type="text/x-placeholder">
+                                                                    </script>
+
+
+                                                                    <div id="ember665" class="ember-view">
+                                                                        <div id="ember666" class="ember-view">
+                                                                            <a id="ember667" class="ember-view" href="/2109">
+                                                                                <i id="ember668" class="ember-view icon-folder-open"></i>
+                                                                                <script id="metamorph-113-start" type="text/x-placeholder">
+                                                                                </script>Files
+                                                                                <script id="metamorph-113-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-114-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-114-end" type="text/x-placeholder">
+                                                                                </script>
+
+                                                                                <script id="metamorph-115-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-115-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                            </a>
+
+                                                                            <script id="metamorph-116-start" type="text/x-placeholder">
+                                                                            </script>
+                                                                            <script id="metamorph-116-end" type="text/x-placeholder">
+                                                                            </script>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <script id="metamorph-117-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-177-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-176-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <div id="ember797" class="ember-view tree-node child-node">
+                                                                    <script id="metamorph-178-start" type="text/x-placeholder">
+                                                                    </script>
+                                                                    <div id="ember799" class="ember-view">
+                                                                        <script id="metamorph-179-start" type="text/x-placeholder">
+                                                                        </script>
+                                                                        <script id="metamorph-179-end" type="text/x-placeholder">
+                                                                        </script>
+
+
+                                                                        <div id="ember802" class="ember-view">
+                                                                            <div id="ember803" class="ember-view">
+                                                                                <a id="ember804" class="ember-view no-icon" href="/3948">
+                                                                                    <i id="ember805" class="ember-view icon-folder-close"></i>
+                                                                                    <script id="metamorph-180-start" type="text/x-placeholder">
+                                                                                    </script>Fonts
+                                                                                    <script id="metamorph-180-end" type="text/x-placeholder">
+                                                                                    </script>
+                                                                                    <script id="metamorph-181-start" type="text/x-placeholder">
+                                                                                    </script>
+                                                                                    <script id="metamorph-181-end" type="text/x-placeholder">
+                                                                                    </script>
+
+                                                                                    <script id="metamorph-182-start" type="text/x-placeholder">
+                                                                                    </script>
+                                                                                    <script id="metamorph-182-end" type="text/x-placeholder">
+                                                                                    </script>
+                                                                                </a>
+
+                                                                                <script id="metamorph-183-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-183-end" type="text/x-placeholder">
+                                                                                </script>
+
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                    <script id="metamorph-184-start" type="text/x-placeholder">
+                                                                    </script>
+                                                                    <script id="metamorph-200-start" type="text/x-placeholder">
+                                                                    </script>
+                                                                    <script id="metamorph-200-end" type="text/x-placeholder">
+                                                                    </script>
+                                                                    <script id="metamorph-184-end" type="text/x-placeholder">
+                                                                    </script>
+                                                                    <script id="metamorph-178-end" type="text/x-placeholder">
+                                                                    </script>
+                                                                </div>
+                                                                <script id="metamorph-176-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-177-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-117-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-111-end" type="text/x-placeholder">
+                                                                </script>
+                                                            </div>
+                                                            <script id="metamorph-46-end" type="text/x-placeholder">
+                                                            </script>
+                                                            <script id="metamorph-47-start" type="text/x-placeholder">
+                                                            </script>
+                                                            <div id="ember673" class="ember-view tree-node child-node">
+                                                                <script id="metamorph-118-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <div id="ember675" class="ember-view">
+                                                                    <script id="metamorph-119-start" type="text/x-placeholder">
+                                                                    </script>
+                                                                    <script id="metamorph-119-end" type="text/x-placeholder">
+                                                                    </script>
+
+
+                                                                    <div id="ember678" class="ember-view">
+                                                                        <div id="ember679" class="ember-view">
+                                                                            <a id="ember680" class="ember-view no-icon" href="/2121">
+                                                                                <i id="ember681" class="ember-view icon-folder-close"></i>
+                                                                                <script id="metamorph-120-start" type="text/x-placeholder">
+                                                                                </script>Form Handlers
+                                                                                <script id="metamorph-120-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-121-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-121-end" type="text/x-placeholder">
+                                                                                </script>
+
+                                                                                <script id="metamorph-122-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-122-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                            </a>
+
+                                                                            <script id="metamorph-123-start" type="text/x-placeholder">
+                                                                            </script>
+                                                                            <script id="metamorph-123-end" type="text/x-placeholder">
+                                                                            </script>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <script id="metamorph-124-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-185-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-185-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-124-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-118-end" type="text/x-placeholder">
+                                                                </script>
+                                                            </div>
+                                                            <script id="metamorph-47-end" type="text/x-placeholder">
+                                                            </script>
+                                                            <script id="metamorph-48-start" type="text/x-placeholder">
+                                                            </script>
+                                                            <div id="ember686" class="ember-view tree-node child-node">
+                                                                <script id="metamorph-125-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <div id="ember688" class="ember-view">
+                                                                    <script id="metamorph-126-start" type="text/x-placeholder">
+                                                                    </script>
+                                                                    <script id="metamorph-126-end" type="text/x-placeholder">
+                                                                    </script>
+
+
+                                                                    <div id="ember691" class="ember-view">
+                                                                        <div id="ember692" class="ember-view">
+                                                                            <a id="ember693" class="ember-view no-icon" href="/2111">
+                                                                                <i id="ember694" class="ember-view icon-folder-close"></i>
+                                                                                <script id="metamorph-127-start" type="text/x-placeholder">
+                                                                                </script>Forms
+                                                                                <script id="metamorph-127-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-128-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-128-end" type="text/x-placeholder">
+                                                                                </script>
+
+                                                                                <script id="metamorph-129-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-129-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                            </a>
+
+                                                                            <script id="metamorph-130-start" type="text/x-placeholder">
+                                                                            </script>
+                                                                            <script id="metamorph-130-end" type="text/x-placeholder">
+                                                                            </script>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <script id="metamorph-131-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-186-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-186-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-131-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-125-end" type="text/x-placeholder">
+                                                                </script>
+                                                            </div>
+                                                            <script id="metamorph-48-end" type="text/x-placeholder">
+                                                            </script>
+                                                            <script id="metamorph-49-start" type="text/x-placeholder">
+                                                            </script>
+                                                            <div id="ember699" class="ember-view tree-node child-node">
+                                                                <script id="metamorph-132-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <div id="ember701" class="ember-view">
+                                                                    <script id="metamorph-133-start" type="text/x-placeholder">
+                                                                    </script>
+                                                                    <script id="metamorph-133-end" type="text/x-placeholder">
+                                                                    </script>
+
+
+                                                                    <div id="ember704" class="ember-view">
+                                                                        <div id="ember705" class="ember-view">
+                                                                            <a id="ember706" class="ember-view no-icon" href="/2127">
+                                                                                <i id="ember707" class="ember-view icon-folder-close"></i>
+                                                                                <script id="metamorph-134-start" type="text/x-placeholder">
+                                                                                </script>Landing Pages
+                                                                                <script id="metamorph-134-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-135-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-135-end" type="text/x-placeholder">
+                                                                                </script>
+
+                                                                                <script id="metamorph-136-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-136-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                            </a>
+
+                                                                            <script id="metamorph-137-start" type="text/x-placeholder">
+                                                                            </script>
+                                                                            <script id="metamorph-137-end" type="text/x-placeholder">
+                                                                            </script>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <script id="metamorph-138-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-187-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-187-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-138-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-132-end" type="text/x-placeholder">
+                                                                </script>
+                                                            </div>
+                                                            <script id="metamorph-49-end" type="text/x-placeholder">
+                                                            </script>
+                                                            <script id="metamorph-50-start" type="text/x-placeholder">
+                                                            </script>
+                                                            <div id="ember712" class="ember-view tree-node child-node">
+                                                                <script id="metamorph-139-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <div id="ember714" class="ember-view">
+                                                                    <script id="metamorph-140-start" type="text/x-placeholder">
+                                                                    </script>
+                                                                    <script id="metamorph-140-end" type="text/x-placeholder">
+                                                                    </script>
+
+
+                                                                    <div id="ember717" class="ember-view">
+                                                                        <div id="ember718" class="ember-view">
+                                                                            <a id="ember719" class="ember-view no-icon" href="/2137">
+                                                                                <i id="ember720" class="ember-view icon-folder-close"></i>
+                                                                                <script id="metamorph-141-start" type="text/x-placeholder">
+                                                                                </script>Layout Templates
+                                                                                <script id="metamorph-141-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-142-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-142-end" type="text/x-placeholder">
+                                                                                </script>
+
+                                                                                <script id="metamorph-143-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-143-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                            </a>
+
+                                                                            <script id="metamorph-144-start" type="text/x-placeholder">
+                                                                            </script>
+                                                                            <script id="metamorph-144-end" type="text/x-placeholder">
+                                                                            </script>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <script id="metamorph-145-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-188-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-188-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-145-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-139-end" type="text/x-placeholder">
+                                                                </script>
+                                                            </div>
+                                                            <script id="metamorph-50-end" type="text/x-placeholder">
+                                                            </script>
+                                                            <script id="metamorph-51-start" type="text/x-placeholder">
+                                                            </script>
+                                                            <div id="ember725" class="ember-view tree-node child-node">
+                                                                <script id="metamorph-146-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <div id="ember727" class="ember-view">
+                                                                    <script id="metamorph-147-start" type="text/x-placeholder">
+                                                                    </script>
+                                                                    <script id="metamorph-147-end" type="text/x-placeholder">
+                                                                    </script>
+
+
+                                                                    <div id="ember730" class="ember-view">
+                                                                        <div id="ember731" class="ember-view">
+                                                                            <a id="ember732" class="ember-view no-icon" href="/2141">
+                                                                                <i id="ember733" class="ember-view icon-folder-close"></i>
+                                                                                <script id="metamorph-148-start" type="text/x-placeholder">
+                                                                                </script>Lists
+                                                                                <script id="metamorph-148-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-149-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-149-end" type="text/x-placeholder">
+                                                                                </script>
+
+                                                                                <script id="metamorph-150-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-150-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                            </a>
+
+                                                                            <script id="metamorph-151-start" type="text/x-placeholder">
+                                                                            </script>
+                                                                            <script id="metamorph-151-end" type="text/x-placeholder">
+                                                                            </script>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <script id="metamorph-152-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-189-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-189-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-152-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-146-end" type="text/x-placeholder">
+                                                                </script>
+                                                            </div>
+                                                            <script id="metamorph-51-end" type="text/x-placeholder">
+                                                            </script>
+                                                            <script id="metamorph-52-start" type="text/x-placeholder">
+                                                            </script>
+                                                            <div id="ember738" class="ember-view tree-node child-node">
+                                                                <script id="metamorph-153-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <div id="ember740" class="ember-view">
+                                                                    <script id="metamorph-154-start" type="text/x-placeholder">
+                                                                    </script>
+                                                                    <script id="metamorph-154-end" type="text/x-placeholder">
+                                                                    </script>
+
+
+                                                                    <div id="ember743" class="ember-view">
+                                                                        <div id="ember744" class="ember-view">
+                                                                            <a id="ember745" class="ember-view no-icon" href="/2161">
+                                                                                <i id="ember746" class="ember-view icon-folder-close"></i>
+                                                                                <script id="metamorph-155-start" type="text/x-placeholder">
+                                                                                </script>Multivariate Tests
+                                                                                <script id="metamorph-155-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-156-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-156-end" type="text/x-placeholder">
+                                                                                </script>
+
+                                                                                <script id="metamorph-157-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-157-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                            </a>
+
+                                                                            <script id="metamorph-158-start" type="text/x-placeholder">
+                                                                            </script>
+                                                                            <script id="metamorph-158-end" type="text/x-placeholder">
+                                                                            </script>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <script id="metamorph-159-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-190-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-190-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-159-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-153-end" type="text/x-placeholder">
+                                                                </script>
+                                                            </div>
+                                                            <script id="metamorph-52-end" type="text/x-placeholder">
+                                                            </script>
+                                                            <script id="metamorph-53-start" type="text/x-placeholder">
+                                                            </script>
+                                                            <div id="ember751" class="ember-view tree-node child-node">
+                                                                <script id="metamorph-160-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <div id="ember753" class="ember-view">
+                                                                    <script id="metamorph-161-start" type="text/x-placeholder">
+                                                                    </script>
+                                                                    <span class="pull-left" data-ember-action="15">
+                                                                        <i class="icon icon-collapse-alt" data-bindattr-16="16"></i>
+                                                                    </span>
+                                                                    <script id="metamorph-161-end" type="text/x-placeholder">
+                                                                    </script>
+
+
+                                                                    <div id="ember756" class="ember-view">
+                                                                        <div id="ember757" class="ember-view">
+                                                                            <a id="ember758" class="ember-view" href="/3988">
+                                                                                <i id="ember759" class="ember-view icon-folder-open"></i>
+                                                                                <script id="metamorph-162-start" type="text/x-placeholder">
+                                                                                </script>Social Media Images
+                                                                                <script id="metamorph-162-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-163-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-163-end" type="text/x-placeholder">
+                                                                                </script>
+
+                                                                                <script id="metamorph-164-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-164-end" type="text/x-placeholder">
+                                                                                </script>
+                                                                            </a>
+
+                                                                            <script id="metamorph-165-start" type="text/x-placeholder">
+                                                                            </script>
+                                                                            <script id="metamorph-165-end" type="text/x-placeholder">
+                                                                            </script>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <script id="metamorph-166-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-192-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-191-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <div id="ember834" class="ember-view tree-node child-node">
+                                                                    <script id="metamorph-193-start" type="text/x-placeholder">
+                                                                    </script>
+                                                                    <div id="ember836" class="ember-view">
+                                                                        <script id="metamorph-194-start" type="text/x-placeholder">
+                                                                        </script>
+                                                                        <script id="metamorph-194-end" type="text/x-placeholder">
+                                                                        </script>
+
+
+                                                                        <div id="ember839" class="ember-view">
+                                                                            <div id="ember840" class="ember-view">
+                                                                                <a id="ember841" class="ember-view no-icon" href="/4176">
+                                                                                    <i id="ember842" class="ember-view icon-folder-close"></i>
+                                                                                    <script id="metamorph-195-start" type="text/x-placeholder">
+                                                                                    </script>ASHG15
+                                                                                    <script id="metamorph-195-end" type="text/x-placeholder">
+                                                                                    </script>
+                                                                                    <script id="metamorph-196-start" type="text/x-placeholder">
+                                                                                    </script>
+                                                                                    <script id="metamorph-196-end" type="text/x-placeholder">
+                                                                                    </script>
+
+                                                                                    <script id="metamorph-197-start" type="text/x-placeholder">
+                                                                                    </script>
+                                                                                    <script id="metamorph-197-end" type="text/x-placeholder">
+                                                                                    </script>
+                                                                                </a>
+
+                                                                                <script id="metamorph-198-start" type="text/x-placeholder">
+                                                                                </script>
+                                                                                <script id="metamorph-198-end" type="text/x-placeholder">
+                                                                                </script>
+
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                    <script id="metamorph-199-start" type="text/x-placeholder">
+                                                                    </script>
+                                                                    <script id="metamorph-201-start" type="text/x-placeholder">
+                                                                    </script>
+                                                                    <script id="metamorph-201-end" type="text/x-placeholder">
+                                                                    </script>
+                                                                    <script id="metamorph-199-end" type="text/x-placeholder">
+                                                                    </script>
+                                                                    <script id="metamorph-193-end" type="text/x-placeholder">
+                                                                    </script>
+                                                                </div>
+                                                                <script id="metamorph-191-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-192-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-166-end" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-160-end" type="text/x-placeholder">
+                                                                </script>
+                                                            </div>
+                                                            <script id="metamorph-53-end" type="text/x-placeholder">
+                                                            </script>
+                                                            <script id="metamorph-54-end" type="text/x-placeholder">
+                                                            </script>
+                                                            <script id="metamorph-30-end" type="text/x-placeholder">
+                                                            </script>
+                                                            <script id="metamorph-24-end" type="text/x-placeholder">
+                                                            </script>
+                                                        </div>
+                                                        <script id="metamorph-22-end" type="text/x-placeholder">
+                                                        </script>
+                                                        <script id="metamorph-23-start" type="text/x-placeholder">
+                                                        </script>
+                                                        <div id="ember522" class="ember-view tree-node child-node">
+                                                            <script id="metamorph-31-start" type="text/x-placeholder">
+                                                            </script>
+                                                            <div id="ember524" class="ember-view">
+                                                                <script id="metamorph-32-start" type="text/x-placeholder">
+                                                                </script>
+                                                                <script id="metamorph-32-end" type="text/x-placeholder">
+                                                                </script>
+
+
+                                                                <div id="ember527" class="ember-view">
+                                                                    <div id="ember528" class="ember-view">
+                                                                        <a id="ember529" class="ember-view no-icon" href="/4150">
+                                                                            <i id="ember530" class="ember-view icon-folder-close"></i>
+                                                                            <script id="metamorph-33-start" type="text/x-placeholder">
+                                                                            </script>zz - test only
+                                                                            <script id="metamorph-33-end" type="text/x-placeholder">
+                                                                            </script>
+                                                                            <script id="metamorph-34-start" type="text/x-placeholder">
+                                                                            </script>
+                                                                            <script id="metamorph-34-end" type="text/x-placeholder">
+                                                                            </script>
+
+                                                                            <script id="metamorph-35-start" type="text/x-placeholder">
+                                                                            </script>
+                                                                            <script id="metamorph-35-end" type="text/x-placeholder">
+                                                                            </script>
+                                                                        </a>
+
+                                                                        <script id="metamorph-36-start" type="text/x-placeholder">
+                                                                        </script>
+                                                                        <script id="metamorph-36-end" type="text/x-placeholder">
+                                                                        </script>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <script id="metamorph-37-start" type="text/x-placeholder">
+                                                            </script>
+                                                            <script id="metamorph-167-start" type="text/x-placeholder">
+                                                            </script>
+                                                            <script id="metamorph-167-end" type="text/x-placeholder">
+                                                            </script>
+                                                            <script id="metamorph-37-end" type="text/x-placeholder">
+                                                            </script>
+                                                            <script id="metamorph-31-end" type="text/x-placeholder">
+                                                            </script>
+                                                        </div>
+                                                        <script id="metamorph-23-end" type="text/x-placeholder">
+                                                        </script>
+                                                        <script id="metamorph-21-end" type="text/x-placeholder">
+                                                        </script>
+                                                        <script id="metamorph-12-end" type="text/x-placeholder">
+                                                        </script>
+                                                        <script id="metamorph-6-end" type="text/x-placeholder">
+                                                        </script>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <script id="metamorph-13-start" type="text/x-placeholder">
+                                        </script>
+
+                                        <div class="accordion-group">
+                                            <div id="ember450" class="ember-view accordion-heading">
+                                                <a data-toggle="collapse" class="accordion-toggle" data-path-name="tag" data-parent="folders-accordion" href="tags-collapse" style="" data-bindattr-4="4">
+                                                    <i class="icon-tag" data-bindattr-5="5"></i>
+                                                    <script id="metamorph-14-start" type="text/x-placeholder">
+                                                    </script>Tags
+                                                    <script id="metamorph-14-end" type="text/x-placeholder">
+                                                    </script>
+                                                </a>
+
+                                                <script id="metamorph-15-start" type="text/x-placeholder">
+                                                </script>
+                                                <script id="metamorph-16-start" type="text/x-placeholder">
+                                                </script>
+                                                <script id="metamorph-16-end" type="text/x-placeholder">
+                                                </script>
+                                                <script id="metamorph-15-end" type="text/x-placeholder">
+                                                </script>
+
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div id="tags-collapse" class="accordion-body collapse">
+                                                <div class="accordion-inner tags-container">
+                                                    <div id="ember461" class="ember-view ember-list-view" style="height:468px;position:relative;overflow:auto;-webkit-overflow-scrolling:touch;overflow-scrolling:touch;"><div class="ember-list-container" style="height: 0px;"></div></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <script id="metamorph-13-end" type="text/x-placeholder">
+                                        </script>
+
+                                    </div>
+
+                                </div>
+                                <div class="folders-stage-left span9">
+                                    <script id="metamorph-17-start" type="text/x-placeholder">
+                                    </script>
+                                    <script id="metamorph-0-start" type="text/x-placeholder">
+                                    </script><div class="folder-container">
+                                        <div class="row-fluid">
+                                            <div class="span12 header">
+
+                                                <div class="inline pull-left">
+                                                    <p class="inline header">
+                                                        Search:<br>
+                                                        <input id="ember468" class="ember-view ember-text-field filter-by" placeholder="Search for content by name" type="text">
+                                                    </p>
+
+                                                    <script id="metamorph-18-start" type="text/x-placeholder">
+                                                    </script>
+                                                    <script id="metamorph-18-end" type="text/x-placeholder">
+                                                    </script>
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+
+                                        <div id="search-alert"></div>
+                                        <script id="metamorph-19-start" type="text/x-placeholder">
+                                        </script>
+                                        <script id="metamorph-1-start" type="text/x-placeholder">
+                                        </script>
+                                        <div id="ember473" class="ember-view">
+                                            <div class="row-fluid">
+                                                <div id="folder-contents" class="media-list span12 no-margin position-relative">
+                                                    <script id="metamorph-20-start" type="text/x-placeholder">
+                                                    </script>
+                                                    Loading...
+                                                    <script id="metamorph-20-end" type="text/x-placeholder">
+                                                    </script>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <script id="metamorph-1-end" type="text/x-placeholder">
+                                        </script>
+                                        <script id="metamorph-19-end" type="text/x-placeholder">
+                                        </script>
+                                    </div>
+                                    <script id="metamorph-0-end" type="text/x-placeholder">
+                                    </script>
+                                    <script id="metamorph-17-end" type="text/x-placeholder">
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+
+                            <button class="btn" data-ember-action="6">Cancel</button>
+
+                            <button id="select-asset" class="btn btn-primary" data-ember-action="7" data-bindattr-8="8">Choose Selected</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+
+</div>

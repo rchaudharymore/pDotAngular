@@ -1,0 +1,46 @@
+﻿
+    
+#flyout nav{margin:0;padding:0;display:block;position:relative;z-index:100}
+#flyout ul, #menuwrapper ul li{margin:0;padding:0; list-style:none}
+/ Background color, separator color, font family & size /
+#flyout ul li{
+/*background:#000000;*/
+border-bottom:solid 1px #CCCCCC;
+font:15px helvetican, sans-serif;
+}
+/ Remove separator from last list item /
+#flyout ul li:last-child{border:none;
+}
+/ Menu width /
+#flyout ul li{display:block;width:150px;
+}
+/ Hover background color /
+#flyout ul li:hover, #menuwrapper ul li.iehover{background:#FFFFFF;position:relative;
+}
+/ Link styles /
+#flyout ul li a{
+width:100%;
+padding:5px 19px;
+color:#444444;
+display:inline-block;text-decoration:none;cursor:pointer;
+}
+/ SECOND LEVEL MENU /
+#flyout ul li ul{position:absolute;display:none;
+}
+/ the value for left must be the same as the menu width /
+#flyout ul li:hover ul, #menuwrapper ul li.iehover ul{
+left:150px;
+top:0px;
+display:block;
+}
+
+
+/ 2nd level background color /
+#flyout ul li ul li{background-color:#FFFFFF;
+}
+/ 2nd level background hover color /
+#flyout ul li:hover ul li:hover, #menuwrapper ul li.iehover ul li.iehover{background-color:#FFFFFF;
+}
+/ Level 2 link color /
+#flyout ul li ul li a{color:#444444;display:inline-block;width:100%;}
+

@@ -1,0 +1,380 @@
+﻿<div id="wrap" class="clearfix">
+    <!--[if IE 7]>
+    <div id="ieCompatibility">
+        <img style="vertical-align: text-top;" src="/images/error.png"/>
+        <strong>Warning</strong>: Your browser is in Compatibility Mode. For things to work correctly, you need to <a href="http://help.pardot.com/faqs/administration/turning-off-compatibility-mode-in-ie" target="_blank">turn it off</a>.
+    </div>
+    <![endif]-->
+    <p class="hidden">
+        <a href="#content">Skip navigation</a>
+    </p>
+    <div id="wrapper">
+
+        <div id="contentWrap">
+            <div id="content">
+
+                <ul id="bread-crumbs" class="breadcrumb">
+                    <li>
+                        <a href="/" title="Home"><i class="icon-home"></i></a>
+                    </li>
+                    <li class="crumb-divider">  / </li>
+                    <li>
+                        <a href="/report">Reports</a>
+                    </li>
+                </ul>
+
+                <h1>Social Messages</h1>
+
+                <div class="divider"></div>
+
+
+
+                <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div id="socialMessageStats">
+
+                        <div id="sociatats_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                        <div id="tagFiltersocialMessageStats" class="tagfilter-pop-up dropdown-menu" style="display: none;"><input type="text" id="tagFilterSearchsocialMessageStats" value=""><div class="scroller"><ul id="tagFilterSelectorsocialMessageStats"><li></li></ul></div><a href="#" style="float: left;">Clear filter</a>  <a href="/tag" style="float: right;">Manage tags</a></div><div id="sociatats_module" class="module">
+
+                            <div class="header clearfix">
+
+                                <h2 id="socialMessageStats_h2">
+                                    Social Message Statistics
+                                </h2>
+
+
+
+                                <form id="socialMessageStats_date_range_form" class="inline" onsubmit="new Ajax.Updater('socialMessageStats_table_div', '/socialMessage/reportTable/ajax/1', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('sociatats_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('socialMessageStats_ajax_urlparams').value + '&amp;'  + Form.serialize(this) }); return false;" action="/socialMessage/reportTable/ajax/1" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="e333eac7f230857a984622d4588c001509ee2b9ccc28ae32c3688d53e760071751fe75534e6c899b297fe0948931cc1c"></div>
+                                    <p class="inline header">
+                                        Campaign:<br>
+                                        <select name="campaign_filter" id="campaign_filter_sociatats" onchange="$('socialMessageStats_date_range_form').onsubmit();">
+                                            <option value="0" selected="selected">All Campaigns</option>
+                                            <optgroup label="Current">
+                                                <option value="288">Email Plug-in</option>
+                                                <option value="932">Pre-Pardot Initial Import</option>
+                                                <option value="934">Sync from Salesforce</option>
+                                                <option value="1460">Test Campaign</option>
+                                                <option value="1852">Webinars</option>
+                                                <option value="286">Website Tracking</option>
+                                            </optgroup>
+                                            <optgroup label="Archived"></optgroup>
+                                        </select>
+                                    </p>
+                                    <p class="inline header">
+
+                                        <span id="datetext_header">
+                                            Date Range  <small>(Based on 12am EDT)</small>:
+                                        </span> <br>
+
+                                        <select name="dateRange" id="dateRange_sociatats" onchange="customDates = document.getElementById('sociatats_custom_dates');if(this.value==7) {
+								customDates.removeClassName(&quot;hidden&quot;);
+							 } else {
+							 	$('socialMessageStats_date_range_form').onsubmit();
+							 	customDates.addClassName(&quot;hidden&quot;);
+							 }" class="input-auto">
+                                            <option value="1">Today</option>
+                                            <option value="2">Yesterday</option>
+                                            <option value="4">This Month</option>
+                                            <option value="10">This Quarter</option>
+                                            <option value="11">This Year</option>
+                                            <option value="3">Last 7 Days</option>
+                                            <option value="14">Last Week</option>
+                                            <option value="5">Last Month</option>
+                                            <option value="12">Last Quarter</option>
+                                            <option value="13">Last Year</option>
+                                            <option value="6" selected="selected">All Time</option>
+                                            <option value="7">Custom</option>
+                                        </select>						<span id="sociatats_custom_dates" class="datepickerBS inline header hidden">
+                                            <input type="text" name="startDate" id="sociatatsstartDate" value="2006-12-31" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_sociatatsstartDate">...</button>
+                                            <script type="text/javascript">
+    document.getElementById("trigger_sociatatsstartDate").disabled = false;
+    Calendar.setup({
+      inputField : "sociatatsstartDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_sociatatsstartDate"
+    });
+                                            </script>
+                                            &nbsp;to&nbsp;
+
+                                            <input type="text" name="endDate" id="sociatatsendDate" value="2015-10-08" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_sociatatsendDate">...</button>
+                                            <script type="text/javascript">
+    document.getElementById("trigger_sociatatsendDate").disabled = false;
+    Calendar.setup({
+      inputField : "sociatatsendDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_sociatatsendDate"
+    });
+                                            </script>
+                                            &nbsp;
+                                            <input type="submit" name="commit" value="Go" class="btn btn-primary">
+                                        </span>
+                                    </p>
+                                </form>
+
+
+                                <br>
+                                <form id="socialMessageStats_tagFilter" class="aaa inline tag-filter-form" onsubmit="new Ajax.Updater('socialMessageStats_table_div', '/socialMessage/reportTable/ajax/1/dateText/Date+Range%3A+/table_filter', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('sociatats_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('socialMessageStats_ajax_urlparams').value.replace('tagFilter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/socialMessage/reportTable/ajax/1/dateText/Date+Range%3A+/table_filter" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="e333eac7f230857a984622d4588c001509ee2b9ccc28ae32c3688d53e760071751fe75534e6c899b297fe0948931cc1c"></div>					<p class="inline header" id="tagFilterContainersocialMessageStats"><button  class="btn">Tags <span class="caret"></span></button><span id="tagFilterListsocialMessageStats"></span><input type="hidden" id="tagFilterInputsocialMessageStats" name="tagFilter" value=""></p>
+                               
+                                </form>
+
+                                <div class="btn-group pull-right">
+                                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                        Tools			    <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+
+
+                                        <li><a onclick="location='/socialMessage/exportReport?' + $('socialMessageStats_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                            <div id="sociatats_wrapper" class="module-wrapper">
+                                <div id="socialMessageStats_table_div">
+
+
+                                    <input type="hidden" id="socialMessageStats_ajax_urlparams" value="sort=social_message.id&amp;order=desc&amp;dateRange=6&amp;pageSize=5&amp;prefix=SocialMessageReport&amp;startDate=%401167627600&amp;endDate=now&amp;dateText=Date+Range%3A&amp;tagFilter=+&amp;ajaxElement=socialMessageStats&amp;startDate=%401167627600&amp;endDate=now&amp;numResults=28">
+                                    <table class="data-table table-bordered">
+                                        <thead>
+                                            <tr>
+
+
+
+
+                                                <th class="sortable sort-down first message-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('socialMessageStats_table_div', '/socialMessage/reportTable/ajax/1/page/1/order/asc/sort/social_message.id/dateRange/6/pageSize/5/prefix/SocialMessageReport/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/tagFilter/+/ajaxElement/socialMessageStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=3a5a96ad6608eef55ac8b7d800f318216fb8002317a34b2658e7224b260de05d3213e26fc3d5e7d48cd648969cd06e22'});; return false;">Message</a>
+
+                                                    <i class="icon-circle-arrow-down muted"></i>
+                                                </th>
+
+
+
+                                                <th class="clicks-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('socialMessageStats_table_div', '/socialMessage/reportTable/ajax/1/page/1/order/desc/sort/social_message_stats.clicks/dateRange/6/pageSize/5/prefix/SocialMessageReport/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/tagFilter/+/ajaxElement/socialMessageStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=d3b1bb54cc32e2cd160b7a4d0c5c47e9870f3ea96329091de1c4a8af4f8476351e09caf78f4fbce62a91d0e509143697'});; return false;">Clicks</a>
+
+                                                </th>
+
+
+
+                                                <th class="likes-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('socialMessageStats_table_div', '/socialMessage/reportTable/ajax/1/page/1/order/desc/sort/social_message_stats.likes/dateRange/6/pageSize/5/prefix/SocialMessageReport/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/tagFilter/+/ajaxElement/socialMessageStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=3c89bec967c84d824b44677a671ba2f31127594207646e9e539aae452c0900facb27f29066c22d28ad129556f587ff38'});; return false;">Likes</a>
+
+                                                </th>
+
+
+
+                                                <th class="comments-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('socialMessageStats_table_div', '/socialMessage/reportTable/ajax/1/page/1/order/desc/sort/social_message_stats.comments/dateRange/6/pageSize/5/prefix/SocialMessageReport/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/tagFilter/+/ajaxElement/socialMessageStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=5a201a65754ec64d2558318f1da7e842be25913e36f7a835391dadca15f3882bc01ec428fce25419ce544ece6ba3da96'});; return false;">Comments</a>
+
+                                                </th>
+
+
+
+                                                <th class="sent-at-column last">
+
+                                                    <a href="#" onclick="new Ajax.Updater('socialMessageStats_table_div', '/socialMessage/reportTable/ajax/1/page/1/order/desc/sort/social_message.sent_at/dateRange/6/pageSize/5/prefix/SocialMessageReport/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/tagFilter/+/ajaxElement/socialMessageStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=acb27400ee9b7cf47910b596da776ff2818ab8a579cec155bb05b8ccae8666c5668254c676e04bc674afc3d59f663f1a'});; return false;">Sent At</a>
+
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr id="sociatats_row_a11242">
+                                                <td class="first ">
+                                                    <a href="/socialMessage/read/id/256">New Affymetrix HLA Analysis Software Quickly Delivers High-Re...</a>
+                                                </td>
+                                                <td class="">
+                                                    72
+                                                </td>
+                                                <td class="">
+                                                    3
+                                                </td>
+                                                <td class="">
+                                                    0
+                                                </td>
+                                                <td class="last">
+                                                    Oct 6, 2015 11:53 AM
+                                                </td>
+                                            </tr>
+                                            <tr style="display:none" id="sociatats_row_b11242" class="ajax_row">
+                                                <td colspan="28" id="sociatats_row_b_cell11242" class="last"></td>
+                                            </tr>
+                                            <tr class="even" id="sociatats_row_a10730">
+                                                <td class="first ">
+                                                    <a href="/socialMessage/read/id/250">Breakfast on Wednesday is on us! 10/7 Room 343/344 http://bit...</a>
+                                                </td>
+                                                <td class="">
+                                                    31
+                                                </td>
+                                                <td class="">
+                                                    0
+                                                </td>
+                                                <td class="">
+                                                    0
+                                                </td>
+                                                <td class="last">
+                                                    Oct 5, 2015 10:00 AM
+                                                </td>
+                                            </tr>
+                                            <tr style="display:none" id="sociatats_row_b10730" class="ajax_row">
+                                                <td colspan="28" id="sociatats_row_b_cell10730" class="last"></td>
+                                            </tr>
+                                            <tr id="sociatats_row_a10634">
+                                                <td class="first ">
+                                                    <a href="/socialMessage/read/id/248">Interested in pharmacogenomics? Don't miss Andrew Slater spea...</a>
+                                                </td>
+                                                <td class="">
+                                                    32
+                                                </td>
+                                                <td class="">
+                                                    1
+                                                </td>
+                                                <td class="">
+                                                    0
+                                                </td>
+                                                <td class="last">
+                                                    Oct 5, 2015 9:04 AM
+                                                </td>
+                                            </tr>
+                                            <tr style="display:none" id="sociatats_row_b10634" class="ajax_row">
+                                                <td colspan="28" id="sociatats_row_b_cell10634" class="last"></td>
+                                            </tr>
+                                            <tr class="even" id="sociatats_row_a10534">
+                                                <td class="first ">
+                                                    <a href="/socialMessage/read/id/246">Watch Andrew Slater share his  work from @GSK on #pharmacogen...</a>
+                                                </td>
+                                                <td class="">
+                                                    29
+                                                </td>
+                                                <td class="">
+                                                    0
+                                                </td>
+                                                <td class="">
+                                                    0
+                                                </td>
+                                                <td class="last">
+                                                    Oct 5, 2015 8:03 AM
+                                                </td>
+                                            </tr>
+                                            <tr style="display:none" id="sociatats_row_b10534" class="ajax_row">
+                                                <td colspan="28" id="sociatats_row_b_cell10534" class="last"></td>
+                                            </tr>
+                                            <tr id="sociatats_row_a10458">
+                                                <td class="first ">
+                                                    <a href="/socialMessage/read/id/244">Don't miss Andrew Slater's talk about #pharmacogenomics in cl...</a>
+                                                </td>
+                                                <td class="">
+                                                    27
+                                                </td>
+                                                <td class="">
+                                                    0
+                                                </td>
+                                                <td class="">
+                                                    0
+                                                </td>
+                                                <td class="last">
+                                                    Oct 5, 2015 7:07 AM
+                                                </td>
+                                            </tr>
+                                            <tr style="display:none" id="sociatats_row_b10458" class="ajax_row">
+                                                <td colspan="28" id="sociatats_row_b_cell10458" class="last"></td>
+                                            </tr>
+                                            <tr class="totals" id="sociatats_row_total">
+                                                <td class="first">
+                                                    Total: 28
+                                                </td>
+                                                <td>
+                                                    1,179
+                                                </td>
+                                                <td>
+                                                    24
+                                                </td>
+                                                <td>
+                                                    0
+                                                </td>
+                                                <td class="last"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+
+
+                                    <div class="table-foot clearfix">
+                                        <div id="sociatats_table_footer">
+                                            <form id="socialMessageStatsform" class="inline sociatats-pager-form pager-form" onsubmit="new Ajax.Updater('socialMessageStats_table_div', '/socialMessage/reportTable/ajax/1/sort/social_message.id/order/desc/dateRange/6/pageSize/5/prefix/SocialMessageReport/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/tagFilter/+/ajaxElement/socialMessageStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('sociatats_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:Form.serialize(this)}); return false;" action="/socialMessage/reportTable/ajax/1/sort/social_message.id/order/desc/dateRange/6/pageSize/5/prefix/SocialMessageReport/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/tagFilter/+/ajaxElement/socialMessageStats" method="post">
+                                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="e333eac7f230857a984622d4588c001509ee2b9ccc28ae32c3688d53e760071751fe75534e6c899b297fe0948931cc1c"></div>						<ul class="inline pull-right paging">
+                                                    <li>
+                                                    </li>
+
+                                                    <li>
+                                                        Page
+                                                        <input type="text" name="page" id="page_socialMessageStats" value="1" class="text-tiny" style="width: 18px;">
+                                                        <script>$j(".text-tiny").each(textTinyResize);</script>
+                                                        of
+                                                        <a class="pager-last" href="#" onclick="cancelAllPendingAjax(); new Ajax.Updater('socialMessageStats_table_div', '/socialMessage/reportTable/ajax/1/page/6/sort/social_message.id/order/desc/dateRange/6/pageSize/5/prefix/SocialMessageReport/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/tagFilter/+/ajaxElement/socialMessageStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=af2afdfe58ae835815678554d06a2d731bd35b0184377ea90bde810e3ed7e09224d781671dc5334e45cfd5037a393f84'});; return false;">6</a>
+                                                    </li>
+
+                                                    <li class="last">
+                                                        <a class="pager-next" href="#" onclick="cancelAllPendingAjax(); new Ajax.Updater('socialMessageStats_table_div', '/socialMessage/reportTable/ajax/1/page/2/sort/social_message.id/order/desc/dateRange/6/pageSize/5/prefix/SocialMessageReport/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/tagFilter/+/ajaxElement/socialMessageStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=cf438002adb5f12e4be6878e28fca23deaadbc15ac26feaca143a487f1328172713316556624a625332dd06cd489928e'});; return false;">Next »</a>
+                                                    </li>
+                                                </ul>
+                                                <p class="inline pull-right">
+                                                    Showing
+                                                    <select name="pageSize" id="sociatatspageSize" onchange="$(&quot;socialMessageStatsform&quot;).onsubmit();return false;" class="input-auto">
+                                                        <option value="5" selected="selected">5</option>
+                                                        <option value="10">10</option>
+                                                        <option value="15">15</option>
+                                                        <option value="25">25</option>
+                                                        <option value="50">50</option>
+                                                    </select>											 of <strong>28</strong>																															<input type="hidden" name="dateRange" id="sociatats1_dateRange" value="6">																								<input type="hidden" name="view" id="sociatats1_view" value="">																								<input type="hidden" name="mode" id="sociatats1_mode" value="">																								<input type="hidden" name="tableName" id="sociatats1_tableName" value="">																								<input type="hidden" name="campaign_id" id="sociatats1_campaign_id" value="">																								<input type="hidden" name="prospect_id" id="sociatats1_prospect_id" value="">																								<input type="hidden" name="visitor_id" id="sociatats1_visitor_id" value="">																								<input type="hidden" name="visit_id" id="sociatats1_visit_id" value="">																								<input type="hidden" name="user_id" id="sociatats1_user_id" value="">																								<input type="hidden" name="query" id="sociatats1_query" value="">																																			<input type="hidden" name="prefix" id="sociatats1_prefix" value="SocialMessageReport">																								<input type="hidden" name="export" id="sociatats1_export" value="">																								<input type="hidden" name="startDate" id="sociatats1_startDate" value="@1167627600">																								<input type="hidden" name="endDate" id="sociatats1_endDate" value="now">																								<input type="hidden" name="dateText" id="sociatats1_dateText" value="Date Range:">																								<input type="hidden" name="tagFilter" id="sociatats1_tagFilter" value=" ">
+                                                </p>
+                                            </form>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+
+    </div>
+</div>

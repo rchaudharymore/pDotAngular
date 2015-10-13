@@ -1,0 +1,190 @@
+﻿<div id="wrapper">
+
+    <div id="contentWrap">
+        <div id="content">
+
+            <ul id="bread-crumbs" class="breadcrumb">
+                <li>
+                    <a href="/" title="Home"><i class="icon-home"></i></a>
+                </li>
+                <li class="crumb-divider">  / </li>
+                <li>
+                    <a href="/marketing">Marketing</a>
+                </li>
+                <li class="crumb-divider">  / </li>
+                <li>
+                    <a href="/form">Forms</a>
+                </li>
+            </ul>
+
+            <h1>Form Handlers</h1>
+
+            <div class="divider"></div>
+
+
+
+            <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div id="formHandler">
+
+                    <div id="foh_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                    <div id="tagFilterformHandler" class="tagfilter-pop-up dropdown-menu" style="display: none;"><input type="text" id="tagFilterSearchformHandler" value=""><div class="scroller"><ul id="tagFilterSelectorformHandler"><li></li></ul></div><a href="#"  style="float: left;">Clear filter</a>  <a href="/tag" style="float: right;">Manage tags</a></div><div id="foh_module" class="module">
+
+                        <div class="header clearfix">
+
+                            <h2 id="formHandler_h2"></h2>
+
+
+
+
+
+                            <form id="formHandler_filter" class="inline" onsubmit="new Ajax.Updater('formHandler_table_div', '/formHandler/table/ajax/1/dateText/Date+Range%3A+', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('foh_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('formHandler_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/formHandler/table/ajax/1/dateText/Date+Range%3A+" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="515f6d91934193d02df9e03c1c8b82740356d7f23265377865e575566ff70dfbd95b416c2fef1fc5c343b1f5189b6f45"></div>
+                                <p class="inline header">
+                                    Filter:<br>
+                                    <input type="text" name="table_filter" id="formHandler_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;formHandler_filter&quot;).onsubmit()',600);" class="input-medium">
+                                </p>
+                            </form>
+                            <br>
+                            <form id="formHandler_tagFilter" class="aaa inline tag-filter-form" onsubmit="new Ajax.Updater('formHandler_table_div', '/formHandler/table/ajax/1/dateText/Date+Range%3A+/table_filter', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('foh_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('formHandler_ajax_urlparams').value.replace('tagFilter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/formHandler/table/ajax/1/dateText/Date+Range%3A+/table_filter" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="515f6d91934193d02df9e03c1c8b82740356d7f23265377865e575566ff70dfbd95b416c2fef1fc5c343b1f5189b6f45"></div>					<p class="inline header" id="tagFilterContainerformHandler"><button  class="btn">Tags <span class="caret"></span></button><span id="tagFilterListformHandler"></span><input type="hidden" id="tagFilterInputformHandler" name="tagFilter" value=""></p>
+                               
+                            </form>
+
+                            <div class="btn-group pull-right">
+                                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Tools			    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+
+                                    <li><a href="#" onclick="new Ajax.Updater('foh_status', '/tagObject/tagTableAjax', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('foh_status', true);new Effect.Highlight('foh_status', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('foh_table_footer', false); }}, parameters:'ajaxParams='+encodeURIComponent($('formHandler_ajax_urlparams').value) + '&amp;ajaxUrl=formHandler%2Ftable&amp;objectName=Form+Handlers' + '&amp;_csrf_token=a4cc41b946286115c96094f951115701e97934aba74851029ca448a891c5b30e2a0e8d17ede13e935256e0990ccae1c1'});; return false;"><i class="icon-tag"></i> Tag Entire Table</a>						</li>
+
+                                    <li><a onclick="location='/formHandler/export?' + $('formHandler_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                </ul>
+                            </div>
+
+
+                            <span class="link_to_create pull-right">
+                                <a href="/formHandler/createAjax" id="foh_link_create" class="btn btn-warning"><i class="icon-plus"></i> Add form handler</a>
+                                <script type="text/javascript">
+	jQuery('a#foh_link_create').click(function() {
+		jQuery("#indicator").show();
+		if(jQuery('html').is('.ie'))
+			toggleDisplay("foh_table_footer", false);
+		jQuery.ajax({
+			url: "/formHandler/createAjax",
+			beforeSend: function(jqXHR, settings) {
+				// TODO: Compensate for existing data?
+				settings.data += jQuery("#foh_ajax_urlparams").attr('value');
+			},
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#foh_status").html(data);
+				toggleDisplay("foh_status", true);
+				new Effect.Highlight('foh_status', {duration:2});
+			}
+		});
+		return false;
+	});
+                                </script>
+                            </span>
+                        </div>
+                        <div id="foh_wrapper" class="module-wrapper">
+                            <div id="formHandler_table_div">
+
+
+                                <input type="hidden" id="formHandler_ajax_urlparams" value="sort=form_handler.name&amp;order=desc&amp;tagFilter=+&amp;ajaxElement=formHandler&amp;numResults=0">
+                                <table id="formHandler_table" class="data-table table-bordered">
+                                    <thead>
+                                        <tr>
+
+
+                                            <th class="first checkbox-column checkbox">
+
+
+                                            </th>
+
+
+
+
+                                            <th class="sortable sort-down name-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('formHandler_table_div', '/formHandler/table/ajax/1/page/1/order/asc/sort/form_handler.name/tagFilter/+/ajaxElement/formHandler', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=4003b6ea20f5722bebfbcbebf1dcc67bb93c1540681216d442140f79f916ac08a2c20af15cd735a2cc7a62e725ad06f9'});; return false;">Name</a>
+
+                                                <i class="icon-circle-arrow-down muted"></i>
+                                            </th>
+
+
+                                            <th class="uses-column">
+
+                                                Uses
+                                            </th>
+
+
+                                            <th class="url-column">
+
+                                                URL
+                                            </th>
+
+
+
+                                            <th class="updated-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('formHandler_table_div', '/formHandler/table/ajax/1/page/1/order/desc/sort/form_handler.updated_at/tagFilter/+/ajaxElement/formHandler', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=30fdc045bac122803d6b15ed3ba26b4f94d1d2cc5787338de5b18653538c2d203e8bd6f057cb949e424e95b3431a993c'});; return false;">Updated</a>
+
+                                            </th>
+
+
+                                            <th class="actions-column last">
+
+                                                Actions
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="6" class="last">
+                                                There are no form handlers for this area.
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+
+
+                                </table>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,518 @@
+﻿<div id="wrap" class="clearfix">
+    <!--[if IE 7]>
+    <div id="ieCompatibility">
+        <img style="vertical-align: text-top;" src="/images/error.png"/>
+        <strong>Warning</strong>: Your browser is in Compatibility Mode. For things to work correctly, you need to <a href="http://help.pardot.com/faqs/administration/turning-off-compatibility-mode-in-ie" target="_blank">turn it off</a>.
+    </div>
+    <![endif]-->
+    <p class="hidden">
+        <a href="#content">Skip navigation</a>
+    </p>
+    <div id="wrapper">
+
+        <div id="contentWrap">
+            <div id="content">
+
+                <ul id="bread-crumbs" class="breadcrumb">
+                    <li>
+                        <a href="/" title="Home"><i class="icon-home"></i></a>
+                    </li>
+                    <li class="crumb-divider">  / </li>
+                    <li>
+                        <a href="/report">Reports</a>
+                    </li>
+                </ul>
+
+                <h1>Forms</h1>
+
+                <div class="divider"></div>
+
+
+
+                <div id="center-stage">
+
+
+
+
+
+
+
+
+
+                    <ul class="nav nav-pills">
+                        <li>
+                            <a href="/form/allSubmissions">All Form Submissions</a>
+                        </li>
+                        <li>
+                            <a href="/formHandler/allSubmissions">All Form Handler Submissions</a>
+                        </li>
+                    </ul>
+
+
+
+
+
+
+
+
+                    <div id="formStats">
+
+                        <div id="fos_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                        <div id="tagFilterformStats" class="tagfilter-pop-up dropdown-menu" style="display: none;"><input type="text" id="tagFilterSearchformStats" value=""><div class="scroller"><ul id="tagFilterSelectorformStats"><li></li></ul></div><a href="#"  style="float: left;">Clear filter</a>  <a href="/tag" style="float: right;">Manage tags</a></div><div id="fos_module" class="module">
+
+                            <div class="header clearfix">
+
+                                <h2 id="formStats_h2">
+                                    Form Statistics
+                                </h2>
+
+
+
+                                <form id="formStats_date_range_form" class="inline" onsubmit="new Ajax.Updater('formStats_table_div', '/form/reportTable/ajax/1', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('fos_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('formStats_ajax_urlparams').value + '&amp;'  + Form.serialize(this) }); return false;" action="/form/reportTable/ajax/1" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="046895e9853a44fa64e617067afc077ee08a04c5fdd2e483381e6f4658975bdb04b29376408eb9e3d3f726df3940a326"></div>
+                                    <p class="inline header">
+                                        Campaign:<br>
+                                        <select name="campaign_filter" id="campaign_filter_fos" onchange="$('formStats_date_range_form').onsubmit();">
+                                            <option value="0" selected="selected">All Campaigns</option>
+                                            <optgroup label="Current">
+                                                <option value="288">Email Plug-in</option>
+                                                <option value="932">Pre-Pardot Initial Import</option>
+                                                <option value="934">Sync from Salesforce</option>
+                                                <option value="1460">Test Campaign</option>
+                                                <option value="1852">Webinars</option>
+                                                <option value="286">Website Tracking</option>
+                                            </optgroup>
+                                            <optgroup label="Archived"></optgroup>
+                                        </select>
+                                    </p>
+                                    <p class="inline header">
+
+                                        <span id="datetext_header">
+                                            Date Range  <small>(Based on 12am EDT)</small>:
+                                        </span> <br>
+
+                                        <select name="dateRange" id="dateRange_fos" onchange="customDates = document.getElementById('fos_custom_dates');if(this.value==7) {
+								customDates.removeClassName(&quot;hidden&quot;);
+							 } else {
+							 	$('formStats_date_range_form').onsubmit();
+							 	customDates.addClassName(&quot;hidden&quot;);
+							 }" class="input-auto">
+                                            <option value="1">Today</option>
+                                            <option value="2">Yesterday</option>
+                                            <option value="4">This Month</option>
+                                            <option value="10">This Quarter</option>
+                                            <option value="11">This Year</option>
+                                            <option value="3">Last 7 Days</option>
+                                            <option value="14">Last Week</option>
+                                            <option value="5">Last Month</option>
+                                            <option value="12">Last Quarter</option>
+                                            <option value="13">Last Year</option>
+                                            <option value="6" selected="selected">All Time</option>
+                                            <option value="7">Custom</option>
+                                        </select>						<span id="fos_custom_dates" class="datepickerBS inline header hidden">
+                                            <input type="text" name="startDate" id="fosstartDate" value="2006-12-31" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_fosstartDate">...</button>
+                                            <script type="text/javascript">
+    document.getElementById("trigger_fosstartDate").disabled = false;
+    Calendar.setup({
+      inputField : "fosstartDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_fosstartDate"
+    });
+                                            </script>
+                                            &nbsp;to&nbsp;
+
+                                            <input type="text" name="endDate" id="fosendDate" value="2015-10-08" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_fosendDate">...</button>
+                                            <script type="text/javascript">
+    document.getElementById("trigger_fosendDate").disabled = false;
+    Calendar.setup({
+      inputField : "fosendDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_fosendDate"
+    });
+                                            </script>
+                                            &nbsp;
+                                            <input type="submit" name="commit" value="Go" class="btn btn-primary">
+                                        </span>
+                                    </p>
+                                </form>
+
+
+                                <form id="formStats_filter" class="inline" onsubmit="new Ajax.Updater('formStats_table_div', '/form/reportTable/ajax/1/dateText/Date+Range%3A+', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('fos_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('formStats_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/form/reportTable/ajax/1/dateText/Date+Range%3A+" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="046895e9853a44fa64e617067afc077ee08a04c5fdd2e483381e6f4658975bdb04b29376408eb9e3d3f726df3940a326"></div>
+                                    <p class="inline header">
+                                        Filter:<br>
+                                        <input type="text" name="table_filter" id="formStats_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;formStats_filter&quot;).onsubmit()',600);" class="input-medium">
+                                    </p>
+                                </form>
+                                <br>
+                                <form id="formStats_tagFilter" class="aaa inline tag-filter-form" onsubmit="new Ajax.Updater('formStats_table_div', '/form/reportTable/ajax/1/dateText/Date+Range%3A+/table_filter', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('fos_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('formStats_ajax_urlparams').value.replace('tagFilter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/form/reportTable/ajax/1/dateText/Date+Range%3A+/table_filter" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="046895e9853a44fa64e617067afc077ee08a04c5fdd2e483381e6f4658975bdb04b29376408eb9e3d3f726df3940a326"></div>					<p class="inline header" id="tagFilterContainerformStats"><button  class="btn">Tags <span class="caret"></span></button><span id="tagFilterListformStats"></span><input type="hidden" id="tagFilterInputformStats" name="tagFilter" value=""></p>
+                               
+                                </form>
+
+                                <div class="btn-group pull-right">
+                                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                        Tools			    <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+
+
+                                        <li><a onclick="location='/form/exportReport?' + $('formStats_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                            <div id="fos_wrapper" class="module-wrapper">
+                                <div id="formStats_table_div">
+
+
+                                    <input type="hidden" id="formStats_ajax_urlparams" value="sort=form.name&amp;order=asc&amp;dateRange=6&amp;tableName=formReport&amp;pageSize=5&amp;prefix=fos&amp;export=icon&amp;startDate=%401167627600&amp;endDate=now&amp;dateText=Submission+date+range%3A&amp;tagFilter=+&amp;ajaxElement=formStats&amp;startDate=%401167627600&amp;endDate=now&amp;numResults=2">
+                                    <table class="data-table table-bordered">
+                                        <thead>
+                                            <tr>
+
+
+
+                                                <th class="sortable sort-up first name-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('formStats_table_div', '/form/reportTable/ajax/1/page/1/order/desc/sort/form.name/dateRange/6/tableName/formReport/pageSize/5/prefix/fos/export/icon/startDate/%401167627600/endDate/now/dateText/Submission+date+range%3A/tagFilter/+/ajaxElement/formStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=b8463b29f1c70ef820823a2b958ed9fe46426cfacad75bf670c92ae99f57d8fb8cc50fed030e74129e6fef07f0f80029'});; return false;">Name</a>
+
+                                                    <i class="icon-circle-arrow-up muted"></i>
+                                                </th>
+
+
+
+                                                <th class="total-views-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('formStats_table_div', '/form/reportTable/ajax/1/page/1/order/desc/sort/form_stats.total_views/dateRange/6/tableName/formReport/pageSize/5/prefix/fos/export/icon/startDate/%401167627600/endDate/now/dateText/Submission+date+range%3A/tagFilter/+/ajaxElement/formStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=69763d220c1370bc0d2db551be4862a3b6f34fd5ebd45ef33527b25754d9df3331ef763086dd013ec05968a6e0681627'});; return false;">Total Views</a>
+
+                                                </th>
+
+
+
+                                                <th class="total-submissions-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('formStats_table_div', '/form/reportTable/ajax/1/page/1/order/desc/sort/form_stats.total_submissions/dateRange/6/tableName/formReport/pageSize/5/prefix/fos/export/icon/startDate/%401167627600/endDate/now/dateText/Submission+date+range%3A/tagFilter/+/ajaxElement/formStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=c064862072173a0adfc0b7bba6222fffa80cd5d8de175134aec4f9b8c5cdf6695668dfe4f8922eb4f49cfae0544eb496'});; return false;">Total Submissions</a>
+
+                                                </th>
+
+
+                                                <th class="submission-rate-column">
+
+                                                    Submission Rate
+                                                </th>
+
+
+
+                                                <th class="total-errors-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('formStats_table_div', '/form/reportTable/ajax/1/page/1/order/desc/sort/form_stats.total_errors/dateRange/6/tableName/formReport/pageSize/5/prefix/fos/export/icon/startDate/%401167627600/endDate/now/dateText/Submission+date+range%3A/tagFilter/+/ajaxElement/formStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=3b63191134a748f593fb68cee07d44fd9b0d93108fb8256d3bc392a9a9db9309ca39ed9d44940f7f7c9fa1222f32349b'});; return false;">Total Errors</a>
+
+                                                </th>
+
+
+                                                <th class="error-rate-column last">
+
+                                                    Error Rate
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr id="fos_row_a42456">
+                                                <td class="first ">
+                                                    <a href="/form/readReport/id/646">ILC Webinar Form</a>
+                                                </td>
+                                                <td class="">
+                                                    <a href="/form/readReport/id/646/activityType/2">1</a>
+                                                </td>
+                                                <td class="">
+                                                    <a href="/form/readReport/id/646/activityType/4">0</a>
+                                                </td>
+                                                <td class="">
+                                                    0.00%
+                                                </td>
+                                                <td class="">
+                                                    <a href="/form/readReport/id/646/activityType/3">0</a>
+                                                </td>
+                                                <td class="last">
+                                                    0.00%
+                                                </td>
+                                            </tr>
+                                            <tr style="display:none" id="fos_row_b42456" class="ajax_row">
+                                                <td colspan="2" id="fos_row_b_cell42456" class="last"></td>
+                                            </tr>
+                                            <tr class="even" id="fos_row_a39984">
+                                                <td class="first ">
+                                                    <a href="/form/readReport/id/142">Standard Form</a>
+                                                </td>
+                                                <td class="">
+                                                    <a href="/form/readReport/id/142/activityType/2">1</a>
+                                                </td>
+                                                <td class="">
+                                                    <a href="/form/readReport/id/142/activityType/4">0</a>
+                                                </td>
+                                                <td class="">
+                                                    0.00%
+                                                </td>
+                                                <td class="">
+                                                    <a href="/form/readReport/id/142/activityType/3">0</a>
+                                                </td>
+                                                <td class="last">
+                                                    0.00%
+                                                </td>
+                                            </tr>
+                                            <tr style="display:none" id="fos_row_b39984" class="ajax_row">
+                                                <td colspan="2" id="fos_row_b_cell39984" class="last"></td>
+                                            </tr>
+                                            <tr class="totals" id="fos_row_total">
+                                                <td class="first">
+                                                    Total: 2
+                                                </td>
+                                                <td>
+                                                    2
+                                                </td>
+                                                <td>
+                                                    0
+                                                </td>
+                                                <td>
+                                                    0.00%
+                                                </td>
+                                                <td>
+                                                    0
+                                                </td>
+                                                <td class="last">
+                                                    0.00%
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+
+
+                                    <div class="table-foot clearfix">
+                                        <div id="fos_table_footer">
+                                            <form id="formStatsform" class="inline fos-pager-form pager-form" onsubmit="new Ajax.Updater('formStats_table_div', '/form/reportTable/ajax/1/sort/form.name/order/asc/dateRange/6/tableName/formReport/pageSize/5/prefix/fos/export/icon/startDate/%401167627600/endDate/now/dateText/Submission+date+range%3A/tagFilter/+/ajaxElement/formStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('fos_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:Form.serialize(this)}); return false;" action="/form/reportTable/ajax/1/sort/form.name/order/asc/dateRange/6/tableName/formReport/pageSize/5/prefix/fos/export/icon/startDate/%401167627600/endDate/now/dateText/Submission+date+range%3A/tagFilter/+/ajaxElement/formStats" method="post">
+                                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="046895e9853a44fa64e617067afc077ee08a04c5fdd2e483381e6f4658975bdb04b29376408eb9e3d3f726df3940a326"></div>						<ul class="inline pull-right paging">
+                                                    <li>
+                                                    </li>
+
+                                                    <li>
+                                                        Page
+                                                        1
+                                                        of
+                                                        <a class="pager-last" href="#" onclick="cancelAllPendingAjax(); new Ajax.Updater('formStats_table_div', '/form/reportTable/ajax/1/page/1/sort/form.name/order/asc/dateRange/6/tableName/formReport/pageSize/5/prefix/fos/export/icon/startDate/%401167627600/endDate/now/dateText/Submission+date+range%3A/tagFilter/+/ajaxElement/formStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=2999271edbbe4f0986c2312eded028f2814aad79ec9495f0db190979231a430908a2641eb12fb07bf38304d8e20db34f'});; return false;">1</a>
+                                                    </li>
+
+                                                    <li class="last">
+                                                    </li>
+                                                </ul>
+                                                <p class="inline pull-right">
+                                                    Showing
+                                                    <select name="pageSize" id="fospageSize" onchange="$(&quot;formStatsform&quot;).onsubmit();return false;" class="input-auto">
+                                                        <option value="5" selected="selected">5</option>
+                                                        <option value="10">10</option>
+                                                        <option value="15">15</option>
+                                                        <option value="25">25</option>
+                                                        <option value="50">50</option>
+                                                    </select>											 of <strong>2</strong>																															<input type="hidden" name="dateRange" id="fos1_dateRange" value="6">																								<input type="hidden" name="view" id="fos1_view" value="">																								<input type="hidden" name="mode" id="fos1_mode" value="">																								<input type="hidden" name="tableName" id="fos1_tableName" value="formReport">																								<input type="hidden" name="campaign_id" id="fos1_campaign_id" value="">																								<input type="hidden" name="prospect_id" id="fos1_prospect_id" value="">																								<input type="hidden" name="visitor_id" id="fos1_visitor_id" value="">																								<input type="hidden" name="visit_id" id="fos1_visit_id" value="">																								<input type="hidden" name="user_id" id="fos1_user_id" value="">																								<input type="hidden" name="query" id="fos1_query" value="">																																			<input type="hidden" name="prefix" id="fos1_prefix" value="fos">																								<input type="hidden" name="export" id="fos1_export" value="icon">																								<input type="hidden" name="startDate" id="fos1_startDate" value="@1167627600">																								<input type="hidden" name="endDate" id="fos1_endDate" value="now">																								<input type="hidden" name="dateText" id="fos1_dateText" value="Submission date range:">																								<input type="hidden" name="tagFilter" id="fos1_tagFilter" value=" ">
+                                                </p>
+                                            </form>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                    <div id="formHandlerStats">
+
+                        <div id="fohs_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                        <div id="tagFilterformHandlerStats" class="tagfilter-pop-up dropdown-menu" style="display: none;"><input type="text" id="tagFilterSearchformHandlerStats" value=""><div class="scroller"><ul id="tagFilterSelectorformHandlerStats"><li></li></ul></div><a href="#"  style="float: left;">Clear filter</a>  <a href="/tag" style="float: right;">Manage tags</a></div><div id="fohs_module" class="module">
+
+                            <div class="header clearfix">
+
+                                <h2 id="formHandlerStats_h2">
+                                    Form Handler Statistics
+                                </h2>
+
+
+
+                                <form id="formHandlerStats_date_range_form" class="inline" onsubmit="new Ajax.Updater('formHandlerStats_table_div', '/formHandler/reportTable/ajax/1', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('fohs_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('formHandlerStats_ajax_urlparams').value + '&amp;'  + Form.serialize(this) }); return false;" action="/formHandler/reportTable/ajax/1" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="046895e9853a44fa64e617067afc077ee08a04c5fdd2e483381e6f4658975bdb04b29376408eb9e3d3f726df3940a326"></div>
+                                    <p class="inline header">
+                                        Campaign:<br>
+                                        <select name="campaign_filter" id="campaign_filter_fohs" onchange="$('formHandlerStats_date_range_form').onsubmit();">
+                                            <option value="0" selected="selected">All Campaigns</option>
+                                            <optgroup label="Current">
+                                                <option value="288">Email Plug-in</option>
+                                                <option value="932">Pre-Pardot Initial Import</option>
+                                                <option value="934">Sync from Salesforce</option>
+                                                <option value="1460">Test Campaign</option>
+                                                <option value="1852">Webinars</option>
+                                                <option value="286">Website Tracking</option>
+                                            </optgroup>
+                                            <optgroup label="Archived"></optgroup>
+                                        </select>
+                                    </p>
+                                    <p class="inline header">
+
+                                        <span id="datetext_header">
+                                            Date Range  <small>(Based on 12am EDT)</small>:
+                                        </span> <br>
+
+                                        <select name="dateRange" id="dateRange_fohs" onchange="customDates = document.getElementById('fohs_custom_dates');if(this.value==7) {
+								customDates.removeClassName(&quot;hidden&quot;);
+							 } else {
+							 	$('formHandlerStats_date_range_form').onsubmit();
+							 	customDates.addClassName(&quot;hidden&quot;);
+							 }" class="input-auto">
+                                            <option value="1">Today</option>
+                                            <option value="2">Yesterday</option>
+                                            <option value="4">This Month</option>
+                                            <option value="10">This Quarter</option>
+                                            <option value="11">This Year</option>
+                                            <option value="3">Last 7 Days</option>
+                                            <option value="14">Last Week</option>
+                                            <option value="5">Last Month</option>
+                                            <option value="12">Last Quarter</option>
+                                            <option value="13">Last Year</option>
+                                            <option value="6" selected="selected">All Time</option>
+                                            <option value="7">Custom</option>
+                                        </select>						<span id="fohs_custom_dates" class="datepickerBS inline header hidden">
+                                            <input type="text" name="startDate" id="fohsstartDate" value="2006-12-31" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_fohsstartDate">...</button>
+                                            <script type="text/javascript">
+    document.getElementById("trigger_fohsstartDate").disabled = false;
+    Calendar.setup({
+      inputField : "fohsstartDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_fohsstartDate"
+    });
+                                            </script>
+                                            &nbsp;to&nbsp;
+
+                                            <input type="text" name="endDate" id="fohsendDate" value="2015-10-08" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_fohsendDate">...</button>
+                                            <script type="text/javascript">
+    document.getElementById("trigger_fohsendDate").disabled = false;
+    Calendar.setup({
+      inputField : "fohsendDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_fohsendDate"
+    });
+                                            </script>
+                                            &nbsp;
+                                            <input type="submit" name="commit" value="Go" class="btn btn-primary">
+                                        </span>
+                                    </p>
+                                </form>
+
+
+                                <form id="formHandlerStats_filter" class="inline" onsubmit="new Ajax.Updater('formHandlerStats_table_div', '/formHandler/reportTable/ajax/1/dateText/Date+Range%3A+', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('fohs_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('formHandlerStats_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/formHandler/reportTable/ajax/1/dateText/Date+Range%3A+" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="046895e9853a44fa64e617067afc077ee08a04c5fdd2e483381e6f4658975bdb04b29376408eb9e3d3f726df3940a326"></div>
+                                    <p class="inline header">
+                                        Filter:<br>
+                                        <input type="text" name="table_filter" id="formHandlerStats_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;formHandlerStats_filter&quot;).onsubmit()',600);" class="input-medium">
+                                    </p>
+                                </form>
+                                <br>
+                                <form id="formHandlerStats_tagFilter" class="aaa inline tag-filter-form" onsubmit="new Ajax.Updater('formHandlerStats_table_div', '/formHandler/reportTable/ajax/1/dateText/Date+Range%3A+/table_filter', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('fohs_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('formHandlerStats_ajax_urlparams').value.replace('tagFilter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/formHandler/reportTable/ajax/1/dateText/Date+Range%3A+/table_filter" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="046895e9853a44fa64e617067afc077ee08a04c5fdd2e483381e6f4658975bdb04b29376408eb9e3d3f726df3940a326"></div>					<p class="inline header" id="tagFilterContainerformHandlerStats"><button  class="btn">Tags <span class="caret"></span></button><span id="tagFilterListformHandlerStats"></span><input type="hidden" id="tagFilterInputformHandlerStats" name="tagFilter" value=""></p>
+                               
+                                </form>
+
+                                <div class="btn-group pull-right">
+                                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                        Tools			    <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+
+
+                                        <li><a onclick="location='/formHandler/exportReport?' + $('formHandlerStats_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                            <div id="fohs_wrapper" class="module-wrapper">
+                                <div id="formHandlerStats_table_div">
+
+
+                                    <input type="hidden" id="formHandlerStats_ajax_urlparams" value="sort=form_handler.name&amp;order=asc&amp;dateRange=6&amp;tableName=formHandlerReport&amp;pageSize=5&amp;prefix=fohs&amp;export=icon&amp;startDate=%401167627600&amp;endDate=now&amp;dateText=Submission+date+range%3A&amp;tagFilter=+&amp;ajaxElement=formHandlerStats&amp;startDate=%401167627600&amp;endDate=now&amp;numResults=0">
+                                    <table class="data-table table-bordered">
+                                        <thead>
+                                            <tr>
+
+
+
+                                                <th class="sortable sort-up first name-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('formHandlerStats_table_div', '/formHandler/reportTable/ajax/1/page/1/order/desc/sort/form_handler.name/dateRange/6/tableName/formHandlerReport/pageSize/5/prefix/fohs/export/icon/startDate/%401167627600/endDate/now/dateText/Submission+date+range%3A/tagFilter/+/ajaxElement/formHandlerStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=851d124ad5272431316522f7acb5b4b4eca285d4cce640f27ab65babc52edc89c4c57748357865872730c795fe84581b'});; return false;">Name</a>
+
+                                                    <i class="icon-circle-arrow-up muted"></i>
+                                                </th>
+
+
+
+                                                <th class="total-submissions-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('formHandlerStats_table_div', '/formHandler/reportTable/ajax/1/page/1/order/desc/sort/form_handler_stats.total_submissions/dateRange/6/tableName/formHandlerReport/pageSize/5/prefix/fohs/export/icon/startDate/%401167627600/endDate/now/dateText/Submission+date+range%3A/tagFilter/+/ajaxElement/formHandlerStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=ffad5e8119ed20db5f5ab15b256dd3294f293a4071aa2e8a2313603777b675e34eb7b0015bd660dc8d42bad85aa8b0bf'});; return false;">Total Submissions</a>
+
+                                                </th>
+
+
+
+                                                <th class="unique-submissions-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('formHandlerStats_table_div', '/formHandler/reportTable/ajax/1/page/1/order/desc/sort/form_handler_stats.unique_submissions/dateRange/6/tableName/formHandlerReport/pageSize/5/prefix/fohs/export/icon/startDate/%401167627600/endDate/now/dateText/Submission+date+range%3A/tagFilter/+/ajaxElement/formHandlerStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=50f3a78fe0ce9211c88a0814bc050da4e485cc6fe9d7f0a5663d8ec538be65b360191b70a4846f735bef855cbef9496c'});; return false;">Unique Submissions</a>
+
+                                                </th>
+
+
+
+                                                <th class="conversions-column last">
+
+                                                    <a href="#" onclick="new Ajax.Updater('formHandlerStats_table_div', '/formHandler/reportTable/ajax/1/page/1/order/desc/sort/form_handler_stats.conversions/dateRange/6/tableName/formHandlerReport/pageSize/5/prefix/fohs/export/icon/startDate/%401167627600/endDate/now/dateText/Submission+date+range%3A/tagFilter/+/ajaxElement/formHandlerStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=46a7198601b45e7363fb67caa0204bd710cfd222ec252f766632e9c285fdeeecc5ff59b24aee2a39b38b432067b327a3'});; return false;">Conversions</a>
+
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                    </table>
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+
+    </div>
+</div>

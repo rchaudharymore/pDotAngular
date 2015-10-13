@@ -1,0 +1,752 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div id="wrap" class="clearfix">
+        <!--[if IE 7]>
+        <div id="ieCompatibility">
+            <img style="vertical-align: text-top;" src="/images/error.png"/>
+            <strong>Warning</strong>: Your browser is in Compatibility Mode. For things to work correctly, you need to <a href="http://help.pardot.com/faqs/administration/turning-off-compatibility-mode-in-ie" target="_blank">turn it off</a>.
+        </div>
+        <![endif]-->
+        <p class="hidden">
+            <a href="#content">Skip navigation</a>
+        </p>
+        <div id="wrapper">
+
+            <div id="contentWrap">
+                <div id="content">
+
+                    <ul id="bread-crumbs" class="breadcrumb">
+                        <li>
+                            <a href="/" title="Home"><i class="icon-home"></i></a>
+                        </li>
+                        <li class="crumb-divider">  / </li>
+                        <li>
+                            <a href="/prospect">Prospects</a>
+                        </li>
+                        <li class="crumb-divider">  / </li>
+                        <li>
+                            <a href="/prospectAccount">Accounts</a>
+                        </li>
+                    </ul>
+
+                    <h1>Configure Account Fields</h1>
+
+                    <div class="divider"></div>
+
+
+
+                    <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <div id="default_fields">
+
+                            <div id="default_fields_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                            <div id="default_fields_module" class="module">
+
+                                <div class="header clearfix">
+
+                                    <h2 id="default_fields_h2">
+                                        Default Fields
+                                    </h2>
+
+
+
+                                    <form id="default_fields_date_range_form" class="inline" onsubmit="new Ajax.Updater('default_fields_table_div', '/field/table/ajax/1', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('default_fields_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('default_fields_ajax_urlparams').value + '&amp;'  + Form.serialize(this) }); return false;" action="/field/table/ajax/1" method="post">
+                                        <div style="display:none;"><input type="hidden" name="_csrf_token" value="b85b79dd9138162239674190aeb5ba95636fa1bc6a18152da404f69532767dbc389e1e62cc171444a30cde062c049a5a"></div>
+                                        <p class="inline header">
+
+                                            <span id="datetext_header">
+                                                Updated <small>(Based on 12am EDT)</small>:
+                                            </span> <br>
+
+                                            <select name="dateRange" id="dateRange_default_fields" onchange="customDates = document.getElementById('default_fields_custom_dates');if(this.value==7) {
+								customDates.removeClassName(&quot;hidden&quot;);
+							 } else {
+							 	$('default_fields_date_range_form').onsubmit();
+							 	customDates.addClassName(&quot;hidden&quot;);
+							 }" class="input-auto">
+                                                <option value="1">Today</option>
+                                                <option value="2">Yesterday</option>
+                                                <option value="4">This Month</option>
+                                                <option value="10">This Quarter</option>
+                                                <option value="11">This Year</option>
+                                                <option value="3">Last 7 Days</option>
+                                                <option value="14">Last Week</option>
+                                                <option value="5">Last Month</option>
+                                                <option value="12">Last Quarter</option>
+                                                <option value="13">Last Year</option>
+                                                <option value="6" selected="selected">All Time</option>
+                                                <option value="7">Custom</option>
+                                            </select>						<span id="default_fields_custom_dates" class="datepickerBS inline header hidden">
+                                                <input type="text" name="startDate" id="default_fieldsstartDate" value="2015-08-15" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_default_fieldsstartDate">...</button>
+                                                <script type="text/javascript">
+    document.getElementById("trigger_default_fieldsstartDate").disabled = false;
+    Calendar.setup({
+      inputField : "default_fieldsstartDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_default_fieldsstartDate"
+    });
+                                                </script>
+                                                &nbsp;to&nbsp;
+
+                                                <input type="text" name="endDate" id="default_fieldsendDate" value="2015-10-08" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_default_fieldsendDate">...</button>
+                                                <script type="text/javascript">
+    document.getElementById("trigger_default_fieldsendDate").disabled = false;
+    Calendar.setup({
+      inputField : "default_fieldsendDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_default_fieldsendDate"
+    });
+                                                </script>
+                                                &nbsp;
+                                                <input type="submit" name="commit" value="Go" class="btn btn-primary">
+                                            </span>
+                                        </p>
+                                    </form>
+
+
+                                    <form id="default_fields_filter" class="inline" onsubmit="new Ajax.Updater('default_fields_table_div', '/field/table/ajax/1/dateText/Updated%3A', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('default_fields_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('default_fields_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/field/table/ajax/1/dateText/Updated%3A" method="post">
+                                        <div style="display:none;"><input type="hidden" name="_csrf_token" value="b85b79dd9138162239674190aeb5ba95636fa1bc6a18152da404f69532767dbc389e1e62cc171444a30cde062c049a5a"></div>
+                                        <p class="inline header">
+                                            Filter:<br>
+                                            <input type="text" name="table_filter" id="default_fields_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;default_fields_filter&quot;).onsubmit()',600);" class="input-medium">
+                                        </p>
+                                    </form>
+
+                                    <br>			<div class="btn-group pull-right">
+                                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                            Tools			    <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+
+
+                                            <li><a onclick="location='/field/export?' + $('default_fields_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                        </ul>
+                                    </div>
+
+
+                                </div>
+                                <div id="default_fields_wrapper" class="module-wrapper">
+                                    <div id="default_fields_table_div">
+
+
+                                        <input type="hidden" id="default_fields_ajax_urlparams" value="sort=field.name&amp;order=asc&amp;dateRange=6&amp;objectType=1&amp;fieldType=default&amp;ajaxElement=default_fields&amp;startDate=%401439638788&amp;endDate=%401444373999&amp;numResults=27">
+                                        <table id="default_fields_table" class="data-table table-bordered">
+                                            <thead>
+                                                <tr>
+
+
+
+                                                    <th class="sortable sort-up first name-column">
+
+                                                        <a href="#" onclick="new Ajax.Updater('default_fields_table_div', '/field/table/ajax/1/page/1/order/desc/sort/field.name/dateRange/6/objectType/1/fieldType/default/ajaxElement/default_fields/startDate/%401439638788/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=d2e10623727e593948b108163cbf5356c9bb8c78af9a347809f040ef5091c4afd9aa6a6da89e4c630a941e47b5e40522'});; return false;">Name</a>
+
+                                                        <i class="icon-circle-arrow-up muted"></i>
+                                                    </th>
+
+
+
+                                                    <th class="type-column">
+
+                                                        <a href="#" onclick="new Ajax.Updater('default_fields_table_div', '/field/table/ajax/1/page/1/order/desc/sort/field.type/dateRange/6/objectType/1/fieldType/default/ajaxElement/default_fields/startDate/%401439638788/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=554a240c8e646554e6012e53cc67d223c7fdac2f053833386e833333074539665e51e9b11dbbc06f0314820b56563617'});; return false;">Type</a>
+
+                                                    </th>
+
+
+
+                                                    <th class="crm-field-column">
+
+                                                        <a href="#" onclick="new Ajax.Updater('default_fields_table_div', '/field/table/ajax/1/page/1/order/desc/sort/field.crm_field_fid/dateRange/6/objectType/1/fieldType/default/ajaxElement/default_fields/startDate/%401439638788/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=69ad5f8ee764161d2ad49c0694e588e43547557fb73f5446e9d71674ba07749534df7581b8504d06e549ab9aea2ffbf9'});; return false;">CRM Field</a>
+
+                                                    </th>
+
+
+
+                                                    <th class="updated-at-column">
+
+                                                        <a href="#" onclick="new Ajax.Updater('default_fields_table_div', '/field/table/ajax/1/page/1/order/desc/sort/field.updated_at/dateRange/6/objectType/1/fieldType/default/ajaxElement/default_fields/startDate/%401439638788/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=21ccb94df96ada1d3bdb94778f50a9c8948b4b84a6d11eea72e5d84eddadfec34feb65d5307c10bcf38d89aa8905df83'});; return false;">Updated At</a>
+
+                                                    </th>
+
+
+                                                    <th class="actions-column last">
+
+                                                        Actions
+                                                    </th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                <tr class="" id="default_fields_row_a0">
+
+                                                    <td class="first ">
+                                                        Annual Revenue
+                                                    </td>
+
+                                                    <td>
+                                                        Text
+                                                    </td>
+
+                                                    <td>
+                                                        AnnualRevenue
+                                                    </td>
+
+                                                    <td>
+                                                        Sep 25, 2015 2:14 PM
+                                                    </td>
+
+                                                    <td class="new-actions last">
+
+
+
+
+
+
+                                                        <div class="actions-menu-wrapper">
+                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog muted"></i></a>	<ul class="dropdown-menu pull-right" role="menu">
+                                                                <li>
+                                                                    <a id="default_fields_edit_link0" href="#"><i class="icon-edit muted" title="Edit"></i> Edit</a>
+                                                                    <script type="text/javascript">
+	jQuery("a#default_fields_edit_link0").click(function() {
+		jQuery("#indicator").show();
+		jQuery.ajax({
+			url: "/field/editAjax/id/3852/prefix/default_fields",
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#default_fields_row_b_cell0").html(data);
+				toggleDisplay("default_fields_row_b0", true);
+				if(jQuery('html').is('.ie')) {
+					toggleDisplay("default_fields_table_footer", false);
+				}
+				new Effect.Highlight('default_fields_row_b_cell0', {duration:2});
+			}
+		});
+		hideAllActionMenus();
+		return false;
+	});
+                                                                    </script>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+
+                                                    </td>
+                                                </tr>
+                                                <tr style="display:none" id="default_fields_row_b0" class="ajax_row">
+                                                    <td colspan="5" id="default_fields_row_b_cell0" class="last"></td>
+                                                </tr>
+                                                <tr class="even" id="default_fields_row_a1">
+
+                                                    <td class="first ">
+                                                        Billing Address One
+                                                    </td>
+
+                                                    <td>
+                                                        Text
+                                                    </td>
+
+                                                    <td>
+                                                        BillingStreet
+                                                    </td>
+
+                                                    <td>
+                                                        Sep 25, 2015 2:14 PM
+                                                    </td>
+
+                                                    <td class="new-actions last">
+
+
+
+
+
+
+                                                        <div class="actions-menu-wrapper">
+                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog muted"></i></a>	<ul class="dropdown-menu pull-right" role="menu">
+                                                                <li>
+                                                                    <a id="default_fields_edit_link1" href="#"><i class="icon-edit muted" title="Edit"></i> Edit</a>
+                                                                    <script type="text/javascript">
+	jQuery("a#default_fields_edit_link1").click(function() {
+		jQuery("#indicator").show();
+		jQuery.ajax({
+			url: "/field/editAjax/id/3864/prefix/default_fields",
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#default_fields_row_b_cell1").html(data);
+				toggleDisplay("default_fields_row_b1", true);
+				if(jQuery('html').is('.ie')) {
+					toggleDisplay("default_fields_table_footer", false);
+				}
+				new Effect.Highlight('default_fields_row_b_cell1', {duration:2});
+			}
+		});
+		hideAllActionMenus();
+		return false;
+	});
+                                                                    </script>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+
+                                                    </td>
+                                                </tr>
+                                                <tr style="display:none" id="default_fields_row_b1" class="ajax_row">
+                                                    <td colspan="5" id="default_fields_row_b_cell1" class="last"></td>
+                                                </tr>
+                                                <tr class="" id="default_fields_row_a2">
+
+                                                    <td class="first ">
+                                                        Billing Address Two
+                                                    </td>
+
+                                                    <td>
+                                                        Text
+                                                    </td>
+
+                                                    <td></td>
+
+                                                    <td>
+                                                        Sep 25, 2015 2:14 PM
+                                                    </td>
+
+                                                    <td class="new-actions last">
+
+
+
+
+
+
+                                                        <div class="actions-menu-wrapper">
+                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog muted"></i></a>	<ul class="dropdown-menu pull-right" role="menu">
+                                                                <li>
+                                                                    <a id="default_fields_edit_link2" href="#"><i class="icon-edit muted" title="Edit"></i> Edit</a>
+                                                                    <script type="text/javascript">
+	jQuery("a#default_fields_edit_link2").click(function() {
+		jQuery("#indicator").show();
+		jQuery.ajax({
+			url: "/field/editAjax/id/3866/prefix/default_fields",
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#default_fields_row_b_cell2").html(data);
+				toggleDisplay("default_fields_row_b2", true);
+				if(jQuery('html').is('.ie')) {
+					toggleDisplay("default_fields_table_footer", false);
+				}
+				new Effect.Highlight('default_fields_row_b_cell2', {duration:2});
+			}
+		});
+		hideAllActionMenus();
+		return false;
+	});
+                                                                    </script>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+
+                                                    </td>
+                                                </tr>
+                                                <tr style="display:none" id="default_fields_row_b2" class="ajax_row">
+                                                    <td colspan="5" id="default_fields_row_b_cell2" class="last"></td>
+                                                </tr>
+                                                <tr class="even" id="default_fields_row_a3">
+
+                                                    <td class="first ">
+                                                        Billing City
+                                                    </td>
+
+                                                    <td>
+                                                        Text
+                                                    </td>
+
+                                                    <td>
+                                                        BillingCity
+                                                    </td>
+
+                                                    <td>
+                                                        Sep 25, 2015 2:14 PM
+                                                    </td>
+
+                                                    <td class="new-actions last">
+
+
+
+
+
+
+                                                        <div class="actions-menu-wrapper">
+                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog muted"></i></a>	<ul class="dropdown-menu pull-right" role="menu">
+                                                                <li>
+                                                                    <a id="default_fields_edit_link3" href="#"><i class="icon-edit muted" title="Edit"></i> Edit</a>
+                                                                    <script type="text/javascript">
+	jQuery("a#default_fields_edit_link3").click(function() {
+		jQuery("#indicator").show();
+		jQuery.ajax({
+			url: "/field/editAjax/id/3868/prefix/default_fields",
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#default_fields_row_b_cell3").html(data);
+				toggleDisplay("default_fields_row_b3", true);
+				if(jQuery('html').is('.ie')) {
+					toggleDisplay("default_fields_table_footer", false);
+				}
+				new Effect.Highlight('default_fields_row_b_cell3', {duration:2});
+			}
+		});
+		hideAllActionMenus();
+		return false;
+	});
+                                                                    </script>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+
+                                                    </td>
+                                                </tr>
+                                                <tr style="display:none" id="default_fields_row_b3" class="ajax_row">
+                                                    <td colspan="5" id="default_fields_row_b_cell3" class="last"></td>
+                                                </tr>
+                                                <tr class="" id="default_fields_row_a4">
+
+                                                    <td class="first ">
+                                                        Billing Country
+                                                    </td>
+
+                                                    <td>
+                                                        Text
+                                                    </td>
+
+                                                    <td>
+                                                        BillingCountry
+                                                    </td>
+
+                                                    <td>
+                                                        Sep 25, 2015 2:14 PM
+                                                    </td>
+
+                                                    <td class="new-actions last">
+
+
+
+
+
+
+                                                        <div class="actions-menu-wrapper">
+                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog muted"></i></a>	<ul class="dropdown-menu pull-right" role="menu">
+                                                                <li>
+                                                                    <a id="default_fields_edit_link4" href="#"><i class="icon-edit muted" title="Edit"></i> Edit</a>
+                                                                    <script type="text/javascript">
+	jQuery("a#default_fields_edit_link4").click(function() {
+		jQuery("#indicator").show();
+		jQuery.ajax({
+			url: "/field/editAjax/id/3874/prefix/default_fields",
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#default_fields_row_b_cell4").html(data);
+				toggleDisplay("default_fields_row_b4", true);
+				if(jQuery('html').is('.ie')) {
+					toggleDisplay("default_fields_table_footer", false);
+				}
+				new Effect.Highlight('default_fields_row_b_cell4', {duration:2});
+			}
+		});
+		hideAllActionMenus();
+		return false;
+	});
+                                                                    </script>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+
+                                                    </td>
+                                                </tr>
+                                                <tr style="display:none" id="default_fields_row_b4" class="ajax_row">
+                                                    <td colspan="5" id="default_fields_row_b_cell4" class="last"></td>
+                                                </tr>
+                                            </tbody>
+
+
+                                        </table>
+
+
+
+                                        <div class="table-foot clearfix">
+                                            <div id="default_fields_table_footer">
+                                                <form id="default_fieldsform" class="inline default_fields-pager-form pager-form" onsubmit="new Ajax.Updater('default_fields_table_div', '/field/table/ajax/1/sort/field.name/order/asc/dateRange/6/objectType/1/fieldType/default/ajaxElement/default_fields/startDate/%401439638788/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('default_fields_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:Form.serialize(this)}); return false;" action="/field/table/ajax/1/sort/field.name/order/asc/dateRange/6/objectType/1/fieldType/default/ajaxElement/default_fields/startDate/%401439638788/endDate/%401444373999" method="post">
+                                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="b85b79dd9138162239674190aeb5ba95636fa1bc6a18152da404f69532767dbc389e1e62cc171444a30cde062c049a5a"></div>						<ul class="inline pull-right paging">
+                                                        <li>
+                                                        </li>
+
+                                                        <li>
+                                                            Page
+                                                            <input type="text" name="page" id="page_default_fields" value="1" class="text-tiny" style="width: 18px;">
+                                                            <script>$j(".text-tiny").each(textTinyResize);</script>
+                                                            of
+                                                            <a class="pager-last" href="#" onclick="cancelAllPendingAjax(); new Ajax.Updater('default_fields_table_div', '/field/table/ajax/1/page/6/sort/field.name/order/asc/dateRange/6/objectType/1/fieldType/default/ajaxElement/default_fields/startDate/%401439638788/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=6bd482b2a50f71b7538fd9cbd35d62f961a5006c18b4e84e0afed6813c59b173682db99502703fec02b0951bd8ab28f8'});; return false;">6</a>
+                                                        </li>
+
+                                                        <li class="last">
+                                                            <a class="pager-next" href="#" onclick="cancelAllPendingAjax(); new Ajax.Updater('default_fields_table_div', '/field/table/ajax/1/page/2/sort/field.name/order/asc/dateRange/6/objectType/1/fieldType/default/ajaxElement/default_fields/startDate/%401439638788/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=76633a669abe2a09bf0642709115d630596d95540fe6dad129761cfbad7145f215043ace6680f03cc999d715be479588'});; return false;">Next »</a>
+                                                        </li>
+                                                    </ul>
+                                                    <p class="inline pull-right">
+                                                        Showing
+                                                        <select name="pageSize" id="default_fieldspageSize" onchange="$(&quot;default_fieldsform&quot;).onsubmit();return false;" class="input-auto">
+                                                            <option value="5" selected="selected">5</option>
+                                                            <option value="10">10</option>
+                                                            <option value="15">15</option>
+                                                            <option value="25">25</option>
+                                                            <option value="50">50</option>
+                                                        </select>											 of <strong>27</strong>																															<input type="hidden" name="dateRange" id="default_fields1_dateRange" value="6">																								<input type="hidden" name="view" id="default_fields1_view" value="">																								<input type="hidden" name="objectType" id="default_fields1_objectType" value="1">																								<input type="hidden" name="fieldType" id="default_fields1_fieldType" value="default">
+                                                    </p>
+                                                </form>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+                        <div id="custom_fields">
+
+                            <div id="custom_fields_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                            <div id="custom_fields_module" class="module">
+
+                                <div class="header clearfix">
+
+                                    <h2 id="custom_fields_h2">
+                                        Custom Fields
+                                    </h2>
+
+
+
+                                    <form id="custom_fields_date_range_form" class="inline" onsubmit="new Ajax.Updater('custom_fields_table_div', '/field/table/ajax/1', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('custom_fields_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('custom_fields_ajax_urlparams').value + '&amp;'  + Form.serialize(this) }); return false;" action="/field/table/ajax/1" method="post">
+                                        <div style="display:none;"><input type="hidden" name="_csrf_token" value="b85b79dd9138162239674190aeb5ba95636fa1bc6a18152da404f69532767dbc389e1e62cc171444a30cde062c049a5a"></div>
+                                        <p class="inline header">
+
+                                            <span id="datetext_header">
+                                                Updated <small>(Based on 12am EDT)</small>:
+                                            </span> <br>
+
+                                            <select name="dateRange" id="dateRange_custom_fields" onchange="customDates = document.getElementById('custom_fields_custom_dates');if(this.value==7) {
+								customDates.removeClassName(&quot;hidden&quot;);
+							 } else {
+							 	$('custom_fields_date_range_form').onsubmit();
+							 	customDates.addClassName(&quot;hidden&quot;);
+							 }" class="input-auto">
+                                                <option value="1">Today</option>
+                                                <option value="2">Yesterday</option>
+                                                <option value="4">This Month</option>
+                                                <option value="10">This Quarter</option>
+                                                <option value="11">This Year</option>
+                                                <option value="3">Last 7 Days</option>
+                                                <option value="14">Last Week</option>
+                                                <option value="5">Last Month</option>
+                                                <option value="12">Last Quarter</option>
+                                                <option value="13">Last Year</option>
+                                                <option value="6" selected="selected">All Time</option>
+                                                <option value="7">Custom</option>
+                                            </select>						<span id="custom_fields_custom_dates" class="datepickerBS inline header hidden">
+                                                <input type="text" name="startDate" id="custom_fieldsstartDate" value="2015-08-15" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_custom_fieldsstartDate">...</button>
+                                                <script type="text/javascript">
+    document.getElementById("trigger_custom_fieldsstartDate").disabled = false;
+    Calendar.setup({
+      inputField : "custom_fieldsstartDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_custom_fieldsstartDate"
+    });
+                                                </script>
+                                                &nbsp;to&nbsp;
+
+                                                <input type="text" name="endDate" id="custom_fieldsendDate" value="2015-10-08" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_custom_fieldsendDate">...</button>
+                                                <script type="text/javascript">
+    document.getElementById("trigger_custom_fieldsendDate").disabled = false;
+    Calendar.setup({
+      inputField : "custom_fieldsendDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_custom_fieldsendDate"
+    });
+                                                </script>
+                                                &nbsp;
+                                                <input type="submit" name="commit" value="Go" class="btn btn-primary">
+                                            </span>
+                                        </p>
+                                    </form>
+
+
+                                    <form id="custom_fields_filter" class="inline" onsubmit="new Ajax.Updater('custom_fields_table_div', '/field/table/ajax/1/dateText/Updated%3A', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('custom_fields_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('custom_fields_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/field/table/ajax/1/dateText/Updated%3A" method="post">
+                                        <div style="display:none;"><input type="hidden" name="_csrf_token" value="b85b79dd9138162239674190aeb5ba95636fa1bc6a18152da404f69532767dbc389e1e62cc171444a30cde062c049a5a"></div>
+                                        <p class="inline header">
+                                            Filter:<br>
+                                            <input type="text" name="table_filter" id="custom_fields_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;custom_fields_filter&quot;).onsubmit()',600);" class="input-medium">
+                                        </p>
+                                    </form>
+
+                                    <br>			<div class="btn-group pull-right">
+                                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                            Tools			    <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+
+
+                                            <li><a onclick="location='/field/export?' + $('custom_fields_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                        </ul>
+                                    </div>
+
+
+                                    <span class="link_to_create pull-right">
+                                        <a href="/field/createAjax/object_type/1" id="custom_fields_link_create" class="btn btn-warning"><i class="icon-plus"></i> Add custom field</a>
+                                        <script type="text/javascript">
+	jQuery('a#custom_fields_link_create').click(function() {
+		jQuery("#indicator").show();
+		if(jQuery('html').is('.ie'))
+			toggleDisplay("custom_fields_table_footer", false);
+		jQuery.ajax({
+			url: "/field/createAjax/object_type/1",
+			beforeSend: function(jqXHR, settings) {
+				// TODO: Compensate for existing data?
+				settings.data += jQuery("#custom_fields_ajax_urlparams").attr('value');
+			},
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#custom_fields_status").html(data);
+				toggleDisplay("custom_fields_status", true);
+				new Effect.Highlight('custom_fields_status', {duration:2});
+			}
+		});
+		return false;
+	});
+                                        </script>
+                                    </span>
+                                </div>
+                                <div id="custom_fields_wrapper" class="module-wrapper">
+                                    <div id="custom_fields_table_div">
+
+
+                                        <input type="hidden" id="custom_fields_ajax_urlparams" value="sort=field.name&amp;order=desc&amp;dateRange=6&amp;objectType=1&amp;fieldType=custom&amp;ajaxElement=custom_fields&amp;startDate=%401439638788&amp;endDate=%401444373999&amp;numResults=0">
+                                        <table id="custom_fields_table" class="data-table table-bordered">
+                                            <thead>
+                                                <tr>
+
+
+
+
+                                                    <th class="sortable sort-down first name-column">
+
+                                                        <a href="#" onclick="new Ajax.Updater('custom_fields_table_div', '/field/table/ajax/1/page/1/order/asc/sort/field.name/dateRange/6/objectType/1/fieldType/custom/ajaxElement/custom_fields/startDate/%401439638788/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=989c27223e064b3adf2924ad8c3e8fe63d13818a71f0c4de7e53c3bac8baeea5e2ec5eea1d2d26f1ed660bf3b67090c4'});; return false;">Name</a>
+
+                                                        <i class="icon-circle-arrow-down muted"></i>
+                                                    </th>
+
+
+
+                                                    <th class="type-column">
+
+                                                        <a href="#" onclick="new Ajax.Updater('custom_fields_table_div', '/field/table/ajax/1/page/1/order/desc/sort/field.type/dateRange/6/objectType/1/fieldType/custom/ajaxElement/custom_fields/startDate/%401439638788/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=92adba1ab0dbd200b58bc995a623e28df678fa7b047b1d3c70904d6214172b49f0f2fe2afcaa37f2487d31e5253e0061'});; return false;">Type</a>
+
+                                                    </th>
+
+
+
+                                                    <th class="crm-field-column">
+
+                                                        <a href="#" onclick="new Ajax.Updater('custom_fields_table_div', '/field/table/ajax/1/page/1/order/desc/sort/field.crm_field_fid/dateRange/6/objectType/1/fieldType/custom/ajaxElement/custom_fields/startDate/%401439638788/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=bdfaf5b8cbd9ddb1430cc8961f3a3e4bf1f9db660eb9150fccfe9362841f0ac3faf518e40f99938df9da269fe575cfa3'});; return false;">CRM Field</a>
+
+                                                    </th>
+
+
+
+                                                    <th class="updated-at-column">
+
+                                                        <a href="#" onclick="new Ajax.Updater('custom_fields_table_div', '/field/table/ajax/1/page/1/order/desc/sort/field.updated_at/dateRange/6/objectType/1/fieldType/custom/ajaxElement/custom_fields/startDate/%401439638788/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=0ab95a3ed633ef72e3b928e1719d9420a6e47725433be9c46ff56e6431ef06064ee54f97ae4b8a988d3d8e4ec2df2201'});; return false;">Updated At</a>
+
+                                                    </th>
+
+
+                                                    <th class="actions-column last">
+
+                                                        Actions
+                                                    </th>
+                                                </tr>
+                                            </thead>
+
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="5" class="last">
+                                                        There are no custom fields for this area.
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+
+
+                                        </table>
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,185 @@
+﻿<div id="wrapper">
+
+    <div id="contentWrap">
+        <div id="content">
+
+            <ul id="bread-crumbs" class="breadcrumb">
+                <li>
+                    <a href="/" title="Home"><i class="icon-home"></i></a>
+                </li>
+                <li class="crumb-divider">  / </li>
+                <li>
+                    <a href="/marketing">Marketing</a>
+                </li>
+            </ul>
+
+            <h1>Site Search</h1>
+
+            <div class="divider"></div>
+
+
+
+            <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+                <ul class="nav nav-pills">
+                    <li>
+                        <a href="/siteSearch/report/campaign_id">Reports</a>
+                    </li>
+                </ul>
+
+
+
+
+
+
+
+
+
+                <div id="siteSearch">
+
+                    <div id="sis_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                    <div id="tagFiltersiteSearch" class="tagfilter-pop-up dropdown-menu" style="display: none;"><input type="text" id="tagFilterSearchsiteSearch" value=""><div class="scroller"><ul id="tagFilterSelectorsiteSearch"><li></li></ul></div><a href="#"  style="float: left;">Clear filter</a>  <a href="/tag" style="float: right;">Manage tags</a></div><div id="sis_module" class="module">
+
+                        <div class="header clearfix">
+
+                            <h2 id="siteSearch_h2"></h2>
+
+
+
+
+
+                            <br>
+                            <form id="siteSearch_tagFilter" class="aaa inline tag-filter-form" onsubmit="new Ajax.Updater('siteSearch_table_div', '/siteSearch/table/ajax/1/dateText/Date+Range%3A+/table_filter', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('sis_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('siteSearch_ajax_urlparams').value.replace('tagFilter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/siteSearch/table/ajax/1/dateText/Date+Range%3A+/table_filter" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="596a7b4adc9ff8ceed5f02ccacd7377450ac951de9c94f32daee3dae8b90fc155f25b17932e3e8296ef0832be330686b"></div>					<p class="inline header" id="tagFilterContainersiteSearch"><button  class="btn">Tags <span class="caret"></span></button><span id="tagFilterListsiteSearch"></span><input type="hidden" id="tagFilterInputsiteSearch" name="tagFilter" value=""></p>
+                               
+                            </form>
+
+                            <div class="btn-group pull-right">
+                                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Tools			    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+
+                                    <li><a href="#" onclick="new Ajax.Updater('sis_status', '/tagObject/tagTableAjax', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('sis_status', true);new Effect.Highlight('sis_status', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('sis_table_footer', false); }}, parameters:'ajaxParams='+encodeURIComponent($('siteSearch_ajax_urlparams').value) + '&amp;ajaxUrl=siteSearch%2Ftable&amp;objectName=Site+Search' + '&amp;_csrf_token=f2c996e44f5c547919b1e5e5e430082d82214c96e027c889105143aa7f60cc7c123cdbce1251f92bb33dbd3bdd11d65d'});; return false;"><i class="icon-tag"></i> Tag Entire Table</a>						</li>
+
+                                    <li><a onclick="location='/siteSearch/export?' + $('siteSearch_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                </ul>
+                            </div>
+
+
+                            <span class="link_to_create pull-right">
+                                <a href="/siteSearch/createAjax" id="sis_link_create" class="btn btn-warning"><i class="icon-plus"></i> Add site search</a>
+                                <script type="text/javascript">
+	jQuery('a#sis_link_create').click(function() {
+		jQuery("#indicator").show();
+		if(jQuery('html').is('.ie'))
+			toggleDisplay("sis_table_footer", false);
+		jQuery.ajax({
+			url: "/siteSearch/createAjax",
+			beforeSend: function(jqXHR, settings) {
+				// TODO: Compensate for existing data?
+				settings.data += jQuery("#sis_ajax_urlparams").attr('value');
+			},
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#sis_status").html(data);
+				toggleDisplay("sis_status", true);
+				new Effect.Highlight('sis_status', {duration:2});
+			}
+		});
+		return false;
+	});
+                                </script>
+                            </span>
+                        </div>
+                        <div id="sis_wrapper" class="module-wrapper">
+                            <div id="siteSearch_table_div">
+
+
+                                <input type="hidden" id="siteSearch_ajax_urlparams" value="sort=site_search.name&amp;order=asc&amp;ajaxElement=siteSearch&amp;numResults=0">
+                                <table id="siteSearch_table" class="data-table table-bordered">
+                                    <thead>
+                                        <tr>
+
+
+                                            <th class="first checkbox-column checkbox">
+
+
+                                            </th>
+
+
+
+                                            <th class="sortable sort-up name-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('siteSearch_table_div', '/siteSearch/table/ajax/1/page/1/order/desc/sort/site_search.name/ajaxElement/siteSearch', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=865ad78144eb2e50bf4405ba46710dcc9b55a04b84ea8e4e3c2ae907128d4b72b4c1a19d1bdce7e6217ecd93f75add3a'});; return false;">Name</a>
+
+                                                <i class="icon-circle-arrow-up muted"></i>
+                                            </th>
+
+
+                                            <th class="indexed-pages-column">
+
+                                                Indexed Pages
+                                            </th>
+
+
+
+                                            <th class="sitemap-url-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('siteSearch_table_div', '/siteSearch/table/ajax/1/page/1/order/desc/sort/site_search.sitemap_url/ajaxElement/siteSearch', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=b7702b48fca638987dee9782af508f55e3daaf8f332c096272edf3080126404754334e53abdf8e13ca96bbfd309b186a'});; return false;">Sitemap URL</a>
+
+                                            </th>
+
+
+                                            <th class="last-index-column">
+
+                                                Last Index
+                                            </th>
+
+
+                                            <th class="actions-column last">
+
+                                                Actions
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="6" class="last">
+                                                There are no site search for this area.
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+
+
+                                </table>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+
+</div>

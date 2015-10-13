@@ -1,0 +1,308 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+
+
+
+    <div id="contentWrap">
+        <div id="content">
+
+
+            <h1>User Roles</h1>
+
+            <div class="divider"></div>
+
+
+
+            <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div id="customRole">
+
+                    <div id="custoRole_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                    <div id="custoRole_module" class="module">
+
+                        <div class="header clearfix">
+
+                            <h2 id="customRole_h2" class="pull-left">
+                                Custom Roles
+                            </h2>
+
+
+
+
+
+
+
+
+                            <br>												<span class="link_to_create pull-right">
+                                <a href="#/rolecreateAjax" class="btn btn-warning"><i class="icon-plus"></i> Add custom role</a>
+                            </span>
+                        </div>
+                        <div id="custoRole_wrapper" class="module-wrapper">
+                            <div id="customRole_table_div">
+
+
+                                <input type="hidden" id="customRole_ajax_urlparams" value="sort=custom_role.name&amp;order=asc&amp;type=custom&amp;numResults=0">
+                                <table id="customRole_table" class="data-table table-bordered">
+                                    <thead>
+                                        <tr>
+
+
+
+                                            <th class="sortable sort-up first name-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('customRole_table_div', '/role/table/ajax/1/page/1/order/desc/sort/custom_role.name/type/custom', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=02ef2127c90f1f6130cdc9eb36e0d923bf48d2ad0025e0300302aa5293c7057387b0bb6f476b5cf62e21ab4351f09540'});; return false;">Name</a>
+
+                                                <i class="icon-circle-arrow-up muted"></i>
+                                            </th>
+
+
+                                            <th class="total-users-column">
+
+                                                Total Users
+                                            </th>
+
+
+                                            <th class="actions-column last">
+
+                                                Actions
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="3" class="last">
+                                                There are no custom roles for this area.
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+
+
+                                </table>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <script type="text/javascript" src="/js/backbone.js"></script>
+                <script type="text/javascript" src="/js/modules/tableCustom.js?id=2013-09-05"></script>
+
+
+                <script type="text/javascript">
+if( ! window.tableCustomTemplate ) {
+	window.tableCustomTemplate = { };
+}
+window.tableCustomTemplate["defaultRoles1444314134_0-table"] = "\n\t\r\n\r\n\r\n\t\r\n\r\n                \r\n\t\t\t<div id=\"defaultRoles1444314134_0\" class=\"no-create\">\r\n\t\r\n\t<div id=\"defaultRoles1444314134_0_status\" style=\"display:none;\" class=\"ajax_status\"><\/div>\r\n\t\t\t\t\t\r\n\t\t\t\t\r\n\t\r\n\t<div id=\"defaultRoles1444314134_0_module\" class=\"module\">\r\n\r\n\t\t<div class=\"header clearfix\">\r\n\r\n\t\t\t\t\t\t\t\t\t\t<h2 id=\"defaultRoles1444314134_0_h2\" class='pull-left'>\r\n\t\t\tDefault Roles\t\t\t<\/h2>\r\n\r\n\t\t\t\r\n\t\t\r\n\t\t\t\r\n\t\t\t\r\n\t\t\t\t\t\t\t\t\t\r\n\t\t\t\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t<\/div>\r\n\t\t<div id=\"defaultRoles1444314134_0_wrapper\" class=\"module-wrapper\" >\r\n\t\t\t<div id=\"defaultRoles1444314134_0_table_div\">\r\n\r\n\t<div class=\"custom-object-table-wrapper\">\n\t\t\t\t<table id=\"defaultRoles1444314134_0_custom_datatable\" class=\"data-table table-bordered\">\n\t\t\t<thead>\n\t\t\t<\/thead>\n\n\t\t\t<tbody>\n\t\t\t<\/tbody>\n\t\t<\/table>\n\t<\/div>\n\t<div class='table-foot'>\n\t\t<\/div>\n\n\n\n\t\n\t\t\t<\/div>\n\t\t<\/div>\n\t<\/div>\n\t<\/div>\n\n" + "";
+                </script>
+
+                <div id="defaultRoles1444314134_0_customTable">
+                    <div class="backbone-contents">
+
+
+
+
+
+
+                        <div id="defaultRoles1444314134_0" class="no-create">
+
+                            <div id="defaultRoles1444314134_0_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                            <div id="defaultRoles1444314134_0_module" class="module">
+
+                                <div class="header clearfix">
+
+                                    <h2 id="defaultRoles1444314134_0_h2" class="pull-left">
+                                        Default Roles
+                                    </h2>
+
+
+
+
+
+
+
+
+                                </div>
+                                <div id="defaultRoles1444314134_0_wrapper" class="module-wrapper">
+                                    <div id="defaultRoles1444314134_0_table_div">
+
+                                        <div class="custom-object-table-wrapper">
+                                            <table id="defaultRoles1444314134_0_custom_datatable" class="data-table table-bordered">
+                                                <thead>
+                                                    <tr>
+
+
+                                                        <th>Name</th>
+
+
+
+                                                        <th>Total Users</th>
+
+
+
+                                                        <th class="last">Actions</th>
+
+
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+
+                                                    <tr class="" id="defaultRoles1444314134_0_row_a0">
+
+                                                        <td>
+                                                            <a href="/role/read/id/2">Administrator</a>
+                                                        </td>
+
+                                                        <td>
+                                                            <a href="/role/users/id/2">9</a>
+                                                        </td>
+
+                                                        <td class="last">
+                                                            <a href="/role/copy/id/2"><i class="icon-copy muted" title="Copy"></i> Copy</a>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr style="display:none" id="defaultRoles1444314134_0_row_b0" class="ajax_row">
+                                                        <td colspan="3" id="defaultRoles1444314134_0_row_b_cell0" class="last"></td>
+                                                    </tr>
+
+                                                    <tr class="even" id="defaultRoles1444314134_0_row_a1">
+
+                                                        <td>
+                                                            <a href="/role/read/id/3">Marketing</a>
+                                                        </td>
+
+                                                        <td>
+                                                            <a href="/role/users/id/3">0</a>
+                                                        </td>
+
+                                                        <td class="last">
+                                                            <a href="/role/copy/id/3"><i class="icon-copy muted" title="Copy"></i> Copy</a>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr style="display:none" id="defaultRoles1444314134_0_row_b1" class="ajax_row">
+                                                        <td colspan="3" id="defaultRoles1444314134_0_row_b_cell1" class="last"></td>
+                                                    </tr>
+
+                                                    <tr class="" id="defaultRoles1444314134_0_row_a2">
+
+                                                        <td>
+                                                            <a href="/role/read/id/4">Sales</a>
+                                                        </td>
+
+                                                        <td>
+                                                            <a href="/role/users/id/4">0</a>
+                                                        </td>
+
+                                                        <td class="last">
+                                                            <a href="/role/copy/id/4"><i class="icon-copy muted" title="Copy"></i> Copy</a>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr style="display:none" id="defaultRoles1444314134_0_row_b2" class="ajax_row">
+                                                        <td colspan="3" id="defaultRoles1444314134_0_row_b_cell2" class="last"></td>
+                                                    </tr>
+
+                                                    <tr class="even" id="defaultRoles1444314134_0_row_a3">
+
+                                                        <td>
+                                                            <a href="/role/read/id/5">Sales Manager</a>
+                                                        </td>
+
+                                                        <td>
+                                                            <a href="/role/users/id/5">0</a>
+                                                        </td>
+
+                                                        <td class="last">
+                                                            <a href="/role/copy/id/5"><i class="icon-copy muted" title="Copy"></i> Copy</a>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr style="display:none" id="defaultRoles1444314134_0_row_b3" class="ajax_row">
+                                                        <td colspan="3" id="defaultRoles1444314134_0_row_b_cell3" class="last"></td>
+                                                    </tr>
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="table-foot">
+                                        </div>
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <script>
+	(function($) {
+		var TableCustom = window.Pardot.tableCustom;
+		var rows = new TableCustom.Model.Rows([{"id":0,"data":["<a href=\"\/role\/read\/id\/2\">Administrator<\/a>","<a href=\"\/role\/users\/id\/2\">9<\/a>","<a href=\"\/role\/copy\/id\/2\"><i class=\"icon-copy muted\" title=\"Copy\"><\/i> Copy<\/a>"]},{"id":1,"data":["<a href=\"\/role\/read\/id\/3\">Marketing<\/a>","<a href=\"\/role\/users\/id\/3\">0<\/a>","<a href=\"\/role\/copy\/id\/3\"><i class=\"icon-copy muted\" title=\"Copy\"><\/i> Copy<\/a>"]},{"id":2,"data":["<a href=\"\/role\/read\/id\/4\">Sales<\/a>","<a href=\"\/role\/users\/id\/4\">0<\/a>","<a href=\"\/role\/copy\/id\/4\"><i class=\"icon-copy muted\" title=\"Copy\"><\/i> Copy<\/a>"]},{"id":3,"data":["<a href=\"\/role\/read\/id\/5\">Sales Manager<\/a>","<a href=\"\/role\/users\/id\/5\">0<\/a>","<a href=\"\/role\/copy\/id\/5\"><i class=\"icon-copy muted\" title=\"Copy\"><\/i> Copy<\/a>"]}]);
+
+		var table = new TableCustom.Model.Table({
+			prefix: "defaultRoles1444314134_0"			,headerText: "Default Roles"			,renderHead: true			,columns: [{"header":"Name","sort":"sort_none"},{"header":"Total Users","sort":"sort_none"},{"header":"Actions","sort":"sort_none"}]			,columnCount: 3			,rows: rows
+						,emptyMessage: ""
+			,paged: false			,pageOffset: 0
+			,countPerPage: parseInt(localStorage.getItem("defaultRoles1444314134_0" + "countPerPage")) || 5
+			,useTextFilter: false
+			,evenRowClasses: "class=\"even\""			,oddRowClasses: "class=\"\""
+			,sumRow: false		});
+
+		window.TableCustom = TableCustom;
+		// Late-generated template - has to render first by php
+		var templates = {
+			table: _.template(window.tableCustomTemplate["defaultRoles1444314134_0-table"])
+		};
+
+		var tableView = new TableCustom.App.TableView({
+			el: "#" + "defaultRoles1444314134_0" + "_customTable"
+			,tableId: "defaultRoles1444314134_0" + "_custom_datatable"
+			,model: table
+			,templates: templates
+		});
+	})(jQuery);
+                </script>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+</body>
+</html>

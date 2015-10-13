@@ -1,0 +1,378 @@
+﻿<div id="wrapper">
+
+    <div id="contentWrap">
+        <div id="content">
+
+            <ul id="bread-crumbs" class="breadcrumb">
+                <li>
+                    <a href="/" title="Home"><i class="icon-home"></i></a>
+                </li>
+                <li class="crumb-divider">  / </li>
+                <li>
+                    <a href="/prospect">Prospects</a>
+                </li>
+            </ul>
+
+            <h1>Accounts</h1>
+
+            <div class="divider"></div>
+
+
+
+            <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+                <ul class="nav nav-pills">
+                    <li>
+                        <a href="/prospectAccount/configureFields">Configure Account Fields</a>
+                    </li>
+                </ul>
+
+
+
+
+
+
+
+
+
+                <div id="prospectAccount">
+
+                    <div id="pra_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                    <div id="pra_module" class="module">
+
+                        <div class="header clearfix">
+
+                            <h2 id="prospectAccount_h2"></h2>
+
+
+
+                            <form id="prospectAccount_date_range_form" class="inline" onsubmit="new Ajax.Updater('prospectAccount_table_div', '/prospectAccount/table/ajax/1', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('pra_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('prospectAccount_ajax_urlparams').value + '&amp;'  + Form.serialize(this) }); return false;" action="/prospectAccount/table/ajax/1" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="f4c48675def31ab3725d665b5bc4223e01f248da67241f5da228f9484f9c9e309073dfadcc0b00dde9c1f6b5b836192d"></div>
+                                <p class="inline header">
+
+                                    <span id="datetext_header">
+                                        Last Activity <small>(Based on 12am EDT)</small>:
+                                    </span> <br>
+
+                                    <select name="dateRange" id="dateRange_pra" onchange="customDates = document.getElementById('pra_custom_dates');if(this.value==7) {
+								customDates.removeClassName(&quot;hidden&quot;);
+							 } else {
+							 	$('prospectAccount_date_range_form').onsubmit();
+							 	customDates.addClassName(&quot;hidden&quot;);
+							 }" class="input-auto">
+                                        <option value="1">Today</option>
+                                        <option value="2">Yesterday</option>
+                                        <option value="4">This Month</option>
+                                        <option value="10">This Quarter</option>
+                                        <option value="11">This Year</option>
+                                        <option value="3">Last 7 Days</option>
+                                        <option value="14">Last Week</option>
+                                        <option value="5">Last Month</option>
+                                        <option value="12">Last Quarter</option>
+                                        <option value="13">Last Year</option>
+                                        <option value="6" selected="selected">All Time</option>
+                                        <option value="7">Custom</option>
+                                    </select>						<span id="pra_custom_dates" class="datepickerBS inline header hidden">
+                                        <input type="text" name="startDate" id="prastartDate" value="2015-08-15" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_prastartDate">...</button>
+                                        <script type="text/javascript">
+    document.getElementById("trigger_prastartDate").disabled = false;
+    Calendar.setup({
+      inputField : "prastartDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_prastartDate"
+    });
+                                        </script>
+                                        &nbsp;to&nbsp;
+
+                                        <input type="text" name="endDate" id="praendDate" value="2015-10-08" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_praendDate">...</button>
+                                        <script type="text/javascript">
+    document.getElementById("trigger_praendDate").disabled = false;
+    Calendar.setup({
+      inputField : "praendDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_praendDate"
+    });
+                                        </script>
+                                        &nbsp;
+                                        <input type="submit" name="commit" value="Go" class="btn btn-primary">
+                                    </span>
+                                </p>
+                            </form>
+
+
+                            <form id="prospectAccount_filter" class="inline" onsubmit="new Ajax.Updater('prospectAccount_table_div', '/prospectAccount/table/ajax/1/dateText/Last+Activity%3A', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('pra_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('prospectAccount_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/prospectAccount/table/ajax/1/dateText/Last+Activity%3A" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="f4c48675def31ab3725d665b5bc4223e01f248da67241f5da228f9484f9c9e309073dfadcc0b00dde9c1f6b5b836192d"></div>
+                                <p class="inline header">
+                                    Filter:<br>
+                                    <input type="text" name="table_filter" id="prospectAccount_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;prospectAccount_filter&quot;).onsubmit()',600);" class="input-medium">
+                                </p>
+                            </form>
+
+                            <br>			<div class="btn-group pull-right">
+                                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Tools			    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+
+
+                                    <li><a onclick="location='/prospectAccount/export?' + $('prospectAccount_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                </ul>
+                            </div>
+
+
+                        </div>
+                        <div id="pra_wrapper" class="module-wrapper">
+                            <div id="prospectAccount_table_div">
+
+
+                                <input type="hidden" id="prospectAccount_ajax_urlparams" value="sort=prospect_account.name&amp;order=asc&amp;dateRange=6&amp;mode=manage&amp;tableName=prospectAccount&amp;pageSize=5&amp;export=icon&amp;startDate=%401439638788&amp;endDate=%401444373999&amp;dateText=Date+Range%3A&amp;ajaxElement=prospectAccount&amp;startDate=%401439638788&amp;endDate=%401444373999&amp;numResults=5">
+                                <table id="prospectAccount_table" class="data-table table-bordered">
+                                    <thead>
+                                        <tr>
+
+
+
+                                            <th class="sortable sort-up first name-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('prospectAccount_table_div', '/prospectAccount/table/ajax/1/page/1/order/desc/sort/prospect_account.name/dateRange/6/mode/manage/tableName/prospectAccount/pageSize/5/export/icon/startDate/%401439638788/endDate/%401444373999/dateText/Date+Range%3A/ajaxElement/prospectAccount', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=efd68f6a6ffdb46d59946562e8bd474010b997422ada6f85d85897e905174ab127c35b3cb4a0b127949de225db66ca38'});; return false;">Name</a>
+
+                                                <i class="icon-circle-arrow-up muted"></i>
+                                            </th>
+
+
+
+                                            <th class="assigned-user-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('prospectAccount_table_div', '/prospectAccount/table/ajax/1/page/1/order/desc/sort/prospect_account.user_id/dateRange/6/mode/manage/tableName/prospectAccount/pageSize/5/export/icon/startDate/%401439638788/endDate/%401444373999/dateText/Date+Range%3A/ajaxElement/prospectAccount', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=beca64600f3ebc495df759a3852784f23f80e3e0aea2eaae6d9d19da4a803aa6217487aa229c25ea4fedeb6881a27a9c'});; return false;">Assigned User</a>
+
+                                            </th>
+
+
+                                            <th class="prospects-column">
+
+                                                Prospects
+                                            </th>
+
+
+                                            <th class="total-prospect-score-column">
+
+                                                Total Prospect Score
+                                            </th>
+
+
+                                            <th class="avg-prospect-score-column">
+
+                                                Avg. Prospect Score
+                                            </th>
+
+
+
+                                            <th class="last-activity-column last">
+
+                                                <a href="#" onclick="new Ajax.Updater('prospectAccount_table_div', '/prospectAccount/table/ajax/1/page/1/order/desc/sort/prospect_account.last_activity_at/dateRange/6/mode/manage/tableName/prospectAccount/pageSize/5/export/icon/startDate/%401439638788/endDate/%401444373999/dateText/Date+Range%3A/ajaxElement/prospectAccount', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=f7b690432f4aed9a1878fef69df8311827aa3f008206a52c4dcc0af07f3756a9fc4963417b4ee3e834ec9553e9b3b2e5'});; return false;">Last Activity</a>
+
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr class="" id="prospectAccount_row_a0">
+
+                                            <td class="first ">
+                                                <a href="/prospectAccount/read/id/299408">Affymetrix</a>
+                                            </td>
+
+                                            <td>
+                                                Unknown
+                                            </td>
+
+                                            <td>
+                                                2
+                                            </td>
+
+                                            <td>
+                                                0
+                                            </td>
+
+                                            <td>
+                                                0
+                                            </td>
+
+                                            <td class="last"></td>
+                                        </tr>
+                                        <tr style="display:none" id="prospectAccount_row_b0" class="ajax_row">
+                                            <td colspan="6" id="prospectAccount_row_b_cell0" class="last"></td>
+                                        </tr>
+                                        <tr class="even" id="prospectAccount_row_a1">
+
+                                            <td class="first ">
+                                                <a href="/prospectAccount/read/id/302859">ERASMUS MC</a>
+                                            </td>
+
+                                            <td>
+                                                Unknown
+                                            </td>
+
+                                            <td>
+                                                1
+                                            </td>
+
+                                            <td>
+                                                50
+                                            </td>
+
+                                            <td>
+                                                50
+                                            </td>
+
+                                            <td class="last"></td>
+                                        </tr>
+                                        <tr style="display:none" id="prospectAccount_row_b1" class="ajax_row">
+                                            <td colspan="6" id="prospectAccount_row_b_cell1" class="last"></td>
+                                        </tr>
+                                        <tr class="" id="prospectAccount_row_a2">
+
+                                            <td class="first ">
+                                                <a href="/prospectAccount/read/id/299362">Tech Contacts</a>
+                                            </td>
+
+                                            <td>
+                                                Unknown
+                                            </td>
+
+                                            <td>
+                                                1
+                                            </td>
+
+                                            <td>
+                                                0
+                                            </td>
+
+                                            <td>
+                                                0
+                                            </td>
+
+                                            <td class="last"></td>
+                                        </tr>
+                                        <tr style="display:none" id="prospectAccount_row_b2" class="ajax_row">
+                                            <td colspan="6" id="prospectAccount_row_b_cell2" class="last"></td>
+                                        </tr>
+                                        <tr class="even" id="prospectAccount_row_a3">
+
+                                            <td class="first ">
+                                                <a href="/prospectAccount/read/id/216794">University of Pittsburgh Cancer Institute</a>
+                                            </td>
+
+                                            <td>
+                                                Unknown
+                                            </td>
+
+                                            <td>
+                                                1
+                                            </td>
+
+                                            <td>
+                                                0
+                                            </td>
+
+                                            <td>
+                                                0
+                                            </td>
+
+                                            <td class="last"></td>
+                                        </tr>
+                                        <tr style="display:none" id="prospectAccount_row_b3" class="ajax_row">
+                                            <td colspan="6" id="prospectAccount_row_b_cell3" class="last"></td>
+                                        </tr>
+                                        <tr class="" id="prospectAccount_row_a4">
+
+                                            <td class="first ">
+                                                <a href="/prospectAccount/read/id/302867">VUMC</a>
+                                            </td>
+
+                                            <td>
+                                                Unknown
+                                            </td>
+
+                                            <td>
+                                                1
+                                            </td>
+
+                                            <td>
+                                                100
+                                            </td>
+
+                                            <td>
+                                                100
+                                            </td>
+
+                                            <td class="last"></td>
+                                        </tr>
+                                        <tr style="display:none" id="prospectAccount_row_b4" class="ajax_row">
+                                            <td colspan="6" id="prospectAccount_row_b_cell4" class="last"></td>
+                                        </tr>
+                                    </tbody>
+
+
+                                </table>
+
+
+
+                                <div class="table-foot clearfix">
+                                    <div id="pra_table_footer">
+                                        <form id="prospectAccountform" class="inline pra-pager-form pager-form" onsubmit="new Ajax.Updater('prospectAccount_table_div', '/prospectAccount/table/ajax/1/sort/prospect_account.name/order/asc/dateRange/6/mode/manage/tableName/prospectAccount/pageSize/5/export/icon/startDate/%401439638788/endDate/%401444373999/dateText/Date+Range%3A/ajaxElement/prospectAccount', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('pra_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:Form.serialize(this)}); return false;" action="/prospectAccount/table/ajax/1/sort/prospect_account.name/order/asc/dateRange/6/mode/manage/tableName/prospectAccount/pageSize/5/export/icon/startDate/%401439638788/endDate/%401444373999/dateText/Date+Range%3A/ajaxElement/prospectAccount" method="post">
+                                            <div style="display:none;"><input type="hidden" name="_csrf_token" value="f4c48675def31ab3725d665b5bc4223e01f248da67241f5da228f9484f9c9e309073dfadcc0b00dde9c1f6b5b836192d"></div>						<ul class="inline pull-right paging">
+                                                <li>
+                                                </li>
+
+                                                <li>
+                                                    Page
+                                                    1
+                                                    of
+                                                    <a class="pager-last" href="#" onclick="cancelAllPendingAjax(); new Ajax.Updater('prospectAccount_table_div', '/prospectAccount/table/ajax/1/page/1/sort/prospect_account.name/order/asc/dateRange/6/mode/manage/tableName/prospectAccount/pageSize/5/export/icon/startDate/%401439638788/endDate/%401444373999/dateText/Date+Range%3A/ajaxElement/prospectAccount', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=b6b82467d61ba38ca6c5e72f3bd9a9e8bd2f76644255daeaa4afa867f60211d002694abaf606c3ba8ca80b239f1e7dd1'});; return false;">1</a>
+                                                </li>
+
+                                                <li class="last">
+                                                </li>
+                                            </ul>
+                                            <p class="inline pull-right">
+                                                Showing
+                                                <select name="pageSize" id="prapageSize" onchange="$(&quot;prospectAccountform&quot;).onsubmit();return false;" class="input-auto">
+                                                    <option value="5" selected="selected">5</option>
+                                                    <option value="10">10</option>
+                                                    <option value="15">15</option>
+                                                    <option value="25">25</option>
+                                                    <option value="50">50</option>
+                                                </select>											 of <strong>5</strong>																															<input type="hidden" name="dateRange" id="pra1_dateRange" value="6">																								<input type="hidden" name="view" id="pra1_view" value="">																								<input type="hidden" name="mode" id="pra1_mode" value="manage">																								<input type="hidden" name="tableName" id="pra1_tableName" value="prospectAccount">																								<input type="hidden" name="campaign_id" id="pra1_campaign_id" value="0">																								<input type="hidden" name="prospect_id" id="pra1_prospect_id" value="">																								<input type="hidden" name="visitor_id" id="pra1_visitor_id" value="">																								<input type="hidden" name="visit_id" id="pra1_visit_id" value="">																								<input type="hidden" name="user_id" id="pra1_user_id" value="">																								<input type="hidden" name="query" id="pra1_query" value="">																																			<input type="hidden" name="prefix" id="pra1_prefix" value="">																								<input type="hidden" name="export" id="pra1_export" value="icon">																								<input type="hidden" name="startDate" id="pra1_startDate" value="@1439638788">																								<input type="hidden" name="endDate" id="pra1_endDate" value="@1444373999">																								<input type="hidden" name="dateText" id="pra1_dateText" value="Date Range:">
+                                            </p>
+                                        </form>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+
+</div>

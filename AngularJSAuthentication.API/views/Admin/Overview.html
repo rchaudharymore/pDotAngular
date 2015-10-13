@@ -1,0 +1,443 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div id="contentWrap">
+        <div id="content">
+
+
+            <h1>Administration </h1>
+
+            <div class="divider"></div>
+
+
+
+            <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+                <ul class="nav nav-pills inline">
+                    <li>
+                        <a href="#" onclick="new Ajax.Updater('admin_status', '/visitor/optInPreferences', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('admin_status', true);new Effect.Highlight('admin_status', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=6d4543dc8bd8454ace0ee2359b1a45798cb65f41f4fe64bd668c3c7e9402ed472d97bb22f9f60901a3ea5361b533c059'});; return false;">Tracking Opt-in Preferences</a>
+                    </li>
+                </ul>
+
+                <div id="admn_status107592" style="display:none" class="ajax_status"></div>
+
+                <div id="admin_status" style="display:none;" class="ajax_status"></div>
+
+
+
+
+
+
+
+
+                <div id="emailStats">
+
+                    <div id="none_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                    <div id="none_module" class="module">
+
+                        <div class="header clearfix">
+
+                            <h2 id="emailStats_h2">
+                                Email Usage for All Time
+                            </h2>
+
+
+
+                            <form id="emailStats_date_range_form" class="inline" onsubmit="new Ajax.Updater('emailStats_table_div', '/emailStats/emailStats/ajax/1', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('none_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('emailStats_ajax_urlparams').value + '&amp;'  + Form.serialize(this) }); return false;" action="/emailStats/emailStats/ajax/1" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="83cdc81161186f127b140460c2d8ae74615d5655595afc4bf12a03afffa5035229fd351e6b8cbe83a7fed2d74c5ceff0"></div>
+                                <p class="inline header">
+
+                                    <span id="datetext_header">
+                                        Date Range <small>(Based on 12am EDT)</small>:
+                                    </span> <br>
+
+                                    <select name="dateRange" id="dateRange_none" onchange="customDates = document.getElementById('none_custom_dates');if(this.value==7) {
+								customDates.removeClassName(&quot;hidden&quot;);
+							 } else {
+							 	$('emailStats_date_range_form').onsubmit();
+							 	customDates.addClassName(&quot;hidden&quot;);
+							 }
+		  try {
+		      if(this.value == 1) {
+		          $(&quot;emailStats_h2&quot;).update(&quot;Email Usage for 10/08/2015&quot;);
+	          } else if(this.value == 2) {
+	              $(&quot;emailStats_h2&quot;).update(&quot;Email Usage for 10/07/2015&quot;);
+	          } else if(this.value == 3) {
+		          $(&quot;emailStats_h2&quot;).update(&quot;Email Usage for 10/02/2015 to 10/08/2015&quot;);
+	          } else if(this.value == 4) {
+	              $(&quot;emailStats_h2&quot;).update(&quot;Email Usage for 10/01/2015 to 10/08/2015&quot;);
+	          } else if(this.value == 5) {
+		          $(&quot;emailStats_h2&quot;).update(&quot;Email Usage for 09/01/2015 to 09/30/2015&quot;);
+	          } else if(this.value == 8) {
+	              $(&quot;emailStats_h2&quot;).update(&quot;Email Usage for 09/15/2015 to 10/08/2015&quot;);
+	          } else if(this.value == 9) {
+	              $(&quot;emailStats_h2&quot;).update(&quot;Email Usage for 08/15/2015 to 09/14/2015&quot;);
+              } else if(this.value == 6) {
+	              $(&quot;emailStats_h2&quot;).update(&quot;Email Usage for All Time&quot;);
+	          } else {
+	             $(&quot;emailStats_h2&quot;).update(&quot;Email Usage&quot;);
+	          }
+	      }
+	      catch(e) {}
+		" class="input-auto">
+                                        <option value="1">Today</option>
+                                        <option value="2">Yesterday</option>
+                                        <option value="4">This Month</option>
+                                        <option value="10">This Quarter</option>
+                                        <option value="11">This Year</option>
+                                        <option value="3">Last 7 Days</option>
+                                        <option value="14">Last Week</option>
+                                        <option value="5">Last Month</option>
+                                        <option value="12">Last Quarter</option>
+                                        <option value="13">Last Year</option>
+                                        <option value="6" selected="selected">All Time</option>
+                                        <option value="7">Custom</option>
+                                        <option value="8">Current Billing Cycle</option>
+                                        <option value="9">Last Billing Cycle</option>
+                                    </select>						<span id="none_custom_dates" class="datepickerBS inline header hidden">
+                                        <input type="text" name="startDate" id="nonestartDate" value="2015-08-15" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_nonestartDate">...</button>
+                                        <script type="text/javascript">
+    document.getElementById("trigger_nonestartDate").disabled = false;
+    Calendar.setup({
+      inputField : "nonestartDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_nonestartDate"
+    });
+                                        </script>
+                                        &nbsp;to&nbsp;
+
+                                        <input type="text" name="endDate" id="noneendDate" value="2015-10-08" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_noneendDate">...</button>
+                                        <script type="text/javascript">
+    document.getElementById("trigger_noneendDate").disabled = false;
+    Calendar.setup({
+      inputField : "noneendDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_noneendDate"
+    });
+                                        </script>
+                                        &nbsp;
+                                        <input type="submit" name="commit" value="Go" class="btn btn-primary">
+                                    </span>
+                                </p>
+                            </form>
+
+
+
+                            <br>			<div class="btn-group pull-right">
+                                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Tools			    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+
+
+                                    <li><a onclick="location='/emailStats/exportReport?' + $('emailStats_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                </ul>
+                            </div>
+
+
+                        </div>
+                        <div id="none_wrapper" class="module-wrapper">
+                            <div id="emailStats_table_div">
+
+
+                                <input type="hidden" id="emailStats_ajax_urlparams" value="sort=email_stats.engage_emails&amp;order=desc&amp;dateRange=6&amp;mode=manage&amp;tableName=emailStats&amp;pageSize=5&amp;prefix=none&amp;startDate=%401439638788&amp;endDate=%401444373999&amp;dateText=Date+Range%3A&amp;ajaxElement=emailStats&amp;startDate=%401439638788&amp;endDate=%401444363199&amp;numResults=0">
+                                <table class="data-table table-bordered">
+                                    <thead>
+                                        <tr>
+
+
+
+                                            <th class="first date-est-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('emailStats_table_div', '/emailStats/emailStats/ajax/1/page/1/order/desc/sort/email_stats.stats_date/dateRange/6/mode/manage/tableName/emailStats/pageSize/5/prefix/none/startDate/%401439638788/endDate/%401444363199/dateText/Date+Range%3A/ajaxElement/emailStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=1276507c7fcf30925ee278e1d02f1c7fbadec38d7375da80d4c3867efddd8b7bcad51d0378fe44293a337f552406c596'});; return false;">Date (EST)</a>
+
+                                            </th>
+
+
+
+                                            <th class="drip-emails-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('emailStats_table_div', '/emailStats/emailStats/ajax/1/page/1/order/desc/sort/email_stats.drip_emails/dateRange/6/mode/manage/tableName/emailStats/pageSize/5/prefix/none/startDate/%401439638788/endDate/%401444363199/dateText/Date+Range%3A/ajaxElement/emailStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=2d6f0e852bd439726cfad16f80b99abcf52e6dcb1aff4cf6d8d566e5d749ca2c27d8e49d62b032a2c42e2c7ec56acc35'});; return false;">Drip Emails</a>
+
+                                            </th>
+
+
+
+                                            <th class="list-emails-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('emailStats_table_div', '/emailStats/emailStats/ajax/1/page/1/order/desc/sort/email_stats.list_emails/dateRange/6/mode/manage/tableName/emailStats/pageSize/5/prefix/none/startDate/%401439638788/endDate/%401444363199/dateText/Date+Range%3A/ajaxElement/emailStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=270a4056e22d970ef2d4a3ed0fb3fcb0623e43a692198ae0b0644ae1be1f6b0610ca7cd6ed3995bf8088c55f41eb53f5'});; return false;">List Emails</a>
+
+                                            </th>
+
+
+
+                                            <th class="automated-emails-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('emailStats_table_div', '/emailStats/emailStats/ajax/1/page/1/order/desc/sort/email_stats.automatic_emails/dateRange/6/mode/manage/tableName/emailStats/pageSize/5/prefix/none/startDate/%401439638788/endDate/%401444363199/dateText/Date+Range%3A/ajaxElement/emailStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=cd7ffa8b6e3dad01f3f5988123f0e5b0f11da0e3570e2a4915300643a96ebb79993713af517441642e7d3274520bbab9'});; return false;">Automated Emails</a>
+
+                                            </th>
+
+
+
+                                            <th class="one-to-one-emails-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('emailStats_table_div', '/emailStats/emailStats/ajax/1/page/1/order/desc/sort/email_stats.one_to_one_emails/dateRange/6/mode/manage/tableName/emailStats/pageSize/5/prefix/none/startDate/%401439638788/endDate/%401444363199/dateText/Date+Range%3A/ajaxElement/emailStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=d8afbf6078fbe2d3cf910150633671565bd7979fcd47a8f2c736182e16a36bea47d31611e15b8e7813bf6c0a263d9c33'});; return false;">One-to-One Emails</a>
+
+                                            </th>
+
+
+
+
+                                            <th class="sortable sort-down engage-emails-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('emailStats_table_div', '/emailStats/emailStats/ajax/1/page/1/order/asc/sort/email_stats.engage_emails/dateRange/6/mode/manage/tableName/emailStats/pageSize/5/prefix/none/startDate/%401439638788/endDate/%401444363199/dateText/Date+Range%3A/ajaxElement/emailStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=ea404303d6dea068b45407ea8a451c6331b557e3cf75dd2ff74b2073ce1abc68373db2d76e2d32f0a296b84fed706f3b'});; return false;">Engage Emails</a>
+
+                                                <i class="icon-circle-arrow-down muted"></i>
+                                            </th>
+
+
+                                            <th class="all-emails-column last">
+
+                                                All Emails
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                </table>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="data-table-footer">
+                    ** Currently sent 0 of
+                    999,999,999
+                    (0.00%)
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                <div id="globalAccountDomain">
+
+                    <div id="dm_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                    <div id="dm_module" class="module">
+
+                        <div class="header clearfix">
+
+                            <h2 id="globalAccountDomain_h2">
+                                Email Sending Domains
+                            </h2>
+
+
+
+
+
+                            <form id="globalAccountDomain_filter" class="inline" onsubmit="new Ajax.Updater('globalAccountDomain_table_div', '/domain/table/ajax/1/dateText/Date+Range%3A+', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('dm_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('globalAccountDomain_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/domain/table/ajax/1/dateText/Date+Range%3A+" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="83cdc81161186f127b140460c2d8ae74615d5655595afc4bf12a03afffa5035229fd351e6b8cbe83a7fed2d74c5ceff0"></div>
+                                <p class="inline header">
+                                    Filter:<br>
+                                    <input type="text" name="table_filter" id="globalAccountDomain_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;globalAccountDomain_filter&quot;).onsubmit()',600);" class="input-medium">
+                                </p>
+                            </form>
+
+                            <br>			<div class="btn-group pull-right">
+                                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Tools			    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+
+
+                                    <li><a onclick="location='/domain/export?' + $('globalAccountDomain_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                </ul>
+                            </div>
+
+
+                            <span class="link_to_create pull-right">
+                                <a href="/domain/createAjax" id="dm_link_create" class="btn btn-warning"><i class="icon-plus"></i> Add new domain</a>
+                                <script type="text/javascript">
+	jQuery('a#dm_link_create').click(function() {
+		jQuery("#indicator").show();
+		if(jQuery('html').is('.ie'))
+			toggleDisplay("dm_table_footer", false);
+		jQuery.ajax({
+			url: "/domain/createAjax",
+			beforeSend: function(jqXHR, settings) {
+				// TODO: Compensate for existing data?
+				settings.data += jQuery("#dm_ajax_urlparams").attr('value');
+			},
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#dm_status").html(data);
+				toggleDisplay("dm_status", true);
+				new Effect.Highlight('dm_status', {duration:2});
+			}
+		});
+		return false;
+	});
+                                </script>
+                            </span>
+                        </div>
+                        <div id="dm_wrapper" class="module-wrapper">
+                            <div id="globalAccountDomain_table_div">
+
+
+                                <input type="hidden" id="globalAccountDomain_ajax_urlparams" value="sort=global_account_domain.DOMAIN_NAME&amp;order=desc&amp;mode=manage&amp;tableName=domain&amp;pageSize=5&amp;prefix=dm&amp;startDate=%401167627600&amp;endDate=now&amp;dateText=Date+Range%3A&amp;ajaxElement=globalAccountDomain&amp;numResults=1">
+                                <table id="globalAccountDomain_table" class="data-table table-bordered">
+                                    <thead>
+                                        <tr>
+
+
+
+
+                                            <th class="sortable sort-down first domain-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('globalAccountDomain_table_div', '/domain/table/ajax/1/page/1/order/asc/sort/global_account_domain.DOMAIN_NAME/mode/manage/tableName/domain/pageSize/5/prefix/dm/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/globalAccountDomain', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=20d28c024bb499cf04aab908ba2230d5ba22c51eb71ddd34410509f8e4ac23ce00ca51d2eee1e90e86f127293cda4427'});; return false;">Domain</a>
+
+                                                <i class="icon-circle-arrow-down muted"></i>
+                                            </th>
+
+
+                                            <th class="spf-column">
+
+                                                SPF
+                                            </th>
+
+
+                                            <th class="domainkey-policy-column">
+
+                                                Domainkey Policy
+                                            </th>
+
+
+                                            <th class="domainkey-column">
+
+                                                Domainkey
+                                            </th>
+
+
+                                            <th class="actions-column last">
+
+                                                Actions
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr class="" id="globalAccountDomain_row_a0">
+
+                                            <td class="first ">
+                                                <a href="http://www.affymetrix.com">affymetrix.com</a>
+                                            </td>
+
+                                            <td>
+                                                <i class="icon-check text-success" title="Verified"></i> <a href="#" onclick="new Ajax.Updater('globalAccountDomain_row_b_cell0', '/domain/showRealDns/id/116752/type/1', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('globalAccountDomain_row_b0', true);new Effect.Highlight('globalAccountDomain_row_b0', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=6965b1bb6fdd4625f1697f3c335bf0d80bdbcc8317fe1707cef97e035fc7d187b4332996dc1ffc55f0d051942fe6f4d6'});; return false;">Verified</a>
+                                            </td>
+
+                                            <td>
+                                                <i class="icon-check text-success" title="Verified"></i> <a href="#" onclick="new Ajax.Updater('globalAccountDomain_row_b_cell0', '/domain/showRealDns/id/116752/type/2', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('globalAccountDomain_row_b0', true);new Effect.Highlight('globalAccountDomain_row_b0', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=0c5d3a50cf18279a60fee89762fd3766a86560bb7cb42b0c8b4b18eef1956713aea93beb586e97da4630b85e4e0d9f1c'});; return false;">Verified</a>
+                                            </td>
+
+                                            <td>
+                                                <i class="icon-check text-success" title="Verified"></i> <a href="#" onclick="new Ajax.Updater('globalAccountDomain_row_b_cell0', '/domain/showRealDns/id/116752/type/3', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('globalAccountDomain_row_b0', true);new Effect.Highlight('globalAccountDomain_row_b0', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=2351a76974090d35128760dec98826c89e0aa5735f602223d440ade7387930f81abbd6a26a7896759695275ee78e3c1f'});; return false;">Verified</a>
+                                            </td>
+
+                                            <td class="last">
+                                                <a href="#" onclick="new Ajax.Updater('globalAccountDomain_row_b_cell0', '/domain/showDns/id/116752', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('globalAccountDomain_row_b0', true);new Effect.Highlight('globalAccountDomain_row_b0', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=ab968a38b92b253baa7b279e810320bf407cf2cb5456f9057b22149d0b3a02bc597f68c3898a2adb6b0b6f607709bc11'});; return false;">Expected DNS Entries</a> |
+                                                <a href="#" onclick="new Ajax.Updater('globalAccountDomain_row_b_cell0', '/domain/checkDns/id/116752', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('globalAccountDomain_row_b0', true);new Effect.Highlight('globalAccountDomain_row_b0', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=8a1b13b259d4488e6986defc1b3f4793aedc78d249a0e5a41d5bdc3993049527c384508e8f4d56fe68a8b3ba02aae54d'});; return false;">Check DNS Entries</a> |
+                                                <a href="#" onclick="if (window.confirm('Are you sure?')) { new Ajax.Updater('globalAccountDomain_row_b_cell0', '/domain/delete/id/116752/prefix/globalAccountDomain', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplayAnimated('globalAccountDomain_row_a0', false, null, true);if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('globalAccountDomain_table_footer', false); }}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=9421a45de5281b74ebd8c409bcb66766acec04558e87598df9a6317711b5d873f7488e95aac3b958131004536e75696e'}); };; return false;"><i class="icon-trash muted" title="Delete"></i> Delete</a>
+                                            </td>
+                                        </tr>
+                                        <tr style="display:none" id="globalAccountDomain_row_b0" class="ajax_row">
+                                            <td colspan="5" id="globalAccountDomain_row_b_cell0" class="last"></td>
+                                        </tr>
+                                    </tbody>
+
+
+                                </table>
+
+
+
+                                <div class="table-foot clearfix">
+                                    <div id="dm_table_footer">
+                                        <form id="globalAccountDomainform" class="inline dm-pager-form pager-form" onsubmit="new Ajax.Updater('globalAccountDomain_table_div', '/domain/table/ajax/1/sort/global_account_domain.DOMAIN_NAME/order/desc/mode/manage/tableName/domain/pageSize/5/prefix/dm/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/globalAccountDomain', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('dm_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:Form.serialize(this)}); return false;" action="/domain/table/ajax/1/sort/global_account_domain.DOMAIN_NAME/order/desc/mode/manage/tableName/domain/pageSize/5/prefix/dm/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/globalAccountDomain" method="post">
+                                            <div style="display:none;"><input type="hidden" name="_csrf_token" value="83cdc81161186f127b140460c2d8ae74615d5655595afc4bf12a03afffa5035229fd351e6b8cbe83a7fed2d74c5ceff0"></div>						<ul class="inline pull-right paging">
+                                                <li>
+                                                </li>
+
+                                                <li>
+                                                    Page
+                                                    1
+                                                    of
+                                                    <a class="pager-last" href="#" onclick="cancelAllPendingAjax(); new Ajax.Updater('globalAccountDomain_table_div', '/domain/table/ajax/1/page/1/sort/global_account_domain.DOMAIN_NAME/order/desc/mode/manage/tableName/domain/pageSize/5/prefix/dm/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/globalAccountDomain', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=6ea72f8d098be438eaa7d612821ff4f165a356f44632cc6e5a0256c01532a9617cc627aa930ac40493f12bbc1093aa4a'});; return false;">1</a>
+                                                </li>
+
+                                                <li class="last">
+                                                </li>
+                                            </ul>
+                                            <p class="inline pull-right">
+                                                Showing
+                                                <select name="pageSize" id="dmpageSize" onchange="$(&quot;globalAccountDomainform&quot;).onsubmit();return false;" class="input-auto">
+                                                    <option value="5" selected="selected">5</option>
+                                                    <option value="10">10</option>
+                                                    <option value="15">15</option>
+                                                    <option value="25">25</option>
+                                                    <option value="50">50</option>
+                                                </select>											 of <strong>1</strong>																															<input type="hidden" name="view" id="dm1_view" value="">																								<input type="hidden" name="mode" id="dm1_mode" value="manage">																								<input type="hidden" name="tableName" id="dm1_tableName" value="domain">																								<input type="hidden" name="campaign_id" id="dm1_campaign_id" value="">																								<input type="hidden" name="prospect_id" id="dm1_prospect_id" value="">																								<input type="hidden" name="visitor_id" id="dm1_visitor_id" value="">																								<input type="hidden" name="visit_id" id="dm1_visit_id" value="">																								<input type="hidden" name="user_id" id="dm1_user_id" value="">																								<input type="hidden" name="query" id="dm1_query" value="">																																			<input type="hidden" name="prefix" id="dm1_prefix" value="dm">																								<input type="hidden" name="export" id="dm1_export" value="">																								<input type="hidden" name="startDate" id="dm1_startDate" value="@1167627600">																								<input type="hidden" name="endDate" id="dm1_endDate" value="now">																								<input type="hidden" name="dateText" id="dm1_dateText" value="Date Range:">
+                                            </p>
+                                        </form>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+</body>
+</html>

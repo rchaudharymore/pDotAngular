@@ -1,0 +1,425 @@
+﻿<div id="wrap" class="clearfix">
+    <!--[if IE 7]>
+    <div id="ieCompatibility">
+        <img style="vertical-align: text-top;" src="/images/error.png"/>
+        <strong>Warning</strong>: Your browser is in Compatibility Mode. For things to work correctly, you need to <a href="http://help.pardot.com/faqs/administration/turning-off-compatibility-mode-in-ie" target="_blank">turn it off</a>.
+    </div>
+    <![endif]-->
+    <p class="hidden">
+        <a href="#content">Skip navigation</a>
+    </p>
+    <div id="wrapper">
+
+        <div id="contentWrap">
+            <div id="content">
+
+                <ul id="bread-crumbs" class="breadcrumb">
+                    <li>
+                        <a href="/" title="Home"><i class="icon-home"></i></a>
+                    </li>
+                    <li class="crumb-divider">  / </li>
+                    <li>
+                        <a href="/marketing">Marketing</a>
+                    </li>
+                </ul>
+
+                <h1>Content</h1>
+
+                <div class="divider"></div>
+
+
+
+                <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div id="fileStats">
+
+                        <div id="fileStats_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                        <div id="tagFilterfileStats" class="tagfilter-pop-up dropdown-menu" style="display: none;"><input type="text" id="tagFilterSearchfileStats" value=""><div class="scroller"><ul id="tagFilterSelectorfileStats"><li></li></ul></div><a href="#"  style="float: left;">Clear filter</a>  <a href="/tag" style="float: right;">Manage tags</a></div><div id="fileStats_module" class="module">
+
+                            <div class="header clearfix">
+
+                                <h2 id="fileStats_h2">
+                                    File Statistics
+                                </h2>
+
+
+
+                                <form id="fileStats_date_range_form" class="inline" onsubmit="new Ajax.Updater('fileStats_table_div', '/file/reportTable/ajax/1', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('fileStats_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('fileStats_ajax_urlparams').value + '&amp;'  + Form.serialize(this) }); return false;" action="/file/reportTable/ajax/1" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="d3e71a107f2bba40e950aa57edb70285489b79bdedc40f2f4cbf10992dd4bf2be93ead77735350feb038f774be999ac9"></div>
+                                    <p class="inline header">
+
+                                        <span id="datetext_header">
+                                            Date Range  <small>(Based on 12am EDT)</small>:
+                                        </span> <br>
+
+                                        <select name="dateRange" id="dateRange_fileStats" onchange="customDates = document.getElementById('fileStats_custom_dates');if(this.value==7) {
+								customDates.removeClassName(&quot;hidden&quot;);
+							 } else {
+							 	$('fileStats_date_range_form').onsubmit();
+							 	customDates.addClassName(&quot;hidden&quot;);
+							 }" class="input-auto">
+                                            <option value="1">Today</option>
+                                            <option value="2">Yesterday</option>
+                                            <option value="4">This Month</option>
+                                            <option value="10">This Quarter</option>
+                                            <option value="11">This Year</option>
+                                            <option value="3">Last 7 Days</option>
+                                            <option value="14">Last Week</option>
+                                            <option value="5">Last Month</option>
+                                            <option value="12">Last Quarter</option>
+                                            <option value="13">Last Year</option>
+                                            <option value="6" selected="selected">All Time</option>
+                                            <option value="7">Custom</option>
+                                        </select>						<span id="fileStats_custom_dates" class="datepickerBS inline header hidden">
+                                            <input type="text" name="startDate" id="fileStatsstartDate" value="2006-12-31" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_fileStatsstartDate">...</button>
+                                            <script type="text/javascript">
+    document.getElementById("trigger_fileStatsstartDate").disabled = false;
+    Calendar.setup({
+      inputField : "fileStatsstartDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_fileStatsstartDate"
+    });
+                                            </script>
+                                            &nbsp;to&nbsp;
+
+                                            <input type="text" name="endDate" id="fileStatsendDate" value="2015-10-08" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_fileStatsendDate">...</button>
+                                            <script type="text/javascript">
+    document.getElementById("trigger_fileStatsendDate").disabled = false;
+    Calendar.setup({
+      inputField : "fileStatsendDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_fileStatsendDate"
+    });
+                                            </script>
+                                            &nbsp;
+                                            <input type="submit" name="commit" value="Go" class="btn btn-primary">
+                                        </span>
+                                    </p>
+                                </form>
+
+
+                                <form id="fileStats_filter" class="inline" onsubmit="new Ajax.Updater('fileStats_table_div', '/file/reportTable/ajax/1/dateText/Date+Range%3A+', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('fileStats_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('fileStats_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/file/reportTable/ajax/1/dateText/Date+Range%3A+" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="d3e71a107f2bba40e950aa57edb70285489b79bdedc40f2f4cbf10992dd4bf2be93ead77735350feb038f774be999ac9"></div>
+                                    <p class="inline header">
+                                        Filter:<br>
+                                        <input type="text" name="table_filter" id="fileStats_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;fileStats_filter&quot;).onsubmit()',600);" class="input-medium">
+                                    </p>
+                                </form>
+                                <br>
+                                <form id="fileStats_tagFilter" class="aaa inline tag-filter-form" onsubmit="new Ajax.Updater('fileStats_table_div', '/file/reportTable/ajax/1/dateText/Date+Range%3A+/table_filter', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('fileStats_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('fileStats_ajax_urlparams').value.replace('tagFilter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/file/reportTable/ajax/1/dateText/Date+Range%3A+/table_filter" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="d3e71a107f2bba40e950aa57edb70285489b79bdedc40f2f4cbf10992dd4bf2be93ead77735350feb038f774be999ac9"></div>					<p class="inline header" id="tagFilterContainerfileStats"><button  class="btn">Tags <span class="caret"></span></button><span id="tagFilterListfileStats"></span><input type="hidden" id="tagFilterInputfileStats" name="tagFilter" value=""></p>
+                               
+                                </form>
+
+                                <div class="btn-group pull-right">
+                                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                        Tools			    <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+
+
+                                        <li><a onclick="location='/file/exportReport?' + $('fileStats_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                            <div id="fileStats_wrapper" class="module-wrapper">
+                                <div id="fileStats_table_div">
+
+
+                                    <input type="hidden" id="fileStats_ajax_urlparams" value="sort=filex.name&amp;order=asc&amp;dateRange=6&amp;tableName=fileReport&amp;pageSize=5&amp;prefix=fileStats&amp;export=icon&amp;startDate=%401167627600&amp;endDate=now&amp;dateText=View+date+range%3A&amp;tagFilter=+&amp;ajaxElement=fileStats&amp;startDate=%401167627600&amp;endDate=now&amp;numResults=1">
+                                    <table class="data-table table-bordered">
+                                        <thead>
+                                            <tr>
+
+
+
+                                                <th class="sortable sort-up first name-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('fileStats_table_div', '/file/reportTable/ajax/1/page/1/order/desc/sort/filex.name/dateRange/6/tableName/fileReport/pageSize/5/prefix/fileStats/export/icon/startDate/%401167627600/endDate/now/dateText/View+date+range%3A/tagFilter/+/ajaxElement/fileStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=246566257ff65043583cef310202c4a22009923e4f909f8e27d570875c91e490aa2faea709d9f205f506b6f9e2150509'});; return false;">Name</a>
+
+                                                    <i class="icon-circle-arrow-up muted"></i>
+                                                </th>
+
+
+
+                                                <th class="total-views-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('fileStats_table_div', '/file/reportTable/ajax/1/page/1/order/desc/sort/file_stats.total_views/dateRange/6/tableName/fileReport/pageSize/5/prefix/fileStats/export/icon/startDate/%401167627600/endDate/now/dateText/View+date+range%3A/tagFilter/+/ajaxElement/fileStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=26e02d038a2c174ba149b7fa054fc673d2fc751e5c4a2d8e2ac2db0351baf3e168b52914e0a25ce4b0fbbfe10521af78'});; return false;">Total Views</a>
+
+                                                </th>
+
+
+
+                                                <th class="unique-views-column last">
+
+                                                    <a href="#" onclick="new Ajax.Updater('fileStats_table_div', '/file/reportTable/ajax/1/page/1/order/desc/sort/file_stats.unique_views/dateRange/6/tableName/fileReport/pageSize/5/prefix/fileStats/export/icon/startDate/%401167627600/endDate/now/dateText/View+date+range%3A/tagFilter/+/ajaxElement/fileStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=4b6ea8d34436c97f49f71622b09c7246d58ddd18101c5f8782eb8455d5fca6419c2ab98f952cf01f8509d9a3612b5ce1'});; return false;">Unique Views</a>
+
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr id="fileStats_row_a776">
+                                                <td class="first ">
+                                                    <a href="/file/readReport/id/1416">FrutigerLTStd-Light.otf</a>
+                                                </td>
+                                                <td class="">
+                                                    6
+                                                </td>
+                                                <td class="last">
+                                                    6
+                                                </td>
+                                            </tr>
+                                            <tr style="display:none" id="fileStats_row_b776" class="ajax_row">
+                                                <td colspan="1" id="fileStats_row_b_cell776" class="last"></td>
+                                            </tr>
+                                            <tr class="totals" id="fileStats_row_total">
+                                                <td class="first">
+                                                    Total: 1
+                                                </td>
+                                                <td>
+                                                    6
+                                                </td>
+                                                <td class="last">
+                                                    6
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+
+
+                                    <div class="table-foot clearfix">
+                                        <div id="fileStats_table_footer">
+                                            <form id="fileStatsform" class="inline fileStats-pager-form pager-form" onsubmit="new Ajax.Updater('fileStats_table_div', '/file/reportTable/ajax/1/sort/filex.name/order/asc/dateRange/6/tableName/fileReport/pageSize/5/prefix/fileStats/export/icon/startDate/%401167627600/endDate/now/dateText/View+date+range%3A/tagFilter/+/ajaxElement/fileStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('fileStats_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:Form.serialize(this)}); return false;" action="/file/reportTable/ajax/1/sort/filex.name/order/asc/dateRange/6/tableName/fileReport/pageSize/5/prefix/fileStats/export/icon/startDate/%401167627600/endDate/now/dateText/View+date+range%3A/tagFilter/+/ajaxElement/fileStats" method="post">
+                                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="d3e71a107f2bba40e950aa57edb70285489b79bdedc40f2f4cbf10992dd4bf2be93ead77735350feb038f774be999ac9"></div>						<ul class="inline pull-right paging">
+                                                    <li>
+                                                    </li>
+
+                                                    <li>
+                                                        Page
+                                                        1
+                                                        of
+                                                        <a class="pager-last" href="#" onclick="cancelAllPendingAjax(); new Ajax.Updater('fileStats_table_div', '/file/reportTable/ajax/1/page/1/sort/filex.name/order/asc/dateRange/6/tableName/fileReport/pageSize/5/prefix/fileStats/export/icon/startDate/%401167627600/endDate/now/dateText/View+date+range%3A/tagFilter/+/ajaxElement/fileStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=cba19e14462be72b1d1b01254ee9595d36ab3b47cf2f92e9c080c340c646e537cd50761f34b0d3f026c7f54c75d9e743'});; return false;">1</a>
+                                                    </li>
+
+                                                    <li class="last">
+                                                    </li>
+                                                </ul>
+                                                <p class="inline pull-right">
+                                                    Showing
+                                                    <select name="pageSize" id="fileStatspageSize" onchange="$(&quot;fileStatsform&quot;).onsubmit();return false;" class="input-auto">
+                                                        <option value="5" selected="selected">5</option>
+                                                        <option value="10">10</option>
+                                                        <option value="15">15</option>
+                                                        <option value="25">25</option>
+                                                        <option value="50">50</option>
+                                                    </select>											 of <strong>1</strong>																															<input type="hidden" name="dateRange" id="fileStats1_dateRange" value="6">																								<input type="hidden" name="view" id="fileStats1_view" value="">																								<input type="hidden" name="mode" id="fileStats1_mode" value="">																								<input type="hidden" name="tableName" id="fileStats1_tableName" value="fileReport">																								<input type="hidden" name="campaign_id" id="fileStats1_campaign_id" value="">																								<input type="hidden" name="prospect_id" id="fileStats1_prospect_id" value="">																								<input type="hidden" name="visitor_id" id="fileStats1_visitor_id" value="">																								<input type="hidden" name="visit_id" id="fileStats1_visit_id" value="">																								<input type="hidden" name="user_id" id="fileStats1_user_id" value="">																								<input type="hidden" name="query" id="fileStats1_query" value="">																																			<input type="hidden" name="prefix" id="fileStats1_prefix" value="fileStats">																								<input type="hidden" name="export" id="fileStats1_export" value="icon">																								<input type="hidden" name="startDate" id="fileStats1_startDate" value="@1167627600">																								<input type="hidden" name="endDate" id="fileStats1_endDate" value="now">																								<input type="hidden" name="dateText" id="fileStats1_dateText" value="View date range:">																								<input type="hidden" name="tagFilter" id="fileStats1_tagFilter" value=" ">
+                                                </p>
+                                            </form>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                    <div id="customUrlStats">
+
+                        <div id="curlStats_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                        <div id="tagFiltercustomUrlStats" class="tagfilter-pop-up dropdown-menu" style="display: none;"><input type="text" id="tagFilterSearchcustomUrlStats" value=""><div class="scroller"><ul id="tagFilterSelectorcustomUrlStats"><li></li></ul></div><a href="#"  style="float: left;">Clear filter</a>  <a href="/tag" style="float: right;">Manage tags</a></div><div id="curlStats_module" class="module">
+
+                            <div class="header clearfix">
+
+                                <h2 id="customUrlStats_h2">
+                                    Custom Redirect Statistics
+                                </h2>
+
+
+
+                                <form id="customUrlStats_date_range_form" class="inline" onsubmit="new Ajax.Updater('customUrlStats_table_div', '/customUrl/reportTable/ajax/1', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('curlStats_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('customUrlStats_ajax_urlparams').value + '&amp;'  + Form.serialize(this) }); return false;" action="/customUrl/reportTable/ajax/1" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="d3e71a107f2bba40e950aa57edb70285489b79bdedc40f2f4cbf10992dd4bf2be93ead77735350feb038f774be999ac9"></div>
+                                    <p class="inline header">
+                                        Campaign:<br>
+                                        <select name="campaign_filter" id="campaign_filter_curlStats" onchange="$('customUrlStats_date_range_form').onsubmit();">
+                                            <option value="0" selected="selected">All Campaigns</option>
+                                            <optgroup label="Current">
+                                                <option value="288">Email Plug-in</option>
+                                                <option value="932">Pre-Pardot Initial Import</option>
+                                                <option value="934">Sync from Salesforce</option>
+                                                <option value="1460">Test Campaign</option>
+                                                <option value="1852">Webinars</option>
+                                                <option value="286">Website Tracking</option>
+                                            </optgroup>
+                                            <optgroup label="Archived"></optgroup>
+                                        </select>
+                                    </p>
+                                    <p class="inline header">
+
+                                        <span id="datetext_header">
+                                            Date Range  <small>(Based on 12am EDT)</small>:
+                                        </span> <br>
+
+                                        <select name="dateRange" id="dateRange_curlStats" onchange="customDates = document.getElementById('curlStats_custom_dates');if(this.value==7) {
+								customDates.removeClassName(&quot;hidden&quot;);
+							 } else {
+							 	$('customUrlStats_date_range_form').onsubmit();
+							 	customDates.addClassName(&quot;hidden&quot;);
+							 }" class="input-auto">
+                                            <option value="1">Today</option>
+                                            <option value="2">Yesterday</option>
+                                            <option value="4">This Month</option>
+                                            <option value="10">This Quarter</option>
+                                            <option value="11">This Year</option>
+                                            <option value="3">Last 7 Days</option>
+                                            <option value="14">Last Week</option>
+                                            <option value="5">Last Month</option>
+                                            <option value="12">Last Quarter</option>
+                                            <option value="13">Last Year</option>
+                                            <option value="6" selected="selected">All Time</option>
+                                            <option value="7">Custom</option>
+                                        </select>						<span id="curlStats_custom_dates" class="datepickerBS inline header hidden">
+                                            <input type="text" name="startDate" id="curlStatsstartDate" value="2006-12-31" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_curlStatsstartDate">...</button>
+                                            <script type="text/javascript">
+    document.getElementById("trigger_curlStatsstartDate").disabled = false;
+    Calendar.setup({
+      inputField : "curlStatsstartDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_curlStatsstartDate"
+    });
+                                            </script>
+                                            &nbsp;to&nbsp;
+
+                                            <input type="text" name="endDate" id="curlStatsendDate" value="2015-10-08" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_curlStatsendDate">...</button>
+                                            <script type="text/javascript">
+    document.getElementById("trigger_curlStatsendDate").disabled = false;
+    Calendar.setup({
+      inputField : "curlStatsendDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_curlStatsendDate"
+    });
+                                            </script>
+                                            &nbsp;
+                                            <input type="submit" name="commit" value="Go" class="btn btn-primary">
+                                        </span>
+                                    </p>
+                                </form>
+
+
+                                <form id="customUrlStats_filter" class="inline" onsubmit="new Ajax.Updater('customUrlStats_table_div', '/customUrl/reportTable/ajax/1/dateText/Date+Range%3A+', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('curlStats_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('customUrlStats_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/customUrl/reportTable/ajax/1/dateText/Date+Range%3A+" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="d3e71a107f2bba40e950aa57edb70285489b79bdedc40f2f4cbf10992dd4bf2be93ead77735350feb038f774be999ac9"></div>
+                                    <p class="inline header">
+                                        Filter:<br>
+                                        <input type="text" name="table_filter" id="customUrlStats_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;customUrlStats_filter&quot;).onsubmit()',600);" class="input-medium">
+                                    </p>
+                                </form>
+                                <br>
+                                <form id="customUrlStats_tagFilter" class="aaa inline tag-filter-form" onsubmit="new Ajax.Updater('customUrlStats_table_div', '/customUrl/reportTable/ajax/1/dateText/Date+Range%3A+/table_filter', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('curlStats_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('customUrlStats_ajax_urlparams').value.replace('tagFilter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/customUrl/reportTable/ajax/1/dateText/Date+Range%3A+/table_filter" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="d3e71a107f2bba40e950aa57edb70285489b79bdedc40f2f4cbf10992dd4bf2be93ead77735350feb038f774be999ac9"></div>					<p class="inline header" id="tagFilterContainercustomUrlStats"><button  class="btn">Tags <span class="caret"></span></button><span id="tagFilterListcustomUrlStats"></span><input type="hidden" id="tagFilterInputcustomUrlStats" name="tagFilter" value=""></p>
+                               
+                                </form>
+
+                                <div class="btn-group pull-right">
+                                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                        Tools			    <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+
+
+                                        <li><a onclick="location='/customUrl/exportReport?' + $('customUrlStats_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                            <div id="curlStats_wrapper" class="module-wrapper">
+                                <div id="customUrlStats_table_div">
+
+
+                                    <input type="hidden" id="customUrlStats_ajax_urlparams" value="sort=custom_url.name&amp;order=asc&amp;dateRange=6&amp;tableName=customUrlReport&amp;pageSize=5&amp;prefix=curlStats&amp;export=icon&amp;startDate=%401167627600&amp;endDate=now&amp;dateText=Click+date+range%3A&amp;tagFilter=+&amp;ajaxElement=customUrlStats&amp;startDate=%401167627600&amp;endDate=now&amp;numResults=0">
+                                    <table class="data-table table-bordered">
+                                        <thead>
+                                            <tr>
+
+
+
+                                                <th class="sortable sort-up first name-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('customUrlStats_table_div', '/customUrl/reportTable/ajax/1/page/1/order/desc/sort/custom_url.name/dateRange/6/tableName/customUrlReport/pageSize/5/prefix/curlStats/export/icon/startDate/%401167627600/endDate/now/dateText/Click+date+range%3A/tagFilter/+/ajaxElement/customUrlStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=7b3fe3a10711c1294058845dc561ab9c02a0a0e19d977d762b37a3a71ab2e191ede47b13a1bbbe4b72af8b8203a18da6'});; return false;">Name</a>
+
+                                                    <i class="icon-circle-arrow-up muted"></i>
+                                                </th>
+
+
+
+                                                <th class="total-clicks-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('customUrlStats_table_div', '/customUrl/reportTable/ajax/1/page/1/order/desc/sort/custom_url_stats.total_clicks/dateRange/6/tableName/customUrlReport/pageSize/5/prefix/curlStats/export/icon/startDate/%401167627600/endDate/now/dateText/Click+date+range%3A/tagFilter/+/ajaxElement/customUrlStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=95b9d4534f6a8c77a71ae56a10bdc7c4ffd90b5959113a3ee86871c6fa2f3d9538b7d4e433d9e52b75bfdf7605adbb20'});; return false;">Total Clicks</a>
+
+                                                </th>
+
+
+
+                                                <th class="unique-clicks-column last">
+
+                                                    <a href="#" onclick="new Ajax.Updater('customUrlStats_table_div', '/customUrl/reportTable/ajax/1/page/1/order/desc/sort/custom_url_stats.unique_clicks/dateRange/6/tableName/customUrlReport/pageSize/5/prefix/curlStats/export/icon/startDate/%401167627600/endDate/now/dateText/Click+date+range%3A/tagFilter/+/ajaxElement/customUrlStats', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=5ce346fb16c97cbe447b37c49f0e1bb5a52d21c6a39a3b1a8534558c5db2fda9bfc6203d2c803af5292b5c712aaaf304'});; return false;">Unique Clicks</a>
+
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                    </table>
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+
+    </div>
+</div>

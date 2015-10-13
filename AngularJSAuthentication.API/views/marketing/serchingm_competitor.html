@@ -1,0 +1,333 @@
+﻿<div id="wrapper">
+
+    <div id="contentWrap">
+        <div id="content">
+
+            <ul id="bread-crumbs" class="breadcrumb">
+                <li>
+                    <a href="/" title="Home"><i class="icon-home"></i></a>
+                </li>
+                <li class="crumb-divider">  / </li>
+                <li>
+                    <a href="/marketing">Marketing</a>
+                </li>
+                <li class="crumb-divider">  / </li>
+                <li>
+                    <a href="/searchMarketing">Search Marketing</a>
+                </li>
+            </ul>
+
+            <h1>Competitors</h1>
+
+            <div class="divider"></div>
+
+
+
+            <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+
+                <div id="none_status3258362" style="display:none" class="ajax_status"></div>
+
+
+
+
+
+
+
+
+
+                <div id="competitor">
+
+                    <div id="compeitor_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                    <div id="tagFiltercompetitor" class="tagfilter-pop-up dropdown-menu" style="display: none;"><input type="text" id="tagFilterSearchcompetitor" value=""><div class="scroller"><ul id="tagFilterSelectorcompetitor"><li></li></ul></div><a href="#"  style="float: left;">Clear filter</a>  <a href="/tag" style="float: right;">Manage tags</a></div><div id="compeitor_module" class="module">
+
+                        <div class="header clearfix">
+
+                            <h2 id="competitor_h2"></h2>
+
+
+
+
+
+                            <form id="competitor_filter" class="inline" onsubmit="new Ajax.Updater('competitor_table_div', '/competitor/table/ajax/1/dateText/Date+Range%3A+', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('compeitor_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('competitor_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/competitor/table/ajax/1/dateText/Date+Range%3A+" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="6fc8dee487cf69a7e10f6c8ec7a5624f391d12fa608904601ec1e48d85cded4d70a4af4de0026d6e4df36dc3f1a30a80"></div>
+                                <p class="inline header">
+                                    Filter:<br>
+                                    <input type="text" name="table_filter" id="competitor_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;competitor_filter&quot;).onsubmit()',600);" class="input-medium">
+                                </p>
+                            </form>
+                            <br>
+                            <form id="competitor_tagFilter" class="aaa inline tag-filter-form" onsubmit="new Ajax.Updater('competitor_table_div', '/competitor/table/ajax/1/dateText/Date+Range%3A+/table_filter', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('compeitor_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('competitor_ajax_urlparams').value.replace('tagFilter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/competitor/table/ajax/1/dateText/Date+Range%3A+/table_filter" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="6fc8dee487cf69a7e10f6c8ec7a5624f391d12fa608904601ec1e48d85cded4d70a4af4de0026d6e4df36dc3f1a30a80"></div>					<p class="inline header" id="tagFilterContainercompetitor"><button  class="btn">Tags <span class="caret"></span></button><span id="tagFilterListcompetitor"></span><input type="hidden" id="tagFilterInputcompetitor" name="tagFilter" value=""></p>
+                               
+                            </form>
+
+                            <div class="btn-group pull-right">
+                                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Tools			    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+
+                                    <li><a href="#" onclick="new Ajax.Updater('compeitor_status', '/tagObject/tagTableAjax', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('compeitor_status', true);new Effect.Highlight('compeitor_status', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('compeitor_table_footer', false); }}, parameters:'ajaxParams='+encodeURIComponent($('competitor_ajax_urlparams').value) + '&amp;ajaxUrl=competitor%2Ftable&amp;objectName=Competitors' + '&amp;_csrf_token=b488f298f2591ed27a56a9148c741d30392475e0811f366b6349713d691ba7ac7f3accb0212dcca97ee7ae3f4314639a'});; return false;"><i class="icon-tag"></i> Tag Entire Table</a>						</li>
+
+                                    <li><a onclick="location='/competitor/export?' + $('competitor_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                </ul>
+                            </div>
+
+
+                            <span class="link_to_create pull-right">
+                                <a href="/competitor/createAjax" id="compeitor_link_create" class="btn btn-warning"><i class="icon-plus"></i> Add competitor</a>
+                                <script type="text/javascript">
+	jQuery('a#compeitor_link_create').click(function() {
+		jQuery("#indicator").show();
+		if(jQuery('html').is('.ie'))
+			toggleDisplay("compeitor_table_footer", false);
+		jQuery.ajax({
+			url: "/competitor/createAjax",
+			beforeSend: function(jqXHR, settings) {
+				// TODO: Compensate for existing data?
+				settings.data += jQuery("#compeitor_ajax_urlparams").attr('value');
+			},
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#compeitor_status").html(data);
+				toggleDisplay("compeitor_status", true);
+				new Effect.Highlight('compeitor_status', {duration:2});
+			}
+		});
+		return false;
+	});
+                                </script>
+                            </span>
+                        </div>
+                        <div id="compeitor_wrapper" class="module-wrapper">
+                            <div id="competitor_table_div">
+
+
+                                <input type="hidden" id="competitor_ajax_urlparams" value="sort=competitor.name&amp;order=asc&amp;tagFilter=+&amp;ajaxElement=competitor&amp;numResults=1">
+                                <table id="competitor_table" class="data-table table-bordered">
+                                    <thead>
+                                        <tr>
+
+
+                                            <th class="first checkbox-column checkbox">
+                                                <input type="checkbox" class="check-all">
+
+
+                                            </th>
+
+
+
+                                            <th class="sortable sort-up name-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('competitor_table_div', '/competitor/table/ajax/1/page/1/order/desc/sort/competitor.name/tagFilter/+/ajaxElement/competitor', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=3fafcee4c76505598ec571113dd3b119212f6d79f720d4261b61b4984e8ada4938b0e98694065a70af078317e4032ed3'});; return false;">Name</a>
+
+                                                <i class="icon-circle-arrow-up muted"></i>
+                                            </th>
+
+
+
+                                            <th class="indexed-pages-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('competitor_table_div', '/competitor/table/ajax/1/page/1/order/desc/sort/competitor_stats.google_indexed_pages/tagFilter/+/ajaxElement/competitor', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=66cd89c61c8c4630c59a32cca9f941765bc0dd48c32bb79aa54f47e109b88e0a53c9ec2ff0909b4bf5a646a2e8ad7035'});; return false;">Indexed Pages</a>
+
+                                            </th>
+
+
+
+                                            <th class="inbound-links-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('competitor_table_div', '/competitor/table/ajax/1/page/1/order/desc/sort/competitor_stats.google_inbound_links/tagFilter/+/ajaxElement/competitor', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=7a50d1b206ce2141ab2f76015e28464d69aa2c1d9662daf36f91b05ed122eae457f5cabf9b840753715dcd210433c859'});; return false;">Inbound Links</a>
+
+                                            </th>
+
+
+
+                                            <th class="alexa-rank-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('competitor_table_div', '/competitor/table/ajax/1/page/1/order/desc/sort/competitor_stats.alexa_rank/tagFilter/+/ajaxElement/competitor', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=3526ee6a368b1e8b95ab53074a8dfaa739aab34998676a140bf15c8100686453eda35e07d271f90c8d1fcdde0a4a3f98'});; return false;">Alexa Rank</a>
+
+                                            </th>
+
+
+                                            <th class="actions-column last">
+
+                                                Actions
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr class="" id="competitor_row_a0">
+
+                                            <td class="first checkbox">
+                                                <input type="checkbox" name="checkbox_competitor_108" id="checkbox_competitor_108" value="108" class="datatable-checkbox">
+                                            </td>
+
+                                            <td>
+                                                <a href="/competitor/read/id/108">Affymetrix Inc.</a>
+                                            </td>
+
+                                            <td>
+                                                217,000
+                                            </td>
+
+                                            <td>
+                                                36,329
+                                            </td>
+
+                                            <td>
+                                                243,690
+                                            </td>
+
+                                            <td class="new-actions last">
+
+
+
+
+
+
+                                                <div class="actions-menu-wrapper">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog muted"></i></a>	<ul class="dropdown-menu pull-right" role="menu">
+                                                        <li>
+                                                            <a id="competitor_edit_link0" href="#"><i class="icon-edit muted" title="Edit"></i> Edit</a>
+                                                            <script type="text/javascript">
+	jQuery("a#competitor_edit_link0").click(function() {
+		jQuery("#indicator").show();
+		jQuery.ajax({
+			url: "/competitor/editAjax/id/108/prefix/competitor",
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#competitor_row_b_cell0").html(data);
+				toggleDisplay("competitor_row_b0", true);
+				if(jQuery('html').is('.ie')) {
+					toggleDisplay("competitor_table_footer", false);
+				}
+				new Effect.Highlight('competitor_row_b_cell0', {duration:2});
+			}
+		});
+		hideAllActionMenus();
+		return false;
+	});
+                                                            </script>
+                                                        </li>
+                                                        <li><a href="#" onclick="if (window.confirm('Are you sure?')) { new Ajax.Updater('competitor_row_b_cell0', '/competitor/delete/id/108/prefix/competitor', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplayAnimated('competitor_row_a0', false, null, true);if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('competitor_table_footer', false); }}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=5bde7543ce9b84dff53187264e71270ead796b3b88131d3056e47ccf61bc9203b578f0760f08955249616dc60817a7e0'}); };; return false;"><i class="icon-trash muted" title="Delete"></i> Delete</a></li>
+                                                    </ul>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        <tr style="display:none" id="competitor_row_b0" class="ajax_row">
+                                            <td colspan="6" id="competitor_row_b_cell0" class="last"></td>
+                                        </tr>
+                                    </tbody>
+
+
+                                </table>
+
+
+
+                                <div class="table-foot clearfix">
+                                    <div id="compeitor_table_footer">
+                                        <form action="#" class="inline pull-left">
+                                            <input type="hidden" name="check_all_params" value="&amp;tagFilter=+&amp;ajaxElement=competitor">
+                                            <div class="multi-checkbox-buttons pull-left">
+                                                With <span class="checkbox-num-selected">0</span> selected:
+
+                                                <select name="multi-select" id="multi-select" onchange="
+				if (this.value == &quot;multiAddTags&quot;) {
+					jQuery(this).siblings(&quot;.MultiSelect_AddTags&quot;).show();
+				}
+				else {
+					jQuery(this).siblings(&quot;.MultiSelect_AddTags&quot;).hide();
+				}
+
+				if (this.value == &quot;multiRemoveTags&quot;) {
+					jQuery(this).siblings(&quot;.MultiSelect_RemoveTags&quot;).show();
+				}
+				else {
+					jQuery(this).siblings(&quot;.MultiSelect_RemoveTags&quot;).hide();
+				}
+
+				if (this.value == &quot;deletes&quot;) {
+					jQuery(this).siblings(&quot;.MultiSelect_Delete&quot;).show();
+				}
+				else {
+					jQuery(this).siblings(&quot;.MultiSelect_Delete&quot;).hide();
+				}
+			" class="multi-select input-auto">
+                                                    <option value="" selected="selected">&nbsp;</option>
+                                                    <option value="multiAddTags">Add tags</option>
+                                                    <option value="deletes">Delete</option>
+                                                    <option value="multiRemoveTags">Remove tags</option>
+                                                </select>
+                                                <span class="MultiSelect_AddTags" style="display: none;">
+                                                    <input name="addTags" class="tagComponent tagComponentReady" id="addTagsMultiSelect_AddTags1" value="" style="display: none;"><div id="addTagsMultiSelect_AddTags1_tagsinput" class="tagsinput" style="margin-top: -1px;"><div id="addTagsMultiSelect_AddTags1_addTag"><input id="addTagsMultiSelect_AddTags1_tag" value="" data-default="add a tag" class="ui-autocomplete-input" autocomplete="off" style="color: rgb(102, 102, 102); width: 206px;"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span></div><div class="tags_clear"></div></div>
+
+                                                 
+                                                </span><span class="MultiSelect_Delete" style="display: none;"></span>
+                                                <input class="btn" type="button" onclick="if(confirmBatchAction(&quot;competitor&quot;, &quot;Competitors&quot;)){new Ajax.Updater('compeitor_status', '/competitor/table/objectName/Competitors/tagFilter/+/ajaxElement/competitor', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('compeitor_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:Form.serialize(this.form) + '&amp;_csrf_token=348bb42dc19abad23ee928c1c249f1e7b4623d34211839082101ed470be2efcda42e31e0608a73ddd5f447a89384bf6d'});} return false;" name="ajax_submit" value="Go"><input type="hidden" name="multiCheckIds" id="" value="" class="multiCheckIds">
+                                            </div>
+                                        </form>
+                                        <form id="competitorform" class="inline compeitor-pager-form pager-form" onsubmit="new Ajax.Updater('competitor_table_div', '/competitor/table/ajax/1/sort/competitor.name/order/asc/tagFilter/+/ajaxElement/competitor', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('compeitor_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:Form.serialize(this)}); return false;" action="/competitor/table/ajax/1/sort/competitor.name/order/asc/tagFilter/+/ajaxElement/competitor" method="post">
+                                            <div style="display:none;"><input type="hidden" name="_csrf_token" value="6fc8dee487cf69a7e10f6c8ec7a5624f391d12fa608904601ec1e48d85cded4d70a4af4de0026d6e4df36dc3f1a30a80"></div>						<ul class="inline pull-right paging">
+                                                <li>
+                                                </li>
+
+                                                <li>
+                                                    Page
+                                                    1
+                                                    of
+                                                    <a class="pager-last" href="#" onclick="cancelAllPendingAjax(); new Ajax.Updater('competitor_table_div', '/competitor/table/ajax/1/page/1/sort/competitor.name/order/asc/tagFilter/+/ajaxElement/competitor', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=1c97e8f0a6dad2d764ebfdd7aef6c8b948af7629b286070102ccd1813ffeb4caa1dba7d25b61c26fcd18013291bfa528'});; return false;">1</a>
+                                                </li>
+
+                                                <li class="last">
+                                                </li>
+                                            </ul>
+                                            <p class="inline pull-right">
+                                                Showing
+                                                <select name="pageSize" id="compeitorpageSize" onchange="$(&quot;competitorform&quot;).onsubmit();return false;" class="input-auto">
+                                                    <option value="5" selected="selected">5</option>
+                                                    <option value="10">10</option>
+                                                    <option value="15">15</option>
+                                                    <option value="25">25</option>
+                                                    <option value="50">50</option>
+                                                </select>											 of <strong>1</strong>																															<input type="hidden" name="view" id="compeitor1_view" value="">																								<input type="hidden" name="tagFilter" id="compeitor1_tagFilter" value=" ">
+                                            </p>
+                                        </form>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-table-footer">
+                    Initial lookup may take up to one hour. Data is then refreshed weekly.
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,277 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div id="contentWrap">
+        <div id="content">
+
+
+            <h1>Security</h1>
+
+            <div class="divider"></div>
+
+
+
+            <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div id="accountIpSecurity_Account">
+
+                    <div id="aips_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                    <div id="aips_module" class="module">
+
+                        <div class="header clearfix">
+
+                            <h2 id="accountIpSecurity_Account_h2" class="pull-left">
+                                Account whitelisted IP ranges
+                            </h2>
+
+
+
+
+
+
+
+
+                            <br>												<span class="link_to_create pull-right">
+                                <a href="/accountIpSecurity/createAjax" id="aips_link_create" class="btn btn-warning"><i class="icon-plus"></i> Whitelist new range</a>
+                                <script type="text/javascript">
+	jQuery('a#aips_link_create').click(function() {
+		jQuery("#indicator").show();
+		if(jQuery('html').is('.ie'))
+			toggleDisplay("aips_table_footer", false);
+		jQuery.ajax({
+			url: "/accountIpSecurity/createAjax",
+			beforeSend: function(jqXHR, settings) {
+				// TODO: Compensate for existing data?
+				settings.data += jQuery("#aips_ajax_urlparams").attr('value');
+			},
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#aips_status").html(data);
+				toggleDisplay("aips_status", true);
+				new Effect.Highlight('aips_status', {duration:2});
+			}
+		});
+		return false;
+	});
+                                </script>
+                            </span>
+                        </div>
+                        <div id="aips_wrapper" class="module-wrapper">
+                            <div id="accountIpSecurity_Account_table_div">
+
+
+                                <input type="hidden" id="accountIpSecurity_Account_ajax_urlparams" value="sort=account_ip_security.name&amp;order=desc&amp;view=account&amp;pageSize=5&amp;prefix=aips&amp;startDate=%401167627600&amp;endDate=now&amp;dateText=Date+Range%3A&amp;ajaxElement=accountIpSecurity_Account&amp;numResults=0">
+                                <table id="accountIpSecurity_Account_table" class="data-table table-bordered">
+                                    <thead>
+                                        <tr>
+
+
+
+
+                                            <th class="sortable sort-down first name-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('accountIpSecurity_Account_table_div', '/accountIpSecurity/table/ajax/1/page/1/order/asc/sort/account_ip_security.name/view/account/pageSize/5/prefix/aips/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/accountIpSecurity_Account', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=d2e5f1d2f6edf19da1a71486d89e5ae95f7d5f79cdd4aa2c02510bdc8948556ff04b1a4d66e0548fb5d71c3db705f6a9'});; return false;">Name</a>
+
+                                                <i class="icon-circle-arrow-down muted"></i>
+                                            </th>
+
+
+
+                                            <th class="start-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('accountIpSecurity_Account_table_div', '/accountIpSecurity/table/ajax/1/page/1/order/desc/sort/account_ip_security.start_ip/view/account/pageSize/5/prefix/aips/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/accountIpSecurity_Account', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=af5b70bdd1ec09c81a9cddc44de3ea10f6131dcc6b721ed56532824307a49b5888e0d5428b28d82aa2e2df91d34db04c'});; return false;">Start</a>
+
+                                            </th>
+
+
+
+                                            <th class="end-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('accountIpSecurity_Account_table_div', '/accountIpSecurity/table/ajax/1/page/1/order/desc/sort/account_ip_security.end_ip/view/account/pageSize/5/prefix/aips/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/accountIpSecurity_Account', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=5766fb8b330752aa1c3e0809b48ab399c75b45e26869cd83e417bf156bd6d13a9546e31dfd521e6c3b2b96db2f3c9076'});; return false;">End</a>
+
+                                            </th>
+
+
+
+                                            <th class="created-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('accountIpSecurity_Account_table_div', '/accountIpSecurity/table/ajax/1/page/1/order/desc/sort/account_ip_security.created_at/view/account/pageSize/5/prefix/aips/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/accountIpSecurity_Account', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=7d5b49b84889a02d9345fb059f8f51925b56a00e0c6237a25b0533107f1f981751b65bed30eab01f959489e85ca17d0b'});; return false;">Created</a>
+
+                                            </th>
+
+
+                                            <th class="actions-column last">
+
+                                                Actions
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="5" class="last">
+                                                There are no account whitelisted ip ranges for this area.
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+
+
+                                </table>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+                <div id="accountIpSecurity_User">
+
+                    <div id="aips_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                    <div id="aips_module" class="module">
+
+                        <div class="header clearfix">
+
+                            <h2 id="accountIpSecurity_User_h2">
+                                All user whitelisted IP addresses
+                            </h2>
+
+
+
+
+                            <form id="accountIpSecurity_User_customFilters" class="inline" onsubmit="new Ajax.Updater('accountIpSecurity_User_table_div', '/accountIpSecurity/table/ajax/1/dateText/Date+Range%3A+/table_filter', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('aips_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('accountIpSecurity_User_ajax_urlparams').value.replace('tagFilter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/accountIpSecurity/table/ajax/1/dateText/Date+Range%3A+/table_filter" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="0f00b83af0472385d4bc883a65ccaac1f76a56f29fa49d696b3c86a9ac1c97bc38c511bca57b7463f964fec6d705b8c9"></div>
+                                <p class="inline header">
+                                    User:<br>
+                                    <select name="user_USERNAMEFilter" id="user_USERNAMEFilter" onchange="$j(this).closest('form').submit()">
+                                        <option selected="selected" value=""></option>
+                                        <option value="balakrishna_chappidi@affymetrix.com">balakrishna_chappidi@affymetrix.com</option>
+                                        <option value="cchiang@hotmail.com">cchiang@hotmail.com</option>
+                                        <option value="ching_chiang@affymetrix.com">ching_chiang@affymetrix.com</option>
+                                        <option value="garima_mehta@affymetrix.com">garima_mehta@affymetrix.com</option>
+                                        <option value="joyce_ottignon@affymetrix.com">joyce_ottignon@affymetrix.com</option>
+                                        <option value="kavitha_levaku@affymetrix.com">kavitha_levaku@affymetrix.com</option>
+                                        <option value="kevin_quach@affymetrix.com">kevin_quach@affymetrix.com</option>
+                                        <option value="mindy_lee-olsen@affymetrix.com">mindy_lee-olsen@affymetrix.com</option>
+                                        <option value="vaishali_ahuja@affymetrix.com">vaishali_ahuja@affymetrix.com</option>
+                                    </select>
+                                </p>
+                            </form>
+
+
+
+
+                        </div>
+                        <div id="aips_wrapper" class="module-wrapper">
+                            <div id="accountIpSecurity_User_table_div">
+
+
+                                <input type="hidden" id="accountIpSecurity_User_ajax_urlparams" value="sort=account_ip_security.name&amp;order=desc&amp;view=allUser&amp;pageSize=5&amp;prefix=aips&amp;startDate=%401167627600&amp;endDate=now&amp;dateText=Date+Range%3A&amp;ajaxElement=accountIpSecurity_User&amp;numResults=0">
+                                <table id="accountIpSecurity_User_table" class="data-table table-bordered">
+                                    <thead>
+                                        <tr>
+
+
+
+                                            <th class="first user-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('accountIpSecurity_User_table_div', '/accountIpSecurity/table/ajax/1/page/1/order/desc/sort/user.username/view/allUser/pageSize/5/prefix/aips/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/accountIpSecurity_User', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=f6db5ba08de763f56dbb998a86a477f06562eff264451c0bfee2a64ecd583fe07130f47566affef140194c2167ddbde6'});; return false;">User</a>
+
+                                            </th>
+
+
+
+
+                                            <th class="sortable sort-down name-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('accountIpSecurity_User_table_div', '/accountIpSecurity/table/ajax/1/page/1/order/asc/sort/account_ip_security.name/view/allUser/pageSize/5/prefix/aips/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/accountIpSecurity_User', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=fd391b368570a995951e22aee82c035a8afdd8c5341e8e27565a5a8307a8fd8bbb328ed146561efdc6e29367c8e14299'});; return false;">Name</a>
+
+                                                <i class="icon-circle-arrow-down muted"></i>
+                                            </th>
+
+
+
+                                            <th class="ip-address-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('accountIpSecurity_User_table_div', '/accountIpSecurity/table/ajax/1/page/1/order/desc/sort/account_ip_security.start_ip/view/allUser/pageSize/5/prefix/aips/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/accountIpSecurity_User', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=fa77e1ccdf1c7734d20a510b80d67c0a58588404e2ef5cde7aee3b0164ff57e97490bba64828195d5dbcbe4fafb4748d'});; return false;">IP Address</a>
+
+                                            </th>
+
+
+
+                                            <th class="created-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('accountIpSecurity_User_table_div', '/accountIpSecurity/table/ajax/1/page/1/order/desc/sort/account_ip_security.created_at/view/allUser/pageSize/5/prefix/aips/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement/accountIpSecurity_User', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=170e74b4129ea8ac1f49829114a5913132bf0264421a52e98e8977d0b4b0fd96c219f34cad875d7cf91cf3f68860f7bd'});; return false;">Created</a>
+
+                                            </th>
+
+
+                                            <th class="actions-column last">
+
+                                                Actions
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="5" class="last">
+                                                There are no all user whitelisted ip addresses for this area.
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+
+
+                                </table>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+</body>
+</html>

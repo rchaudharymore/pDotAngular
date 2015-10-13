@@ -1,0 +1,295 @@
+﻿<div id="wrap" class="clearfix">
+    <!--[if IE 7]>
+    <div id="ieCompatibility">
+        <img style="vertical-align: text-top;" src="/images/error.png"/>
+        <strong>Warning</strong>: Your browser is in Compatibility Mode. For things to work correctly, you need to <a href="http://help.pardot.com/faqs/administration/turning-off-compatibility-mode-in-ie" target="_blank">turn it off</a>.
+    </div>
+    <![endif]-->
+    <p class="hidden">
+        <a href="#content">Skip navigation</a>
+    </p>
+    <div id="wrapper">
+
+        <div id="contentWrap">
+            <div id="content">
+
+                <ul id="bread-crumbs" class="breadcrumb">
+                    <li>
+                        <a href="/" title="Home"><i class="icon-home"></i></a>
+                    </li>
+                    <li class="crumb-divider">  / </li>
+                    <li>
+                        <a href="/report">Reports</a>
+                    </li>
+                </ul>
+
+                <h1>Emails</h1>
+
+                <div class="divider"></div>
+
+
+
+                <div id="center-stage">
+
+
+
+
+
+
+
+
+
+                    <script type="text/javascript" src="/js/jquery/jquery.piDataTableTagFilter.js?v=2014-03-19"></script>
+                    <ul class="nav nav-pills">
+                        <li>
+                            <a href="/dripProgram/report">Drip program report</a>
+                        </li>
+                        <li>
+                            <a href="/emailTemplate/report">Email template report</a>
+                        </li>
+                        <li>
+                            <a href="/email/report/testLists/1">Test send emails report</a>
+                        </li>
+                    </ul>
+
+
+                    <div id="email">
+
+
+
+
+
+
+
+
+                        <div id="email">
+
+                            <div id="listEtats_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                            <div id="tagFilteremail" class="tagfilter-pop-up dropdown-menu" style="display: none;"><input type="text" id="tagFilterSearchemail" value=""><div class="scroller"><ul id="tagFilterSelectoremail"><li></li></ul></div><a href="#"  style="float: left;">Clear filter</a>  <a href="/tag" style="float: right;">Manage tags</a></div><div id="listEtats_module" class="module">
+
+                                <div class="header clearfix">
+
+                                    <h2 id="email_h2">
+                                        List email stats
+                                    </h2>
+
+
+
+                                    <form id="email_date_range_form" class="inline" onsubmit="new Ajax.Updater('email_table_div', '/email/reportTable/ajax/1', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('listEtats_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('email_ajax_urlparams').value + '&amp;'  + Form.serialize(this) }); return false;" action="/email/reportTable/ajax/1" method="post">
+                                        <div style="display:none;"><input type="hidden" name="_csrf_token" value="e258d54fecb561024b3d5c48bbd9c37ca436656f1e8b8d6b1f74abdbf9a4d43868fb108e40934fa1e514f155220453f3"></div>
+                                        <p class="inline header">
+                                            Campaign:<br>
+                                            <select name="campaign_filter" id="campaign_filter_listEtats" onchange="$('email_date_range_form').onsubmit();">
+                                                <option value="0" selected="selected">All Campaigns</option>
+                                                <optgroup label="Current">
+                                                    <option value="288">Email Plug-in</option>
+                                                    <option value="932">Pre-Pardot Initial Import</option>
+                                                    <option value="934">Sync from Salesforce</option>
+                                                    <option value="1460">Test Campaign</option>
+                                                    <option value="1852">Webinars</option>
+                                                    <option value="286">Website Tracking</option>
+                                                </optgroup>
+                                                <optgroup label="Archived"></optgroup>
+                                            </select>
+                                        </p>
+                                        <p class="inline header">
+
+                                            <span id="datetext_header">
+                                                Date Range  <small>(Based on 12am EDT)</small>:
+                                            </span> <br>
+
+                                            <select name="dateRange" id="dateRange_listEtats" onchange="customDates = document.getElementById('listEtats_custom_dates');if(this.value==7) {
+								customDates.removeClassName(&quot;hidden&quot;);
+							 } else {
+							 	$('email_date_range_form').onsubmit();
+							 	customDates.addClassName(&quot;hidden&quot;);
+							 }" class="input-auto">
+                                                <option value="1">Today</option>
+                                                <option value="2">Yesterday</option>
+                                                <option value="4">This Month</option>
+                                                <option value="10">This Quarter</option>
+                                                <option value="11">This Year</option>
+                                                <option value="3">Last 7 Days</option>
+                                                <option value="14">Last Week</option>
+                                                <option value="5">Last Month</option>
+                                                <option value="12">Last Quarter</option>
+                                                <option value="13">Last Year</option>
+                                                <option value="6" selected="selected">All Time</option>
+                                                <option value="7">Custom</option>
+                                            </select>						<span id="listEtats_custom_dates" class="datepickerBS inline header hidden">
+                                                <input type="text" name="startDate" id="listEtatsstartDate" value="2006-12-31" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_listEtatsstartDate">...</button>
+                                                <script type="text/javascript">
+    document.getElementById("trigger_listEtatsstartDate").disabled = false;
+    Calendar.setup({
+      inputField : "listEtatsstartDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_listEtatsstartDate"
+    });
+                                                </script>
+                                                &nbsp;to&nbsp;
+
+                                                <input type="text" name="endDate" id="listEtatsendDate" value="2015-10-08" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_listEtatsendDate">...</button>
+                                                <script type="text/javascript">
+    document.getElementById("trigger_listEtatsendDate").disabled = false;
+    Calendar.setup({
+      inputField : "listEtatsendDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_listEtatsendDate"
+    });
+                                                </script>
+                                                &nbsp;
+                                                <input type="submit" name="commit" value="Go" class="btn btn-primary">
+                                            </span>
+                                        </p>
+                                    </form>
+
+
+                                    <form id="email_filter" class="inline" onsubmit="new Ajax.Updater('email_table_div', '/email/reportTable/ajax/1/dateText/Date+Range%3A+', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('listEtats_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('email_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/email/reportTable/ajax/1/dateText/Date+Range%3A+" method="post">
+                                        <div style="display:none;"><input type="hidden" name="_csrf_token" value="e258d54fecb561024b3d5c48bbd9c37ca436656f1e8b8d6b1f74abdbf9a4d43868fb108e40934fa1e514f155220453f3"></div>
+                                        <p class="inline header">
+                                            Filter:<br>
+                                            <input type="text" name="table_filter" id="email_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;email_filter&quot;).onsubmit()',600);" class="input-medium">
+                                        </p>
+                                    </form>
+                                    <br>
+                                    <form id="email_tagFilter" class="aaa inline tag-filter-form" onsubmit="new Ajax.Updater('email_table_div', '/email/reportTable/ajax/1/dateText/Date+Range%3A+/table_filter', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('listEtats_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('email_ajax_urlparams').value.replace('tagFilter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/email/reportTable/ajax/1/dateText/Date+Range%3A+/table_filter" method="post">
+                                        <div style="display:none;"><input type="hidden" name="_csrf_token" value="e258d54fecb561024b3d5c48bbd9c37ca436656f1e8b8d6b1f74abdbf9a4d43868fb108e40934fa1e514f155220453f3"></div>					<p class="inline header" id="tagFilterContaineremail"><button  class="btn">Tags <span class="caret"></span></button><span id="tagFilterListemail"></span><input type="hidden" id="tagFilterInputemail" name="tagFilter" value=""></p>
+                                    </form>
+
+                                    <div class="btn-group pull-right">
+                                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                            Tools			    <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+
+
+                                            <li><a onclick="location='/email/exportReport?' + $('email_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                        </ul>
+                                    </div>
+
+
+                                </div>
+                                <div id="listEtats_wrapper" class="module-wrapper">
+                                    <div id="email_table_div">
+
+
+                                        <input type="hidden" id="email_ajax_urlparams" value="sort=email.name&amp;order=desc&amp;dateRange=6&amp;mode=manage&amp;tableName=email&amp;pageSize=5&amp;prefix=em&amp;export=icon&amp;startDate=%401167627600&amp;endDate=now&amp;dateText=Activity+Date+Range%3A+&amp;tagFilter=+&amp;ajaxElement=email&amp;startDate=%401167627600&amp;endDate=now&amp;numResults=0">
+                                        <table class="data-table table-bordered">
+                                            <thead>
+                                                <tr>
+
+
+
+
+                                                    <th class="sortable sort-down first name-column">
+
+                                                        <a href="#" onclick="new Ajax.Updater('email_table_div', '/email/reportTable/ajax/1/page/1/order/asc/sort/email.name/dateRange/6/mode/manage/tableName/email/pageSize/5/prefix/em/export/icon/startDate/%401167627600/endDate/now/dateText/Activity+Date+Range%3A+/tagFilter/+/ajaxElement/email', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=c5a7fb918a050c3a18ea3188a5e1df24005a4c9864db7b876b77618c042eed207c9fd55b3c415dacf23120f21a9fb2fe'});; return false;">Name</a>
+
+                                                        <i class="icon-circle-arrow-down muted"></i>
+                                                    </th>
+
+
+
+                                                    <th class="report-column">
+
+                                                        <a href="#" onclick="new Ajax.Updater('email_table_div', '/email/reportTable/ajax/1/page/1/order/desc/sort/email.id/dateRange/6/mode/manage/tableName/email/pageSize/5/prefix/em/export/icon/startDate/%401167627600/endDate/now/dateText/Activity+Date+Range%3A+/tagFilter/+/ajaxElement/email', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=3f0298d764e26172a4d930819ae6b941d702eb2fa4bd116266ab6e3ea80bb047dd6868bdc59c6fc1e8fdcd2202de3932'});; return false;">Report</a>
+
+                                                    </th>
+
+
+
+                                                    <th class="sent-column">
+
+                                                        <a href="#" onclick="new Ajax.Updater('email_table_div', '/email/reportTable/ajax/1/page/1/order/desc/sort/list_email_stats.sent/dateRange/6/mode/manage/tableName/email/pageSize/5/prefix/em/export/icon/startDate/%401167627600/endDate/now/dateText/Activity+Date+Range%3A+/tagFilter/+/ajaxElement/email', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=1ea9a487e9bf5e95c5b9103dbf97e71ac4213690a2744b1af3a47079aaa825703c8c80ba4b29975917849ed105ed406c'});; return false;">Sent</a>
+
+                                                    </th>
+
+
+                                                    <th class="bounces-column">
+
+                                                        Bounces
+                                                    </th>
+
+
+                                                    <th class="delivery-rate-column">
+
+                                                        Delivery Rate
+                                                    </th>
+
+
+
+                                                    <th class="opens-column">
+
+                                                        <a href="#" onclick="new Ajax.Updater('email_table_div', '/email/reportTable/ajax/1/page/1/order/desc/sort/list_email_stats.opens/dateRange/6/mode/manage/tableName/email/pageSize/5/prefix/em/export/icon/startDate/%401167627600/endDate/now/dateText/Activity+Date+Range%3A+/tagFilter/+/ajaxElement/email', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=b706dca200bf460d3c1017eb6c1fcffc8867b4a6527371eca8c9868b29377b56b720622cbeb3e35ae0dc9940fbcfa31a'});; return false;">Opens</a>
+
+                                                    </th>
+
+
+
+                                                    <th class="unique-clicks-column">
+
+                                                        <a href="#" onclick="new Ajax.Updater('email_table_div', '/email/reportTable/ajax/1/page/1/order/desc/sort/list_email_stats.unique_clicks/dateRange/6/mode/manage/tableName/email/pageSize/5/prefix/em/export/icon/startDate/%401167627600/endDate/now/dateText/Activity+Date+Range%3A+/tagFilter/+/ajaxElement/email', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=b3b6a750c52a0ca2d96d497301d42df896b462dbb994b13c5fd9ded2299f3d742135ab45f05fd37bd1db26db8dcb48c1'});; return false;">Unique Clicks</a>
+
+                                                    </th>
+
+
+
+                                                    <th class="spam-complaints-column">
+
+                                                        <a href="#" onclick="new Ajax.Updater('email_table_div', '/email/reportTable/ajax/1/page/1/order/desc/sort/list_email_stats.spam_complaints/dateRange/6/mode/manage/tableName/email/pageSize/5/prefix/em/export/icon/startDate/%401167627600/endDate/now/dateText/Activity+Date+Range%3A+/tagFilter/+/ajaxElement/email', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=88171aea2c81d87bbfa0c9ec1a7b897874b820f3a84880f6e62686b589983e737f23984e51ffb6ff06cbf89c595ef981'});; return false;">Spam Complaints</a>
+
+                                                    </th>
+
+
+                                                    <th class="ctr-column">
+
+                                                        CTR
+                                                    </th>
+
+
+
+                                                    <th class="opt-outs-column">
+
+                                                        <a href="#" onclick="new Ajax.Updater('email_table_div', '/email/reportTable/ajax/1/page/1/order/desc/sort/list_email_stats.opted_out/dateRange/6/mode/manage/tableName/email/pageSize/5/prefix/em/export/icon/startDate/%401167627600/endDate/now/dateText/Activity+Date+Range%3A+/tagFilter/+/ajaxElement/email', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=77a50e72cba0b290e5ef68af5d3718cfb3904b3fb96fd1263982ca165d1ddbf809d497c7cda6bdae35146a91438e6188'});; return false;">Opt Outs</a>
+
+                                                    </th>
+
+
+
+                                                    <th class="sent-on-column">
+
+                                                        <a href="#" onclick="new Ajax.Updater('email_table_div', '/email/reportTable/ajax/1/page/1/order/desc/sort/email.sent_at/dateRange/6/mode/manage/tableName/email/pageSize/5/prefix/em/export/icon/startDate/%401167627600/endDate/now/dateText/Activity+Date+Range%3A+/tagFilter/+/ajaxElement/email', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=01af7f2ea40bcdbd18a399f69a49d4ce3e9d3ba5c26a212a9a4812eb39b41863168b7a19351499da345249bdc7aac6ae'});; return false;">Sent On</a>
+
+                                                    </th>
+
+
+                                                    <th class="actions-column last">
+
+                                                        Actions
+                                                    </th>
+                                                </tr>
+                                            </thead>
+
+                                        </table>
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+
+    </div>
+</div>

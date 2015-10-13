@@ -1,0 +1,1323 @@
+﻿<div id="wrapper">
+
+    <div id="contentWrap">
+        <div id="content">
+
+
+            <h1>User Roles</h1>
+
+            <div class="divider"></div>
+
+
+
+            <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+                <div id="ro_form_update">
+                    <form action="/role/update" method="post" class="form-horizontal">
+                        <div style="display:none;"><input type="hidden" name="_csrf_token" value="21e9c550757494ad701c0fb818b22223180ed0696e7bec64ec2ce4f1f06092db8e3bfc4b13eb5486e28ebace34c49db8"></div>
+
+
+
+
+
+
+
+
+
+
+                        <p ><a href="#/rolecancel" class="cancel-link btn"> Cancel</a></p>		
+                            <!--<a onclick="var w=window.open(this.href);w.focus();return false;" href="http://www.pardot.com/search-results/?q=role"><i class="icon-question-sign icon-bigger" title="Help"></i></a>-->
+                        </p>
+
+                        <h3>Create Custom Role</h3>
+
+                        <div class="control-group required ">
+                            <label class="control-label" for="name">Name</label>
+                            <div class="controls">
+                                <input type="text" name="name" id="name" value="" class="text" maxlength="50">					<span class="help-inline" style="display:none;" id="error_for_name"></span>
+                            </div>
+                        </div>
+
+
+
+                        <script src="/js/jquery/jquery.masonry.min.js"></script>
+                        <label for="abilities"><strong>Abilities</strong></label>
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab-marketing" data-toggle="tab">Marketing</a></li>
+                            <li><a href="#tab-prospects" data-toggle="tab">Prospect</a></li>
+                            <li><a href="#tab-admin" data-toggle="tab">Admin</a></li>
+                        </ul>
+                        <br>
+                        <div class="tab-content" id="masonry-container">
+                            <div class="tab-pane active " id="tab-marketing">
+                                <div class="well well-small">
+                                    <label class="checkbox no-margin">
+                                        <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing" value="marketing" class="check_0"> <strong>Full Access to This Section</strong>
+                                    </label>
+                                    <br>
+                                    <label class="checkbox no-margin">
+                                        <input type="checkbox" name="checkallviewmarketing" id="checkallviewmarketing" value="marketing" class="checkallview_0"> <strong>All View Abilities in This Section</strong>
+                                    </label>
+                                    <label class="checkbox no-margin">
+                                        <input type="checkbox" name="checkallcreatemarketing" id="checkallcreatemarketing" value="marketing" class="checkallcreate_0"> <strong>All Create/Edit Abilities in This Section</strong>
+                                    </label>
+                                    <label class="checkbox no-margin">
+                                        <input type="checkbox" name="checkalldeletemarketing" id="checkalldeletemarketing" value="marketing" class="checkalldelete_0"> <strong>All Delete Abilities in This Section</strong>
+                                    </label>
+                                    <label class="checkbox no-margin">
+                                        <input type="checkbox" name="checkallviewreportmarketing" id="checkallviewreportmarketing" value="marketing" class="checkallviewreport_0"> <strong>All View Report Abilities in This Section</strong>
+                                    </label>
+                                </div>
+                                <h3>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_automation" value="marketing_automation" class="tooltipped check_marketing" data-toggle="tooltip" data-placement="right" data-original-title="full access">					Automation
+                                    </label>
+                                </h3>
+                                <div class="box-group masonry" style="position: relative; height: 215px;">
+                                    <div class="box masonry-brick" style="position: absolute; width: 295px; top: 0px; left: 0px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_automation_automationrules" value="marketing_automation_automationrules" class="tooltipped check_marketing_automation" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Automation Rules</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_automation_automationrules_view" value="marketing_automation_automationrules_view" class="check_marketing_automation_automationrules">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_automation_automationrules_create" value="marketing_automation_automationrules_create" class="check_marketing_automation_automationrules">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_automation_automationrules_delete" value="marketing_automation_automationrules_delete" class="check_marketing_automation_automationrules">Delete
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_automation_automationrules_unpause" value="marketing_automation_automationrules_unpause" class="check_marketing_automation_automationrules">Resume
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box masonry-brick" style="position: absolute; width: 295px; top: 0px; left: 321px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_automation_dripprograms" value="marketing_automation_dripprograms" class="tooltipped check_marketing_automation" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Drip Programs</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_automation_dripprograms_view" value="marketing_automation_dripprograms_view" class="check_marketing_automation_dripprograms">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_automation_dripprograms_create" value="marketing_automation_dripprograms_create" class="check_marketing_automation_dripprograms">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_automation_dripprograms_delete" value="marketing_automation_dripprograms_delete" class="check_marketing_automation_dripprograms">Delete
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_automation_dripprograms_unpause" value="marketing_automation_dripprograms_unpause" class="check_marketing_automation_dripprograms">Resume
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_automation_dripprograms_viewreport" value="marketing_automation_dripprograms_viewreport" class="check_marketing_automation_dripprograms">View Report
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <h3>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_content" value="marketing_content" class="tooltipped check_marketing" data-toggle="tooltip" data-placement="right" data-original-title="full access">					Content
+                                    </label>
+                                </h3>
+                                <div class="box-group masonry" style="position: relative; height: 330px;">
+                                    <div class="box masonry-brick" style="width: 295px; position: absolute; top: 0px; left: 0px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_content_blocks" value="marketing_content_blocks" class="tooltipped check_marketing_content" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Blocks</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_content_blocks_view" value="marketing_content_blocks_view" class="check_marketing_content_blocks">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_content_blocks_create" value="marketing_content_blocks_create" class="check_marketing_content_blocks">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_content_blocks_delete" value="marketing_content_blocks_delete" class="check_marketing_content_blocks">Delete
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box masonry-brick" style="width: 295px; position: absolute; top: 0px; left: 321px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_content_customredirects" value="marketing_content_customredirects" class="tooltipped check_marketing_content" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Custom Redirects</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_content_customredirects_view" value="marketing_content_customredirects_view" class="check_marketing_content_customredirects">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_content_customredirects_create" value="marketing_content_customredirects_create" class="check_marketing_content_customredirects">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_content_customredirects_delete" value="marketing_content_customredirects_delete" class="check_marketing_content_customredirects">Delete
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_content_customredirects_viewreport" value="marketing_content_customredirects_viewreport" class="check_marketing_content_customredirects">View Report
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box masonry-brick" style="width: 295px; position: absolute; top: 0px; left: 642px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_content_dynamiccontent" value="marketing_content_dynamiccontent" class="tooltipped check_marketing_content" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Dynamic Content</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_content_dynamiccontent_view" value="marketing_content_dynamiccontent_view" class="check_marketing_content_dynamiccontent">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_content_dynamiccontent_create" value="marketing_content_dynamiccontent_create" class="check_marketing_content_dynamiccontent">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_content_dynamiccontent_delete" value="marketing_content_dynamiccontent_delete" class="check_marketing_content_dynamiccontent">Delete
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box masonry-brick" style="width: 295px; position: absolute; top: 0px; left: 963px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_content_files" value="marketing_content_files" class="tooltipped check_marketing_content" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Files</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_content_files_view" value="marketing_content_files_view" class="check_marketing_content_files">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_content_files_create" value="marketing_content_files_create" class="check_marketing_content_files">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_content_files_delete" value="marketing_content_files_delete" class="check_marketing_content_files">Delete
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_content_files_viewreport" value="marketing_content_files_viewreport" class="check_marketing_content_files">View Report
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box masonry-brick" style="width: 295px; position: absolute; top: 165px; left: 0px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_content_personalizations" value="marketing_content_personalizations" class="tooltipped check_marketing_content" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Personalizations</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_content_personalizations_view" value="marketing_content_personalizations_view" class="check_marketing_content_personalizations">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_content_personalizations_create" value="marketing_content_personalizations_create" class="check_marketing_content_personalizations">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_content_personalizations_delete" value="marketing_content_personalizations_delete" class="check_marketing_content_personalizations">Delete
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <h3>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_emails" value="marketing_emails" class="tooltipped check_marketing" data-toggle="tooltip" data-placement="right" data-original-title="full access">					Emails
+                                    </label>
+                                </h3>
+                                <div class="box-group masonry" style="position: relative; height: 240px;">
+                                    <div class="box masonry-brick" style="width: 295px; position: absolute; top: 0px; left: 0px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_emails_emails" value="marketing_emails_emails" class="tooltipped check_marketing_emails" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Emails</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_emails_emails_view" value="marketing_emails_emails_view" class="check_marketing_emails_emails">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_emails_emails_create" value="marketing_emails_emails_create" class="check_marketing_emails_emails">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_emails_emails_delete" value="marketing_emails_emails_delete" class="check_marketing_emails_emails">Delete
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_emails_emails_send" value="marketing_emails_emails_send" class="check_marketing_emails_emails">Send to List
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_emails_emails_sendone" value="marketing_emails_emails_sendone" class="check_marketing_emails_emails">Send One-to-One
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_emails_emails_viewreport" value="marketing_emails_emails_viewreport" class="check_marketing_emails_emails">View Report
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box masonry-brick" style="width: 295px; position: absolute; top: 0px; left: 321px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_emails_emailtemplates" value="marketing_emails_emailtemplates" class="tooltipped check_marketing_emails" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Email Templates</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_emails_emailtemplates_view" value="marketing_emails_emailtemplates_view" class="check_marketing_emails_emailtemplates">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_emails_emailtemplates_create" value="marketing_emails_emailtemplates_create" class="check_marketing_emails_emailtemplates">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_emails_emailtemplates_delete" value="marketing_emails_emailtemplates_delete" class="check_marketing_emails_emailtemplates">Delete
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_emails_emailtemplates_viewreport" value="marketing_emails_emailtemplates_viewreport" class="check_marketing_emails_emailtemplates">View Report
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_emails_emailtemplates_viewnotassigned" value="marketing_emails_emailtemplates_viewnotassigned" class="check_marketing_emails_emailtemplates">View templates not assigned to self
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box masonry-brick" style="width: 295px; position: absolute; top: 0px; left: 642px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_emails_emailprefpage" value="marketing_emails_emailprefpage" class="tooltipped check_marketing_emails" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Email Preference Page</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_emails_emailprefpage_view" value="marketing_emails_emailprefpage_view" class="check_marketing_emails_emailprefpage">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_emails_emailprefpage_create" value="marketing_emails_emailprefpage_create" class="check_marketing_emails_emailprefpage">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_emails_emailprefpage_delete" value="marketing_emails_emailprefpage_delete" class="check_marketing_emails_emailprefpage">Delete
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box masonry-brick" style="width: 295px; position: absolute; top: 0px; left: 963px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_emails_emailunsubpage" value="marketing_emails_emailunsubpage" class="tooltipped check_marketing_emails" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Email Unsubscribe Page</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_emails_emailunsubpage_view" value="marketing_emails_emailunsubpage_view" class="check_marketing_emails_emailunsubpage">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_emails_emailunsubpage_create" value="marketing_emails_emailunsubpage_create" class="check_marketing_emails_emailunsubpage">Create/Edit
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <h3>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_forms" value="marketing_forms" class="tooltipped check_marketing" data-toggle="tooltip" data-placement="right" data-original-title="full access">					Forms
+                                    </label>
+                                </h3>
+                                <div class="box-group masonry" style="position: relative; height: 190px;">
+                                    <div class="box masonry-brick" style="width: 295px; position: absolute; top: 0px; left: 0px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_forms_forms" value="marketing_forms_forms" class="tooltipped check_marketing_forms" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Forms</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_forms_forms_view" value="marketing_forms_forms_view" class="check_marketing_forms_forms">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_forms_forms_create" value="marketing_forms_forms_create" class="check_marketing_forms_forms">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_forms_forms_delete" value="marketing_forms_forms_delete" class="check_marketing_forms_forms">Delete
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_forms_forms_viewreport" value="marketing_forms_forms_viewreport" class="check_marketing_forms_forms">View Report
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box masonry-brick" style="width: 295px; position: absolute; top: 0px; left: 321px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_forms_formhandlers" value="marketing_forms_formhandlers" class="tooltipped check_marketing_forms" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Form Handlers</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_forms_formhandlers_view" value="marketing_forms_formhandlers_view" class="check_marketing_forms_formhandlers">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_forms_formhandlers_create" value="marketing_forms_formhandlers_create" class="check_marketing_forms_formhandlers">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_forms_formhandlers_delete" value="marketing_forms_formhandlers_delete" class="check_marketing_forms_formhandlers">Delete
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_forms_formhandlers_viewreport" value="marketing_forms_formhandlers_viewreport" class="check_marketing_forms_formhandlers">View Report
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <h3>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_landingpages" value="marketing_landingpages" class="tooltipped check_marketing" data-toggle="tooltip" data-placement="right" data-original-title="full access">					Landing Pages
+                                    </label>
+                                </h3>
+                                <div class="box-group masonry" style="position: relative; height: 190px;">
+                                    <div class="box masonry-brick" style="width: 295px; position: absolute; top: 0px; left: 0px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_landingpages_landingpages" value="marketing_landingpages_landingpages" class="tooltipped check_marketing_landingpages" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Landing Pages</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_landingpages_landingpages_view" value="marketing_landingpages_landingpages_view" class="check_marketing_landingpages_landingpages">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_landingpages_landingpages_create" value="marketing_landingpages_landingpages_create" class="check_marketing_landingpages_landingpages">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_landingpages_landingpages_delete" value="marketing_landingpages_landingpages_delete" class="check_marketing_landingpages_landingpages">Delete
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_landingpages_landingpages_viewreport" value="marketing_landingpages_landingpages_viewreport" class="check_marketing_landingpages_landingpages">View Report
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box masonry-brick" style="width: 295px; position: absolute; top: 0px; left: 321px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_landingpages_mvttests" value="marketing_landingpages_mvttests" class="tooltipped check_marketing_landingpages" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Multivariate Tests</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_landingpages_mvttests_view" value="marketing_landingpages_mvttests_view" class="check_marketing_landingpages_mvttests">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_landingpages_mvttests_create" value="marketing_landingpages_mvttests_create" class="check_marketing_landingpages_mvttests">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_landingpages_mvttests_delete" value="marketing_landingpages_mvttests_delete" class="check_marketing_landingpages_mvttests">Delete
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_landingpages_mvttests_viewreport" value="marketing_landingpages_mvttests_viewreport" class="check_marketing_landingpages_mvttests">View Report
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box masonry-brick" style="width: 295px; position: absolute; top: 0px; left: 642px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_landingpages_layouttemplates" value="marketing_landingpages_layouttemplates" class="tooltipped check_marketing_landingpages" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Layout Templates</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_landingpages_layouttemplates_view" value="marketing_landingpages_layouttemplates_view" class="check_marketing_landingpages_layouttemplates">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_landingpages_layouttemplates_create" value="marketing_landingpages_layouttemplates_create" class="check_marketing_landingpages_layouttemplates">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_landingpages_layouttemplates_delete" value="marketing_landingpages_layouttemplates_delete" class="check_marketing_landingpages_layouttemplates">Delete
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <h3>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_searchmarketing" value="marketing_searchmarketing" class="tooltipped check_marketing" data-toggle="tooltip" data-placement="right" data-original-title="full access">					Search Marketing
+                                    </label>
+                                </h3>
+                                <div class="box-group masonry" style="position: relative; height: 190px;">
+                                    <div class="box masonry-brick" style="width: 295px; position: absolute; top: 0px; left: 0px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_searchmarketing_keywords" value="marketing_searchmarketing_keywords" class="tooltipped check_marketing_searchmarketing" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Keywords</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_searchmarketing_keywords_view" value="marketing_searchmarketing_keywords_view" class="check_marketing_searchmarketing_keywords">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_searchmarketing_keywords_create" value="marketing_searchmarketing_keywords_create" class="check_marketing_searchmarketing_keywords">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_searchmarketing_keywords_delete" value="marketing_searchmarketing_keywords_delete" class="check_marketing_searchmarketing_keywords">Delete
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box masonry-brick" style="width: 295px; position: absolute; top: 0px; left: 321px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_searchmarketing_competitors" value="marketing_searchmarketing_competitors" class="tooltipped check_marketing_searchmarketing" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Competitors</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_searchmarketing_competitors_view" value="marketing_searchmarketing_competitors_view" class="check_marketing_searchmarketing_competitors">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_searchmarketing_competitors_create" value="marketing_searchmarketing_competitors_create" class="check_marketing_searchmarketing_competitors">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_searchmarketing_competitors_delete" value="marketing_searchmarketing_competitors_delete" class="check_marketing_searchmarketing_competitors">Delete
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box masonry-brick" style="width: 295px; position: absolute; top: 0px; left: 642px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_searchmarketing_naturalsearch" value="marketing_searchmarketing_naturalsearch" class="tooltipped check_marketing_searchmarketing" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Natural Search</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_searchmarketing_naturalsearch_viewreport" value="marketing_searchmarketing_naturalsearch_viewreport" class="check_marketing_searchmarketing_naturalsearch">View Report
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box masonry-brick" style="width: 295px; position: absolute; top: 0px; left: 963px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_searchmarketing_paidsearch" value="marketing_searchmarketing_paidsearch" class="tooltipped check_marketing_searchmarketing" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Paid Search</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_searchmarketing_paidsearch_view" value="marketing_searchmarketing_paidsearch_view" class="check_marketing_searchmarketing_paidsearch">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_searchmarketing_paidsearch_create" value="marketing_searchmarketing_paidsearch_create" class="check_marketing_searchmarketing_paidsearch">Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_searchmarketing_paidsearch_delete" value="marketing_searchmarketing_paidsearch_delete" class="check_marketing_searchmarketing_paidsearch">Delete
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_searchmarketing_paidsearch_viewreport" value="marketing_searchmarketing_paidsearch_viewreport" class="check_marketing_searchmarketing_paidsearch">View Report
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <h3>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_segmentation" value="marketing_segmentation" class="tooltipped check_marketing" data-toggle="tooltip" data-placement="right" data-original-title="full access">					Segmentation
+                                    </label>
+                                </h3>
+                                <div class="box-group masonry" style="position: relative; height: 165px;">
+                                    <div class="box masonry-brick" style="width: 295px; position: absolute; top: 0px; left: 0px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_segmentation_lists" value="marketing_segmentation_lists" class="tooltipped check_marketing_segmentation" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Lists</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_segmentation_lists_view" value="marketing_segmentation_lists_view" class="check_marketing_segmentation_lists">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_segmentation_lists_create" value="marketing_segmentation_lists_create" class="check_marketing_segmentation_lists">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_segmentation_lists_delete" value="marketing_segmentation_lists_delete" class="check_marketing_segmentation_lists">Delete
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box masonry-brick" style="width: 295px; position: absolute; top: 0px; left: 321px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_segmentation_segrules" value="marketing_segmentation_segrules" class="tooltipped check_marketing_segmentation" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Segmentation Rules</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_segmentation_segrules_view" value="marketing_segmentation_segrules_view" class="check_marketing_segmentation_segrules">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_segmentation_segrules_create" value="marketing_segmentation_segrules_create" class="check_marketing_segmentation_segrules">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_segmentation_segrules_delete" value="marketing_segmentation_segrules_delete" class="check_marketing_segmentation_segrules">Delete
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box masonry-brick" style="width: 295px; position: absolute; top: 0px; left: 642px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_segmentation_tags" value="marketing_segmentation_tags" class="tooltipped check_marketing_segmentation" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Tags</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_segmentation_tags_view" value="marketing_segmentation_tags_view" class="check_marketing_segmentation_tags">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_segmentation_tags_create" value="marketing_segmentation_tags_create" class="check_marketing_segmentation_tags">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_segmentation_tags_delete" value="marketing_segmentation_tags_delete" class="check_marketing_segmentation_tags">Delete
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box masonry-brick" style="width: 295px; position: absolute; top: 0px; left: 963px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_segmentation_profiles" value="marketing_segmentation_profiles" class="tooltipped check_marketing_segmentation" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Profiles</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_segmentation_profiles_view" value="marketing_segmentation_profiles_view" class="check_marketing_segmentation_profiles">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_segmentation_profiles_create" value="marketing_segmentation_profiles_create" class="check_marketing_segmentation_profiles">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_segmentation_profiles_delete" value="marketing_segmentation_profiles_delete" class="check_marketing_segmentation_profiles">Delete
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <h3>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_other" value="marketing_other" class="tooltipped check_marketing" data-toggle="tooltip" data-placement="right" data-original-title="full access">					Other
+                                    </label>
+                                </h3>
+                                <div class="box-group masonry" style="position: relative; height: 305px;">
+                                    <div class="box masonry-brick" style="width: 295px; position: absolute; top: 0px; left: 0px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_other_calendar" value="marketing_other_calendar" class="tooltipped check_marketing_other" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Calendar</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_other_calendar_view" value="marketing_other_calendar_view" class="check_marketing_other_calendar">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_other_calendar_create" value="marketing_other_calendar_create" class="check_marketing_other_calendar">Create/Edit Custom Events
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_other_calendar_delete" value="marketing_other_calendar_delete" class="check_marketing_other_calendar">Delete Custom Events
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box masonry-brick" style="width: 295px; position: absolute; top: 0px; left: 315px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_other_campaigns" value="marketing_other_campaigns" class="tooltipped check_marketing_other" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Campaigns</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_other_campaigns_view" value="marketing_other_campaigns_view" class="check_marketing_other_campaigns">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_other_campaigns_create" value="marketing_other_campaigns_create" class="check_marketing_other_campaigns">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_other_campaigns_delete" value="marketing_other_campaigns_delete" class="check_marketing_other_campaigns">Delete
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_other_campaigns_viewreport" value="marketing_other_campaigns_viewreport" class="check_marketing_other_campaigns">View Report
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box masonry-brick" style="width: 295px; position: absolute; top: 0px; left: 630px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_other_gooddata" value="marketing_other_gooddata" class="tooltipped check_marketing_other" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>GoodData</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_other_gooddata_viewreport" value="marketing_other_gooddata_viewreport" class="check_marketing_other_gooddata">View Report
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box masonry-brick" style="width: 295px; position: absolute; top: 0px; left: 945px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_other_olark" value="marketing_other_olark" class="tooltipped check_marketing_other" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Olark</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_other_olark_viewreport" value="marketing_other_olark_viewreport" class="check_marketing_other_olark">View Report
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box masonry-brick" style="width: 295px; position: absolute; top: 115px; left: 630px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_other_sitesearch" value="marketing_other_sitesearch" class="tooltipped check_marketing_other" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Site Search</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_other_sitesearch_view" value="marketing_other_sitesearch_view" class="check_marketing_other_sitesearch">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_other_sitesearch_create" value="marketing_other_sitesearch_create" class="check_marketing_other_sitesearch">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_other_sitesearch_delete" value="marketing_other_sitesearch_delete" class="check_marketing_other_sitesearch">Delete
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_other_sitesearch_viewreport" value="marketing_other_sitesearch_viewreport" class="check_marketing_other_sitesearch">View Report
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box masonry-brick" style="width: 295px; position: absolute; top: 115px; left: 945px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_marketing_other_socialposts" value="marketing_other_socialposts" class="tooltipped check_marketing_other" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Social Posts</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_other_socialposts_view" value="marketing_other_socialposts_view" class="check_marketing_other_socialposts">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_other_socialposts_create" value="marketing_other_socialposts_create" class="check_marketing_other_socialposts">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_other_socialposts_delete" value="marketing_other_socialposts_delete" class="check_marketing_other_socialposts">Delete
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_marketing_other_socialposts_viewreport" value="marketing_other_socialposts_viewreport" class="check_marketing_other_socialposts">View Report
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="tab-pane  " id="tab-prospects">
+                                <div class="well well-small">
+                                    <label class="checkbox no-margin">
+                                        <input type="checkbox" name="fullchecks[]" id="fullchecks_prospects" value="prospects" class="check_0"> <strong>Full Access to This Section</strong>
+                                    </label>
+                                    <br>
+                                    <label class="checkbox no-margin">
+                                        <input type="checkbox" name="checkallviewprospects" id="checkallviewprospects" value="prospects" class="checkallview_0"> <strong>All View Abilities in This Section</strong>
+                                    </label>
+                                    <label class="checkbox no-margin">
+                                        <input type="checkbox" name="checkallcreateprospects" id="checkallcreateprospects" value="prospects" class="checkallcreate_0"> <strong>All Create/Edit Abilities in This Section</strong>
+                                    </label>
+                                    <label class="checkbox no-margin">
+                                        <input type="checkbox" name="checkalldeleteprospects" id="checkalldeleteprospects" value="prospects" class="checkalldelete_0"> <strong>All Delete Abilities in This Section</strong>
+                                    </label>
+                                    <label class="checkbox no-margin">
+                                        <input type="checkbox" name="checkallviewreportprospects" id="checkallviewreportprospects" value="prospects" class="checkallviewreport_0"> <strong>All View Report Abilities in This Section</strong>
+                                    </label>
+                                </div>
+                                <div class="box-group">
+                                    <div class="box" style="width: 295px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_prospects_conversions" value="prospects_conversions" class="tooltipped check_prospects" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Conversions</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_prospects_conversions_viewreport" value="prospects_conversions_viewreport" class="check_prospects_conversions">View Report
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box" style="width: 295px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_prospects_lifecycle" value="prospects_lifecycle" class="tooltipped check_prospects" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Lifecycle</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_prospects_lifecycle_viewreport" value="prospects_lifecycle_viewreport" class="check_prospects_lifecycle">View Report
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box" style="width: 295px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_prospects_prospects" value="prospects_prospects" class="tooltipped check_prospects" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Prospects</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_prospects_prospects_view" value="prospects_prospects_view" class="check_prospects_prospects">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_prospects_prospects_create" value="prospects_prospects_create" class="check_prospects_prospects">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_prospects_prospects_delete" value="prospects_prospects_delete" class="check_prospects_prospects">Delete
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_prospects_prospects_viewnotassigned" value="prospects_prospects_viewnotassigned" class="check_prospects_prospects">View prospects not assigned to self
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_prospects_prospects_assign" value="prospects_prospects_assign" class="check_prospects_prospects">Assign/Reassign
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_prospects_prospects_import" value="prospects_prospects_import" class="check_prospects_prospects">Import
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_prospects_prospects_export" value="prospects_prospects_export" class="check_prospects_prospects">Export
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_prospects_prospects_configurefields" value="prospects_prospects_configurefields" class="check_prospects_prospects">Configure Fields
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_prospects_prospects_optin" value="prospects_prospects_optin" class="check_prospects_prospects">Toggle Opt-In Status
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box" style="width: 295px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_prospects_prospectaccounts" value="prospects_prospectaccounts" class="tooltipped check_prospects" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Prospect Accounts</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_prospects_prospectaccounts_view" value="prospects_prospectaccounts_view" class="check_prospects_prospectaccounts">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_prospects_prospectaccounts_create" value="prospects_prospectaccounts_create" class="check_prospects_prospectaccounts">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_prospects_prospectaccounts_delete" value="prospects_prospectaccounts_delete" class="check_prospects_prospectaccounts">Delete
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_prospects_prospectaccounts_viewnotassigned" value="prospects_prospectaccounts_viewnotassigned" class="check_prospects_prospectaccounts">View accounts not assigned to self
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_prospects_prospectaccounts_assign" value="prospects_prospectaccounts_assign" class="check_prospects_prospectaccounts">Assign/Reassign
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_prospects_prospectaccounts_export" value="prospects_prospectaccounts_export" class="check_prospects_prospectaccounts">Export
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_prospects_prospectaccounts_configurefields" value="prospects_prospectaccounts_configurefields" class="check_prospects_prospectaccounts">Configure Fields
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box" style="width: 295px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_prospects_opps" value="prospects_opps" class="tooltipped check_prospects" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Opportunities</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_prospects_opps_view" value="prospects_opps_view" class="check_prospects_opps">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_prospects_opps_create" value="prospects_opps_create" class="check_prospects_opps">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_prospects_opps_delete" value="prospects_opps_delete" class="check_prospects_opps">Delete
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_prospects_opps_import" value="prospects_opps_import" class="check_prospects_opps">Import
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_prospects_opps_export" value="prospects_opps_export" class="check_prospects_opps">Export
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_prospects_opps_viewreport" value="prospects_opps_viewreport" class="check_prospects_opps">View Report
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_prospects_opps_configurefields" value="prospects_opps_configurefields" class="check_prospects_opps">Configure Fields
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box" style="width: 295px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_prospects_visitors" value="prospects_visitors" class="tooltipped check_prospects" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Visitors</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_prospects_visitors_view" value="prospects_visitors_view" class="check_prospects_visitors">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_prospects_visitors_create" value="prospects_visitors_create" class="check_prospects_visitors">Create/Edit
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="tab-pane  " id="tab-admin">
+                                <div class="well well-small">
+                                    <label class="checkbox no-margin">
+                                        <input type="checkbox" name="fullchecks[]" id="fullchecks_admin" value="admin" class="check_0"> <strong>Full Access to This Section</strong>
+                                    </label>
+                                    <br>
+                                    <label class="checkbox no-margin">
+                                        <input type="checkbox" name="checkallviewadmin" id="checkallviewadmin" value="admin" class="checkallview_0"> <strong>All View Abilities in This Section</strong>
+                                    </label>
+                                    <label class="checkbox no-margin">
+                                        <input type="checkbox" name="checkallcreateadmin" id="checkallcreateadmin" value="admin" class="checkallcreate_0"> <strong>All Create/Edit Abilities in This Section</strong>
+                                    </label>
+                                    <label class="checkbox no-margin">
+                                        <input type="checkbox" name="checkalldeleteadmin" id="checkalldeleteadmin" value="admin" class="checkalldelete_0"> <strong>All Delete Abilities in This Section</strong>
+                                    </label>
+                                    <label class="checkbox no-margin">
+                                        <input type="checkbox" name="checkallviewreportadmin" id="checkallviewreportadmin" value="admin" class="checkallviewreport_0"> <strong>All View Report Abilities in This Section</strong>
+                                    </label>
+                                </div>
+                                <div class="box-group">
+                                    <div class="box" style="width: 295px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_admin_account" value="admin_account" class="tooltipped check_admin" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Account</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_account_edit" value="admin_account_edit" class="check_admin_account">Edit Settings
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_account_grantaccess" value="admin_account_grantaccess" class="check_admin_account">Grant Access to Pardot Employees
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box" style="width: 295px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_admin_pageactions" value="admin_pageactions" class="tooltipped check_admin" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Page Actions</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_pageactions_view" value="admin_pageactions_view" class="check_admin_pageactions">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_pageactions_create" value="admin_pageactions_create" class="check_admin_pageactions">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_pageactions_delete" value="admin_pageactions_delete" class="check_admin_pageactions">Delete
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box" style="width: 295px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_admin_scoringrules" value="admin_scoringrules" class="tooltipped check_admin" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Scoring Rules</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_scoringrules_view" value="admin_scoringrules_view" class="check_admin_scoringrules">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_scoringrules_create" value="admin_scoringrules_create" class="check_admin_scoringrules">Create/Edit
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box" style="width: 295px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_admin_visfilters" value="admin_visfilters" class="tooltipped check_admin" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Visitor Filters</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_visfilters_view" value="admin_visfilters_view" class="check_admin_visfilters">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_visfilters_create" value="admin_visfilters_create" class="check_admin_visfilters">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_visfilters_delete" value="admin_visfilters_delete" class="check_admin_visfilters">Delete
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box" style="width: 295px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_admin_connectors" value="admin_connectors" class="tooltipped check_admin" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Connectors</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_connectors_view" value="admin_connectors_view" class="check_admin_connectors">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_connectors_create" value="admin_connectors_create" class="check_admin_connectors">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_connectors_delete" value="admin_connectors_delete" class="check_admin_connectors">Delete
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box" style="width: 295px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_admin_users" value="admin_users" class="tooltipped check_admin" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Users</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_users_view" value="admin_users_view" class="check_admin_users">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_users_create" value="admin_users_create" class="check_admin_users">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_users_delete" value="admin_users_delete" class="check_admin_users">Delete
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_users_import" value="admin_users_import" class="check_admin_users">Import
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_users_reset_password" value="admin_users_reset_password" class="check_admin_users">Reset Password
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box" style="width: 295px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_admin_groups" value="admin_groups" class="tooltipped check_admin" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Groups</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_groups_view" value="admin_groups_view" class="check_admin_groups">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_groups_create" value="admin_groups_create" class="check_admin_groups">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_groups_delete" value="admin_groups_delete" class="check_admin_groups">Delete
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box" style="width: 295px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_admin_queues" value="admin_queues" class="tooltipped check_admin" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Queues</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_queues_view" value="admin_queues_view" class="check_admin_queues">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_queues_create" value="admin_queues_create" class="check_admin_queues">Create
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_queues_delete" value="admin_queues_delete" class="check_admin_queues">Delete
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box" style="width: 295px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_admin_roles" value="admin_roles" class="tooltipped check_admin" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Roles</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_roles_view" value="admin_roles_view" class="check_admin_roles">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_roles_create" value="admin_roles_create" class="check_admin_roles">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_roles_delete" value="admin_roles_delete" class="check_admin_roles">Delete
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box" style="width: 295px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_admin_admin" value="admin_admin" class="tooltipped check_admin" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Administration</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_admin_general" value="admin_admin_general" class="check_admin_admin">General Account Administration
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box" style="width: 295px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_admin_folders" value="admin_folders" class="tooltipped check_admin" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Folders</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_folders_view" value="admin_folders_view" class="check_admin_folders">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_folders_create" value="admin_folders_create" class="check_admin_folders">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_folders_delete" value="admin_folders_delete" class="check_admin_folders">Delete
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_folders_manage_permissions" value="admin_folders_manage_permissions" class="check_admin_folders">Manage Permissions
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="box" style="width: 295px;">
+                                        <div class="well">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="fullchecks[]" id="fullchecks_admin_custom_object" value="admin_custom_object" class="tooltipped check_admin" data-toggle="tooltip" data-placement="right" data-original-title="full access">						<h4>Custom Objects</h4>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_custom_object_view" value="admin_custom_object_view" class="check_admin_custom_object">View
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_custom_object_create" value="admin_custom_object_create" class="check_admin_custom_object">Create/Edit
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checks[]" id="checks_admin_custom_object_delete" value="admin_custom_object_delete" class="check_admin_custom_object">Delete
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <script type="text/javascript">
+				function init_masonry(){
+					var $container = $j('.tab-pane.active .box-group');
+					var gutter = 20;
+					var min_width = 200;
+					if($container.is('.masonry')){
+						$container.masonry('destroy'); // refresh because masonry is already running and then bail
+					}
+					$container.masonry({
+						itemSelector : '.box',
+						gutterWidth: gutter,
+						columnWidth: function( containerWidth ) {
+							var num_of_boxes = (containerWidth/min_width | 0);
+							var max_num_of_boxes = 4;
+							if (num_of_boxes > max_num_of_boxes) {
+								num_of_boxes = max_num_of_boxes;
+							}
+
+							var box_width = (((containerWidth - (num_of_boxes-1)*gutter)/num_of_boxes) | 0) ;
+
+							if (containerWidth < min_width) {
+									box_width = containerWidth;
+							}
+
+							$j('.box').width(box_width);
+
+							return box_width;
+						}
+					});
+				}
+
+				$j('.tooltipped').tooltip();
+
+				$j('a[data-toggle="tab"]').on('shown', function (e) {
+					init_masonry();
+				})
+
+				init_masonry();
+
+				$j('[id^=fullchecks]').click(function() {
+					// clicked "full access"
+					var checked = $j(this).is(':checked');
+					// check all below this one
+					$j('[class*=check_'+this.value+']').prop({'checked': checked});
+					// check the "check all of ..." boxes
+					processViewAll(this);
+				});
+				function checkAllOfType(which, type) {
+					var checked = $j(which).is(':checked');
+					// check all of type below this one
+					$j('[value^='+which.value+'][value$='+type+']').each(function(){
+						$j(this).prop({'checked': checked});
+						check_parents(this);
+					});
+				}
+				$j('[id^=checkallview]').click(function() {
+					// clicked "all view"
+					if(this.id.indexOf('viewreport') < 0) {
+						checkAllOfType(this, 'view');
+						if(!$j(this).is(':checked')) {
+							// if uncheck view then can't check create/delete
+							var tab = this.id.substr(12);
+							$j('#checkallcreate'+tab).prop({'checked': false});
+							checkAllOfType(this, 'create');
+							$j('#checkalldelete'+tab).prop({'checked': false});
+							checkAllOfType(this, 'delete');
+						}
+					}
+				});
+				$j('[id^=checkallcreate]').click(function() {
+					// clicked "all create"
+					checkAllOfType(this, 'create');
+					if($j(this).is(':checked')) {
+						// if check create/delete then implies view so check it
+						var tab = this.id.substr(14);
+						$j('#checkallview'+tab).prop({'checked': true});
+						checkAllOfType(this, 'view');
+					}
+				});
+				$j('[id^=checkalldelete]').click(function() {
+					// clicked "all delete"
+					checkAllOfType(this, 'delete');
+					if($j(this).is(':checked')) {
+						// if check create/delete then implies view so check it
+						var tab = this.id.substr(14);
+						$j('#checkallview'+tab).prop({'checked': true});
+						checkAllOfType(this, 'view');
+					}
+				});
+				$j('[id^=checkallviewreport]').click(function() {
+					// clicked "all report"
+					checkAllOfType(this, 'viewreport');
+				});
+				// these are the ones that were previously checked on update
+				var toCheck = new Array("");
+				$j.each(toCheck, function(i, ability) {
+					// need to both check each and then look at its parents to see if they need to be checked too if a group is all checked
+					$j('#fullchecks_'+ability).each(function(){
+						$j(this).prop({'checked': true});
+						check_parents(this);
+						processViewAll(this);
+					});
+					$j('#checks_'+ability).each(function(){
+						$j(this).prop({'checked': true});
+						check_parents(this);
+						processViewAll(this);
+					});
+				});
+				// perform magic when clicked
+				$j('[id^=check]').click(function() {
+					var index = this.id.lastIndexOf('_')
+					var ability = this.id.substr(index+1);
+					var group = this.id.substr(0,index+1);
+					var checked = $j(this).is(':checked');
+					if(ability == 'view') {
+						// if uncheck view then can't check create/delete
+						if(!checked) {
+							$j('#'+group+'create').prop({'checked': false});
+							$j('#'+group+'delete').prop({'checked': false});
+							$j('#'+group+'viewnotassigned').prop({'checked': false});
+						}
+					} else if(ability == 'create' || ability == 'delete' || ability == 'viewnotassigned') {
+						// if check create/delete then implies view so check it
+						if(checked) {
+							$j('#'+group+'view').prop({'checked': true});
+						}
+					}
+					check_parents(this);
+					processViewAll(this);
+				});
+				// the group checks
+				$j('[id^=fullchecks]').click(function() {
+					check_parents(this);
+					processViewAll(this);
+				});
+
+				// if you uncheck one then uncheck it's parents as well since no longer full access
+				function check_parents(check) {
+					var name = check.value;
+					var checked = $j(check).is(':checked');
+					var index = name.lastIndexOf('_');
+					var group, doCheck;
+					// process each piece of the string separated by _
+					while(index > 0) {
+						group = 'check_'+name.substr(0,index);
+						name = name.substr(0,index);
+						parentCheck = $j('#fullchecks_'+name);
+						if(parentCheck) {
+							if(!checked) {
+								parentCheck.prop({'checked': false});
+							} else {
+								// if all below this one are checked, then check it too
+								doCheck = true;
+								$j('[class*='+group+']').each(function(){
+									if(!$j(this).is(':checked')) {
+										doCheck = false;
+										return false;
+									}
+								});
+								if(doCheck) {
+									parentCheck.prop({'checked': true});
+								}
+							}
+						}
+						index = name.lastIndexOf('_');
+					}
+				}
+
+				function processViewAll(check) {
+					// process the "view all ..." boxes
+					var name = check.value;
+					var checked = $j(check).is(':checked');
+					var index = name.lastIndexOf('_');
+					var type = name.substr(index+1);
+					var tab = name.substr(0,name.indexOf('_'));
+					var doCheck;
+					switch(type) {
+						case 'view':
+						case 'create':
+						case 'delete':
+						case 'viewreport':
+							var parentCheck = $j('#checkall'+type+tab);
+							if(!checked) {
+								parentCheck.prop({'checked': false});
+							} else {
+								// if all below this one are checked, then check it too
+								doCheck = true;
+								$j('[value^='+tab+'][value$='+type+']').each(function(){
+									if(!$j(this).is(':checked')) {
+										doCheck = false;
+										return false;
+									}
+								});
+								if(doCheck) {
+									parentCheck.prop({'checked': true});
+								}
+							}
+							if(type == 'view') {
+								// if uncheck view then can't check create/delete
+								if(!checked) {
+									$j('#checkallcreate'+tab).prop({'checked': false});
+									$j('#checkalldelete'+tab).prop({'checked': false});
+								}
+							} else if(type == 'create' || type == 'delete') {
+								// if check create/delete then implies view so check it
+								if(checked) {
+									doCheck = true;
+									$j('[value^='+tab+'][value$=view]').each(function(){
+										if(!$j(this).is(':checked')) {
+											doCheck = false;
+											return false;
+										}
+									});
+									if(doCheck) {
+										$j('#checkallview'+tab).prop({'checked': true});
+									}
+								}
+							}
+							break;
+						default:
+							if(check.name == 'fullchecks[]') {
+								// for the section check-alls we have to process each of the type check-alls
+								if(tab == '') {
+									tab = check.value;
+								}
+								var types = new Array('view', 'create', 'delete', 'viewreport');
+								$j.each(types, function(i, type){
+									doCheck = true;
+									$j('[value^='+tab+'][value$='+type+']').each(function(){
+										if(!$j(this).is(':checked')) {
+											doCheck = false;
+											return false;
+										}
+									});
+									$j('#checkall'+type+tab).prop({'checked': doCheck});
+								});
+							}
+							break;
+					}
+				}
+
+                        </script>
+
+                        <div class="form-actions">
+                            <input type="submit" name="commit" value="Save custom role" accesskey="s" class="btn btn-primary">								&nbsp;
+                            <a href="/role" onclick="if(confirm('Are you sure you want to cancel?')) { return true } else { return false }" class="cancel-link btn">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+
+</div>

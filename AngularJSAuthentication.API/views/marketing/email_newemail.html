@@ -1,0 +1,134 @@
+﻿<div id="information_modal" class="modal hide in" tabindex="-1" data-keyboard="false" data-backdrop="static" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="width: 60%; margin-left: -30%; display: block;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Basic Email Information</h4>
+            </div>
+
+            <div class="modal-body">
+
+                <div id="new_draft_alert" class="alert alert-info hide"><i class="icon icon-file"></i> Lets start by giving your email some context. You can always return and edit this information at a later point.</div>
+
+                <form id="information_form" class="form form-horizontal" style="border:none" onsubmit="return false;">
+
+                    <!-- Name -->
+                    <div class="control-group required">
+                        <label for="name" class="control-label">Name</label>
+                        <div class="controls">
+                            <input type="text" name="name" id="name" value="" maxlength="255">
+                        </div>
+                    </div>
+
+                    <!-- Tags -->
+
+
+                    <div class="control-group ">
+                        <label for="tags" class="control-label">Tags</label>
+                        <div class="controls">
+                            <input name="tags" class="tagComponent tagComponentReady" id="tags_no_id_piEmailDraft" value="" style="display: none;"><div id="tags_no_id_piEmailDraft_tagsinput" class="tagsinput" style="margin-top: -1px;"><div id="tags_no_id_piEmailDraft_addTag"><input id="tags_no_id_piEmailDraft_tag" value="" data-default="add a tag" class="ui-autocomplete-input" autocomplete="off" style="color: rgb(102, 102, 102); width: 206px;"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span></div><div class="tags_clear"></div></div>
+
+                         
+                            <span class="help-inline tags-error" style="display:none;" id="error_for_tags"></span>
+
+                        </div>
+                    </div>
+
+
+                    <!-- Folder -->
+                    <div class="control-group required">
+                        <label for="folder_id" class="control-label">Folder</label>
+                        <div class="controls">
+                            <div class="input-prepend input-append folder-chooser ">
+                                <span class="add-on" onclick="AssetChooserApp.chooseFolder(jQuery(this).parent())" style="cursor: pointer;"><i class="icon-folder-open-alt"></i></span>
+                                <span class="input-xlarge uneditable-input folder-name" style="cursor: pointer;" onclick="AssetChooserApp.chooseFolder(jQuery(this).parent())">/Uncategorized/Emails</span>
+                                <input type="hidden" id="folder_id" name="folder_id" value="2087">
+                                <button class="btn choose-asset" type="button" onclick="AssetChooserApp.chooseFolder(jQuery(this).parent())">Choose</button>
+                            </div>
+
+
+
+
+                            <script type="text/javascript">
+	window._csrf_token = window._csrf_token || "126814295a441cca9367f35f99d7159628c09764ca39bac83565766c5a7dab2b9fcc081228ebb0a8ec9d98db05de1dbb";
+	window.enableFolderFeature = true;
+                            </script>
+
+
+
+
+                            <script type="text/javascript">
+		PreloadStore.store("folders",[]);
+		PreloadStore.store("tags",[]);
+		PreloadStore.store("abilities", {"canManagePermissions":true,"canEditFolders":true,"canCreateFolders":true,"canDeleteFolders":true,"canCreateCampaigns":true});
+		AssetChooserApp.start();
+                            </script>
+
+                        </div>
+                    </div><!-- /.control-group --->
+                    <!-- Campaign -->
+                    <div class="control-group required campaign_errors">
+                        <label class="control-label" for="campaign_id">Campaign</label>
+                        <div class="controls">
+                            <div class="input-prepend input-append asset-chooser" data-is-visible="true" data-folder-id="" data-object-type="31" data-object-id="" data-filter-by="" data-multi-select="" data-multi="false" data-counter-class="" data-singular-label="" data-plural-label="" data-placeholder-text="Choose a Campaign">
+
+                                <span class="add-on" style="cursor:pointer;" onclick="AssetChooserApp.chooseAsset(jQuery(this).parent());"><i class="icon-bullhorn"></i></span>
+
+                                <span class="input-xlarge uneditable-input object-name" style="cursor:pointer;" onclick="AssetChooserApp.chooseAsset(jQuery(this).parent());">
+                                    Choose a Campaign
+                                </span>
+
+                                <input type="hidden" id="campaign_id" name="campaign_id" value="">
+                                <button class="btn choose-asset" type="button" onclick="AssetChooserApp.chooseAsset(jQuery(this).parent());">Choose</button>
+                            </div>
+
+
+
+
+                        </div>
+                    </div><!-- /.control-group -->
+                    <!-- Email type -->
+                    <div id="email_types" class="control-group required email_type" style="margin-bottom: 4px;">
+                        <label class="control-label">Email Type</label>
+
+                        <div class="controls">
+                            <!-- Text & HTML -->
+                            <label class="radio no-asterisk" for="email_type_text_html">
+                                <input type="radio" name="type" id="email_type_text_html" value="3" data-type="3" checked="checked">								<strong>HTML and Text</strong>
+                                <span class="help-block radio-help-block">
+                                    This email will be an HTML email with a text alternative.
+                                </span>
+                            </label>
+
+                            <!-- Text -->
+                            <label class="radio no-asterisk" for="email_type_text_only">
+                                <input type="radio" name="type" id="email_type_text_only" value="1" data-type="1">								<strong>Text</strong>
+                                <span class="help-block radio-help-block">
+                                    This is a text only email.
+                                </span>
+                            </label>
+                        </div><!-- /.controls -->
+                    </div><!-- /.control-group -->
+                    <!-- Operational email -->
+                    <!-- Template -->
+                    <div class="control-group" id="from_template_radio_label" style="margin-bottom: 0px">
+                        <label for="name" class="control-label">Template</label>
+                        <div class="controls">
+                            <label class="checkbox" for="from_template">
+                                <input type="checkbox" name="from_template" id="from_template" value="1" checked="checked">								Start from a template.
+                            </label>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div><!-- /.modal-body -->
+
+            <div class="modal-footer">
+                <a id="save_information" href="#" style="width:95px;" type="button" class="btn btn-primary save"> Save</a>
+                <button id="cancel_information" style="width:95px" type="button" class="btn btn-default">Cancel</button>
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>

@@ -1,0 +1,303 @@
+< <!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+
+
+    <div id="contentWrap">
+        <div id="content">
+
+            <ul id="bread-crumbs" class="breadcrumb">
+                <li>
+                    <a href="/" title="Home"><i class="icon-home"></i></a>
+                </li>
+                <li class="crumb-divider">  / </li>
+                <li>
+                    <a href="/administration">Administration</a>
+                </li>
+            </ul>
+
+            <h1>System Emails</h1>
+
+            <div class="divider"></div>
+
+
+
+            <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div id="" class="no-create">
+
+                    <div id="_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                    <div id="_module" class="module">
+
+                        <div class="header clearfix">
+
+                            <h2 id="_h2"></h2>
+
+
+
+                            <form id="_date_range_form" class="inline" onsubmit="new Ajax.Updater('_table_div', '/systemEmail/table/ajax/1', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('_ajax_urlparams').value + '&amp;'  + Form.serialize(this) }); return false;" action="/systemEmail/table/ajax/1" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="5aa499497fc167f851408a3d67c9fc848f8b4e52b20d3d7ce49d341bec5f23f30e5083c79dfc1a7d6680cbe213e9329a"></div>
+                                <p class="inline header">
+
+                                    <span id="datetext_header">
+                                        Date Range  <small>(Based on 12am EDT)</small>:
+                                    </span> <br>
+
+                                    <select name="dateRange" id="dateRange_" onchange="customDates = document.getElementById('_custom_dates');if(this.value==7) {
+								customDates.removeClassName(&quot;hidden&quot;);
+							 } else {
+							 	$('_date_range_form').onsubmit();
+							 	customDates.addClassName(&quot;hidden&quot;);
+							 }" class="input-auto">
+                                        <option value="1">Today</option>
+                                        <option value="2">Yesterday</option>
+                                        <option value="4">This Month</option>
+                                        <option value="10">This Quarter</option>
+                                        <option value="11">This Year</option>
+                                        <option value="3">Last 7 Days</option>
+                                        <option value="14">Last Week</option>
+                                        <option value="5">Last Month</option>
+                                        <option value="12">Last Quarter</option>
+                                        <option value="13">Last Year</option>
+                                        <option value="6" selected="selected">All Time</option>
+                                        <option value="7">Custom</option>
+                                    </select>						<span id="_custom_dates" class="datepickerBS inline header hidden">
+                                        <input type="text" name="startDate" id="startDate" value="2006-12-31" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_startDate">...</button>
+                                        <script type="text/javascript">
+    document.getElementById("trigger_startDate").disabled = false;
+    Calendar.setup({
+      inputField : "startDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_startDate"
+    });
+                                        </script>
+                                        &nbsp;to&nbsp;
+
+                                        <input type="text" name="endDate" id="endDate" value="2015-10-08" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_endDate">...</button>
+                                        <script type="text/javascript">
+    document.getElementById("trigger_endDate").disabled = false;
+    Calendar.setup({
+      inputField : "endDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_endDate"
+    });
+                                        </script>
+                                        &nbsp;
+                                        <input type="submit" name="commit" value="Go" class="btn btn-primary">
+                                    </span>
+                                </p>
+                            </form>
+
+
+                            <form id="_filter" class="inline" onsubmit="new Ajax.Updater('_table_div', '/systemEmail/table/ajax/1/dateText/Date+Range%3A+', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/systemEmail/table/ajax/1/dateText/Date+Range%3A+" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="5aa499497fc167f851408a3d67c9fc848f8b4e52b20d3d7ce49d341bec5f23f30e5083c79dfc1a7d6680cbe213e9329a"></div>
+                                <p class="inline header">
+                                    Filter:<br>
+                                    <input type="text" name="table_filter" id="_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;_filter&quot;).onsubmit()',600);" class="input-medium">
+                                </p>
+                            </form>
+
+
+
+                        </div>
+                        <div id="_wrapper" class="module-wrapper">
+                            <div id="_table_div">
+
+
+                                <input type="hidden" id="_ajax_urlparams" value="sort=system_email.updated_at&amp;order=desc&amp;dateRange=6&amp;mode=manage&amp;tableName=systemEmail&amp;pageSize=5&amp;startDate=%401439638788&amp;endDate=%401444373999&amp;dateText=Date+Range%3A&amp;ajaxElement=&amp;startDate=%401167627600&amp;endDate=now&amp;numResults=9">
+                                <table id="_table" class="data-table table-bordered">
+                                    <thead>
+                                        <tr>
+
+
+
+                                            <th class="first email-address-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('_table_div', '/systemEmail/table/ajax/1/page/1/order/desc/sort/system_email.email/dateRange/6/mode/manage/tableName/systemEmail/pageSize/5/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=5ada718be219730f68c2a1d0cdaefa92fc987a8709f495afd380323fe4c819e4b611ed31fe21a41d582bdc38bb206c76'});; return false;">Email Address</a>
+
+                                            </th>
+
+
+
+                                            <th class="subject-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('_table_div', '/systemEmail/table/ajax/1/page/1/order/desc/sort/system_email.subject/dateRange/6/mode/manage/tableName/systemEmail/pageSize/5/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=08b5e01d1da5e0e9437f94c3240f1089235ef4ec6a8f7b2d6394791a731400fb07710ad5e6930b3fbcd90d3792caac81'});; return false;">Subject</a>
+
+                                            </th>
+
+
+
+
+                                            <th class="sortable sort-down sent-at-column last">
+
+                                                <a href="#" onclick="new Ajax.Updater('_table_div', '/systemEmail/table/ajax/1/page/1/order/asc/sort/system_email.updated_at/dateRange/6/mode/manage/tableName/systemEmail/pageSize/5/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=4ea6e81b8251a10ea2312dbf65921d381ad4cd72c32681b93da4a7a08d871176bcf3971ba150eb9c85be75f5796317ca'});; return false;">Sent At</a>
+
+                                                <i class="icon-circle-arrow-down muted"></i>
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr class="" id="_row_a0">
+
+                                            <td class="first ">
+                                                <a href="/systemEmail/read/id/31678">Balakrishna_Chappidi@affymetrix.com</a>
+                                            </td>
+
+                                            <td>
+                                                <a href="/systemEmail/read/id/31678">Pardot Assigned Prospect: ursbaluc@yahoo.com</a>
+                                            </td>
+
+                                            <td class="last">
+                                                Oct 6, 2015 9:58 AM
+                                            </td>
+                                        </tr>
+                                        <tr style="display:none" id="_row_b0" class="ajax_row">
+                                            <td colspan="3" id="_row_b_cell0" class="last"></td>
+                                        </tr>
+                                        <tr class="even" id="_row_a1">
+
+                                            <td class="first ">
+                                                <a href="/systemEmail/read/id/31670">ching_chiang@affymetrix.com</a>
+                                            </td>
+
+                                            <td>
+                                                <a href="/systemEmail/read/id/31670">Pardot Assigned Prospect: balakrishna.chappidi@gmail.com</a>
+                                            </td>
+
+                                            <td class="last">
+                                                Oct 6, 2015 9:49 AM
+                                            </td>
+                                        </tr>
+                                        <tr style="display:none" id="_row_b1" class="ajax_row">
+                                            <td colspan="3" id="_row_b_cell1" class="last"></td>
+                                        </tr>
+                                        <tr class="" id="_row_a2">
+
+                                            <td class="first ">
+                                                <a href="/systemEmail/read/id/28179">cchiang@hotmail.com</a>
+                                            </td>
+
+                                            <td>
+                                                <a href="/systemEmail/read/id/28179">Pardot: export Export Successful</a>
+                                            </td>
+
+                                            <td class="last">
+                                                Oct 1, 2015 6:54 AM
+                                            </td>
+                                        </tr>
+                                        <tr style="display:none" id="_row_b2" class="ajax_row">
+                                            <td colspan="3" id="_row_b_cell2" class="last"></td>
+                                        </tr>
+                                        <tr class="even" id="_row_a3">
+
+                                            <td class="first ">
+                                                <a href="/systemEmail/read/id/27526">Kavitha_Levaku@affymetrix.com</a>
+                                            </td>
+
+                                            <td>
+                                                <a href="/systemEmail/read/id/27526">Pardot: New user account created</a>
+                                            </td>
+
+                                            <td class="last">
+                                                Sep 29, 2015 4:11 PM
+                                            </td>
+                                        </tr>
+                                        <tr style="display:none" id="_row_b3" class="ajax_row">
+                                            <td colspan="3" id="_row_b_cell3" class="last"></td>
+                                        </tr>
+                                        <tr class="" id="_row_a4">
+
+                                            <td class="first ">
+                                                <a href="/systemEmail/read/id/26415">anna.li@salesforce.com</a>
+                                            </td>
+
+                                            <td>
+                                                <a href="/systemEmail/read/id/26415">Pardot: Email Rendering Tests Complete</a>
+                                            </td>
+
+                                            <td class="last">
+                                                Sep 25, 2015 2:05 PM
+                                            </td>
+                                        </tr>
+                                        <tr style="display:none" id="_row_b4" class="ajax_row">
+                                            <td colspan="3" id="_row_b_cell4" class="last"></td>
+                                        </tr>
+                                    </tbody>
+
+
+                                </table>
+
+
+
+                                <div class="table-foot clearfix">
+                                    <div id="_table_footer">
+                                        <form id="form" class="inline -pager-form pager-form" onsubmit="new Ajax.Updater('_table_div', '/systemEmail/table/ajax/1/sort/system_email.updated_at/order/desc/dateRange/6/mode/manage/tableName/systemEmail/pageSize/5/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:Form.serialize(this)}); return false;" action="/systemEmail/table/ajax/1/sort/system_email.updated_at/order/desc/dateRange/6/mode/manage/tableName/systemEmail/pageSize/5/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement" method="post">
+                                            <div style="display:none;"><input type="hidden" name="_csrf_token" value="5aa499497fc167f851408a3d67c9fc848f8b4e52b20d3d7ce49d341bec5f23f30e5083c79dfc1a7d6680cbe213e9329a"></div>						<ul class="inline pull-right paging">
+                                                <li>
+                                                </li>
+
+                                                <li>
+                                                    Page
+                                                    <input type="text" name="page" id="page_" value="1" class="text-tiny" style="width: 18px;">
+                                                    <script>$j(".text-tiny").each(textTinyResize);</script>
+                                                    of
+                                                    <a class="pager-last" href="#" onclick="cancelAllPendingAjax(); new Ajax.Updater('_table_div', '/systemEmail/table/ajax/1/page/2/sort/system_email.updated_at/order/desc/dateRange/6/mode/manage/tableName/systemEmail/pageSize/5/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=6217f8f87383eea37c80cb87c19d6891af3165621796ca022fdbe17d0aa2f266ad4e4d94149ceb5571922d227d525750'});; return false;">2</a>
+                                                </li>
+
+                                                <li class="last">
+                                                    <a class="pager-next" href="#" onclick="cancelAllPendingAjax(); new Ajax.Updater('_table_div', '/systemEmail/table/ajax/1/page/2/sort/system_email.updated_at/order/desc/dateRange/6/mode/manage/tableName/systemEmail/pageSize/5/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/ajaxElement', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=fc277223d37f7d0da3c83b53a62031a222a07f4ca437cb8b22797d86ec3844d06d20571406d34b2966a22efe276de4ee'});; return false;">Next »</a>
+                                                </li>
+                                            </ul>
+                                            <p class="inline pull-right">
+                                                Showing
+                                                <select name="pageSize" id="pageSize" onchange="$(&quot;form&quot;).onsubmit();return false;" class="input-auto">
+                                                    <option value="5" selected="selected">5</option>
+                                                    <option value="10">10</option>
+                                                    <option value="15">15</option>
+                                                    <option value="25">25</option>
+                                                    <option value="50">50</option>
+                                                </select>											 of <strong>9</strong>																															<input type="hidden" name="dateRange" id="1_dateRange" value="6">																								<input type="hidden" name="view" id="1_view" value="">																								<input type="hidden" name="mode" id="1_mode" value="manage">																								<input type="hidden" name="tableName" id="1_tableName" value="systemEmail">																								<input type="hidden" name="campaign_id" id="1_campaign_id" value="0">																								<input type="hidden" name="prospect_id" id="1_prospect_id" value="">																								<input type="hidden" name="visitor_id" id="1_visitor_id" value="">																								<input type="hidden" name="visit_id" id="1_visit_id" value="">																								<input type="hidden" name="user_id" id="1_user_id" value="">																								<input type="hidden" name="query" id="1_query" value="">																																			<input type="hidden" name="prefix" id="1_prefix" value="">																								<input type="hidden" name="export" id="1_export" value="">																								<input type="hidden" name="startDate" id="1_startDate" value="@1439638788">																								<input type="hidden" name="endDate" id="1_endDate" value="@1444373999">																								<input type="hidden" name="dateText" id="1_dateText" value="Date Range:">
+                                            </p>
+                                        </form>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+    </body>
+</html>
+ 

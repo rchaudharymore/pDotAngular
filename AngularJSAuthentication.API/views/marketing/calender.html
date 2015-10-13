@@ -1,0 +1,549 @@
+﻿<div id="wrap" class="clearfix">
+    <!--[if IE 7]>
+    <div id="ieCompatibility">
+        <img style="vertical-align: text-top;" src="/images/error.png"/>
+        <strong>Warning</strong>: Your browser is in Compatibility Mode. For things to work correctly, you need to <a href="http://help.pardot.com/faqs/administration/turning-off-compatibility-mode-in-ie" target="_blank">turn it off</a>.
+    </div>
+    <![endif]-->
+    <p class="hidden">
+        <a href="#content">Skip navigation</a>
+    </p>
+    <div id="wrapper">
+
+        <div id="contentWrap">
+            <div id="content">
+
+                <ul id="bread-crumbs" class="breadcrumb">
+                    <li>
+                        <a href="/" title="Home"><i class="icon-home"></i></a>
+                    </li>
+                    <li class="crumb-divider">  / </li>
+                    <li>
+                        <a href="/marketing">Marketing</a>
+                    </li>
+                </ul>
+
+                <h1>Marketing Calendar</h1>
+
+                <div class="divider"></div>
+
+
+
+                <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+                    <script type="text/javascript">
+	$j(document).ready(function() {
+
+		var sfUrlParam = function(param) {
+			// e.g. for uri /calendar/index/viewMoreTs/1379908800000
+			// pathArray will be ['calendar', 'index', 'viewMoreTs', '1379908800000']
+			var pathArray = $j.url().data.seg.path;
+			var index = $j.inArray(param, pathArray);
+
+			if (index >= 0) {
+				return pathArray[index+1];
+			}
+		}
+
+		var indicator = $j('#indicator');
+		var calendarDiv = $j('#calendar');
+
+		var afterPopoverShow = function(element, popover) {
+			if (element.data('popoverPosition') == 'bottom') {
+				return true;
+			}
+
+			var scrollDiv = getScrollDiv(element);
+			scrollDiv.css('overflow', 'hidden'); // disable scrolling
+
+			// we need to move the popover to allow it to break free of overflow: hidden
+			popover.insertAfter(scrollDiv);
+
+			// now we need to update the popover's "top" property since we moved it
+			// 48 is the # of pixels used by els such as the "all-day" row
+			var vertOffset = Math.max(element.position().top - scrollDiv.scrollTop(), 0) + 48;
+			popover.css('top', (vertOffset - popover.height()) + 'px');
+
+			return true;
+		}
+
+		var afterPopoverHide = function(element) {
+			if (element.data('popoverPosition') == 'bottom') {
+				return true;
+			}
+
+			var scrollDiv = getScrollDiv(element);
+			// re-enable scrolling
+			scrollDiv.css('overflow-x', 'hidden');
+			scrollDiv.css('overflow-y', 'auto');
+
+			return true;
+		}
+
+		// only for Agenda-view event elements
+		var getScrollDiv = function(eventEl) {
+			return eventEl.parent().parent().parent();
+		}
+
+		var drillDownTo = function(date) {
+				//			calendarDiv.fullCalendar('changeView', 'agendaDay');
+				//calendarDiv.fullCalendar('gotoDate', date);
+						return false;
+		}
+
+		var sources = [{
+			url: '/calendar/customEvents',
+			textColor: 'black'
+		}];
+
+						sources.push({
+					url: '/calendar/listEmails',
+					color: '#E0F7D9',
+					textColor: 'black'
+				});
+					sources.push({
+				url: '/calendar/socialMessages',
+				color: '#D9F3F7',
+				textColor: 'black'
+			});
+					sources.push({
+				url: '/calendar/webinars',
+				color: '#E3D9F7',
+				textColor: 'black'
+			});
+					sources.push({
+				url: '/calendar/events',
+				color: '#F7D9D9',
+				textColor: 'black'
+			});
+
+		var showCalendar = function() {
+			calendarDiv.fullCalendar({
+															header: {
+							left: 'prev,next today month,agendaWeek,agendaDay',
+							center: 'title',
+							right: 'createButton'
+						},
+						createButton: function() {
+
+							var html = '<span class="link_to_create pull-right">';
+							html += '\x3ca class\x3d\x22btn btn\x2dwarning\x22 id\x3d\x22create\x5fbtn\x22 href\x3d\x22\x23\x22 onclick\x3d\x22new Ajax\x2eUpdater\x28\x27event\x5fcrud\x27\x2c \x27\x2fcalendarEvent\x2fcreate\x27\x2c \x7basynchronous\x3atrue\x2c evalScripts\x3atrue\x2c method\x3a\x27get\x27\x2c parameters\x3a\x27\x5fcsrf\x5ftoken\x3d4d791919796ff43a27a5914d0497ab1e35946a666ffb83a538bc33961d344ebb86c6486d9c94892a558473d3b48e58b3\x27\x7d\x29\x3b\x3b return false\x3b\x22\x3e\x3ci class\x3d\x27icon\x2dplus\x27\x3e\x3c\x2fi\x3e Create New Event\x3c\x2fa\x3e';
+							html += '</span>';
+
+							return html;
+						},
+									viewMoreLink: true,
+				firstHour: 9,
+				// replaced in fullcalendar 1.6.3 by viewRender
+				viewDisplay: function(view) {
+					if (view.name == "agendaWeek") {
+						// see dayClick() function
+						$j('.fc-widget-content', calendarDiv).css('cursor', 'pointer');
+						$j('.fc-day-content', calendarDiv).css('cursor', 'pointer');
+					}
+					return false;
+				},
+				dayRender: function(date, cell) {
+					cell.css('cursor', 'pointer'); // see dayClick() function
+					return true;
+				},
+				dayClick: function(date, allDay, jsEvent, view) {
+					if ($j.inArray(view.name, ["month", "agendaWeek"]) >= 0) {
+						return drillDownTo(date);
+					}
+
+					return false;
+				},
+				eventClick: function(event) {
+					if (event.url && event.custom) {
+						window.open(event.url); // open in separate tab
+						return false;
+			        }
+					return true;
+				},
+				eventRender: function(event, element) {
+					var titleEl = element.find('.fc-event-title');
+					var iconHtml = '<i class="icon-' + event.icon + '"></i>';
+					titleEl.prepend(' ' + iconHtml + ' ');
+
+					if (event.custom) {
+						// this allows us to put ajax_links in the popovers
+												var statusHtml = '<div id="cevt_status' +
+							event.id + '" style="display:none;" class="ajax_status"></div>';
+
+						titleEl.prepend(statusHtml);
+					}
+
+					return true;
+				},
+				eventAfterRender: function(event, element, view) {
+					if ($j.inArray(view.name, ["agendaDay", "agendaWeek"]) >= 0) {
+						// don't overlap the edge of the slot below
+						element.height(element.height() - 1);
+
+						if (typeof(event.popoverUrl) !== 'undefined') {
+
+element.createPopover = function(title, content) {
+	element.popover({
+		title: $j('<div/>').text(title).html(), // html-escape
+		html: true,
+		content: content,
+		placement: function (context, source) {
+			// 300 is the approx. height of the tallest Marketing Calendar popover
+			if ($j(source).offset().top < 300) {
+				element.data('popoverPosition', 'bottom');
+				return "bottom";
+			}
+
+			element.data('popoverPosition', 'top');
+			return "top";
+		},
+		animation: false, // DON'T CHANGE THIS, see NOTE above
+		trigger: 'manual'
+	});
+
+	element.data('showingPopover', false);
+};
+
+element.showPopover = function() {
+	element.data('hoveringPopover', true);
+
+	var po = element.next('.popover');
+	if (po.length === 0) {
+		element.popover('show');
+		po = element.next('.popover');
+	}
+
+	if (!element.data('popoverHoverAllowed')) {
+		po.on({
+			mouseenter: function(e) {
+				element.trigger('mouseenter');
+				return true;
+			},
+			mouseleave: function(e) {
+				element.trigger('mouseleave');
+				return true;
+			}
+		});
+
+		element.data('popoverHoverAllowed', true);
+	};
+afterPopoverShow(element, po);
+};
+
+element.hidePopover = function() {
+	element.popover("hide");
+afterPopoverHide(element);
+};
+
+element.showHidePopoverDelayed = function(showHide){
+	if (typeof showHide === "undefined"){
+		return;
+	}
+
+	// Reset timeout checker
+	clearTimeout(element.data("popoverTO"));
+
+	// Flag for show and hide events
+	element.data("waitingForPopoverTO", true);
+
+	// In 250ms, check to see if the popover is still being hovered
+	element.data("popoverTO", setTimeout(function () {
+
+		if (showHide){
+			// If being hovered, show the popover
+			if (element.data("hoveringPopover") && !element.data('showingPopover')) {
+				element.data('showingPopover', true);
+				element.showPopover();
+			}
+		} else {
+			// If not being hovered, force the hide
+			if (!element.data("hoveringPopover") && element.data('showingPopover')) {
+				element.data('showingPopover', false);
+				element.hidePopover();
+			}
+		}
+
+		element.data("waitingForPopoverTO", false);
+	}, 250));
+};
+
+element.destroyPopover = function() {
+	element.popover('destroy');
+	element.data('popoverHoverAllowed', false);
+};
+
+element.bind('mouseover', function() {
+
+	element.unbind('mouseover');
+
+	element.on({
+		mouseenter: function(e) {
+			// Currently hovering popover
+			element.data('hoveringPopover', true);
+
+			// If it's still waiting to determine if it can be hovered,
+			// don't allow other handlers
+			if (element.data("waitingForPopoverTO")) {
+				e.stopImmediatePropagation();
+			}
+
+			element.showHidePopoverDelayed(true);
+
+			return false;
+		},
+		mouseleave: function(e) {
+			// No longer hovering popover
+			element.data("hoveringPopover", false);
+
+			// If it's still waiting to determine if it can be hovered,
+			// don't allow other handlers
+			if (element.data("waitingForPopoverTO")) {
+				e.stopImmediatePropagation();
+			}
+
+			element.showHidePopoverDelayed(false);
+
+			return false;
+		}
+	});
+
+	var loadingGif = '<img src="/images/indicator.gif" alt="Loading" />';
+	element.createPopover(event.title, loadingGif);
+	element.showHidePopoverDelayed(true);
+
+	$j.ajax({
+		url: event.popoverUrl,
+		success: function(data) {
+			element.destroyPopover();
+
+			element.createPopover(event.title, data);
+
+			if (element.data("hoveringPopover")) {
+				element.showPopover();
+				element.data('showingPopover', true);
+			}
+		},
+		error: function(xhr, textStatus) {
+			element.destroyPopover();
+		}
+	});
+});
+						}
+					} else if (typeof(event.popoverUrl) !== 'undefined') {
+
+element.createPopover = function(title, content) {
+	element.popover({
+		title: $j('<div/>').text(title).html(), // html-escape
+		html: true,
+		content: content,
+		placement: function (context, source) {
+			// 300 is the approx. height of the tallest Marketing Calendar popover
+			if ($j(source).offset().top < 300) {
+				element.data('popoverPosition', 'bottom');
+				return "bottom";
+			}
+
+			element.data('popoverPosition', 'top');
+			return "top";
+		},
+		animation: false, // DON'T CHANGE THIS, see NOTE above
+		trigger: 'manual'
+	});
+
+	element.data('showingPopover', false);
+};
+
+element.showPopover = function() {
+	element.data('hoveringPopover', true);
+
+	var po = element.next('.popover');
+	if (po.length === 0) {
+		element.popover('show');
+		po = element.next('.popover');
+	}
+
+	if (!element.data('popoverHoverAllowed')) {
+		po.on({
+			mouseenter: function(e) {
+				element.trigger('mouseenter');
+				return true;
+			},
+			mouseleave: function(e) {
+				element.trigger('mouseleave');
+				return true;
+			}
+		});
+
+		element.data('popoverHoverAllowed', true);
+	};
+
+};
+
+element.hidePopover = function() {
+	element.popover("hide");
+
+};
+
+element.showHidePopoverDelayed = function(showHide){
+	if (typeof showHide === "undefined"){
+		return;
+	}
+
+	// Reset timeout checker
+	clearTimeout(element.data("popoverTO"));
+
+	// Flag for show and hide events
+	element.data("waitingForPopoverTO", true);
+
+	// In 250ms, check to see if the popover is still being hovered
+	element.data("popoverTO", setTimeout(function () {
+
+		if (showHide){
+			// If being hovered, show the popover
+			if (element.data("hoveringPopover") && !element.data('showingPopover')) {
+				element.data('showingPopover', true);
+				element.showPopover();
+			}
+		} else {
+			// If not being hovered, force the hide
+			if (!element.data("hoveringPopover") && element.data('showingPopover')) {
+				element.data('showingPopover', false);
+				element.hidePopover();
+			}
+		}
+
+		element.data("waitingForPopoverTO", false);
+	}, 250));
+};
+
+element.destroyPopover = function() {
+	element.popover('destroy');
+	element.data('popoverHoverAllowed', false);
+};
+
+element.bind('mouseover', function() {
+
+	element.unbind('mouseover');
+
+	element.on({
+		mouseenter: function(e) {
+			// Currently hovering popover
+			element.data('hoveringPopover', true);
+
+			// If it's still waiting to determine if it can be hovered,
+			// don't allow other handlers
+			if (element.data("waitingForPopoverTO")) {
+				e.stopImmediatePropagation();
+			}
+
+			element.showHidePopoverDelayed(true);
+
+			return false;
+		},
+		mouseleave: function(e) {
+			// No longer hovering popover
+			element.data("hoveringPopover", false);
+
+			// If it's still waiting to determine if it can be hovered,
+			// don't allow other handlers
+			if (element.data("waitingForPopoverTO")) {
+				e.stopImmediatePropagation();
+			}
+
+			element.showHidePopoverDelayed(false);
+
+			return false;
+		}
+	});
+
+	var loadingGif = '<img src="/images/indicator.gif" alt="Loading" />';
+	element.createPopover(event.title, loadingGif);
+	element.showHidePopoverDelayed(true);
+
+	$j.ajax({
+		url: event.popoverUrl,
+		success: function(data) {
+			element.destroyPopover();
+
+			element.createPopover(event.title, data);
+
+			if (element.data("hoveringPopover")) {
+				element.showPopover();
+				element.data('showingPopover', true);
+			}
+		},
+		error: function(xhr, textStatus) {
+			element.destroyPopover();
+		}
+	});
+});
+					}
+
+					return true;
+				},
+				loading: function(isLoading) {
+											var indicator = $j('#indicator');
+										var calcont = $j('.fc-content');
+					if (isLoading) {
+						indicator.show();
+						calcont.fadeTo(500, 0.3);
+					} else {
+						indicator.fadeOut();
+						calcont.fadeTo(500, 1);
+					}
+
+					return true;
+				},
+				eventSources: sources
+			});
+		}
+
+					indicator.show();
+
+			if (typeof(sfUrlParam('createEvent')) !== 'undefined') {
+				$j('#event_crud').load('/calendarEvent/create', function() {
+					indicator.fadeOut();
+					showCalendar();
+				});
+			} else {
+				var editEventId = sfUrlParam('editEventId');
+				if (typeof(editEventId) !== 'undefined') {
+					$j('#event_crud').load('/calendarEvent/update/id/' + editEventId, function() {
+						indicator.fadeOut();
+						showCalendar();
+					});
+				} else {
+					showCalendar();
+				}
+			}
+
+			var viewMoreTs = sfUrlParam('viewMoreTs');
+			if (typeof(viewMoreTs) !== 'undefined') {
+				drillDownTo(new Date(parseInt(viewMoreTs)));
+			} else {
+								calendarDiv.fullCalendar('gotoDate', new Date("Oct 7, 2015 6:09 AM"));
+			}
+			});
+                    </script>
+
+                    <div id="event_crud"></div>
+
+
+                    <div id="calendar" style="margin:3em 0 1em;font-size:13px" class="fc fc-ltr"><table class="fc-header" style="width:100%"><tbody><tr><td class="fc-header-left"><span class="fc-button fc-button-prev fc-state-default fc-corner-left" unselectable="on"><span class="fc-text-arrow">‹</span></span><span class="fc-button fc-button-next fc-state-default fc-corner-right" unselectable="on"><span class="fc-text-arrow">›</span></span><span class="fc-header-space"></span><span class="fc-button fc-button-today fc-state-default fc-corner-left fc-corner-right fc-state-disabled" unselectable="on">today</span><span class="fc-header-space"></span><span class="fc-button fc-button-month fc-state-default fc-corner-left fc-state-active" unselectable="on">month</span><span class="fc-button fc-button-agendaWeek fc-state-default" unselectable="on">week</span><span class="fc-button fc-button-agendaDay fc-state-default fc-corner-right" unselectable="on">day</span></td><td class="fc-header-center"><span class="fc-header-title"><h2>October 2015</h2></span></td><td class="fc-header-right"><span class="link_to_create pull-right"><a class="btn btn-warning" id="create_btn" href="#" onclick="new Ajax.Updater('event_crud', '/calendarEvent/create', {asynchronous:true, evalScripts:true, method:'get', parameters:'_csrf_token=4d791919796ff43a27a5914d0497ab1e35946a666ffb83a538bc33961d344ebb86c6486d9c94892a558473d3b48e58b3'});; return false;"><i class="icon-plus"></i> Create New Event</a></span></td></tr></tbody></table><div class="fc-content" style="position: relative; min-height: 1px; opacity: 1;"><div class="fc-view fc-view-month fc-grid" style="position: relative; min-height: 1px;" unselectable="on"><div style="position:absolute;z-index:8;top:0;left:0"><a href="/socialMessage/read/id/182" class="fc-event fc-event-hori fc-event-start fc-event-end" style="position: absolute; z-index: 8; left: 373.5px; border-color: rgb(217, 243, 247); color: black; width: 165px; top: 53px; background-color: rgb(217, 243, 247);"><div class="fc-event-inner"><span class="fc-event-time">4:04a</span><span class="fc-event-title"> <i class="icon-retweet"></i> Breakfast is on us! See Rory Collins speak at #ASHG15 http://bit.ly/1JQECF8</span></div></a><a href="/socialMessage/read/id/196" class="fc-event fc-event-hori fc-event-start fc-event-end" style="position: absolute; z-index: 8; left: 919.5px; border-color: rgb(217, 243, 247); color: black; width: 165px; top: 53px; background-color: rgb(217, 243, 247);" data-original-title=""><div class="fc-event-inner"><span class="fc-event-time">6:01a</span><span class="fc-event-title"> <i class="icon-retweet"></i> Breakfast is on us! See Rory Collins speak at #ASHG15  http://bit.ly/1JQECF8</span></div></a><a href="/socialMessage/read/id/202" class="fc-event fc-event-hori fc-event-start fc-event-end" style="position: absolute; z-index: 8; left: 373.5px; border-color: rgb(217, 243, 247); color: black; width: 165px; top: 206px; background-color: rgb(217, 243, 247);"><div class="fc-event-inner"><span class="fc-event-time">6:02a</span><span class="fc-event-title"> <i class="icon-retweet"></i> Breakfast seminar on 10/7 Room 343/344  http://bit.ly/1JQECF8 #ASHG15</span></div></a><a href="/socialMessage/read/id/250" class="fc-event fc-event-hori fc-event-start fc-event-end" style="position: absolute; z-index: 8; left: 191.5px; border-color: rgb(217, 243, 247); color: black; width: 165px; top: 206px; background-color: rgb(217, 243, 247);"><div class="fc-event-inner"><span class="fc-event-time">10a</span><span class="fc-event-title"> <i class="icon-retweet"></i> Breakfast on Wednesday is on us! 10/7 Room 343/344 http://bit.ly/1JQECF8 #ASHG15</span></div></a></div><table class="fc-border-separate" style="width:100%" cellspacing="0"><thead><tr class="fc-first fc-last"><th class="fc-day-header fc-sun fc-widget-header fc-first" style="width: 168px;">Sun</th><th class="fc-day-header fc-mon fc-widget-header" style="width: 168px;">Mon</th><th class="fc-day-header fc-tue fc-widget-header" style="width: 168px;">Tue</th><th class="fc-day-header fc-wed fc-widget-header" style="width: 168px;">Wed</th><th class="fc-day-header fc-thu fc-widget-header" style="width: 168px;">Thu</th><th class="fc-day-header fc-fri fc-widget-header" style="width: 168px;">Fri</th><th class="fc-day-header fc-sat fc-widget-header fc-last">Sat</th></tr></thead><tbody><tr class="fc-week fc-first"><td class="fc-day fc-sun fc-widget-content fc-other-month fc-first" data-date="2015-09-27" style="cursor: pointer;"><div style="min-height: 144.5px;"><div class="fc-day-number">27</div><div class="fc-day-content"><div style="position: relative; height: 69px;">&nbsp;</div></div></div></td><td class="fc-day fc-mon fc-widget-content fc-other-month" data-date="2015-09-28" style="cursor: pointer;"><div><div class="fc-day-number">28</div><div class="fc-day-content"><div style="position: relative; height: 69px;">&nbsp;</div></div><div class="events-view-more" data-date="2015-09-28"><a href="#view-more"><span>+4 More</span></a></div></div></td><td class="fc-day fc-tue fc-widget-content fc-other-month" data-date="2015-09-29" style="cursor: pointer;"><div><div class="fc-day-number">29</div><div class="fc-day-content"><div style="position: relative; height: 69px;">&nbsp;</div></div></div></td><td class="fc-day fc-wed fc-widget-content fc-other-month" data-date="2015-09-30" style="cursor: pointer;"><div><div class="fc-day-number">30</div><div class="fc-day-content"><div style="position: relative; height: 69px;">&nbsp;</div></div><div class="events-view-more" data-date="2015-09-30"><a href="#view-more"><span>+4 More</span></a></div></div></td><td class="fc-day fc-thu fc-widget-content" data-date="2015-10-01" style="cursor: pointer;"><div><div class="fc-day-number">1</div><div class="fc-day-content"><div style="position: relative; height: 69px;">&nbsp;</div></div><div class="events-view-more" data-date="2015-10-01"><a href="#view-more"><span>+3 More</span></a></div></div></td><td class="fc-day fc-fri fc-widget-content" data-date="2015-10-02" style="cursor: pointer;"><div><div class="fc-day-number">2</div><div class="fc-day-content"><div style="position: relative; height: 69px;">&nbsp;</div></div><div class="events-view-more" data-date="2015-10-02"><a href="#view-more"><span>+1 More</span></a></div></div></td><td class="fc-day fc-sat fc-widget-content fc-last" data-date="2015-10-03" style="cursor: pointer;"><div><div class="fc-day-number">3</div><div class="fc-day-content"><div style="position: relative; height: 69px;">&nbsp;</div></div><div class="events-view-more" data-date="2015-10-03"><a href="#view-more"><span>+1 More</span></a></div></div></td></tr><tr class="fc-week"><td class="fc-day fc-sun fc-widget-content fc-first" data-date="2015-10-04" style="cursor: pointer;"><div style="min-height: 143.5px;"><div class="fc-day-number">4</div><div class="fc-day-content"><div style="position: relative; height: 89px;">&nbsp;</div></div></div></td><td class="fc-day fc-mon fc-widget-content" data-date="2015-10-05" style="cursor: pointer;"><div><div class="fc-day-number">5</div><div class="fc-day-content"><div style="position: relative; height: 89px;">&nbsp;</div></div><div class="events-view-more" data-date="2015-10-05"><a href="#view-more"><span>+4 More</span></a></div></div></td><td class="fc-day fc-tue fc-widget-content" data-date="2015-10-06" style="cursor: pointer;"><div><div class="fc-day-number">6</div><div class="fc-day-content"><div style="position: relative; height: 89px;">&nbsp;</div></div><div class="events-view-more" data-date="2015-10-06"><a href="#view-more"><span>+1 More</span></a></div></div></td><td class="fc-day fc-wed fc-widget-content fc-today fc-state-highlight" data-date="2015-10-07" style="cursor: pointer;"><div><div class="fc-day-number">7</div><div class="fc-day-content"><div style="position: relative; height: 89px;">&nbsp;</div></div></div></td><td class="fc-day fc-thu fc-widget-content" data-date="2015-10-08" style="cursor: pointer;"><div><div class="fc-day-number">8</div><div class="fc-day-content"><div style="position: relative; height: 89px;">&nbsp;</div></div></div></td><td class="fc-day fc-fri fc-widget-content" data-date="2015-10-09" style="cursor: pointer;"><div><div class="fc-day-number">9</div><div class="fc-day-content"><div style="position: relative; height: 89px;">&nbsp;</div></div></div></td><td class="fc-day fc-sat fc-widget-content fc-last" data-date="2015-10-10" style="cursor: pointer;"><div><div class="fc-day-number">10</div><div class="fc-day-content"><div style="position: relative; height: 89px;">&nbsp;</div></div></div></td></tr><tr class="fc-week"><td class="fc-day fc-sun fc-widget-content fc-first" data-date="2015-10-11" style="cursor: pointer;"><div style="min-height: 143.5px;"><div class="fc-day-number">11</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-day fc-mon fc-widget-content" data-date="2015-10-12" style="cursor: pointer;"><div><div class="fc-day-number">12</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-day fc-tue fc-widget-content" data-date="2015-10-13" style="cursor: pointer;"><div><div class="fc-day-number">13</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-day fc-wed fc-widget-content" data-date="2015-10-14" style="cursor: pointer;"><div><div class="fc-day-number">14</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-day fc-thu fc-widget-content" data-date="2015-10-15" style="cursor: pointer;"><div><div class="fc-day-number">15</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-day fc-fri fc-widget-content" data-date="2015-10-16" style="cursor: pointer;"><div><div class="fc-day-number">16</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-day fc-sat fc-widget-content fc-last" data-date="2015-10-17" style="cursor: pointer;"><div><div class="fc-day-number">17</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td></tr><tr class="fc-week"><td class="fc-day fc-sun fc-widget-content fc-first" data-date="2015-10-18" style="cursor: pointer;"><div style="min-height: 143.5px;"><div class="fc-day-number">18</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-day fc-mon fc-widget-content" data-date="2015-10-19" style="cursor: pointer;"><div><div class="fc-day-number">19</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-day fc-tue fc-widget-content" data-date="2015-10-20" style="cursor: pointer;"><div><div class="fc-day-number">20</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-day fc-wed fc-widget-content" data-date="2015-10-21" style="cursor: pointer;"><div><div class="fc-day-number">21</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-day fc-thu fc-widget-content" data-date="2015-10-22" style="cursor: pointer;"><div><div class="fc-day-number">22</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-day fc-fri fc-widget-content" data-date="2015-10-23" style="cursor: pointer;"><div><div class="fc-day-number">23</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-day fc-sat fc-widget-content fc-last" data-date="2015-10-24" style="cursor: pointer;"><div><div class="fc-day-number">24</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td></tr><tr class="fc-week"><td class="fc-day fc-sun fc-widget-content fc-first" data-date="2015-10-25" style="cursor: pointer;"><div style="min-height: 143.5px;"><div class="fc-day-number">25</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-day fc-mon fc-widget-content" data-date="2015-10-26" style="cursor: pointer;"><div><div class="fc-day-number">26</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-day fc-tue fc-widget-content" data-date="2015-10-27" style="cursor: pointer;"><div><div class="fc-day-number">27</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-day fc-wed fc-widget-content" data-date="2015-10-28" style="cursor: pointer;"><div><div class="fc-day-number">28</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-day fc-thu fc-widget-content" data-date="2015-10-29" style="cursor: pointer;"><div><div class="fc-day-number">29</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-day fc-fri fc-widget-content" data-date="2015-10-30" style="cursor: pointer;"><div><div class="fc-day-number">30</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-day fc-sat fc-widget-content fc-last" data-date="2015-10-31" style="cursor: pointer;"><div><div class="fc-day-number">31</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td></tr><tr class="fc-week fc-last"><td class="fc-day fc-sun fc-widget-content fc-other-month fc-first" data-date="2015-11-01" style="cursor: pointer;"><div style="min-height: 146.5px;"><div class="fc-day-number">1</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-day fc-mon fc-widget-content fc-other-month" data-date="2015-11-02" style="cursor: pointer;"><div><div class="fc-day-number">2</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-day fc-tue fc-widget-content fc-other-month" data-date="2015-11-03" style="cursor: pointer;"><div><div class="fc-day-number">3</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-day fc-wed fc-widget-content fc-other-month" data-date="2015-11-04" style="cursor: pointer;"><div><div class="fc-day-number">4</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-day fc-thu fc-widget-content fc-other-month" data-date="2015-11-05" style="cursor: pointer;"><div><div class="fc-day-number">5</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-day fc-fri fc-widget-content fc-other-month" data-date="2015-11-06" style="cursor: pointer;"><div><div class="fc-day-number">6</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td><td class="fc-day fc-sat fc-widget-content fc-other-month fc-last" data-date="2015-11-07" style="cursor: pointer;"><div><div class="fc-day-number">7</div><div class="fc-day-content"><div style="position: relative; height: 0px;">&nbsp;</div></div></div></td></tr></tbody></table></div></div></div>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+
+    </div>
+</div>

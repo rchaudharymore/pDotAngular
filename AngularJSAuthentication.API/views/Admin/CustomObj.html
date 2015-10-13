@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div id="contentWrap">
+        <div id="content">
+
+            <ul id="bread-crumbs" class="breadcrumb">
+                <li>
+                    <a href="/" title="Home"><i class="icon-home"></i></a>
+                </li>
+                <li class="crumb-divider">  / </li>
+                <li>
+                    <a href="/administration">Administration</a>
+                </li>
+            </ul>
+
+            <h1>Custom Objects</h1>
+
+            <div class="divider"></div>
+
+
+
+            <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+
+                <link href="/css/bootstrap-editable.css" rel="stylesheet">
+                <script src="/js/bootstrap-editable.min.js"></script>
+                <script type="text/javascript">
+$j(function(){
+	var defaultParams = {
+		_csrf_token: '728d191f9652ecadc316235bc5af50cf125c74ad1440de7c9cc593f78eabd461a50c81c54f4937017266bbfcbd712f57'
+	};
+
+	// Set labels as inline editable
+	$j.fn.editable.defaults.mode = 'inline';
+	$j('.editable-label').editable({
+		params: defaultParams
+	});
+});
+                </script>
+
+                <script src="/js/bootstrap-editable-tooltip.js"></script>
+
+                <script type="text/javascript" src="/js/backbone.js"></script>
+                <script type="text/javascript" src="/js/modules/tableCustom.js?id=2013-09-05"></script>
+
+
+                <script type="text/javascript">
+if( ! window.tableCustomTemplate ) {
+	window.tableCustomTemplate = { };
+}
+window.tableCustomTemplate["cobj1444313814_0-table"] = "\n\t\r\n\r\n\r\n\t\r\n\r\n                \r\n\t\t\t<div id=\"cobj1444313814_0\">\r\n\t\r\n\t<div id=\"cobj1444313814_0_status\" style=\"display:none;\" class=\"ajax_status\"><\/div>\r\n\t\t\t\t\t\r\n\t\t\t\t\r\n\t\r\n\t<div id=\"cobj1444313814_0_module\" class=\"module\">\r\n\r\n\t\t<div class=\"header clearfix\">\r\n\r\n\t\t\t\t\t\t\t\t\t\t<h2 id=\"cobj1444313814_0_h2\" class='pull-left'>\r\n\t\t\t\t\t\t<\/h2>\r\n\r\n\t\t\t\r\n\t\t\r\n\t\t\t\r\n\t\t\t\r\n\t\t\t\t\t\t\t\t\t\r\n\t\t\t\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t<br\/>\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"link_to_create pull-right\">\r\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"\/customObject\/createAjax\" id=\"cobj1444313814_0_link_create\" class=\"btn btn-warning\"><i class='icon-plus'><\/i> Add custom object<\/a>\n<script type=\"text\/javascript\">\n\tjQuery('a#cobj1444313814_0_link_create').click(function() {\n\t\tjQuery(\"#indicator\").show();\n\t\tif(jQuery('html').is('.ie'))\n\t\t\ttoggleDisplay(\"cobj1444313814_0_table_footer\", false);\n\t\tjQuery.ajax({\n\t\t\turl: \"\/customObject\/createAjax\",\n\t\t\tbeforeSend: function(jqXHR, settings) {\n\t\t\t\t\/\/ TODO: Compensate for existing data?\n\t\t\t\tsettings.data += jQuery(\"#cobj1444313814_0_ajax_urlparams\").attr('value');\n\t\t\t},\n\t\t\tcomplete: function() {\n\t\t\t\tjQuery(\"#indicator\").fadeOut();\n\t\t\t},\n\t\t\tsuccess: function(data, textStatus, jqXhr) {\n\t\t\t\tjQuery(\"#cobj1444313814_0_status\").html(data);\n\t\t\t\ttoggleDisplay(\"cobj1444313814_0_status\", true);\n\t\t\t\tnew Effect.Highlight('cobj1444313814_0_status', {duration:2});\n\t\t\t}\n\t\t});\n\t\treturn false;\n\t});\n<\/script>\t\t\t\t\t\t\t\t\t<\/span>\r\n\t\t\t\t\t\t\t\t<\/div>\r\n\t\t<div id=\"cobj1444313814_0_wrapper\" class=\"module-wrapper\" >\r\n\t\t\t<div id=\"cobj1444313814_0_table_div\">\r\n\r\n\t<div class=\"custom-object-table-wrapper\">\n\t\t\t\t<table id=\"cobj1444313814_0_custom_datatable\" class=\"data-table table-bordered\">\n\t\t\t<thead>\n\t\t\t<\/thead>\n\n\t\t\t<tbody>\n\t\t\t<\/tbody>\n\t\t<\/table>\n\t<\/div>\n\t<div class='table-foot'>\n\t\t<\/div>\n\n\n\n\t\n\t\t\t<\/div>\n\t\t<\/div>\n\t<\/div>\n\t<\/div>\n\n" + "";
+                </script>
+
+                <div id="cobj1444313814_0_customTable">
+                    <div class="backbone-contents">
+
+
+
+
+
+
+                        <div id="cobj1444313814_0">
+
+                            <div id="cobj1444313814_0_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                            <div id="cobj1444313814_0_module" class="module">
+
+                                <div class="header clearfix">
+
+                                    <h2 id="cobj1444313814_0_h2" class="pull-left"></h2>
+
+
+
+
+
+
+
+
+                                    <br>												<span class="link_to_create pull-right">
+                                        <a href="/customObject/createAjax" id="cobj1444313814_0_link_create" class="btn btn-warning"><i class="icon-plus"></i> Add custom object</a>
+                                        <script type="text/javascript">
+	jQuery('a#cobj1444313814_0_link_create').click(function() {
+		jQuery("#indicator").show();
+		if(jQuery('html').is('.ie'))
+			toggleDisplay("cobj1444313814_0_table_footer", false);
+		jQuery.ajax({
+			url: "/customObject/createAjax",
+			beforeSend: function(jqXHR, settings) {
+				// TODO: Compensate for existing data?
+				settings.data += jQuery("#cobj1444313814_0_ajax_urlparams").attr('value');
+			},
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#cobj1444313814_0_status").html(data);
+				toggleDisplay("cobj1444313814_0_status", true);
+				new Effect.Highlight('cobj1444313814_0_status', {duration:2});
+			}
+		});
+		return false;
+	});
+                                        </script>
+                                    </span>
+                                </div>
+                                <div id="cobj1444313814_0_wrapper" class="module-wrapper">
+                                    <div id="cobj1444313814_0_table_div">
+
+                                        <div class="custom-object-table-wrapper">
+                                            <table id="cobj1444313814_0_custom_datatable" class="data-table table-bordered">
+                                                <thead>
+                                                    <tr>
+
+
+                                                        <th>Name</th>
+
+
+
+                                                        <th>Plural Name</th>
+
+
+
+                                                        <th>Display Field</th>
+
+
+
+                                                        <th>Crm Object</th>
+
+
+
+                                                        <th class="last">Actions</th>
+
+
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    <tr id="cobj1444313814_0_row_a0">
+                                                        <td class="empty last" colspan="5">
+                                                            There are no Custom Objects for this area.
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="table-foot">
+                                        </div>
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <script>
+	(function($) {
+		var TableCustom = window.Pardot.tableCustom;
+		var rows = new TableCustom.Model.Rows([]);
+
+		var table = new TableCustom.Model.Table({
+			prefix: "cobj1444313814_0"			,headerText: "Custom Objects"			,renderHead: true			,columns: [{"header":"Name","sort":"sort_none"},{"header":"Plural Name","sort":"sort_none"},{"header":"Display Field","sort":"sort_none"},{"header":"Crm Object","sort":"sort_none"},{"header":"Actions","sort":"sort_none"}]			,columnCount: 5			,rows: rows
+							,'hasActions': true
+						,emptyMessage: ""
+			,paged: false			,pageOffset: 0
+			,countPerPage: parseInt(localStorage.getItem("cobj1444313814_0" + "countPerPage")) || 5
+			,useTextFilter: false
+			,evenRowClasses: "class=\"even\""			,oddRowClasses: "class=\"\""
+			,sumRow: false		});
+
+		window.TableCustom = TableCustom;
+		// Late-generated template - has to render first by php
+		var templates = {
+			table: _.template(window.tableCustomTemplate["cobj1444313814_0-table"])
+		};
+
+		var tableView = new TableCustom.App.TableView({
+			el: "#" + "cobj1444313814_0" + "_customTable"
+			,tableId: "cobj1444313814_0" + "_custom_datatable"
+			,model: table
+			,templates: templates
+		});
+	})(jQuery);
+                </script>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+</body>
+</html>

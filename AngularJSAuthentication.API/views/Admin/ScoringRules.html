@@ -1,0 +1,334 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div id="wrap" class="clearfix">
+        <!--[if IE 7]>
+        <div id="ieCompatibility">
+            <img style="vertical-align: text-top;" src="/images/error.png"/>
+            <strong>Warning</strong>: Your browser is in Compatibility Mode. For things to work correctly, you need to <a href="http://help.pardot.com/faqs/administration/turning-off-compatibility-mode-in-ie" target="_blank">turn it off</a>.
+        </div>
+        <![endif]-->
+        <p class="hidden">
+            <a href="#content">Skip navigation</a>
+        </p>
+        <div id="wrapper">
+
+            <div id="contentWrap">
+                <div id="content">
+
+
+                    <h1>Scoring Rules</h1>
+
+                    <div class="divider"></div>
+
+
+
+                    <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <ul class="nav nav-pills">
+                            <li>
+                                <a href="#" onclick="new Ajax.Updater('scoring_rules_status', '/scoringRules/editScoringRules', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('scoring_rules_status', true);new Effect.Highlight('scoring_rules_status', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=065a795a975217e571b6aced1462172b637fb4520277ffa556da60a2532ae38aac080a99e35a1214565ddb2131e27950'});; return false;">Edit Scoring Rules</a>
+                            </li>
+                        </ul>
+
+                        <div id="scoring_rules_status" style="display:none;" class="ajax_status"></div>
+
+                        <div class="read">
+                            <div class="header">
+                                <h2>Scoring Rules</h2>
+                            </div>
+                            <div class="module-wrapper">
+                                <table class="table-bordered">
+                                    <tbody>
+                                        <tr class="odd">
+                                            <td class="key">
+                                                Custom Redirect Click
+                                            </td>
+                                            <td class="value">
+                                                3 points
+                                            </td>
+                                        </tr>
+                                        <tr class="even">
+                                            <td class="key">
+                                                Email Open
+                                            </td>
+                                            <td class="value">
+                                                0 points
+                                            </td>
+                                        </tr>
+                                        <tr class="odd">
+                                            <td class="key">
+                                                File Access
+                                            </td>
+                                            <td class="value">
+                                                3 points
+                                            </td>
+                                        </tr>
+                                        <tr class="even">
+                                            <td class="key">
+                                                Form Error
+                                            </td>
+                                            <td class="value">
+                                                -5 points
+                                            </td>
+                                        </tr>
+                                        <tr class="odd">
+                                            <td class="key">
+                                                Form Handler Error
+                                            </td>
+                                            <td class="value">
+                                                -5 points
+                                            </td>
+                                        </tr>
+                                        <tr class="even">
+                                            <td class="key">
+                                                Form Handler Submission
+                                            </td>
+                                            <td class="value">
+                                                50 points
+                                            </td>
+                                        </tr>
+                                        <tr class="odd">
+                                            <td class="key">
+                                                Form Submission
+                                            </td>
+                                            <td class="value">
+                                                50 points
+                                            </td>
+                                        </tr>
+                                        <tr class="even">
+                                            <td class="key">
+                                                Landing Page Error
+                                            </td>
+                                            <td class="value">
+                                                -5 points
+                                            </td>
+                                        </tr>
+                                        <tr class="odd">
+                                            <td class="key">
+                                                Landing Page Success
+                                            </td>
+                                            <td class="value">
+                                                50 points
+                                            </td>
+                                        </tr>
+                                        <tr class="even">
+                                            <td class="key">
+                                                Olark Chat
+                                            </td>
+                                            <td class="value">
+                                                10 points
+                                            </td>
+                                        </tr>
+                                        <tr class="odd">
+                                            <td class="key">
+                                                Opportunity Created
+                                            </td>
+                                            <td class="value">
+                                                50 points
+                                            </td>
+                                        </tr>
+                                        <tr class="even">
+                                            <td class="key">
+                                                Opportunity Lost
+                                            </td>
+                                            <td class="value">
+                                                -100 points
+                                            </td>
+                                        </tr>
+                                        <tr class="odd">
+                                            <td class="key">
+                                                Opportunity Won
+                                            </td>
+                                            <td class="value">
+                                                0 points
+                                            </td>
+                                        </tr>
+                                        <tr class="even">
+                                            <td class="key">
+                                                Page View
+                                            </td>
+                                            <td class="value">
+                                                1 point
+                                            </td>
+                                        </tr>
+                                        <tr class="odd">
+                                            <td class="key">
+                                                Site Search Query
+                                            </td>
+                                            <td class="value">
+                                                3 points
+                                            </td>
+                                        </tr>
+                                        <tr class="even">
+                                            <td class="key">
+                                                Social Message Link Click
+                                            </td>
+                                            <td class="value">
+                                                0 points
+                                            </td>
+                                        </tr>
+                                        <tr class="odd">
+                                            <td class="key">
+                                                Third Party Click
+                                            </td>
+                                            <td class="value">
+                                                3 points
+                                            </td>
+                                        </tr>
+                                        <tr class="even">
+                                            <td class="key">
+                                                Tracker Link Click
+                                            </td>
+                                            <td class="value">
+                                                3 points
+                                            </td>
+                                        </tr>
+                                        <tr class="odd">
+                                            <td class="key">
+                                                Visitor Session
+                                            </td>
+                                            <td class="value">
+                                                3 points
+                                            </td>
+                                        </tr>
+                                        <tr class="even">
+                                            <td class="key">
+                                                Webinar Attended
+                                            </td>
+                                            <td class="value">
+                                                0 points
+                                            </td>
+                                        </tr>
+                                        <tr class="odd">
+                                            <td class="key">
+                                                Webinar Invited
+                                            </td>
+                                            <td class="value">
+                                                0 points
+                                            </td>
+                                        </tr>
+                                        <tr class="even">
+                                            <td class="key">
+                                                Webinar Registered
+                                            </td>
+                                            <td class="value">
+                                                0 points
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div id="scoringModelChange">
+                            <br>
+
+
+
+
+
+
+
+
+                            <div id="scoringModelChange">
+
+                                <div id="scoriange_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                                <div id="scoriange_module" class="module">
+
+                                    <div class="header clearfix">
+
+                                        <h2 id="scoringModelChange_h2" class="pull-left">
+                                            Scoring Rules Changes
+                                        </h2>
+
+
+
+
+
+
+
+
+                                    </div>
+                                    <div id="scoriange_wrapper" class="module-wrapper">
+                                        <div id="scoringModelChange_table_div">
+
+
+                                            <input type="hidden" id="scoringModelChange_ajax_urlparams" value="sort=scoring_model_change.created_at&amp;order=desc&amp;pageSize=5&amp;startDate=%401443769200&amp;endDate=%401444373999&amp;dateText=Date+Range%3A&amp;ajaxElement=scoringModelChange&amp;numResults=0">
+                                            <table id="scoringModelChange_table" class="data-table table-bordered">
+                                                <thead>
+                                                    <tr>
+
+
+                                                        <th class="first changes-by-column">
+
+                                                            Changes By
+                                                        </th>
+
+
+
+
+                                                        <th class="sortable sort-down created-column">
+
+                                                            <a href="#" onclick="new Ajax.Updater('scoringModelChange_table_div', '/scoringModelChange/table/ajax/1/page/1/order/asc/sort/scoring_model_change.created_at/pageSize/5/startDate/%401443769200/endDate/%401444373999/dateText/Date+Range%3A/ajaxElement/scoringModelChange', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=33ba0f020ccf84afe8560abffca666125b8aa2a4fdff6b8f5d113d6f8db8f42f3e1e8d25c38cd660018b82b3ba064218'});; return false;">Created</a>
+
+                                                            <i class="icon-circle-arrow-down muted"></i>
+                                                        </th>
+
+
+
+                                                        <th class="status-column last">
+
+                                                            <a href="#" onclick="new Ajax.Updater('scoringModelChange_table_div', '/scoringModelChange/table/ajax/1/page/1/order/desc/sort/scoring_model_change.is_finished/pageSize/5/startDate/%401443769200/endDate/%401444373999/dateText/Date+Range%3A/ajaxElement/scoringModelChange', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=049eae65f0dc23609e24ba7daa0b2cca6c68a805fee4bef197aed6119df364ec6b522191a48f4e69dfda1b8913932d1a'});; return false;">Status</a>
+
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tfoot>
+                                                    <tr>
+                                                        <td colspan="3" class="last">
+                                                            There are no scoring rules changes for this area.
+                                                        </td>
+                                                    </tr>
+                                                </tfoot>
+
+
+                                            </table>
+
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

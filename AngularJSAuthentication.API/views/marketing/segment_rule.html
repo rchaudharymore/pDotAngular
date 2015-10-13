@@ -1,0 +1,196 @@
+﻿<div id="wrapper">
+
+    <div id="contentWrap">
+        <div id="content">
+
+            <ul id="bread-crumbs" class="breadcrumb">
+                <li>
+                    <a href="/" title="Home"><i class="icon-home"></i></a>
+                </li>
+                <li class="crumb-divider">  / </li>
+                <li>
+                    <a href="/marketing">Marketing</a>
+                </li>
+            </ul>
+
+            <h1>Segmentation</h1>
+
+            <div class="divider"></div>
+
+
+
+            <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div id="segmentation">
+
+                    <div id="seg_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                    <div id="seg_module" class="module">
+
+                        <div class="header clearfix">
+
+                            <h2 id="segmentation_h2">
+                                Segmentation Rules
+                            </h2>
+
+                            <form id="segmentation_view" class="views inline" onsubmit="new Ajax.Updater('segmentation_table_div', '/segmentation/table/ajax/1', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('seg_status', true);$('segmentation_h2').innerHTML = $('segmentation_view_field').options[$('segmentation_view_field').selectedIndex].text;}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('segmentation_ajax_urlparams').value + '&amp;'  + Form.serialize(this) }); return false;" action="/segmentation/table/ajax/1" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="f6e4c162650c7bde99e71b058e6f07259997e5b72467a4f662f26b18f21f6c7035d0e69f4b5aa3e37936243021aa8e47"></div>				<p class="inline header table-views">
+                                    View:<br>
+                                    <select name="view" id="segmentation_view_field" onchange="$(&quot;segmentation_view&quot;).onsubmit();return false;" class="input-auto">
+                                        <option value="all">All Segmentations</option>
+                                        <option value="preview">Draft Segmentations</option>
+                                        <option value="ran">Processing &amp; Completed Segmentations</option>
+                                    </select>					<input type="hidden" name="view_change" id="view_change" value="true">
+                                </p>
+                            </form>
+
+
+
+
+                            <form id="segmentation_filter" class="inline" onsubmit="new Ajax.Updater('segmentation_table_div', '/segmentation/table/ajax/1/dateText/Date+Range%3A+', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('seg_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('segmentation_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/segmentation/table/ajax/1/dateText/Date+Range%3A+" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="f6e4c162650c7bde99e71b058e6f07259997e5b72467a4f662f26b18f21f6c7035d0e69f4b5aa3e37936243021aa8e47"></div>
+                                <p class="inline header">
+                                    Filter:<br>
+                                    <input type="text" name="table_filter" id="segmentation_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;segmentation_filter&quot;).onsubmit()',600);" class="input-medium">
+                                </p>
+                            </form>
+
+                            <br>			<div class="btn-group pull-right">
+                                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Tools			    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+
+                                    <li><a href="#" onclick="new Ajax.Updater('seg_status', '/tagObject/tagTableAjax', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('seg_status', true);new Effect.Highlight('seg_status', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('seg_table_footer', false); }}, parameters:'ajaxParams='+encodeURIComponent($('segmentation_ajax_urlparams').value) + '&amp;ajaxUrl=segmentation%2Ftable&amp;objectName=Segmentation+Rules' + '&amp;_csrf_token=1b0928515d8f70f9d3e38a69979743657cbc1760d1d4e41304692241b98037fa4c5ecb8a1a9fbb12be11b900d6a4de4d'});; return false;"><i class="icon-tag"></i> Tag Entire Table</a>						</li>
+
+
+                                </ul>
+                            </div>
+
+
+                            <span class="link_to_create pull-right">
+                                <a href="/segmentation/create" id="seg_link_create" class="btn btn-warning"><i class="icon-plus"></i> Add segmentation rule</a>
+                                <script type="text/javascript">
+	jQuery('a#seg_link_create').click(function() {
+		jQuery("#indicator").show();
+		if(jQuery('html').is('.ie'))
+			toggleDisplay("seg_table_footer", false);
+		jQuery.ajax({
+			url: "/segmentation/create",
+			beforeSend: function(jqXHR, settings) {
+				// TODO: Compensate for existing data?
+				settings.data += jQuery("#seg_ajax_urlparams").attr('value');
+			},
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#seg_status").html(data);
+				toggleDisplay("seg_status", true);
+				new Effect.Highlight('seg_status', {duration:2});
+			}
+		});
+		return false;
+	});
+                                </script>
+                            </span>
+                        </div>
+                        <div id="seg_wrapper" class="module-wrapper">
+                            <div id="segmentation_table_div">
+
+
+                                <input type="hidden" id="segmentation_ajax_urlparams" value="sort=segmentation.updated_at&amp;order=desc&amp;ajaxElement=segmentation&amp;numResults=0">
+                                <table id="segmentation_table" class="data-table table-bordered">
+                                    <thead>
+                                        <tr>
+
+
+                                            <th class="first checkbox-column checkbox">
+
+
+                                            </th>
+
+
+
+                                            <th class="name-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('segmentation_table_div', '/segmentation/table/ajax/1/page/1/order/desc/sort/segmentation.name/ajaxElement/segmentation', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=643d7d7cf2e687f8c38f9ae1041cc3771ef050b4620443a5371487596e6d30b1c661f032ba51e77ee319d486e5773217'});; return false;">Name</a>
+
+                                            </th>
+
+
+
+                                            <th class="status-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('segmentation_table_div', '/segmentation/table/ajax/1/page/1/order/desc/sort/segmentation.matching_status/ajaxElement/segmentation', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=fc4d3a36a7be767c0c95aa14ddd2a8faac443fc769ef10525c2d125a1d8dc2aefbfeb0a5709db23da0d8fbec1661a846'});; return false;">Status</a>
+
+                                            </th>
+
+
+
+                                            <th class="matched-prospects-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('segmentation_table_div', '/segmentation/table/ajax/1/page/1/order/desc/sort/segmentation.is_archived/ajaxElement/segmentation', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=b0c672972bca32c35347a78222c27cd7929a2e562fa925894c423ab24d238fae8aa501fee8876b06250f3c6614870608'});; return false;">Matched Prospects</a>
+
+                                            </th>
+
+
+
+
+                                            <th class="sortable sort-down updated-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('segmentation_table_div', '/segmentation/table/ajax/1/page/1/order/asc/sort/segmentation.updated_at/ajaxElement/segmentation', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=0e661b313ebd193e1f4c2dcc7f577342dc1f46ef34477eeb4a96195333ad18bfc764309932380ca1701a5b1ab252d414'});; return false;">Updated</a>
+
+                                                <i class="icon-circle-arrow-down muted"></i>
+                                            </th>
+
+
+                                            <th class="actions-column last">
+
+                                                Actions
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="6" class="last">
+                                                There are no segmentation rules for this area.
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+
+
+                                </table>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,664 @@
+﻿<div id="wrapper">
+
+    <div id="contentWrap">
+        <div id="content">
+
+            <ul id="bread-crumbs" class="breadcrumb">
+                <li>
+                    <a href="/" title="Home"><i class="icon-home"></i></a>
+                </li>
+                <li class="crumb-divider">  / </li>
+                <li>
+                    <a href="/marketing">Marketing</a>
+                </li>
+            </ul>
+
+            <h1>Search Marketing</h1>
+
+            <div class="divider"></div>
+
+
+
+            <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+                <ul class="nav nav-pills">
+                    <li>
+                        <a href="/keyword">Keywords</a>
+                    </li>
+                    <li>
+                        <a href="/competitor">Competitors</a>
+                    </li>
+                    <li>
+                        <a href="/paidSearchCampaign">Paid Search</a>
+                    </li>
+                </ul>
+
+
+                <div class="alert">
+                    <i class="icon-warning-sign"></i>
+                    Want to receive a weekly search marketing report in your email? Update your <a href="/account">user preferences</a>.
+                </div>
+
+
+
+
+
+
+
+
+
+                <div id="keyword">
+
+                    <div id="kwd_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                    <div id="tagFilterkeyword" class="tagfilter-pop-up dropdown-menu" style="display: none;"><input type="text" id="tagFilterSearchkeyword" value=""><div class="scroller"><ul id="tagFilterSelectorkeyword"><li></li></ul></div><a href="#"  style="float: left;">Clear filter</a>  <a href="/tag" style="float: right;">Manage tags</a></div><div id="kwd_module" class="module">
+
+                        <div class="header clearfix">
+
+                            <h2 id="keyword_h2">
+                                Keywords
+                            </h2>
+
+
+
+
+
+                            <form id="keyword_filter" class="inline" onsubmit="new Ajax.Updater('keyword_table_div', '/keyword/table/ajax/1/dateText/Date+Range%3A+', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('kwd_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('keyword_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/keyword/table/ajax/1/dateText/Date+Range%3A+" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="635dfaf49bb60ca806b77302bf47ea793fc9137d0dd06dfb72225bd7c72e3f20df04071969606c8798a96a64aa6faf62"></div>
+                                <p class="inline header">
+                                    Filter:<br>
+                                    <input type="text" name="table_filter" id="keyword_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;keyword_filter&quot;).onsubmit()',600);" class="input-medium">
+                                </p>
+                            </form>
+                            <br>
+                            <form id="keyword_tagFilter" class="aaa inline tag-filter-form" onsubmit="new Ajax.Updater('keyword_table_div', '/keyword/table/ajax/1/dateText/Date+Range%3A+/table_filter', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('kwd_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('keyword_ajax_urlparams').value.replace('tagFilter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/keyword/table/ajax/1/dateText/Date+Range%3A+/table_filter" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="635dfaf49bb60ca806b77302bf47ea793fc9137d0dd06dfb72225bd7c72e3f20df04071969606c8798a96a64aa6faf62"></div>					<p class="inline header" id="tagFilterContainerkeyword"><button  class="btn">Tags <span class="caret"></span></button><span id="tagFilterListkeyword"></span><input type="hidden" id="tagFilterInputkeyword" name="tagFilter" value=""></p>
+                               
+                            </form>
+
+                            <div class="btn-group pull-right">
+                                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Tools			    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+
+                                    <li><a href="#" onclick="new Ajax.Updater('kwd_status', '/tagObject/tagTableAjax', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('kwd_status', true);new Effect.Highlight('kwd_status', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('kwd_table_footer', false); }}, parameters:'ajaxParams='+encodeURIComponent($('keyword_ajax_urlparams').value) + '&amp;ajaxUrl=keyword%2Ftable&amp;objectName=Keywords' + '&amp;_csrf_token=d7c31849c08bbbe81ff1b457d36240d531f5f2145a1828a31ca0403f495f4d8434bba6052767ff8813b97e397a8e195d'});; return false;"><i class="icon-tag"></i> Tag Entire Table</a>						</li>
+
+                                    <li><a onclick="location='/keyword/export?' + $('keyword_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                </ul>
+                            </div>
+
+
+                            <span class="link_to_create pull-right">
+                                <a href="/keyword/createAjax" id="kwd_link_create" class="btn btn-warning"><i class="icon-plus"></i> Add keyword</a>
+                                <script type="text/javascript">
+	jQuery('a#kwd_link_create').click(function() {
+		jQuery("#indicator").show();
+		if(jQuery('html').is('.ie'))
+			toggleDisplay("kwd_table_footer", false);
+		jQuery.ajax({
+			url: "/keyword/createAjax",
+			beforeSend: function(jqXHR, settings) {
+				// TODO: Compensate for existing data?
+				settings.data += jQuery("#kwd_ajax_urlparams").attr('value');
+			},
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#kwd_status").html(data);
+				toggleDisplay("kwd_status", true);
+				new Effect.Highlight('kwd_status', {duration:2});
+			}
+		});
+		return false;
+	});
+                                </script>
+                            </span>
+                        </div>
+                        <div id="kwd_wrapper" class="module-wrapper">
+                            <div id="keyword_table_div">
+
+
+                                <input type="hidden" id="keyword_ajax_urlparams" value="sort=keyword.name&amp;order=asc&amp;tagFilter=+&amp;ajaxElement=keyword&amp;numResults=0">
+                                <table id="keyword_table" class="data-table table-bordered">
+                                    <thead>
+                                        <tr>
+
+
+                                            <th class="first checkbox-column checkbox">
+
+
+                                            </th>
+
+
+
+                                            <th class="sortable sort-up keyword-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('keyword_table_div', '/keyword/table/ajax/1/page/1/order/desc/sort/keyword.name/tagFilter/+/ajaxElement/keyword', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=3baa2169c5a3c34b54a894fdd3c9a82a55072b33de54a55d1eab27ee816f98eb7f6a5b8814f52e9cbd7b4285fd7f43da'});; return false;">Keyword</a>
+
+                                                <i class="icon-circle-arrow-up muted"></i>
+                                            </th>
+
+
+
+                                            <th class="google-rank-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('keyword_table_div', '/keyword/table/ajax/1/page/1/order/desc/sort/keyword_stats.google_rank/tagFilter/+/ajaxElement/keyword', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=4c85c14b9245826afda1b56f0f8dc0f8a9a31edf41db3987ac1db71a2edd5937fd251c7473c6f3ef71e71dc99ee4e350'});; return false;">Google Rank</a>
+
+                                            </th>
+
+
+
+                                            <th class="bingyahoo-rank-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('keyword_table_div', '/keyword/table/ajax/1/page/1/order/desc/sort/keyword_stats.bing_rank/tagFilter/+/ajaxElement/keyword', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=053e6ec8627c480485dcab0aebb4565ab520dbdc43fbbf96cf46668daf1ac2989bc76c291caee3af84d4942efcc70d98'});; return false;">Bing/Yahoo Rank</a>
+
+                                            </th>
+
+
+
+                                            <th class="google-monthly-volume-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('keyword_table_div', '/keyword/table/ajax/1/page/1/order/desc/sort/keyword_stats.monthly_search_volume/tagFilter/+/ajaxElement/keyword', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=ac072cbf3869bf7c09c26893d06233efe0378dde82060201cbe406e1ee773026e4ce9c2d4563b09be0e3d997c5581b3a'});; return false;">Google Monthly Volume</a>
+
+                                            </th>
+
+
+
+                                            <th class="google-cpc-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('keyword_table_div', '/keyword/table/ajax/1/page/1/order/desc/sort/keyword_stats.cost_per_click/tagFilter/+/ajaxElement/keyword', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=842414ebf9cb93541f29e83f83825053634aed1e5106e2af7a4f50fb2e0e337bd7d8f95f5fabefed049be6942797ecb0'});; return false;">Google CPC</a>
+
+                                            </th>
+
+
+
+                                            <th class="ranking-difficulty-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('keyword_table_div', '/keyword/table/ajax/1/page/1/order/desc/sort/keyword_stats.ranking_difficulty/tagFilter/+/ajaxElement/keyword', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=39509e7ca8b275648d7fbbc556cd11813ff698871d48109cee2e285926fee87f814a1f60a673b05b025d575b381444c3'});; return false;">Ranking Difficulty</a>
+
+                                            </th>
+
+
+
+                                            <th class="last-checked-date-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('keyword_table_div', '/keyword/table/ajax/1/page/1/order/desc/sort/keyword_stats.stats_date/tagFilter/+/ajaxElement/keyword', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=d7abfafa25d12de8005e56a72ddd336612dd93506649314993169158412ab482ac067747d4845fee917b18b76b7072a2'});; return false;">Last Checked Date</a>
+
+                                            </th>
+
+
+                                            <th class="actions-column last">
+
+                                                Actions
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="9" class="last">
+                                                There are no keywords for this area.
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+
+
+                                </table>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-table-footer">
+                    Initial lookup may take up to 48 hours. Data is then refreshed weekly.
+                </div>
+
+
+
+
+
+
+
+
+
+                <div id="competitor">
+
+                    <div id="compeitor_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                    <div id="tagFiltercompetitor" class="tagfilter-pop-up dropdown-menu" style="display: none;"><input type="text" id="tagFilterSearchcompetitor" value=""><div class="scroller"><ul id="tagFilterSelectorcompetitor"><li></li></ul></div><a href="#"  style="float: left;">Clear filter</a>  <a href="/tag" style="float: right;">Manage tags</a></div><div id="compeitor_module" class="module">
+
+                        <div class="header clearfix">
+
+                            <h2 id="competitor_h2">
+                                Competitors
+                            </h2>
+
+
+
+
+
+                            <form id="competitor_filter" class="inline" onsubmit="new Ajax.Updater('competitor_table_div', '/competitor/table/ajax/1/dateText/Date+Range%3A+', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('compeitor_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('competitor_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/competitor/table/ajax/1/dateText/Date+Range%3A+" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="635dfaf49bb60ca806b77302bf47ea793fc9137d0dd06dfb72225bd7c72e3f20df04071969606c8798a96a64aa6faf62"></div>
+                                <p class="inline header">
+                                    Filter:<br>
+                                    <input type="text" name="table_filter" id="competitor_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;competitor_filter&quot;).onsubmit()',600);" class="input-medium">
+                                </p>
+                            </form>
+                            <br>
+                            <form id="competitor_tagFilter" class="aaa inline tag-filter-form" onsubmit="new Ajax.Updater('competitor_table_div', '/competitor/table/ajax/1/dateText/Date+Range%3A+/table_filter', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('compeitor_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('competitor_ajax_urlparams').value.replace('tagFilter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/competitor/table/ajax/1/dateText/Date+Range%3A+/table_filter" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="635dfaf49bb60ca806b77302bf47ea793fc9137d0dd06dfb72225bd7c72e3f20df04071969606c8798a96a64aa6faf62"></div>					<p class="inline header" id="tagFilterContainercompetitor"><button  class="btn">Tags <span class="caret"></span></button><span id="tagFilterListcompetitor"></span><input type="hidden" id="tagFilterInputcompetitor" name="tagFilter" value=""></p>
+                               
+                            </form>
+
+                            <div class="btn-group pull-right">
+                                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Tools			    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+
+                                    <li><a href="#" onclick="new Ajax.Updater('compeitor_status', '/tagObject/tagTableAjax', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('compeitor_status', true);new Effect.Highlight('compeitor_status', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('compeitor_table_footer', false); }}, parameters:'ajaxParams='+encodeURIComponent($('competitor_ajax_urlparams').value) + '&amp;ajaxUrl=competitor%2Ftable&amp;objectName=Competitors' + '&amp;_csrf_token=160c5d200223791bc5a29738d6cd9840c2306540814a111da98e7f5793c9702bdad5c11c52b2f1ffac988e4b086fb32d'});; return false;"><i class="icon-tag"></i> Tag Entire Table</a>						</li>
+
+                                    <li><a onclick="location='/competitor/export?' + $('competitor_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                </ul>
+                            </div>
+
+
+                            <span class="link_to_create pull-right">
+                                <a href="/competitor/createAjax" id="compeitor_link_create" class="btn btn-warning"><i class="icon-plus"></i> Add competitor</a>
+                                <script type="text/javascript">
+	jQuery('a#compeitor_link_create').click(function() {
+		jQuery("#indicator").show();
+		if(jQuery('html').is('.ie'))
+			toggleDisplay("compeitor_table_footer", false);
+		jQuery.ajax({
+			url: "/competitor/createAjax",
+			beforeSend: function(jqXHR, settings) {
+				// TODO: Compensate for existing data?
+				settings.data += jQuery("#compeitor_ajax_urlparams").attr('value');
+			},
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#compeitor_status").html(data);
+				toggleDisplay("compeitor_status", true);
+				new Effect.Highlight('compeitor_status', {duration:2});
+			}
+		});
+		return false;
+	});
+                                </script>
+                            </span>
+                        </div>
+                        <div id="compeitor_wrapper" class="module-wrapper">
+                            <div id="competitor_table_div">
+
+
+                                <input type="hidden" id="competitor_ajax_urlparams" value="sort=competitor.name&amp;order=asc&amp;tagFilter=+&amp;ajaxElement=competitor&amp;numResults=1">
+                                <table id="competitor_table" class="data-table table-bordered">
+                                    <thead>
+                                        <tr>
+
+
+                                            <th class="first checkbox-column checkbox">
+                                                <input type="checkbox" class="check-all">
+
+
+                                            </th>
+
+
+
+                                            <th class="sortable sort-up name-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('competitor_table_div', '/competitor/table/ajax/1/page/1/order/desc/sort/competitor.name/tagFilter/+/ajaxElement/competitor', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=d47824016f08b77fdd7cf09c9b6eb9d2018f738828156dd1826ac8f1020b46b5acce92d1cb2968da0b1c0c8e4094aef8'});; return false;">Name</a>
+
+                                                <i class="icon-circle-arrow-up muted"></i>
+                                            </th>
+
+
+
+                                            <th class="indexed-pages-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('competitor_table_div', '/competitor/table/ajax/1/page/1/order/desc/sort/competitor_stats.google_indexed_pages/tagFilter/+/ajaxElement/competitor', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=3a4d5fa296875a540e16b6ddc3bf6e38ebd913c0fc8677aeaead4d1030d2b677a83a358eadd67a7e24469eaef74af016'});; return false;">Indexed Pages</a>
+
+                                            </th>
+
+
+
+                                            <th class="inbound-links-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('competitor_table_div', '/competitor/table/ajax/1/page/1/order/desc/sort/competitor_stats.google_inbound_links/tagFilter/+/ajaxElement/competitor', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=d126e0d047a8ce0e4d71c90c08768b5cf99545a0e3f69a2502274ff5a333db11fe29816559fe4672ae739580e6a6934e'});; return false;">Inbound Links</a>
+
+                                            </th>
+
+
+
+                                            <th class="alexa-rank-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('competitor_table_div', '/competitor/table/ajax/1/page/1/order/desc/sort/competitor_stats.alexa_rank/tagFilter/+/ajaxElement/competitor', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=f037287c7e02501859117f1caef1f824524b9a9998a903891befb2400f38aa7aaee35c4da6fdb2c1b3c96494e8bc4672'});; return false;">Alexa Rank</a>
+
+                                            </th>
+
+
+                                            <th class="actions-column last">
+
+                                                Actions
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr class="" id="competitor_row_a0">
+
+                                            <td class="first checkbox">
+                                                <input type="checkbox" name="checkbox_competitor_108" id="checkbox_competitor_108" value="108" class="datatable-checkbox">
+                                            </td>
+
+                                            <td>
+                                                <a href="/competitor/read/id/108">Affymetrix Inc.</a>
+                                            </td>
+
+                                            <td>
+                                                217,000
+                                            </td>
+
+                                            <td>
+                                                36,329
+                                            </td>
+
+                                            <td>
+                                                243,690
+                                            </td>
+
+                                            <td class="new-actions last">
+
+
+
+
+
+
+                                                <div class="actions-menu-wrapper">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog muted"></i></a>	<ul class="dropdown-menu pull-right" role="menu">
+                                                        <li>
+                                                            <a id="competitor_edit_link0" href="#"><i class="icon-edit muted" title="Edit"></i> Edit</a>
+                                                            <script type="text/javascript">
+	jQuery("a#competitor_edit_link0").click(function() {
+		jQuery("#indicator").show();
+		jQuery.ajax({
+			url: "/competitor/editAjax/id/108/prefix/competitor",
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#competitor_row_b_cell0").html(data);
+				toggleDisplay("competitor_row_b0", true);
+				if(jQuery('html').is('.ie')) {
+					toggleDisplay("competitor_table_footer", false);
+				}
+				new Effect.Highlight('competitor_row_b_cell0', {duration:2});
+			}
+		});
+		hideAllActionMenus();
+		return false;
+	});
+                                                            </script>
+                                                        </li>
+                                                        <li><a href="#" onclick="if (window.confirm('Are you sure?')) { new Ajax.Updater('competitor_row_b_cell0', '/competitor/delete/id/108/prefix/competitor', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplayAnimated('competitor_row_a0', false, null, true);if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('competitor_table_footer', false); }}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=674222827936899c446ce801ed3504f34d2173b0af190832babea203e5c270f628a95b246855075bf9de6e72e224ec86'}); };; return false;"><i class="icon-trash muted" title="Delete"></i> Delete</a></li>
+                                                    </ul>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        <tr style="display:none" id="competitor_row_b0" class="ajax_row">
+                                            <td colspan="6" id="competitor_row_b_cell0" class="last"></td>
+                                        </tr>
+                                    </tbody>
+
+
+                                </table>
+
+
+
+                                <div class="table-foot clearfix">
+                                    <div id="compeitor_table_footer">
+                                        <form action="#" class="inline pull-left">
+                                            <input type="hidden" name="check_all_params" value="&amp;tagFilter=+&amp;ajaxElement=competitor">
+                                            <div class="multi-checkbox-buttons pull-left">
+                                                With <span class="checkbox-num-selected">0</span> selected:
+
+                                                <select name="multi-select" id="multi-select" onchange="
+				if (this.value == &quot;multiAddTags&quot;) {
+					jQuery(this).siblings(&quot;.MultiSelect_AddTags&quot;).show();
+				}
+				else {
+					jQuery(this).siblings(&quot;.MultiSelect_AddTags&quot;).hide();
+				}
+
+				if (this.value == &quot;multiRemoveTags&quot;) {
+					jQuery(this).siblings(&quot;.MultiSelect_RemoveTags&quot;).show();
+				}
+				else {
+					jQuery(this).siblings(&quot;.MultiSelect_RemoveTags&quot;).hide();
+				}
+
+				if (this.value == &quot;deletes&quot;) {
+					jQuery(this).siblings(&quot;.MultiSelect_Delete&quot;).show();
+				}
+				else {
+					jQuery(this).siblings(&quot;.MultiSelect_Delete&quot;).hide();
+				}
+			" class="multi-select input-auto">
+                                                    <option value="" selected="selected">&nbsp;</option>
+                                                    <option value="multiAddTags">Add tags</option>
+                                                    <option value="deletes">Delete</option>
+                                                    <option value="multiRemoveTags">Remove tags</option>
+                                                </select>
+                                                <span class="MultiSelect_AddTags" style="display: none;">
+                                                    <input name="addTags" class="tagComponent tagComponentReady" id="addTagsMultiSelect_AddTags2" value="" style="display: none;"><div id="addTagsMultiSelect_AddTags2_tagsinput" class="tagsinput" style="margin-top: -1px;"><div id="addTagsMultiSelect_AddTags2_addTag"><input id="addTagsMultiSelect_AddTags2_tag" value="" data-default="add a tag" class="ui-autocomplete-input" autocomplete="off" style="color: rgb(102, 102, 102); width: 192px;"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span></div><div class="tags_clear"></div></div>
+
+                                                  
+                                                </span><span class="MultiSelect_Delete" style="display: none;"></span>
+                                                <input class="btn" type="button" onclick="if(confirmBatchAction(&quot;competitor&quot;, &quot;Competitors&quot;)){new Ajax.Updater('compeitor_status', '/competitor/table/objectName/Competitors/tagFilter/+/ajaxElement/competitor', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('compeitor_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:Form.serialize(this.form) + '&amp;_csrf_token=b8c0845fbff899f95db2a778dcf20d335a32097a4f612cb56a3c8b440fe602fea304f73af868699d067f27293cd931d4'});} return false;" name="ajax_submit" value="Go"><input type="hidden" name="multiCheckIds" id="" value="" class="multiCheckIds">
+                                            </div>
+                                        </form>
+                                        <form id="competitorform" class="inline compeitor-pager-form pager-form" onsubmit="new Ajax.Updater('competitor_table_div', '/competitor/table/ajax/1/sort/competitor.name/order/asc/tagFilter/+/ajaxElement/competitor', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('compeitor_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:Form.serialize(this)}); return false;" action="/competitor/table/ajax/1/sort/competitor.name/order/asc/tagFilter/+/ajaxElement/competitor" method="post">
+                                            <div style="display:none;"><input type="hidden" name="_csrf_token" value="635dfaf49bb60ca806b77302bf47ea793fc9137d0dd06dfb72225bd7c72e3f20df04071969606c8798a96a64aa6faf62"></div>						<ul class="inline pull-right paging">
+                                                <li>
+                                                </li>
+
+                                                <li>
+                                                    Page
+                                                    1
+                                                    of
+                                                    <a class="pager-last" href="#" onclick="cancelAllPendingAjax(); new Ajax.Updater('competitor_table_div', '/competitor/table/ajax/1/page/1/sort/competitor.name/order/asc/tagFilter/+/ajaxElement/competitor', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=bc966c62cbb42c3e2adbb5c98206127677b04339f5a166206964878227c58be58a259486c54780ad1e61f9f2ba2d7003'});; return false;">1</a>
+                                                </li>
+
+                                                <li class="last">
+                                                </li>
+                                            </ul>
+                                            <p class="inline pull-right">
+                                                Showing
+                                                <select name="pageSize" id="compeitorpageSize" onchange="$(&quot;competitorform&quot;).onsubmit();return false;" class="input-auto">
+                                                    <option value="5" selected="selected">5</option>
+                                                    <option value="10">10</option>
+                                                    <option value="15">15</option>
+                                                    <option value="25">25</option>
+                                                    <option value="50">50</option>
+                                                </select>											 of <strong>1</strong>																															<input type="hidden" name="view" id="compeitor1_view" value="">																								<input type="hidden" name="tagFilter" id="compeitor1_tagFilter" value=" ">
+                                            </p>
+                                        </form>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-table-footer">
+                    Initial lookup may take up to one hour. Data is then refreshed weekly.
+                </div>
+
+
+
+
+
+
+
+
+
+                <div id="paidSearchCampaign">
+
+                    <div id="pasc_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                    <div id="tagFilterpaidSearchCampaign" class="tagfilter-pop-up dropdown-menu" style="display: none;"><input type="text" id="tagFilterSearchpaidSearchCampaign" value=""><div class="scroller"><ul id="tagFilterSelectorpaidSearchCampaign"><li></li></ul></div><a href="#"  style="float: left;">Clear filter</a>  <a href="/tag" style="float: right;">Manage tags</a></div><div id="pasc_module" class="module">
+
+                        <div class="header clearfix">
+
+                            <h2 id="paidSearchCampaign_h2">
+                                Paid Search Ads
+                            </h2>
+
+                            <form id="paidSearchCampaign_view" class="views inline" onsubmit="new Ajax.Updater('paidSearchCampaign_table_div', '/paidSearchCampaign/table/ajax/1', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('pasc_status', true);$('paidSearchCampaign_h2').innerHTML = $('paidSearchCampaign_view_field').options[$('paidSearchCampaign_view_field').selectedIndex].text;}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('paidSearchCampaign_ajax_urlparams').value + '&amp;'  + Form.serialize(this) }); return false;" action="/paidSearchCampaign/table/ajax/1" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="635dfaf49bb60ca806b77302bf47ea793fc9137d0dd06dfb72225bd7c72e3f20df04071969606c8798a96a64aa6faf62"></div>				<p class="inline header table-views">
+                                    View:<br>
+                                    <select name="view" id="paidSearchCampaign_view_field" onchange="$(&quot;paidSearchCampaign_view&quot;).onsubmit();return false;" class="input-auto">
+                                        <option value="all">All Paid Search Campaigns</option>
+                                        <option value="active">Active Paid Search Campaigns</option>
+                                        <option value="paused">Paused Paid Search Campaigns</option>
+                                        <option value="deleted">Deleted Paid Search Campaigns</option>
+                                    </select>					<input type="hidden" name="view_change" id="view_change" value="true">
+                                </p>
+                            </form>
+
+
+
+
+                            <form id="paidSearchCampaign_filter" class="inline" onsubmit="new Ajax.Updater('paidSearchCampaign_table_div', '/paidSearchCampaign/table/ajax/1/dateText/Date+Range%3A+', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('pasc_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('paidSearchCampaign_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/paidSearchCampaign/table/ajax/1/dateText/Date+Range%3A+" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="635dfaf49bb60ca806b77302bf47ea793fc9137d0dd06dfb72225bd7c72e3f20df04071969606c8798a96a64aa6faf62"></div>
+                                <p class="inline header">
+                                    Filter:<br>
+                                    <input type="text" name="table_filter" id="paidSearchCampaign_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;paidSearchCampaign_filter&quot;).onsubmit()',600);" class="input-medium">
+                                </p>
+                            </form>
+                            <br>
+                            <form id="paidSearchCampaign_tagFilter" class="aaa inline tag-filter-form" onsubmit="new Ajax.Updater('paidSearchCampaign_table_div', '/paidSearchCampaign/table/ajax/1/dateText/Date+Range%3A+/table_filter', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('pasc_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('paidSearchCampaign_ajax_urlparams').value.replace('tagFilter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/paidSearchCampaign/table/ajax/1/dateText/Date+Range%3A+/table_filter" method="post">
+                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="635dfaf49bb60ca806b77302bf47ea793fc9137d0dd06dfb72225bd7c72e3f20df04071969606c8798a96a64aa6faf62"></div>					<p class="inline header" id="tagFilterContainerpaidSearchCampaign"><button  class="btn">Tags <span class="caret"></span></button><span id="tagFilterListpaidSearchCampaign"></span><input type="hidden" id="tagFilterInputpaidSearchCampaign" name="tagFilter" value=""></p>
+                               
+                            </form>
+
+                            <div class="btn-group pull-right">
+                                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Tools			    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+
+
+                                    <li><a onclick="location='/paidSearchCampaign/export?' + $('paidSearchCampaign_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                </ul>
+                            </div>
+
+
+                        </div>
+                        <div id="pasc_wrapper" class="module-wrapper">
+                            <div id="paidSearchCampaign_table_div">
+
+
+                                <input type="hidden" id="paidSearchCampaign_ajax_urlparams" value="sort=paid_search_campaign.name&amp;order=asc&amp;ajaxElement=paidSearchCampaign&amp;numResults=0">
+                                <table id="paidSearchCampaign_table" class="data-table table-bordered">
+                                    <thead>
+                                        <tr>
+
+
+                                            <th class="first checkbox-column checkbox">
+
+
+                                            </th>
+
+
+
+                                            <th class="sortable sort-up name-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('paidSearchCampaign_table_div', '/paidSearchCampaign/table/ajax/1/page/1/order/desc/sort/paid_search_campaign.name/ajaxElement/paidSearchCampaign', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=ac2b9c4b508dbac693555109ce04e526e9b2bb9c69706b975600830d8dee6ed06a94d8e52d9f18895664d2547a03988b'});; return false;">Name</a>
+
+                                                <i class="icon-circle-arrow-up muted"></i>
+                                            </th>
+
+
+                                            <th class="ad-groups-column">
+
+                                                Ad Groups
+                                            </th>
+
+
+                                            <th class="ads-column">
+
+                                                Ads
+                                            </th>
+
+
+
+                                            <th class="updated-column">
+
+                                                <a href="#" onclick="new Ajax.Updater('paidSearchCampaign_table_div', '/paidSearchCampaign/table/ajax/1/page/1/order/desc/sort/paid_search_campaign.updated_at/ajaxElement/paidSearchCampaign', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=d7ef20b8d2dc9aafb3728fe57fd116dcd5d8b00cd11e83381384d6b4f393732390b6b56c6a8bef6ae1444d4489e4cf1e'});; return false;">Updated</a>
+
+                                            </th>
+
+
+                                            <th class="actions-column last">
+
+                                                Actions
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="6" class="last">
+                                                There are no paid search ads for this area.
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+
+
+                                </table>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+
+</div>

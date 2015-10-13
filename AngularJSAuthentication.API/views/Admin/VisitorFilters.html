@@ -1,0 +1,394 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div id="wrap" class="clearfix">
+        <!--[if IE 7]>
+        <div id="ieCompatibility">
+            <img style="vertical-align: text-top;" src="/images/error.png"/>
+            <strong>Warning</strong>: Your browser is in Compatibility Mode. For things to work correctly, you need to <a href="http://help.pardot.com/faqs/administration/turning-off-compatibility-mode-in-ie" target="_blank">turn it off</a>.
+        </div>
+        <![endif]-->
+        <p class="hidden">
+            <a href="#content">Skip navigation</a>
+        </p>
+        <div id="wrapper">
+
+            <div id="contentWrap">
+                <div id="content">
+
+                    <ul id="bread-crumbs" class="breadcrumb">
+                        <li>
+                            <a href="/" title="Home"><i class="icon-home"></i></a>
+                        </li>
+                        <li class="crumb-divider">  / </li>
+                        <li>
+                            <a href="/administration">Administration</a>
+                        </li>
+                    </ul>
+
+                    <h1>Filters</h1>
+
+                    <div class="divider"></div>
+
+
+
+                    <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <div id="filter">
+
+                            <div id="fi_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                            <div id="fi_module" class="module">
+
+                                <div class="header clearfix">
+
+                                    <h2 id="filter_h2"></h2>
+
+
+
+
+
+                                    <form id="filter_filter" class="inline" onsubmit="new Ajax.Updater('filter_table_div', '/filter/table/ajax/1/dateText/Date+Range%3A+', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('fi_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('filter_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/filter/table/ajax/1/dateText/Date+Range%3A+" method="post">
+                                        <div style="display:none;"><input type="hidden" name="_csrf_token" value="762dfbd30e95ac8fadfd063add0c477928ae0ceeeaf1b454aabb545e46b5833af185a8afc946b6347f1b38c776859e20"></div>
+                                        <p class="inline header">
+                                            Filter:<br>
+                                            <input type="text" name="table_filter" id="filter_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;filter_filter&quot;).onsubmit()',600);" class="input-medium">
+                                        </p>
+                                    </form>
+
+
+
+                                    <br>												<span class="link_to_create pull-right">
+                                        <a href="/filter/createAjax" id="fi_link_create" class="btn btn-warning"><i class="icon-plus"></i> Add filter</a>
+                                        <script type="text/javascript">
+	jQuery('a#fi_link_create').click(function() {
+		jQuery("#indicator").show();
+		if(jQuery('html').is('.ie'))
+			toggleDisplay("fi_table_footer", false);
+		jQuery.ajax({
+			url: "/filter/createAjax",
+			beforeSend: function(jqXHR, settings) {
+				// TODO: Compensate for existing data?
+				settings.data += jQuery("#fi_ajax_urlparams").attr('value');
+			},
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#fi_status").html(data);
+				toggleDisplay("fi_status", true);
+				new Effect.Highlight('fi_status', {duration:2});
+			}
+		});
+		return false;
+	});
+                                        </script>
+                                    </span>
+                                </div>
+                                <div id="fi_wrapper" class="module-wrapper">
+                                    <div id="filter_table_div">
+
+
+                                        <input type="hidden" id="filter_ajax_urlparams" value="sort=filter.name&amp;order=desc&amp;ajaxElement=filter&amp;numResults=3">
+                                        <table id="filter_table" class="data-table table-bordered">
+                                            <thead>
+                                                <tr>
+
+
+
+
+                                                    <th class="sortable sort-down first name-column">
+
+                                                        <a href="#" onclick="new Ajax.Updater('filter_table_div', '/filter/table/ajax/1/page/1/order/asc/sort/filter.name/ajaxElement/filter', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=f379b123a8cb62310afa20cf7754f5b347be305e6b8ffe8db9d97b29d19e265155474eacd8846d0914b5d3b91b8a23b8'});; return false;">Name</a>
+
+                                                        <i class="icon-circle-arrow-down muted"></i>
+                                                    </th>
+
+
+
+                                                    <th class="type-column">
+
+                                                        <a href="#" onclick="new Ajax.Updater('filter_table_div', '/filter/table/ajax/1/page/1/order/desc/sort/filter.type/ajaxElement/filter', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=4f559d2a1dc7aa94a92147fba4d8bca4fa380dff31dc93c643eeceb780ae711d719b19b3fded63b28d59c82a6f2316e5'});; return false;">Type</a>
+
+                                                    </th>
+
+
+                                                    <th class="ipdomain-column">
+
+                                                        IP/Domain
+                                                    </th>
+
+
+
+                                                    <th class="updated-column">
+
+                                                        <a href="#" onclick="new Ajax.Updater('filter_table_div', '/filter/table/ajax/1/page/1/order/desc/sort/filter.updated_at/ajaxElement/filter', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=4a1cc00f9847d02de38f3d96f492ca78dd61f6828263959463ba6fc26080aac1cb7104d9c2e442aca3f6305ca9fbfdb6'});; return false;">Updated</a>
+
+                                                    </th>
+
+
+                                                    <th class="actions-column last">
+
+                                                        Actions
+                                                    </th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                <tr class="" id="filter_row_a0">
+
+                                                    <td class="first ">
+                                                        <a href="/filter/read/id/430">MSN Keyword Spam Bots 3</a>
+                                                    </td>
+
+                                                    <td>
+                                                        IP Address
+                                                    </td>
+
+                                                    <td>
+                                                        65.55.232.*
+                                                    </td>
+
+                                                    <td>
+                                                        Aug 15, 2015 4:39 AM
+                                                    </td>
+
+                                                    <td class="new-actions last">
+
+
+
+
+
+
+                                                        <div class="actions-menu-wrapper">
+                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog muted"></i></a>	<ul class="dropdown-menu pull-right" role="menu">
+                                                                <li>
+                                                                    <a id="filter_edit_link0" href="#"><i class="icon-edit muted" title="Edit"></i> Edit</a>
+                                                                    <script type="text/javascript">
+	jQuery("a#filter_edit_link0").click(function() {
+		jQuery("#indicator").show();
+		jQuery.ajax({
+			url: "/filter/editAjax/id/430/prefix/filter",
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#filter_row_b_cell0").html(data);
+				toggleDisplay("filter_row_b0", true);
+				if(jQuery('html').is('.ie')) {
+					toggleDisplay("filter_table_footer", false);
+				}
+				new Effect.Highlight('filter_row_b_cell0', {duration:2});
+			}
+		});
+		hideAllActionMenus();
+		return false;
+	});
+                                                                    </script>
+                                                                </li>
+                                                                <li><a href="#" onclick="if (window.confirm('Are you sure?')) { new Ajax.Updater('filter_row_b_cell0', '/filter/delete/id/430/prefix/filter', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplayAnimated('filter_row_a0', false, null, true);if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('filter_table_footer', false); }}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=1a3a79904a51bd230d56f5629376569d539d6fbf659269afd35f755d831f3b259bfcd04312b53e231d994ec997ab7e46'}); };; return false;"><i class="icon-trash muted" title="Delete"></i> Delete</a></li>
+                                                            </ul>
+                                                        </div>
+
+                                                    </td>
+                                                </tr>
+                                                <tr style="display:none" id="filter_row_b0" class="ajax_row">
+                                                    <td colspan="5" id="filter_row_b_cell0" class="last"></td>
+                                                </tr>
+                                                <tr class="even" id="filter_row_a1">
+
+                                                    <td class="first ">
+                                                        <a href="/filter/read/id/428">MSN Keyword Spam Bots 2</a>
+                                                    </td>
+
+                                                    <td>
+                                                        IP Address
+                                                    </td>
+
+                                                    <td>
+                                                        65.55.110.*
+                                                    </td>
+
+                                                    <td>
+                                                        Aug 15, 2015 4:39 AM
+                                                    </td>
+
+                                                    <td class="new-actions last">
+
+
+
+
+
+
+                                                        <div class="actions-menu-wrapper">
+                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog muted"></i></a>	<ul class="dropdown-menu pull-right" role="menu">
+                                                                <li>
+                                                                    <a id="filter_edit_link1" href="#"><i class="icon-edit muted" title="Edit"></i> Edit</a>
+                                                                    <script type="text/javascript">
+	jQuery("a#filter_edit_link1").click(function() {
+		jQuery("#indicator").show();
+		jQuery.ajax({
+			url: "/filter/editAjax/id/428/prefix/filter",
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#filter_row_b_cell1").html(data);
+				toggleDisplay("filter_row_b1", true);
+				if(jQuery('html').is('.ie')) {
+					toggleDisplay("filter_table_footer", false);
+				}
+				new Effect.Highlight('filter_row_b_cell1', {duration:2});
+			}
+		});
+		hideAllActionMenus();
+		return false;
+	});
+                                                                    </script>
+                                                                </li>
+                                                                <li><a href="#" onclick="if (window.confirm('Are you sure?')) { new Ajax.Updater('filter_row_b_cell1', '/filter/delete/id/428/prefix/filter', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplayAnimated('filter_row_a1', false, null, true);if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('filter_table_footer', false); }}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=2824c3d5d9d25f138b1d11ae54afd5cbf1a6648dcd08a790f8467843dea4e92a6dcf9eaf21403448f0dab68ee0049634'}); };; return false;"><i class="icon-trash muted" title="Delete"></i> Delete</a></li>
+                                                            </ul>
+                                                        </div>
+
+                                                    </td>
+                                                </tr>
+                                                <tr style="display:none" id="filter_row_b1" class="ajax_row">
+                                                    <td colspan="5" id="filter_row_b_cell1" class="last"></td>
+                                                </tr>
+                                                <tr class="" id="filter_row_a2">
+
+                                                    <td class="first ">
+                                                        <a href="/filter/read/id/426">MSN Keyword Spam Bots</a>
+                                                    </td>
+
+                                                    <td>
+                                                        IP Address
+                                                    </td>
+
+                                                    <td>
+                                                        65.55.109.*
+                                                    </td>
+
+                                                    <td>
+                                                        Aug 15, 2015 4:39 AM
+                                                    </td>
+
+                                                    <td class="new-actions last">
+
+
+
+
+
+
+                                                        <div class="actions-menu-wrapper">
+                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog muted"></i></a>	<ul class="dropdown-menu pull-right" role="menu">
+                                                                <li>
+                                                                    <a id="filter_edit_link2" href="#"><i class="icon-edit muted" title="Edit"></i> Edit</a>
+                                                                    <script type="text/javascript">
+	jQuery("a#filter_edit_link2").click(function() {
+		jQuery("#indicator").show();
+		jQuery.ajax({
+			url: "/filter/editAjax/id/426/prefix/filter",
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#filter_row_b_cell2").html(data);
+				toggleDisplay("filter_row_b2", true);
+				if(jQuery('html').is('.ie')) {
+					toggleDisplay("filter_table_footer", false);
+				}
+				new Effect.Highlight('filter_row_b_cell2', {duration:2});
+			}
+		});
+		hideAllActionMenus();
+		return false;
+	});
+                                                                    </script>
+                                                                </li>
+                                                                <li><a href="#" onclick="if (window.confirm('Are you sure?')) { new Ajax.Updater('filter_row_b_cell2', '/filter/delete/id/426/prefix/filter', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplayAnimated('filter_row_a2', false, null, true);if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('filter_table_footer', false); }}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=9ae314350e0bceb5c5ea737f53b7c4c9c0b33bac8883e1c5ac5ff71102b2bd089b29a3279075e80568257f3777c115e6'}); };; return false;"><i class="icon-trash muted" title="Delete"></i> Delete</a></li>
+                                                            </ul>
+                                                        </div>
+
+                                                    </td>
+                                                </tr>
+                                                <tr style="display:none" id="filter_row_b2" class="ajax_row">
+                                                    <td colspan="5" id="filter_row_b_cell2" class="last"></td>
+                                                </tr>
+                                            </tbody>
+
+
+                                        </table>
+
+
+
+                                        <div class="table-foot clearfix">
+                                            <div id="fi_table_footer">
+                                                <form id="filterform" class="inline fi-pager-form pager-form" onsubmit="new Ajax.Updater('filter_table_div', '/filter/table/ajax/1/sort/filter.name/order/desc/ajaxElement/filter', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('fi_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:Form.serialize(this)}); return false;" action="/filter/table/ajax/1/sort/filter.name/order/desc/ajaxElement/filter" method="post">
+                                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="762dfbd30e95ac8fadfd063add0c477928ae0ceeeaf1b454aabb545e46b5833af185a8afc946b6347f1b38c776859e20"></div>						<ul class="inline pull-right paging">
+                                                        <li>
+                                                        </li>
+
+                                                        <li>
+                                                            Page
+                                                            1
+                                                            of
+                                                            <a class="pager-last" href="#" onclick="cancelAllPendingAjax(); new Ajax.Updater('filter_table_div', '/filter/table/ajax/1/page/1/sort/filter.name/order/desc/ajaxElement/filter', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=6dc5b9afcd65a35f77cf73e1d1d03c33fc1742e30a2fc735e31e5c124b9f5002a8741e395fd2d0151a544e418422c8e6'});; return false;">1</a>
+                                                        </li>
+
+                                                        <li class="last">
+                                                        </li>
+                                                    </ul>
+                                                    <p class="inline pull-right">
+                                                        Showing
+                                                        <select name="pageSize" id="fipageSize" onchange="$(&quot;filterform&quot;).onsubmit();return false;" class="input-auto">
+                                                            <option value="5" selected="selected">5</option>
+                                                            <option value="10">10</option>
+                                                            <option value="15">15</option>
+                                                            <option value="25">25</option>
+                                                            <option value="50">50</option>
+                                                        </select>											 of <strong>3</strong>																															<input type="hidden" name="view" id="fi1_view" value="">
+                                                    </p>
+                                                </form>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

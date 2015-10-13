@@ -1,0 +1,436 @@
+﻿<div id="wrap" class="clearfix">
+    <!--[if IE 7]>
+    <div id="ieCompatibility">
+        <img style="vertical-align: text-top;" src="/images/error.png"/>
+        <strong>Warning</strong>: Your browser is in Compatibility Mode. For things to work correctly, you need to <a href="http://help.pardot.com/faqs/administration/turning-off-compatibility-mode-in-ie" target="_blank">turn it off</a>.
+    </div>
+    <![endif]-->
+    <p class="hidden">
+        <a href="#content">Skip navigation</a>
+    </p>
+    <div id="wrapper">
+
+        <div id="contentWrap">
+            <div id="content">
+
+                <ul id="bread-crumbs" class="breadcrumb">
+                    <li>
+                        <a href="/" title="Home"><i class="icon-home"></i></a>
+                    </li>
+                    <li class="crumb-divider">  / </li>
+                    <li>
+                        <a href="/report">Reports</a>
+                    </li>
+                </ul>
+
+                <h1>Opportunities</h1>
+
+                <div class="divider"></div>
+
+
+
+                <div id="center-stage">
+
+
+
+
+
+
+
+
+
+                    <ul class="nav nav-pills"></ul>
+
+
+
+
+
+
+
+
+                    <div id="opportunity">
+
+                        <div id="opp_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                        <div id="opp_module" class="module">
+
+                            <div class="header clearfix">
+
+                                <h2 id="opportunity_h2"></h2>
+
+                                <form id="opportunity_view" class="views inline" onsubmit="new Ajax.Updater('opportunity_table_div', '/opportunity/table/ajax/1', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('opp_status', true);$('opportunity_h2').innerHTML = $('opportunity_view_field').options[$('opportunity_view_field').selectedIndex].text;}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('opportunity_ajax_urlparams').value + '&amp;'  + Form.serialize(this) }); return false;" action="/opportunity/table/ajax/1" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="160901c033ccd1199fce1a23b69803182c1054b7b3cb89e10b8a99820b2df6853f6f16d4d20e5724d6dfd0999660939d"></div>				<p class="inline header table-views">
+                                        View:<br>
+                                        <select name="view" id="opportunity_view_field" onchange="$(&quot;opportunity_view&quot;).onsubmit();return false;" class="input-auto">
+                                            <option value="allopp" selected="selected">All Opportunities</option>
+                                            <option value="openopp">Open Opportunities</option>
+                                            <option value="wonopp">Won Opportunities</option>
+                                            <option value="lostopp">Lost Opportunities</option>
+                                        </select>					<input type="hidden" name="view_change" id="view_change" value="true">
+                                    </p>
+                                </form>
+
+
+                                <form id="opportunity_date_range_form" class="inline" onsubmit="new Ajax.Updater('opportunity_table_div', '/opportunity/table/ajax/1', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('opp_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('opportunity_ajax_urlparams').value + '&amp;'  + Form.serialize(this) }); return false;" action="/opportunity/table/ajax/1" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="160901c033ccd1199fce1a23b69803182c1054b7b3cb89e10b8a99820b2df6853f6f16d4d20e5724d6dfd0999660939d"></div>
+                                    <p class="inline header">
+                                        Campaign:<br>
+                                        <select name="campaign_filter" id="campaign_filter_opp" onchange="$('opportunity_date_range_form').onsubmit();">
+                                            <option value="0" selected="selected">All Campaigns</option>
+                                            <optgroup label="Current">
+                                                <option value="288">Email Plug-in</option>
+                                                <option value="932">Pre-Pardot Initial Import</option>
+                                                <option value="934">Sync from Salesforce</option>
+                                                <option value="1460">Test Campaign</option>
+                                                <option value="1852">Webinars</option>
+                                                <option value="286">Website Tracking</option>
+                                            </optgroup>
+                                            <optgroup label="Archived"></optgroup>
+                                        </select>
+                                    </p>
+                                    <p class="inline header">
+
+                                        <span id="datetext_header">
+                                            Created <small>(Based on 12am EDT)</small>:
+                                        </span> <br>
+
+                                        <select name="dateRange" id="dateRange_opp" onchange="customDates = document.getElementById('opp_custom_dates');if(this.value==7) {
+								customDates.removeClassName(&quot;hidden&quot;);
+							 } else {
+							 	$('opportunity_date_range_form').onsubmit();
+							 	customDates.addClassName(&quot;hidden&quot;);
+							 }" class="input-auto">
+                                            <option value="1">Today</option>
+                                            <option value="2">Yesterday</option>
+                                            <option value="4">This Month</option>
+                                            <option value="10">This Quarter</option>
+                                            <option value="11">This Year</option>
+                                            <option value="3">Last 7 Days</option>
+                                            <option value="14">Last Week</option>
+                                            <option value="5">Last Month</option>
+                                            <option value="12">Last Quarter</option>
+                                            <option value="13">Last Year</option>
+                                            <option value="6">All Time</option>
+                                            <option value="7">Custom</option>
+                                        </select>						<span id="opp_custom_dates" class="datepickerBS inline header hidden">
+                                            <input type="text" name="startDate" id="oppstartDate" value="2015-09-09" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_oppstartDate">...</button>
+                                            <script type="text/javascript">
+    document.getElementById("trigger_oppstartDate").disabled = false;
+    Calendar.setup({
+      inputField : "oppstartDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_oppstartDate"
+    });
+                                            </script>
+                                            &nbsp;to&nbsp;
+
+                                            <input type="text" name="endDate" id="oppendDate" value="2015-10-08" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_oppendDate">...</button>
+                                            <script type="text/javascript">
+    document.getElementById("trigger_oppendDate").disabled = false;
+    Calendar.setup({
+      inputField : "oppendDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_oppendDate"
+    });
+                                            </script>
+                                            &nbsp;
+                                            <input type="submit" name="commit" value="Go" class="btn btn-primary">
+                                        </span>
+                                    </p>
+                                </form>
+
+
+                                <form id="opportunity_filter" class="inline" onsubmit="new Ajax.Updater('opportunity_table_div', '/opportunity/table/ajax/1/dateText/Created%3A', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('opp_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('opportunity_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/opportunity/table/ajax/1/dateText/Created%3A" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="160901c033ccd1199fce1a23b69803182c1054b7b3cb89e10b8a99820b2df6853f6f16d4d20e5724d6dfd0999660939d"></div>
+                                    <p class="inline header">
+                                        Filter:<br>
+                                        <input type="text" name="table_filter" id="opportunity_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;opportunity_filter&quot;).onsubmit()',600);" class="input-medium">
+                                    </p>
+                                </form>
+
+                                <br>			<div class="btn-group pull-right">
+                                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                        Tools			    <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+
+
+                                        <li><a onclick="location='/opportunity/export?' + $('opportunity_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                            <div id="opp_wrapper" class="module-wrapper">
+                                <div id="opportunity_table_div">
+
+
+                                    <input type="hidden" id="opportunity_ajax_urlparams" value="sort=opportunity.created_at&amp;order=desc&amp;view=allopp&amp;dateRange=15&amp;ajaxElement=opportunity&amp;startDate=%401441782000&amp;endDate=%401444373999&amp;numResults=2">
+                                    <table id="opportunity_table" class="data-table table-bordered">
+                                        <thead>
+                                            <tr>
+
+
+                                                <th class="first checkbox-column checkbox">
+                                                    <input type="checkbox" class="check-all">
+
+
+                                                </th>
+
+
+
+                                                <th class="name-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('opportunity_table_div', '/opportunity/table/ajax/1/page/1/order/desc/sort/opportunity.name/view/allopp/dateRange/15/ajaxElement/opportunity/startDate/%401441782000/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=11af8ca3f357d0e485517a707fd1da2d6d17e1b1495401b18226e0ac974a9260bbf71af3e669aef44d506e637a43f81f'});; return false;">Name</a>
+
+                                                </th>
+
+
+
+                                                <th class="campaign-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('opportunity_table_div', '/opportunity/table/ajax/1/page/1/order/desc/sort/opportunity.campaign_id/view/allopp/dateRange/15/ajaxElement/opportunity/startDate/%401441782000/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=bf6fdc87234841e7dee955d68c6e2dace7fe23813489969623221844e156a98f2a53e788a3b46338ff0fe73a9ce360f9'});; return false;">Campaign</a>
+
+                                                </th>
+
+
+
+
+                                                <th class="sortable sort-down created-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('opportunity_table_div', '/opportunity/table/ajax/1/page/1/order/asc/sort/opportunity.created_at/view/allopp/dateRange/15/ajaxElement/opportunity/startDate/%401441782000/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=d27fc51fb03f2c6a69287cc4877266f6290196440c470c59203ad01b753c65894e641dad545c0b1e027b0451a71b2caa'});; return false;">Created</a>
+
+                                                    <i class="icon-circle-arrow-down muted"></i>
+                                                </th>
+
+
+
+                                                <th class="value-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('opportunity_table_div', '/opportunity/table/ajax/1/page/1/order/desc/sort/opportunity.value/view/allopp/dateRange/15/ajaxElement/opportunity/startDate/%401441782000/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=88c2d07327decf9577be1d484221304c646fb6186d09c7f63e94e6018ecd9c642024a288bb05c2360bd373ba9a255ba6'});; return false;">Value</a>
+
+                                                </th>
+
+
+
+                                                <th class="probability--column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('opportunity_table_div', '/opportunity/table/ajax/1/page/1/order/desc/sort/opportunity.probability/view/allopp/dateRange/15/ajaxElement/opportunity/startDate/%401441782000/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=e5f9b39dcf6dace19185bd22ae3efbd7fe6c931d22d90ce65757923bb5255c9d9a858fe61d5f6661a44090376c389174'});; return false;">Probability %</a>
+
+                                                </th>
+
+
+
+                                                <th class="stage-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('opportunity_table_div', '/opportunity/table/ajax/1/page/1/order/desc/sort/opportunity.stage/view/allopp/dateRange/15/ajaxElement/opportunity/startDate/%401441782000/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=47c0ec875a8e6d8aefcd7a7676ec1877bcccbf2bf03580d0bd848f1efe703811624453bb592326ecc7f42801d38b2d7c'});; return false;">Stage</a>
+
+                                                </th>
+
+
+
+                                                <th class="type-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('opportunity_table_div', '/opportunity/table/ajax/1/page/1/order/desc/sort/opportunity.type/view/allopp/dateRange/15/ajaxElement/opportunity/startDate/%401441782000/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=409d499be75ce393c506fc0988f49b71b092aff76c7492e20b6705c82815ee13b01a84fe410d623aaeedf7dafb0408d7'});; return false;">Type</a>
+
+                                                </th>
+
+
+                                                <th class="status-column last">
+
+                                                    Status
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr class="" id="opportunity_row_a0">
+
+                                                <td class="first checkbox">
+                                                    <input type="checkbox" name="checkbox_opportunity_209513" id="checkbox_opportunity_209513" value="209513" class="datatable-checkbox">
+                                                </td>
+
+                                                <td>
+                                                    <a href="/opportunity/read/id/209513">VUmc - Klinische Genetica-</a>
+                                                </td>
+
+                                                <td>
+                                                    <a href="/campaign/read/id/934">Sync from Salesforce</a>
+                                                </td>
+
+                                                <td>
+                                                    Oct 8, 2015 3:44 AM
+                                                </td>
+
+                                                <td>
+                                                    $0.00
+                                                </td>
+
+                                                <td>
+                                                    0
+                                                </td>
+
+                                                <td>
+                                                    0 - Prospecting
+                                                </td>
+
+                                                <td>
+                                                    Existing Customer
+                                                </td>
+
+                                                <td class="last">
+                                                    Open
+                                                </td>
+                                            </tr>
+                                            <tr style="display:none" id="opportunity_row_b0" class="ajax_row">
+                                                <td colspan="9" id="opportunity_row_b_cell0" class="last"></td>
+                                            </tr>
+                                            <tr class="even" id="opportunity_row_a1">
+
+                                                <td class="first checkbox">
+                                                    <input type="checkbox" name="checkbox_opportunity_209503" id="checkbox_opportunity_209503" value="209503" class="datatable-checkbox">
+                                                </td>
+
+                                                <td>
+                                                    <a href="/opportunity/read/id/209503">Erasmus MC-Q415 HTA sale Rooli</a>
+                                                </td>
+
+                                                <td>
+                                                    <a href="/campaign/read/id/934">Sync from Salesforce</a>
+                                                </td>
+
+                                                <td>
+                                                    Oct 8, 2015 3:30 AM
+                                                </td>
+
+                                                <td>
+                                                    $538.20
+                                                </td>
+
+                                                <td>
+                                                    10
+                                                </td>
+
+                                                <td>
+                                                    1 - Qualifying
+                                                </td>
+
+                                                <td>
+                                                    Existing Customer
+                                                </td>
+
+                                                <td class="last">
+                                                    Open
+                                                </td>
+                                            </tr>
+                                            <tr style="display:none" id="opportunity_row_b1" class="ajax_row">
+                                                <td colspan="9" id="opportunity_row_b_cell1" class="last"></td>
+                                            </tr>
+                                        </tbody>
+
+
+                                    </table>
+
+
+
+                                    <div class="table-foot clearfix">
+                                        <div id="opp_table_footer">
+                                            <form action="#" class="inline pull-left">
+                                                <input type="hidden" name="check_all_params" value="&amp;view=allopp&amp;dateRange=15&amp;ajaxElement=opportunity&amp;startDate=%401441782000&amp;endDate=%401444373999">
+                                                <div class="multi-checkbox-buttons pull-left">
+                                                    With <span class="checkbox-num-selected">0</span> selected:
+
+                                                    <select name="multi-select" id="multi-select" onchange="
+				if (this.value == &quot;multiAddTags&quot;) {
+					jQuery(this).siblings(&quot;.MultiSelect_AddTags&quot;).show();
+				}
+				else {
+					jQuery(this).siblings(&quot;.MultiSelect_AddTags&quot;).hide();
+				}
+
+				if (this.value == &quot;multiRemoveTags&quot;) {
+					jQuery(this).siblings(&quot;.MultiSelect_RemoveTags&quot;).show();
+				}
+				else {
+					jQuery(this).siblings(&quot;.MultiSelect_RemoveTags&quot;).hide();
+				}
+			" class="multi-select input-auto">
+                                                        <option value="" selected="selected">&nbsp;</option>
+                                                        <option value="multiAddTags">Add tags</option>
+                                                        <option value="multiRemoveTags">Remove tags</option>
+                                                    </select>
+                                                    <span class="MultiSelect_AddTags" style="display: none;">
+                                                        <input name="addTags" class="tagComponent tagComponentReady" id="addTagsMultiSelect_AddTags1" value="" style="display: none;"><div id="addTagsMultiSelect_AddTags1_tagsinput" class="tagsinput" style="margin-top: -1px;"><div id="addTagsMultiSelect_AddTags1_addTag"><input id="addTagsMultiSelect_AddTags1_tag" value="" data-default="add a tag" style="color: rgb(102, 102, 102); width: 206px;" class="ui-autocomplete-input" autocomplete="off"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span></div><div class="tags_clear"></div></div>
+
+                                                      
+                                                    </span><span class="MultiSelect_RemoveTags" style="display: none;">
+                                                        <input name="removeTags" class="tagComponent tagComponentReady" id="removeTagsMultiSelect_RemoveTags1" value="" style="display: none;"><div id="removeTagsMultiSelect_RemoveTags1_tagsinput" class="tagsinput" style="margin-top: -1px;"><div id="removeTagsMultiSelect_RemoveTags1_addTag"><input id="removeTagsMultiSelect_RemoveTags1_tag" value="" data-default="add a tag" style="color: rgb(102, 102, 102); width: 206px;" class="ui-autocomplete-input" autocomplete="off"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span></div><div class="tags_clear"></div></div>
+
+                                                    
+                                                    </span>
+                                                    <input class="btn" type="button" onclick="if(confirmBatchAction(&quot;opportunity&quot;, &quot;Opportunities&quot;)){new Ajax.Updater('opp_status', '/opportunity/table/objectName/Opportunities/view/allopp/dateRange/15/ajaxElement/opportunity/startDate/%401441782000/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('opp_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:Form.serialize(this.form) + '&amp;_csrf_token=24b89319dafb62eaf271b295b9135714cd5013fb1070dcf73e9c42494f9204f584e84b4993c2eba98590ad72dca2c825'});} return false;" name="ajax_submit" value="Go"><input type="hidden" name="multiCheckIds" id="" value="" class="multiCheckIds">
+                                                </div>
+                                            </form>
+                                            <form id="opportunityform" class="inline opp-pager-form pager-form" onsubmit="new Ajax.Updater('opportunity_table_div', '/opportunity/table/ajax/1/sort/opportunity.created_at/order/desc/view/allopp/dateRange/15/ajaxElement/opportunity/startDate/%401441782000/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('opp_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:Form.serialize(this)}); return false;" action="/opportunity/table/ajax/1/sort/opportunity.created_at/order/desc/view/allopp/dateRange/15/ajaxElement/opportunity/startDate/%401441782000/endDate/%401444373999" method="post">
+                                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="160901c033ccd1199fce1a23b69803182c1054b7b3cb89e10b8a99820b2df6853f6f16d4d20e5724d6dfd0999660939d"></div>						<ul class="inline pull-right paging">
+                                                    <li>
+                                                    </li>
+
+                                                    <li>
+                                                        Page
+                                                        1
+                                                        of
+                                                        <a class="pager-last" href="#" onclick="cancelAllPendingAjax(); new Ajax.Updater('opportunity_table_div', '/opportunity/table/ajax/1/page/1/sort/opportunity.created_at/order/desc/view/allopp/dateRange/15/ajaxElement/opportunity/startDate/%401441782000/endDate/%401444373999', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=75cddb00a071d05da17b2b84c97d2fcadf8eb205c1eefbc56948f2035544f95f53730262fda8e7f7f3f7d3fe12b26e21'});; return false;">1</a>
+                                                    </li>
+
+                                                    <li class="last">
+                                                    </li>
+                                                </ul>
+                                                <p class="inline pull-right">
+                                                    Showing
+                                                    <select name="pageSize" id="opppageSize" onchange="$(&quot;opportunityform&quot;).onsubmit();return false;" class="input-auto">
+                                                        <option value="5" selected="selected">5</option>
+                                                        <option value="10">10</option>
+                                                        <option value="15">15</option>
+                                                        <option value="25">25</option>
+                                                        <option value="50">50</option>
+                                                    </select>											 of <strong>2</strong>																															<input type="hidden" name="view" id="opp1_view" value="allopp">																								<input type="hidden" name="dateRange" id="opp1_dateRange" value="15">																								<input type="hidden" name="campaign_id" id="opp1_campaign_id" value="">
+                                                </p>
+                                            </form>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Custom JS related to displaying correct date field description based on which opportunity view -->
+                    <script type="text/javascript">
+//<![CDATA[
+
+	$("opportunity_view_field").observe("change", function(event) {
+		var $opp_value = this.options[this.selectedIndex].innerHTML;
+		var $datetext  = "Created:";
+		if ($opp_value == "Won Opportunities" || $opp_value == "Lost Opportunities") {
+			$datetext = "Closed:";
+		}
+		$("datetext_header").update($datetext);
+	});
+
+//]]>
+                    </script>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+
+    </div>
+</div>

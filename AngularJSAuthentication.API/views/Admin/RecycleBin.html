@@ -1,0 +1,640 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div id="contentWrap">
+        <div id="content">
+
+            <ul id="bread-crumbs" class="breadcrumb">
+                <li>
+                    <a href="/" title="Home"><i class="icon-home"></i></a>
+                </li>
+                <li class="crumb-divider">  / </li>
+                <li>
+                    <a href="/administration">Administration</a>
+                </li>
+            </ul>
+
+            <h1>Recycle Bin: Module Selector</h1>
+
+            <div class="divider"></div>
+
+
+
+            <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+                <div style="float:left;margin:0;width:35%;">
+
+                    <script type="text/javascript" src="/js/backbone.js"></script>
+                    <script type="text/javascript" src="/js/modules/tableCustom.js?id=2013-09-05"></script>
+
+
+                    <script type="text/javascript">
+if( ! window.tableCustomTemplate ) {
+	window.tableCustomTemplate = { };
+}
+window.tableCustomTemplate["admn1444313899_0-table"] = "\n\t\r\n\r\n\r\n\t\r\n\r\n                \r\n\t\t\t<div id=\"admn1444313899_0\" class=\"no-create\">\r\n\t\r\n\t<div id=\"admn1444313899_0_status\" style=\"display:none;\" class=\"ajax_status\"><\/div>\r\n\t\t\t\t\t\r\n\t\t\t\t\r\n\t\r\n\t<div id=\"admn1444313899_0_module\" class=\"module\">\r\n\r\n\t\t<div class=\"header clearfix\">\r\n\r\n\t\t\t\t\t\t\t\t\t\t<h2 id=\"admn1444313899_0_h2\" class='pull-left'>\r\n\t\t\tRecycle Bins\t\t\t<\/h2>\r\n\r\n\t\t\t\r\n\t\t\r\n\t\t\t\r\n\t\t\t\r\n\t\t\t\t\t\t\t\t\t\r\n\t\t\t\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t<\/div>\r\n\t\t<div id=\"admn1444313899_0_wrapper\" class=\"module-wrapper\" >\r\n\t\t\t<div id=\"admn1444313899_0_table_div\">\r\n\r\n\t<div class=\"custom-object-table-wrapper\">\n\t\t\t\t<table id=\"admn1444313899_0_custom_datatable\" class=\"data-table table-bordered\">\n\t\t\t<thead>\n\t\t\t<\/thead>\n\n\t\t\t<tbody>\n\t\t\t<\/tbody>\n\t\t<\/table>\n\t<\/div>\n\t<div class='table-foot'>\n\t\t<\/div>\n\n\n\n\t\n\t\t\t<\/div>\n\t\t<\/div>\n\t<\/div>\n\t<\/div>\n\n" + "";
+                    </script>
+
+                    <div id="admn1444313899_0_customTable">
+                        <div class="backbone-contents">
+
+
+
+
+
+
+                            <div id="admn1444313899_0" class="no-create">
+
+                                <div id="admn1444313899_0_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                                <div id="admn1444313899_0_module" class="module">
+
+                                    <div class="header clearfix">
+
+                                        <h2 id="admn1444313899_0_h2" class="pull-left">
+                                            Recycle Bins
+                                        </h2>
+
+
+
+
+
+
+
+
+                                    </div>
+                                    <div id="admn1444313899_0_wrapper" class="module-wrapper">
+                                        <div id="admn1444313899_0_table_div">
+
+                                            <div class="custom-object-table-wrapper">
+                                                <table id="admn1444313899_0_custom_datatable" class="data-table table-bordered">
+                                                    <thead>
+                                                        <tr>
+
+
+                                                            <th>Module Name</th>
+
+
+
+                                                            <th class="last">Deleted Items</th>
+
+
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody>
+
+                                                        <tr class="" id="admn1444313899_0_row_a0">
+
+                                                            <td>
+                                                                <a href="/automation/recycleBin">Automation Rules</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_automation">0</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b0" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell0" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="even" id="admn1444313899_0_row_a1">
+
+                                                            <td>
+                                                                <a href="/block/recycleBin">Blocks</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_block">0</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b1" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell1" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="" id="admn1444313899_0_row_a2">
+
+                                                            <td>
+                                                                <a href="/campaign/recycleBin">Campaigns</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_campaign">0</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b2" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell2" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="even" id="admn1444313899_0_row_a3">
+
+                                                            <td>
+                                                                <a href="/competitor/recycleBin">Competitors</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_competitor">0</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b3" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell3" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="" id="admn1444313899_0_row_a4">
+
+                                                            <td>
+                                                                <a href="/connector/recycleBin">Connectors</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_connector">1</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b4" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell4" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="even" id="admn1444313899_0_row_a5">
+
+                                                            <td>
+                                                                <a href="/prospectFieldCustom/recycleBin">Custom Fields</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_prospectFieldCustom">0</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b5" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell5" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="" id="admn1444313899_0_row_a6">
+
+                                                            <td>
+                                                                <a href="/customUrl/recycleBin">Custom Redirects</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_customUrl">0</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b6" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell6" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="even" id="admn1444313899_0_row_a7">
+
+                                                            <td>
+                                                                <a href="/prospectFieldDefault/recycleBin">Default Fields</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_prospectFieldDefault">2</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b7" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell7" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="" id="admn1444313899_0_row_a8">
+
+                                                            <td>
+                                                                <a href="/dripProgram/recycleBin">Drip Programs</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_dripProgram">0</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b8" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell8" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="even" id="admn1444313899_0_row_a9">
+
+                                                            <td>
+                                                                <a href="/emailPreferencesPage/recycleBin">Email Preference Pages</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_emailPreferencesPage">0</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b9" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell9" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="" id="admn1444313899_0_row_a10">
+
+                                                            <td>
+                                                                <a href="/emailTemplate/recycleBin">Email Templates</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_emailTemplate">0</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b10" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell10" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="even" id="admn1444313899_0_row_a11">
+
+                                                            <td>
+                                                                <a href="/email/template/draft/recycleBin">Email Template Drafts</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_emailTemplateDraft">0</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b11" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell11" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="" id="admn1444313899_0_row_a12">
+
+                                                            <td>
+                                                                <a href="/emailTest/recycleBin">Email Rendering Tests</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_litmusTestSet">0</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b12" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell12" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="even" id="admn1444313899_0_row_a13">
+
+                                                            <td>
+                                                                <a href="/filter/recycleBin">Filters</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_filter">0</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b13" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell13" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="" id="admn1444313899_0_row_a14">
+
+                                                            <td>
+                                                                <a href="/form/recycleBin">Forms</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_form">0</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b14" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell14" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="even" id="admn1444313899_0_row_a15">
+
+                                                            <td>
+                                                                <a href="/formHandler/recycleBin">Form Handlers</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_formHandler">0</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b15" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell15" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="" id="admn1444313899_0_row_a16">
+
+                                                            <td>
+                                                                <a href="/keyword/recycleBin">Keywords</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_keyword">0</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b16" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell16" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="even" id="admn1444313899_0_row_a17">
+
+                                                            <td>
+                                                                <a href="/landingPage/recycleBin">Landing Pages</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_landingPage">0</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b17" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell17" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="" id="admn1444313899_0_row_a18">
+
+                                                            <td>
+                                                                <a href="/layoutTemplate/recycleBin">Layout Templates</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_layoutTemplate">1</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b18" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell18" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="even" id="admn1444313899_0_row_a19">
+
+                                                            <td>
+                                                                <a href="/list/recycleBin">Lists</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_listx">0</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b19" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell19" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="" id="admn1444313899_0_row_a20">
+
+                                                            <td>
+                                                                <a href="/multivariateTest/recycleBin">Multivariate Tests</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_multivariateTest">0</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b20" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell20" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="even" id="admn1444313899_0_row_a21">
+
+                                                            <td>
+                                                                <a href="/opportunity/recycleBin">Opportunities</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_opportunity">0</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b21" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell21" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="" id="admn1444313899_0_row_a22">
+
+                                                            <td>
+                                                                <a href="/pageAction/recycleBin">Page Actions</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_pageAction">0</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b22" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell22" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="even" id="admn1444313899_0_row_a23">
+
+                                                            <td>
+                                                                <a href="/personalization/recycleBin">Personalizations</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_personalization">0</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b23" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell23" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="" id="admn1444313899_0_row_a24">
+
+                                                            <td>
+                                                                <a href="/profile/recycleBin">Profiles</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_profile">0</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b24" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell24" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="even" id="admn1444313899_0_row_a25">
+
+                                                            <td>
+                                                                <a href="/prospect/recycleBin">Prospects</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_prospect">0</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b25" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell25" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="" id="admn1444313899_0_row_a26">
+
+                                                            <td>
+                                                                <a href="/prospectAccount/recycleBin">Prospect Accounts</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_prospectAccount">0</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b26" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell26" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="even" id="admn1444313899_0_row_a27">
+
+                                                            <td>
+                                                                <a href="/queue/recycleBin">Queues</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_queue">0</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b27" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell27" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="" id="admn1444313899_0_row_a28">
+
+                                                            <td>
+                                                                <a href="/segmentation/recycleBin">Segmentation Rules</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_segmentation">0</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b28" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell28" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="even" id="admn1444313899_0_row_a29">
+
+                                                            <td>
+                                                                <a href="/siteSearch/recycleBin">Site Searches</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_siteSearch">0</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b29" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell29" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="" id="admn1444313899_0_row_a30">
+
+                                                            <td>
+                                                                <a href="/user/recycleBin">Users</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_user">0</span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b30" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell30" class="last"></td>
+                                                        </tr>
+
+                                                        <tr class="even" id="admn1444313899_0_row_a31">
+
+                                                            <td>
+                                                                <a href="/group/recycleBin">User Groups</a>
+                                                            </td>
+
+                                                            <td class="last">
+                                                                <span id="admn_recycle_bins_groupx">
+                                                                    <i>Calculating</i>
+                                                                    <script type="text/javascript">
+//<![CDATA[
+new Ajax.Updater('admn_recycle_bins_groupx', '/administration/recycleBinsCount/table/groupx', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=10e79f1c8dd5c77f494cb822bc1e7069d728cdd486ccc3ebd9ed4a51a34158b1e4239c9ddfa584262be76795b732a378'});
+//]]>
+                                                                    </script>
+                                                                </span>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr style="display:none" id="admn1444313899_0_row_b31" class="ajax_row">
+                                                            <td colspan="2" id="admn1444313899_0_row_b_cell31" class="last"></td>
+                                                        </tr>
+
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="table-foot">
+                                            </div>
+
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <script>
+	(function($) {
+		var TableCustom = window.Pardot.tableCustom;
+		var rows = new TableCustom.Model.Rows([{"id":0,"data":["<a href=\"\/automation\/recycleBin\">Automation Rules<\/a>","<span id=\"admn_recycle_bins_automation\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_automation', '\/administration\/recycleBinsCount\/table\/automation', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=958488ddcac2572e0f54224bd65e5df53c5a4ae7b344354bd51133a6d5b9837f5b97ecf3f0c6a05cfd9a4d231a2ffa11'});\n\/\/]]>\n<\/script><\/span>"]},{"id":1,"data":["<a href=\"\/block\/recycleBin\">Blocks<\/a>","<span id=\"admn_recycle_bins_block\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_block', '\/administration\/recycleBinsCount\/table\/block', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=222ded139cb4a4a38ef574f29e5d798cbe1c5ac8b5aa060fd643e70c7dcf5fa1229bb9f4ab33c270b1f823370b7de43c'});\n\/\/]]>\n<\/script><\/span>"]},{"id":2,"data":["<a href=\"\/campaign\/recycleBin\">Campaigns<\/a>","<span id=\"admn_recycle_bins_campaign\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_campaign', '\/administration\/recycleBinsCount\/table\/campaign', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=0b0a0f5809da0df731b20268b73e5f384197aad369904daa933d233de2848f245ad7c86aa2f150c55a510382ab4181e6'});\n\/\/]]>\n<\/script><\/span>"]},{"id":3,"data":["<a href=\"\/competitor\/recycleBin\">Competitors<\/a>","<span id=\"admn_recycle_bins_competitor\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_competitor', '\/administration\/recycleBinsCount\/table\/competitor', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=832b8bd72e7d63fa8e5fa43a6ef8559e9d4532fffc260a543c7000125d707de66d842499eafbd3336014e0872ebd0ccb'});\n\/\/]]>\n<\/script><\/span>"]},{"id":4,"data":["<a href=\"\/connector\/recycleBin\">Connectors<\/a>","<span id=\"admn_recycle_bins_connector\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_connector', '\/administration\/recycleBinsCount\/table\/connector', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=f4c44aca35744aec2775f214095efabda2750290f481d8cc27b5ca11e38674037d63c4db2ceaec17f9e2079870837abd'});\n\/\/]]>\n<\/script><\/span>"]},{"id":5,"data":["<a href=\"\/prospectFieldCustom\/recycleBin\">Custom Fields<\/a>","<span id=\"admn_recycle_bins_prospectFieldCustom\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_prospectFieldCustom', '\/administration\/recycleBinsCount\/table\/prospectFieldCustom', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=69a6ba4960f04990ebaaebb60b5db37fbf7fa989501ba37b05fa395b67dd1ae34a9cb2cd37d4931169350bd98f0c5e26'});\n\/\/]]>\n<\/script><\/span>"]},{"id":6,"data":["<a href=\"\/customUrl\/recycleBin\">Custom Redirects<\/a>","<span id=\"admn_recycle_bins_customUrl\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_customUrl', '\/administration\/recycleBinsCount\/table\/customUrl', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=687ff0cf3c7e2bbaebb005eedf6fc759dc968e60bf29efd106a31ef194687f522cbb38eb30606854521d42ed33de195a'});\n\/\/]]>\n<\/script><\/span>"]},{"id":7,"data":["<a href=\"\/prospectFieldDefault\/recycleBin\">Default Fields<\/a>","<span id=\"admn_recycle_bins_prospectFieldDefault\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_prospectFieldDefault', '\/administration\/recycleBinsCount\/table\/prospectFieldDefault', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=1a7a1d9a719d4508fda083a8490da6d16d8edf0034aa8dd1febacbebbd5bd20ab5103a6f2b7329560f6af2cdba4eeaa2'});\n\/\/]]>\n<\/script><\/span>"]},{"id":8,"data":["<a href=\"\/dripProgram\/recycleBin\">Drip Programs<\/a>","<span id=\"admn_recycle_bins_dripProgram\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_dripProgram', '\/administration\/recycleBinsCount\/table\/dripProgram', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=30f690649512d8651d20102965309cfb6b7c82721ff47b455c0384e3cf0e650eaea129dbe2f7c34ff24013b379b3e426'});\n\/\/]]>\n<\/script><\/span>"]},{"id":9,"data":["<a href=\"\/emailPreferencesPage\/recycleBin\">Email Preference Pages<\/a>","<span id=\"admn_recycle_bins_emailPreferencesPage\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_emailPreferencesPage', '\/administration\/recycleBinsCount\/table\/emailPreferencesPage', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=31bed0b112ad674dd6a5cb4758770ab0e835a9b73f6e46a37fb25ca5167c7bde964bd9694fb14bac4d9fd40d85866daf'});\n\/\/]]>\n<\/script><\/span>"]},{"id":10,"data":["<a href=\"\/emailTemplate\/recycleBin\">Email Templates<\/a>","<span id=\"admn_recycle_bins_emailTemplate\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_emailTemplate', '\/administration\/recycleBinsCount\/table\/emailTemplate', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=ba6b11cae193e3b9eccf01959a1fe54b6ae3d934552e4ee5efe6d4bad7bd11d551f87edbcb57555bba03cf647e737748'});\n\/\/]]>\n<\/script><\/span>"]},{"id":11,"data":["<a href=\"\/email\/template\/draft\/recycleBin\">Email Template Drafts<\/a>","<span id=\"admn_recycle_bins_emailTemplateDraft\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_emailTemplateDraft', '\/administration\/recycleBinsCount\/table\/emailTemplateDraft', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=bb4d6fab6857f0302c571aa1eec5f45ff6f6e102bb6d7457ef5371a0f46ce5401aeba3a5aef0cac744c33afd9d4a14b0'});\n\/\/]]>\n<\/script><\/span>"]},{"id":12,"data":["<a href=\"\/emailTest\/recycleBin\">Email Rendering Tests<\/a>","<span id=\"admn_recycle_bins_litmusTestSet\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_litmusTestSet', '\/administration\/recycleBinsCount\/table\/litmusTestSet', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=ef50010f886e7a86999a4c9a5353ea7d371d4aa69dd24954b61294a1c894baf9f454a8be29d0e76bbff03931f484069b'});\n\/\/]]>\n<\/script><\/span>"]},{"id":13,"data":["<a href=\"\/filter\/recycleBin\">Filters<\/a>","<span id=\"admn_recycle_bins_filter\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_filter', '\/administration\/recycleBinsCount\/table\/filter', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=0999a6584359e42e5c5e98dbf8e2399c14d52739fffd35ead2087fd7325c82fa6a23bb645cc57067e17f4eeb89ecfd25'});\n\/\/]]>\n<\/script><\/span>"]},{"id":14,"data":["<a href=\"\/form\/recycleBin\">Forms<\/a>","<span id=\"admn_recycle_bins_form\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_form', '\/administration\/recycleBinsCount\/table\/form', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=50e4f10bd6d207d9d9376da2aca2124d7d6091c170fb7e1783fed60c566268e9bf9f01f2bb2c5bdec2edd85dce22a29d'});\n\/\/]]>\n<\/script><\/span>"]},{"id":15,"data":["<a href=\"\/formHandler\/recycleBin\">Form Handlers<\/a>","<span id=\"admn_recycle_bins_formHandler\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_formHandler', '\/administration\/recycleBinsCount\/table\/formHandler', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=82e9d065fdf37fa8379fb918c3e0007e6c008aabe71e6364de5149458b1f027ac2cfa21caf2f9aa419d68f65b492f170'});\n\/\/]]>\n<\/script><\/span>"]},{"id":16,"data":["<a href=\"\/keyword\/recycleBin\">Keywords<\/a>","<span id=\"admn_recycle_bins_keyword\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_keyword', '\/administration\/recycleBinsCount\/table\/keyword', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=de3a4b44636417b948c57bef96d4c79a697a790d8c9cf6e99edc4e7369e564a46c456af3b512a0767225d7089c02816c'});\n\/\/]]>\n<\/script><\/span>"]},{"id":17,"data":["<a href=\"\/landingPage\/recycleBin\">Landing Pages<\/a>","<span id=\"admn_recycle_bins_landingPage\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_landingPage', '\/administration\/recycleBinsCount\/table\/landingPage', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=134dc76a1ec473220bf8e49595ecb1a028c27096fccaa3d43ce2832e7a3ca36d5abfc970ec9aa76994bcfcaaaf014dcd'});\n\/\/]]>\n<\/script><\/span>"]},{"id":18,"data":["<a href=\"\/layoutTemplate\/recycleBin\">Layout Templates<\/a>","<span id=\"admn_recycle_bins_layoutTemplate\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_layoutTemplate', '\/administration\/recycleBinsCount\/table\/layoutTemplate', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=e40f20d1b1cc2ad4a768ed524ec919d481900e03b6fe2d75f42657f6ba44ff6725776aac836005f9eec1204075b34fda'});\n\/\/]]>\n<\/script><\/span>"]},{"id":19,"data":["<a href=\"\/list\/recycleBin\">Lists<\/a>","<span id=\"admn_recycle_bins_listx\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_listx', '\/administration\/recycleBinsCount\/table\/listx', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=96305c57f721ca72a97c461ba75f0304d6b2835e0a3c556b551c823523ffb8d0e5a0c49f581c8b8816eea320fcfc122e'});\n\/\/]]>\n<\/script><\/span>"]},{"id":20,"data":["<a href=\"\/multivariateTest\/recycleBin\">Multivariate Tests<\/a>","<span id=\"admn_recycle_bins_multivariateTest\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_multivariateTest', '\/administration\/recycleBinsCount\/table\/multivariateTest', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=744343586084e051ad4c5761b5d6cae4b0d7578e53aa9f51e6c3f7084cd5b178200fb6be089d3179a8c4319d7b041720'});\n\/\/]]>\n<\/script><\/span>"]},{"id":21,"data":["<a href=\"\/opportunity\/recycleBin\">Opportunities<\/a>","<span id=\"admn_recycle_bins_opportunity\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_opportunity', '\/administration\/recycleBinsCount\/table\/opportunity', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=75699329c39bfe11e3313c052d72aa31611f2b0d1c46c87b99cc06b32146f7b23ce1733d744898ba4866461c2cf632b6'});\n\/\/]]>\n<\/script><\/span>"]},{"id":22,"data":["<a href=\"\/pageAction\/recycleBin\">Page Actions<\/a>","<span id=\"admn_recycle_bins_pageAction\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_pageAction', '\/administration\/recycleBinsCount\/table\/pageAction', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=c85c25499631fa7bcac9e33508921fe534473ab03b83314727ebd46d971ed327cea1183517231096eea8953e14432dd0'});\n\/\/]]>\n<\/script><\/span>"]},{"id":23,"data":["<a href=\"\/personalization\/recycleBin\">Personalizations<\/a>","<span id=\"admn_recycle_bins_personalization\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_personalization', '\/administration\/recycleBinsCount\/table\/personalization', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=69a6924bfc5b312388a35d8d61a5fbed156385d99e87ca2b7464de31e5df3a7c0227fd3c9c8a46e7f8c84959099d4c36'});\n\/\/]]>\n<\/script><\/span>"]},{"id":24,"data":["<a href=\"\/profile\/recycleBin\">Profiles<\/a>","<span id=\"admn_recycle_bins_profile\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_profile', '\/administration\/recycleBinsCount\/table\/profile', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=703d1e7a1948118f67298178aaf21589b2309e36c02c302d4b342d10b6db147c19e8972f60feec8a442250dc56e1339a'});\n\/\/]]>\n<\/script><\/span>"]},{"id":25,"data":["<a href=\"\/prospect\/recycleBin\">Prospects<\/a>","<span id=\"admn_recycle_bins_prospect\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_prospect', '\/administration\/recycleBinsCount\/table\/prospect', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=e377f176c649f81ab24ac1bbfec8d41bf546b7620d56a757075abe24e350cf1b44022398f2e503b88d4fb299127f6a2f'});\n\/\/]]>\n<\/script><\/span>"]},{"id":26,"data":["<a href=\"\/prospectAccount\/recycleBin\">Prospect Accounts<\/a>","<span id=\"admn_recycle_bins_prospectAccount\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_prospectAccount', '\/administration\/recycleBinsCount\/table\/prospectAccount', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=dd5c67d3a67cbef9aae3588f75152ff671a9ef80051fa9db91dc199f32d8bba382e4a4d938fd8140ba9793122fc88f9e'});\n\/\/]]>\n<\/script><\/span>"]},{"id":27,"data":["<a href=\"\/queue\/recycleBin\">Queues<\/a>","<span id=\"admn_recycle_bins_queue\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_queue', '\/administration\/recycleBinsCount\/table\/queue', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=8139bc22a2f736551b5a8e78765043ebf3ed1ffc2dd22d05617a819176daaa92b93b683bfb0eff133c87ed570514d5d2'});\n\/\/]]>\n<\/script><\/span>"]},{"id":28,"data":["<a href=\"\/segmentation\/recycleBin\">Segmentation Rules<\/a>","<span id=\"admn_recycle_bins_segmentation\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_segmentation', '\/administration\/recycleBinsCount\/table\/segmentation', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=5a454ea7bff460e9ab16375e6f77876decd69ee6742da5689f1bb89085dc4e3a3c0c1893fa606a0baec42b32885d6a89'});\n\/\/]]>\n<\/script><\/span>"]},{"id":29,"data":["<a href=\"\/siteSearch\/recycleBin\">Site Searches<\/a>","<span id=\"admn_recycle_bins_siteSearch\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_siteSearch', '\/administration\/recycleBinsCount\/table\/siteSearch', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=54f6cb015bb2e8298fe59141ca2caf611d50c060823f0bdaf84c4cb6d4f2fc6bdf35164013787d7bdf161a1d59716228'});\n\/\/]]>\n<\/script><\/span>"]},{"id":30,"data":["<a href=\"\/user\/recycleBin\">Users<\/a>","<span id=\"admn_recycle_bins_user\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_user', '\/administration\/recycleBinsCount\/table\/user', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=86412024540521ccdf0148f9e6f355161d7d037e501a33ffbbcfb8b2ea08e73e0e70a4d6ad8f4a2de5526ed69abc503e'});\n\/\/]]>\n<\/script><\/span>"]},{"id":31,"data":["<a href=\"\/group\/recycleBin\">User Groups<\/a>","<span id=\"admn_recycle_bins_groupx\">\n\t<i>Calculating<\/i>\n\t<script type=\"text\/javascript\">\n\/\/<![CDATA[\nnew Ajax.Updater('admn_recycle_bins_groupx', '\/administration\/recycleBinsCount\/table\/groupx', {asynchronous:true, evalScripts:false, onComplete:function(request, json){ activeAjaxRequests = activeAjaxRequests.without(request);}, onLoading:function(request, json){ activeAjaxRequests.push(request);}, parameters:'_csrf_token=10e79f1c8dd5c77f494cb822bc1e7069d728cdd486ccc3ebd9ed4a51a34158b1e4239c9ddfa584262be76795b732a378'});\n\/\/]]>\n<\/script><\/span>"]}]);
+
+		var table = new TableCustom.Model.Table({
+			prefix: "admn1444313899_0"			,headerText: "Recycle Bins"			,renderHead: true			,columns: [{"header":"Module Name","sort":"sort_none"},{"header":"Deleted Items","sort":"sort_none"}]			,columnCount: 2			,rows: rows
+						,emptyMessage: ""
+			,paged: false			,pageOffset: 0
+			,countPerPage: parseInt(localStorage.getItem("admn1444313899_0" + "countPerPage")) || 5
+			,useTextFilter: false
+			,evenRowClasses: "class=\"even\""			,oddRowClasses: "class=\"\""
+			,sumRow: false		});
+
+		window.TableCustom = TableCustom;
+		// Late-generated template - has to render first by php
+		var templates = {
+			table: _.template(window.tableCustomTemplate["admn1444313899_0-table"])
+		};
+
+		var tableView = new TableCustom.App.TableView({
+			el: "#" + "admn1444313899_0" + "_customTable"
+			,tableId: "admn1444313899_0" + "_custom_datatable"
+			,model: table
+			,templates: templates
+		});
+	})(jQuery);
+                    </script>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+</body>
+</html>

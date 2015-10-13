@@ -1,0 +1,471 @@
+﻿<div id="wrap" class="clearfix">
+    <!--[if IE 7]>
+    <div id="ieCompatibility">
+        <img style="vertical-align: text-top;" src="/images/error.png"/>
+        <strong>Warning</strong>: Your browser is in Compatibility Mode. For things to work correctly, you need to <a href="http://help.pardot.com/faqs/administration/turning-off-compatibility-mode-in-ie" target="_blank">turn it off</a>.
+    </div>
+    <![endif]-->
+    <p class="hidden">
+        <a href="#content">Skip navigation</a>
+    </p>
+    <div id="wrapper">
+
+        <div id="contentWrap">
+            <div id="content">
+
+                <ul id="bread-crumbs" class="breadcrumb">
+                    <li>
+                        <a href="/" title="Home"><i class="icon-home"></i></a>
+                    </li>
+                    <li class="crumb-divider">  / </li>
+                    <li>
+                        <a href="/report">Reports</a>
+                    </li>
+                </ul>
+
+                <h1>Paid Search</h1>
+
+                <div class="divider"></div>
+
+
+
+                <div id="center-stage">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div id="paidSearch_ReportTable">
+
+                        <div id="ps_report_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                        <div id="ps_report_module" class="module">
+
+                            <div class="header clearfix">
+
+                                <h2 id="paidSearch_ReportTable_h2">
+                                    Paid Search Query Report
+                                </h2>
+
+
+
+                                <form id="paidSearch_ReportTable_date_range_form" class="inline" onsubmit="new Ajax.Updater('paidSearch_ReportTable_table_div', '/paidSearch/reportTable/ajax/1', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('ps_report_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('paidSearch_ReportTable_ajax_urlparams').value + '&amp;'  + Form.serialize(this) }); return false;" action="/paidSearch/reportTable/ajax/1" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="d173bda30c32519bcc7aa26cb15faa6cb2f2880806c2e408b78e6e8d210bd5c33d99d5e5c7d3874032f01246d5c0ab8a"></div>
+                                    <p class="inline header">
+
+                                        <span id="datetext_header">
+                                            Query Date <small>(Based on 12am EDT)</small>:
+                                        </span> <br>
+
+                                        <select name="dateRange" id="dateRange_ps_report" onchange="customDates = document.getElementById('ps_report_custom_dates');if(this.value==7) {
+								customDates.removeClassName(&quot;hidden&quot;);
+							 } else {
+							 	$('paidSearch_ReportTable_date_range_form').onsubmit();
+							 	customDates.addClassName(&quot;hidden&quot;);
+							 }" class="input-auto">
+                                            <option value="1">Today</option>
+                                            <option value="2">Yesterday</option>
+                                            <option value="4">This Month</option>
+                                            <option value="10">This Quarter</option>
+                                            <option value="11">This Year</option>
+                                            <option value="3">Last 7 Days</option>
+                                            <option value="14">Last Week</option>
+                                            <option value="5">Last Month</option>
+                                            <option value="12">Last Quarter</option>
+                                            <option value="13">Last Year</option>
+                                            <option value="6" selected="selected">All Time</option>
+                                            <option value="7">Custom</option>
+                                        </select>						<span id="ps_report_custom_dates" class="datepickerBS inline header hidden">
+                                            <input type="text" name="startDate" id="ps_reportstartDate" value="2006-12-31" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_ps_reportstartDate">...</button>
+                                            <script type="text/javascript">
+    document.getElementById("trigger_ps_reportstartDate").disabled = false;
+    Calendar.setup({
+      inputField : "ps_reportstartDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_ps_reportstartDate"
+    });
+                                            </script>
+                                            &nbsp;to&nbsp;
+
+                                            <input type="text" name="endDate" id="ps_reportendDate" value="2015-10-08" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_ps_reportendDate">...</button>
+                                            <script type="text/javascript">
+    document.getElementById("trigger_ps_reportendDate").disabled = false;
+    Calendar.setup({
+      inputField : "ps_reportendDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_ps_reportendDate"
+    });
+                                            </script>
+                                            &nbsp;
+                                            <input type="submit" name="commit" value="Go" class="btn btn-primary">
+                                        </span>
+                                    </p>
+                                </form>
+
+
+                                <form id="paidSearch_ReportTable_filter" class="inline" onsubmit="new Ajax.Updater('paidSearch_ReportTable_table_div', '/paidSearch/reportTable/ajax/1/dateText/Query+Date', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('ps_report_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('paidSearch_ReportTable_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/paidSearch/reportTable/ajax/1/dateText/Query+Date" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="d173bda30c32519bcc7aa26cb15faa6cb2f2880806c2e408b78e6e8d210bd5c33d99d5e5c7d3874032f01246d5c0ab8a"></div>
+                                    <p class="inline header">
+                                        Filter:<br>
+                                        <input type="text" name="table_filter" id="paidSearch_ReportTable_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;paidSearch_ReportTable_filter&quot;).onsubmit()',600);" class="input-medium">
+                                    </p>
+                                </form>
+
+                                <br>			<div class="btn-group pull-right">
+                                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                        Tools			    <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+
+
+                                        <li><a onclick="location='/paidSearch/exportReportTable?' + $('paidSearch_ReportTable_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                            <div id="ps_report_wrapper" class="module-wrapper">
+                                <div id="paidSearch_ReportTable_table_div">
+
+
+                                    <input type="hidden" id="paidSearch_ReportTable_ajax_urlparams" value="sort=paid_search_visitor.id&amp;order=desc&amp;view=after&amp;dateRange=6&amp;ajaxElement=paidSearch_ReportTable&amp;startDate=%401167627600&amp;endDate=now&amp;numResults=0">
+                                    <table id="paidSearch_ReportTable_table" class="data-table table-bordered">
+                                        <thead>
+                                            <tr>
+
+
+
+                                                <th class="first query-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('paidSearch_ReportTable_table_div', '/paidSearch/reportTable/ajax/1/page/1/order/desc/sort/paid_search_query.query/view/after/dateRange/6/ajaxElement/paidSearch_ReportTable/startDate/%401167627600/endDate/now', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=8b6b722f420f21ab9e80e5f81687c047c2a445b43a681f842f2f5c5b9beb4dc929ab962f70da383e33f8380465bce519'});; return false;">Query</a>
+
+                                                </th>
+
+
+
+
+                                                <th class="sortable sort-down unique-searches-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('paidSearch_ReportTable_table_div', '/paidSearch/reportTable/ajax/1/page/1/order/asc/sort/paid_search_visitor.id/view/after/dateRange/6/ajaxElement/paidSearch_ReportTable/startDate/%401167627600/endDate/now', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=958f4e689216cf226b1310aa793fd3fab9c59fa9f977fe4dba55327359e1cced9d27d543fb452f1e6d55b2da86454ed9'});; return false;">Unique Searches</a>
+
+                                                    <i class="icon-circle-arrow-down muted"></i>
+                                                </th>
+
+
+
+                                                <th class="prospects-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('paidSearch_ReportTable_table_div', '/paidSearch/reportTable/ajax/1/page/1/order/desc/sort/paid_search_prospect.id/view/after/dateRange/6/ajaxElement/paidSearch_ReportTable/startDate/%401167627600/endDate/now', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=9177763307e76660fc93b5e1a865b8512092b6ab5e98b1a13b5a04cbfc38726c10db6e6e5011e10e5431daec2923f8a6'});; return false;">Prospects</a>
+
+                                                </th>
+
+
+
+                                                <th class="opportunities-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('paidSearch_ReportTable_table_div', '/paidSearch/reportTable/ajax/1/page/1/order/desc/sort/paid_search_opportunity.opportunity_id/view/after/dateRange/6/ajaxElement/paidSearch_ReportTable/startDate/%401167627600/endDate/now', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=e06c4311daf5c64964aa3e2c347c443cf807f867d00f30ee56ae663891f40c2f92c60e625708df1292da0b2f6ff3d7bf'});; return false;">Opportunities</a>
+
+                                                </th>
+
+
+
+                                                <th class="opportunity-value-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('paidSearch_ReportTable_table_div', '/paidSearch/reportTable/ajax/1/page/1/order/desc/sort/paid_search_opportunity.value/view/after/dateRange/6/ajaxElement/paidSearch_ReportTable/startDate/%401167627600/endDate/now', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=fb41c70aa2347af9e0668f95e38f20ca73d5f70e4940bb940ed0442065d2fbe4784977c20670cff61c2a1ae88e634ae0'});; return false;">Opportunity Value</a>
+
+                                                </th>
+
+
+
+                                                <th class="revenue-column last">
+
+                                                    <a href="#" onclick="new Ajax.Updater('paidSearch_ReportTable_table_div', '/paidSearch/reportTable/ajax/1/page/1/order/desc/sort/paid_search_opportunity.revenue/view/after/dateRange/6/ajaxElement/paidSearch_ReportTable/startDate/%401167627600/endDate/now', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=2f062abcbbb74754662e7dfe586f5b1f9edc5b07c2efdb68e93c9fb4f7148c74fe2ddf737754efabc5d0d9085be0fa0b'});; return false;">Revenue</a>
+
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="6" class="last">
+                                                    There are no paid search query report for this area.
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+
+
+                                    </table>
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script type="text/javascript">
+//<![CDATA[
+new Ajax.Updater('pasc_row_total', '/paidSearchCampaign/statsForCampaign/view/active/start_date/%401167627600/end_date/%401444311949/num_results/0/campaign_id', {asynchronous:true, evalScripts:true, parameters:'_csrf_token=ecba2a4aa0b1e377c1738f3b135613dbd28510d571c70a3f0757f8f21328004560ae3a0a0b27ac1c17635b0edf7109aa'});
+//]]>
+                    </script>
+
+
+
+
+
+
+                    <div id="paidSearchCampaign">
+
+                        <div id="pasc_status" style="display:none;" class="ajax_status"></div>
+
+
+
+                        <div id="pasc_module" class="module">
+
+                            <div class="header clearfix">
+
+                                <h2 id="paidSearchCampaign_h2">
+                                    Paid Search Campaigns
+                                </h2>
+
+                                <form id="paidSearchCampaign_view" class="views inline" onsubmit="new Ajax.Updater('paidSearchCampaign_table_div', '/paidSearchCampaign/report/ajax/1', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('pasc_status', true);$('paidSearchCampaign_h2').innerHTML = $('paidSearchCampaign_view_field').options[$('paidSearchCampaign_view_field').selectedIndex].text;}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('paidSearchCampaign_ajax_urlparams').value + '&amp;'  + Form.serialize(this) }); return false;" action="/paidSearchCampaign/report/ajax/1" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="d173bda30c32519bcc7aa26cb15faa6cb2f2880806c2e408b78e6e8d210bd5c33d99d5e5c7d3874032f01246d5c0ab8a"></div>				<p class="inline header table-views">
+                                        View:<br>
+                                        <select name="view" id="paidSearchCampaign_view_field" onchange="$(&quot;paidSearchCampaign_view&quot;).onsubmit();return false;" class="input-auto">
+                                            <option value="all">All Paid Search Campaigns</option>
+                                            <option value="active" selected="selected">Active Paid Search Campaigns</option>
+                                            <option value="paused">Paused Paid Search Campaigns</option>
+                                            <option value="deleted">Deleted Paid Search Campaigns</option>
+                                        </select>					<input type="hidden" name="view_change" id="view_change" value="true">
+                                    </p>
+                                </form>
+
+
+                                <form id="paidSearchCampaign_date_range_form" class="inline" onsubmit="new Ajax.Updater('paidSearchCampaign_table_div', '/paidSearchCampaign/report/ajax/1', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('pasc_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('paidSearchCampaign_ajax_urlparams').value + '&amp;'  + Form.serialize(this) }); return false;" action="/paidSearchCampaign/report/ajax/1" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="d173bda30c32519bcc7aa26cb15faa6cb2f2880806c2e408b78e6e8d210bd5c33d99d5e5c7d3874032f01246d5c0ab8a"></div>
+                                    <p class="inline header">
+                                        Campaign:<br>
+                                        <select name="campaign_filter" id="campaign_filter_pasc" onchange="$('paidSearchCampaign_date_range_form').onsubmit();">
+                                            <option value="0" selected="selected">All Campaigns</option>
+                                            <optgroup label="Current">
+                                                <option value="288">Email Plug-in</option>
+                                                <option value="932">Pre-Pardot Initial Import</option>
+                                                <option value="934">Sync from Salesforce</option>
+                                                <option value="1460">Test Campaign</option>
+                                                <option value="1852">Webinars</option>
+                                                <option value="286">Website Tracking</option>
+                                            </optgroup>
+                                            <optgroup label="Archived"></optgroup>
+                                        </select>
+                                    </p>
+                                    <p class="inline header">
+
+                                        <span id="datetext_header">
+                                            Ad Click Date Range <small>(Based on 12am EDT)</small>:
+                                        </span> <br>
+
+                                        <select name="dateRange" id="dateRange_pasc" onchange="customDates = document.getElementById('pasc_custom_dates');if(this.value==7) {
+								customDates.removeClassName(&quot;hidden&quot;);
+							 } else {
+							 	$('paidSearchCampaign_date_range_form').onsubmit();
+							 	customDates.addClassName(&quot;hidden&quot;);
+							 }" class="input-auto">
+                                            <option value="1">Today</option>
+                                            <option value="2">Yesterday</option>
+                                            <option value="4">This Month</option>
+                                            <option value="10">This Quarter</option>
+                                            <option value="11">This Year</option>
+                                            <option value="3">Last 7 Days</option>
+                                            <option value="14">Last Week</option>
+                                            <option value="5">Last Month</option>
+                                            <option value="12">Last Quarter</option>
+                                            <option value="13">Last Year</option>
+                                            <option value="6" selected="selected">All Time</option>
+                                            <option value="7">Custom</option>
+                                        </select>						<span id="pasc_custom_dates" class="datepickerBS inline header hidden">
+                                            <input type="text" name="startDate" id="pascstartDate" value="2006-12-31" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_pascstartDate">...</button>
+                                            <script type="text/javascript">
+    document.getElementById("trigger_pascstartDate").disabled = false;
+    Calendar.setup({
+      inputField : "pascstartDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_pascstartDate"
+    });
+                                            </script>
+                                            &nbsp;to&nbsp;
+
+                                            <input type="text" name="endDate" id="pascendDate" value="2015-10-08" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_pascendDate">...</button>
+                                            <script type="text/javascript">
+    document.getElementById("trigger_pascendDate").disabled = false;
+    Calendar.setup({
+      inputField : "pascendDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_pascendDate"
+    });
+                                            </script>
+                                            &nbsp;
+                                            <input type="submit" name="commit" value="Go" class="btn btn-primary">
+                                        </span>
+                                    </p>
+                                </form>
+
+
+
+                                <br>			<div class="btn-group pull-right">
+                                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                        Tools			    <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+
+
+                                        <li><a onclick="location='/paidSearchCampaign/exportReport?' + $('paidSearchCampaign_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
+
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                            <div id="pasc_wrapper" class="module-wrapper">
+                                <div id="paidSearchCampaign_table_div">
+
+
+                                    <input type="hidden" id="paidSearchCampaign_ajax_urlparams" value="sort=paid_search_campaign.name&amp;order=&amp;view=active&amp;dateRange=6&amp;ajaxElement=paidSearchCampaign&amp;startDate=%401167627600&amp;endDate=now&amp;numResults=0">
+                                    <table class="data-table table-bordered">
+                                        <thead>
+                                            <tr>
+
+
+
+
+                                                <th class="sortable sort-down first name-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('paidSearchCampaign_table_div', '/paidSearchCampaign/report/ajax/1/page/1/order/asc/sort/paid_search_campaign.name/view/active/dateRange/6/ajaxElement/paidSearchCampaign/startDate/%401167627600/endDate/now', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=60b47da7d8094943f4ce60a781fde35bbd108901372d974dddd89686cdece60290b47c8c9f1a714819bc231ff2e77126'});; return false;">Name</a>
+
+                                                    <i class="icon-circle-arrow-down muted"></i>
+                                                </th>
+
+
+                                                <th class="status-column">
+
+                                                    Status
+                                                </th>
+
+
+                                                <th class="clicks-column">
+
+                                                    Clicks
+                                                </th>
+
+
+                                                <th class="impressions-column">
+
+                                                    Impressions
+                                                </th>
+
+
+                                                <th class="conversions-column">
+
+                                                    Conversions
+                                                </th>
+
+
+                                                <th class="cost-column">
+
+                                                    Cost
+                                                </th>
+
+
+                                                <th class="cpc-column">
+
+                                                    CPC
+                                                </th>
+
+
+                                                <th class="unique-prospects-column">
+
+                                                    Unique Prospects
+                                                </th>
+
+
+                                                <th class="unique-opportunities-column">
+
+                                                    Unique Opportunities
+                                                </th>
+
+
+                                                <th class="cpo-column">
+
+                                                    CPO
+                                                </th>
+
+
+                                                <th class="revenue-column">
+
+                                                    Revenue
+                                                </th>
+
+
+                                                <th class="roi-column">
+
+                                                    ROI
+                                                </th>
+
+
+                                                <th class="ad-network-column">
+
+                                                    Ad Network
+                                                </th>
+
+
+                                                <th class="device-column">
+
+                                                    Device
+                                                </th>
+
+
+                                                <th class="click-type-column last">
+
+                                                    Click Type
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                    </table>
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+
+    </div>
+</div>

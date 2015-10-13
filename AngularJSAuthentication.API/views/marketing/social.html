@@ -1,0 +1,1159 @@
+﻿<div id="content">
+
+    <ul id="bread-crumbs" class="breadcrumb">
+        <li>
+            <a href="#/" title="Home"><i class="icon-home"></i></a>
+        </li>
+        <li class="crumb-divider">  / </li>
+        <li>
+            <a href="#/marketing">Marketing</a>
+        </li>
+    </ul>
+
+    <h1>Social Messages</h1>
+
+    <div class="divider"></div>
+
+
+    <div id="center-stage">
+
+
+
+
+
+        <script type="text/javascript" src="/script/twitter-text.js"></script>
+
+
+
+
+
+
+        <div id="scheduled">
+
+            <div id="messages_status" style="display: block; background-image: none; background-color: rgba(0, 0, 0, 0);" class="ajax_status">
+                <!--<script type="text/javascript" src="/js/twitter-text.js"></script>
+                <script type="text/javascript" src="/assets/socialMessage/js/formEdit.js"></script>-->
+
+
+
+                <div id="none_form_update107592">
+
+
+                    <form class="form form-horizontal" name="socialPost_form" id="socialPost_form" enctype="multipart/form-data" method="post" action="/socialMessage/update">
+                        <div style="display:none;"><input type="hidden" name="_csrf_token" value="f326a41a240155a1e10eaf0f925f5a1dd85b52476f7452108916a1ad5319a6706df7a568c7769cc72ef5aff537978eac"></div>	<p class="cancel">
+                            <a class="cancel-link" href="#" onclick="if(jQuery(this).parents('.ajax_row').length) {jQuery(this).parents('.ajax_row').hide();} else{toggleDisplay('none_row_b107592'); cancelFormClearInnerHTML('none_row_b107592'); toggleDisplay('none_form_update107592'); cancelFormClearInnerHTML('none_form_update107592'); if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('none_table_footer',true); }} return false;">Cancel</a>
+                        </p>		<p class="help">
+                            <a onclick="var w=window.open(this.href);w.focus();return false;" href="http://www.pardot.com/search-results/?q=social+message"><i class="icon-question-sign icon-bigger" title="Help"></i></a>
+                        </p>
+                        <h3>Send a Social Message</h3>
+
+                        <input type="hidden" name="id" id="id" value="">					<div class="control-group control-group-left-align">
+                            <label class="control-label">Account(s):</label>
+                            <div class="controls">
+                                <ul id="accountChooser" class="list">
+                                    <li class="inactive" data-twitter="true">
+                                        <label for="sc704" class="socialConnector">
+                                            <!--<img src="/images/twitter-ico.png" alt="Affymetrix" title="Affymetrix" height="16" width="16" id="704" style="display: none !important;">--> Affymetrix								<input type="checkbox" name="connectors[]" value="704" id="sc704" class="hide">
+                                        </label>
+                                    </li>
+                                    <li class="inactive">
+                                        <label for="sc706" class="socialConnector">
+                                            <!--<img src="/images/facebook-ico.png" alt="Affymetrix, Inc. - Biotechnology" title="Affymetrix, Inc. - Biotechnology" height="16" width="16" id="706" style="display: none !important;"> Affymetrix, Inc. - Biotechnology								<input type="checkbox" name="connectors[]" value="706" id="sc706" class="hide">-->
+                                        </label>
+                                    </li>
+                                    <li class="inactive">
+                                        <label for="sc728" class="socialConnector">
+                                            <!--<img src="/images/linkedin.png" alt="John Green" title="John Green" height="16" width="16" id="728" style="display: none !important;"> John Green								<input type="checkbox" name="connectors[]" value="728" id="sc728" class="hide">-->
+                                        </label>
+                                    </li>
+                                    <li class="inactive" data-companypage="true">
+                                        <label for="sc5321" class="socialConnector">
+                                            <!--<img src="/images/linkedin.png" alt="Affymetrix" title="Affymetrix" height="16" width="16" id="5321" style="display: none !important;"> Affymetrix									<input type="checkbox" name="companyPages[]" value="728_5321_Affymetrix" id="sc5321" class="hide">-->
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div id="assetChooser">
+                            <strong style="font-size:14px; position:relative; top:-2px;">Insert:</strong>
+                            <i class="icon-link icon-bigger linkerContent" rel="customUrl" title="Custom Redirect"></i>
+                            &nbsp;
+                            <i class="icon-paper-clip icon-bigger linkerContent" rel="file" title="File"></i>
+                            &nbsp;
+                            <i class="icon-list-alt icon-bigger linkerContent" rel="form" title="Form"></i>
+                            &nbsp;
+                            <i class="icon-file icon-bigger linkerContent" rel="landingPage" title="Landing Page"></i>
+                        </div>
+                        <div id="messageBox">
+                            <textarea name="message" id="socialMessage"></textarea>
+                            <div id="messageLength">140</div>
+                            <div id="assetChooserHidden">
+
+                                <div>
+                                    <p id="assetChooserHiddenText"></p>
+                                    <div>
+                                        <div id="link_url_container">
+                                            <input type="text" value="" name="link_url" id="link_url" style="display:none;">
+                                        </div>
+                                        &nbsp;
+                                        <input type="button" value="Insert" id="assetInsert" style="display:inline;" class="btn btn-primary">
+                                        &nbsp;
+                                        <a id="assetInsertCancel">Cancel</a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div>
+                            <p>
+                                <a href="#" id="show-message-options">
+                                    More options »
+                                </a>
+                            </p>
+                        </div>
+                        <div id="SocialMessageOptions">
+                            <div class="control-group ">
+                                <label class="control-label" for="campaign_id">Campaign</label>
+                                <div class="controls">
+                                    <select name="campaign_id" id="campaign_id">
+                                        <option value="0">&nbsp;</option>
+                                        <optgroup label="Current">
+                                            <option value="288">Email Plug-in</option>
+                                            <option value="932">Pre-Pardot Initial Import</option>
+                                            <option value="934">Sync from Salesforce</option>
+                                            <option value="1460">Test Campaign</option>
+                                            <option value="286">Website Tracking</option>
+                                        </optgroup>
+                                        <optgroup label="Archived"></optgroup>
+                                    </select>				<span class="help-inline" style="display:none;" id="error_for_campaign_id"></span>
+                                </div>
+                            </div>
+
+
+                            <div class="control-group">
+                                <label class="control-label">Tags</label>
+                                <div class="controls">
+                                    <input name="tags" class="tagComponent tagComponentReady" id="tags_no_id_sfOutputEscaperIteratorDecorator" value="" style="display: none;"><div id="tags_no_id_sfOutputEscaperIteratorDecorator_tagsinput" class="tagsinput" style="margin-top: -1px;"><div id="tags_no_id_sfOutputEscaperIteratorDecorator_addTag"><input id="tags_no_id_sfOutputEscaperIteratorDecorator_tag" value="" data-default="add a tag" style="color: rgb(102, 102, 102); width: 206px;" class="ui-autocomplete-input" autocomplete="off"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span></div><div class="tags_clear"></div></div>
+
+                                  
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div id="date-time" style="">
+                                <div class="control-group ">
+                                    <label class="control-label" for="date">Date</label>
+                                    <div class="controls">
+
+                                        <input class="hidden" name="date" id="date" type="text">
+
+                                        <div class="input-append date" id="archive-date-wrapper" data-date-format="yyyy-mm-dd">
+                                            <input class="input-small" name="bootstrap_date" id="bootstrap_date" type="text" placeholder="YYYY-MM-DD">
+
+                                            <span class="add-on">
+                                                <i class="icon-calendar icon-bigger" title="Open Datepicker"></i>
+                                            </span>
+
+                                        </div>
+
+                                        <div class="input-append bootstrap-timepicker">
+                                            <div class="bootstrap-timepicker-widget dropdown-menu"><div class="table"><div class="tr"><div class="td"><a href="#" data-action="incrementHour"><i class="icon-chevron-up"></i></a></div><div class="td separator">&nbsp;</div><div class="td"><a href="#" data-action="incrementMinute"><i class="icon-chevron-up"></i></a></div><div class="td separator">&nbsp;</div><div class="td meridian-column"><a href="#" data-action="toggleMeridian"><i class="icon-chevron-up"></i></a></div></div><div class="tr"><div class="td"><input type="text" name="hour" class="bootstrap-timepicker-hour" maxlength="2"></div> <div class="td separator">:</div><div class="td"><input type="text" name="minute" class="bootstrap-timepicker-minute" maxlength="2"></div> <div class="td separator">&nbsp;</div><div class="td"><input type="text" name="meridian" class="bootstrap-timepicker-meridian" maxlength="2"></div></div><div class="tr"><div class="td"><a href="#" data-action="decrementHour"><i class="icon-chevron-down"></i></a></div><div class="td separator"></div><div class="td"><a href="#" data-action="decrementMinute"><i class="icon-chevron-down"></i></a></div><div class="td separator">&nbsp;</div><div class="td"><a href="#" data-action="toggleMeridian"><i class="icon-chevron-down"></i></a></div></div></div></div>
+                                            <input class="input-small inline-block-important" name="bootstrap_time" id="bootstrap_time" type="text" placeholder="HH:MM">
+
+                                            <span class="add-on">
+                                                <i class="icon-time icon-bigger" title="Open Timepicker"></i>
+                                            </span>
+                                        </div>
+                                        <span class="help-inline" style="display:none;" id="error_for_date"></span>
+                                        <span class="help-block ">
+                                            Current date and time in your timezone: Sep 30, 2015 00:55.
+                                            <span style="display:none;" class="error" id="error_for_time"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+
+                                <input type="button" value="Post Now" class="btn btn-primary" id="sendNow" name="send">
+                                &nbsp;or&nbsp;
+                                <input type="button" value="Post Later" class="btn btn-primary" id="sendLater" name="sendLater" onclick="if($j('#sendLater').val()==='Post Later'){return false;}">
+                                &nbsp;
+                                <a class="cancel-link" href="#" onclick="if(jQuery(this).parents('.ajax_row').length) {jQuery(this).parents('.ajax_row').hide();} else{toggleDisplay('none_row_b107592'); cancelFormClearInnerHTML('none_row_b107592'); toggleDisplay('none_form_update107592'); cancelFormClearInnerHTML('none_form_update107592'); if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('none_table_footer',true); }} return false;">Cancel</a>
+                            </div>
+
+                            <input type="hidden" id="delivery_type" name="delivery_type" value="schedule">
+
+                        </div>
+
+                    </form>
+                    <script src="/js/animation-options.js?id=2013-12-20"></script>
+                    <script>
+
+                            var sendingConnectors, sendingCompanyPages, twitterConnectorsEnabled, lengthAlertSent, date, time;
+                            var socialImprovementsFeature = false;
+
+                            function updatePostLater(){
+                                date = $j("#bootstrap_date").val();
+                                time = $j("#bootstrap_time").val();
+                                if (date !== "" && time !== ""){
+                                    var datetime = date.toString() + " " + time.toString();
+                                    if (socialImprovementsFeature) {
+                                        $j("#sendLater").fadeIn();
+                                    } else {
+                                        $j("#sendLater").val("Post on " + datetime);
+                                    }
+                                    $j("#date").val(datetime);
+                                } else {
+                                    if (socialImprovementsFeature) {
+                                        $j("#sendLater").fadeOut();
+                                    }
+                                }
+                            }
+
+                            function linkifyJs(){
+                                var message = $j("#socialMessage");
+                                var messageVal = message.val();
+                                var limit = 140;
+
+                                function counter(){
+                                    var messageLength = twttr.txt.getTweetLength(messageVal);
+                                    var charsLeft = limit - messageLength;
+                                    $j("#messageLength").html(charsLeft);
+                                    if (socialImprovementsFeature) {
+                                        if(twitterConnectorsEnabled>0 && charsLeft<0){
+                                            $j("#sendNow, #sendLater").prop('disabled', true);
+                                            $j("#messageLength").css('color', 'red');
+                                        } else {
+                                            $j("#messageLength").css('color', 'inherit');
+                                            $j("#sendNow, #sendLater").prop('disabled', false);
+                                        }
+                                    } else {
+                                        if(twitterConnectorsEnabled>0 && charsLeft<0 && lengthAlertSent === false){
+                                            alert('You have exceeded the recommended length for a social message. Messages will not be able to be sent or reshared on Twitter. Please shorten the message and try again.');
+                                            lengthAlertSent=true;
+                                        }
+                                    }
+                                    return charsLeft;
+                                }
+
+                                return counter();
+                            }
+
+
+                            function getLinkerContentForModule(module) {
+
+                                if(!module) { return; }
+
+                                $j("#indicator").show();
+                                // Known link types we get from da dataz
+                                $j.ajax({
+                                    url: "/" + module + "/getAll",
+                                    cache: false,
+                                    success: function(data){
+                                        var select = $j('<div><select name="link_url" id="link_url"><option value="">---</option></select></div>');
+
+                                        if(data) {
+                                            data = eval(data);
+                                            if(data.length) {
+                                                for(var i=0; i<data.length; i++) {
+                                                    select.find("#link_url").append('<option value="' + data[i].url + '">' + data[i].name + '</option>');
+                                                }
+                                            }
+                                        }
+
+                                        $j("#link_url_container").html(select.html());
+                                        $j("#assetChooserHidden").fadeIn("fast");
+                                        $j("#indicator").fadeOut();
+
+                                    }
+                                });
+                            }
+
+                            function sendConfirm(){
+                                var message = $j("#socialMessage").val();
+                                var date = $j("#date").val();
+                                var $deliveryType = $j("#delivery_type");
+
+                                lengthAlertSent = false;
+                                if(linkifyJs()<0 && twitterConnectorsEnabled>0){
+                                    return false;
+                                }
+                                var messageMode = 'send';
+                                if ($j("#delivery_type").val() === "schedule" && date !== '') {
+                                    messageMode = 'schedule';
+                                    var fullDate = new Date(date);
+                                    if (socialImprovementsFeature && fullDate.getTime() < Date.now()) {
+                                        $j("#date-time .help-block").after('<div class="alert alert-warning clear">That date is in the past. Please update.</div>').parent().find(".alert").delay(3000).fadeOut();
+                                        return false;
+                                    } else {
+                                        message += '\n\n' + 'The message will be scheduled for: ' + date;
+                                    }
+                                }
+
+                                if ( $deliveryType.val() === "schedule" && !date) {
+                                    alert('You need to enter a date to schedule a message.');
+                                    return false;
+                                }
+                                var answer = confirm("Are you sure that you want to " + messageMode + " the message: " + message);
+                                if (answer){
+                                    // Prepend all urls with http:// if they do not already include http:// or https://
+                                    var extractedUrlWithIndices = twttr.txt.extractUrlsWithIndices(String($j("#socialMessage").val()));
+                                    $j("#socialMessage").val(getSocialMessageWithHttpUrls($j("#socialMessage").val(), extractedUrlWithIndices));
+
+                                    document.getElementById("socialPost_form").submit();
+                                } else {
+                                    return false;
+                                }
+                            }
+
+
+                            // Init the magic
+                            $j(function() {
+
+                                $j('div.date').datepicker().on("changeDate", function(e){
+                                    $j('div.datepicker').hide();
+                                    updatePostLater();
+                                });
+                                $j('#bootstrap_time').timepicker({
+                                    defaultTime: false
+                                });
+
+                                $j("#bootstrap_time").timepicker().on("changeTime.timepicker", function(e){
+                                    updatePostLater();
+                                });
+
+                                $j('#bootstrap_time').focus(function(){
+                                    $j(this).timepicker('showWidget');
+                                });
+
+                                sendingConnectors = 0;
+                                sendingCompanyPages = 0;
+                                twitterConnectorsEnabled = 0;
+                                lengthAlertSent = false;
+
+                                $j("#socialMessage").change(linkifyJs).keyup(linkifyJs);
+                                $j(".linkerContent").click(function(){
+                                    $j("#assetChooserHidden").fadeOut("slow");
+                                    var type = $j(this).attr("rel");
+                                    getLinkerContentForModule(type);
+                                    $j("#assetChooserHiddenText").html('Choose a '+$j(this).attr("title"));
+
+                                });
+
+
+                                // Populate link type based on current selection, if present
+                                $j("#type_of_link").change(function() {
+                                    // Adjust content to this tab
+                                    var module = $j("#type_of_link").find(":selected").val();
+
+                                    // Get list of assets to manage
+                                    getLinkerContentForModule(module);
+                                });
+
+                                $j("#assetInsert").click(function(){
+                                    var link = $j('#link_url').val() + " ";
+                                    $j('#socialMessage').val($j('#socialMessage').val()+' '+link).trigger("keyup");
+                                    $j('#assetChooserHidden').fadeOut();
+                                });
+
+                                $j("#assetInsertCancel").click(function(){
+                                    $j('#assetChooserHidden').fadeOut("fast");
+                                });
+
+                                $j(".js-clear-pickers").click(function(e){
+                                    e.preventDefault();
+                                    $j("#bootstrap_date, #bootstrap_time").val("");
+                                    $j("#sendLater").fadeOut();
+                                    return false;
+                                });
+
+                                $j("#sendNow").click(function(){
+                                    $j("#delivery_type").val("send_now");
+                                    sendConfirm();
+                                });
+                                $j("#sendLater").click(function(){
+                                    if($j("#delivery_type").val() === "schedule"){
+                                        $j("#sendLater").fadeIn()
+                                        // send
+                                        sendConfirm();
+                                    } else {
+                                        // adjust time
+                                        $j("#date-time").slideDown();
+                                        $j("#delivery_type").val("schedule");
+                                        if (!socialImprovementsFeature) {
+                                            // update button to current setting
+                                            var d = getDateAndTime();
+                                            $j(this).val("Post on "+d);
+                                        }
+                                        return false;
+                                    }
+                                });
+
+                                $j("#content .form-horizontal .socialConnector").mouseup(function(e){
+                                    e.stopPropagation();
+                                    var $this = $j(this);
+                                    var $li = $this.parent();
+                                    if($li.is(".inactive")){
+                                        $li.removeClass("inactive");
+                                        if($li.attr("data-twitter")==="true"){
+                                            twitterConnectorsEnabled++;
+                                            if(socialImprovementsFeature) {
+                                                $j("#messageLength").show();
+                                            } else {
+                                                lengthAlertSent=false;
+
+                                            }
+                                            linkifyJs();
+                                        }
+                                        if($li.attr("data-companypage")==="true"){
+                                            sendingCompanyPages = sendingCompanyPages + 1;
+                                        } else {
+                                            sendingConnectors = sendingConnectors + 1;
+                                        }
+                                    } else {
+                                        $li.addClass("inactive");
+                                        if($li.attr("data-twitter")==="true"){
+                                            twitterConnectorsEnabled--;
+                                            if (socialImprovementsFeature && twitterConnectorsEnabled < 1){ // if we've removed all twitter accounts
+                                                $j("#messageLength").hide();
+                                                $j("#sendNow, #sendLater").prop('disabled', false);
+                                            }
+                                        }
+                                        if($li.attr("data-companypage")==="true"){
+                                            sendingCompanyPages = sendingCompanyPages - 1;
+                                        } else {
+                                            sendingConnectors = sendingConnectors - 1;
+                                        }
+                                    }
+                                });
+
+                                $j('#show-message-options').click(function(e) {
+                                    e.preventDefault();
+                                    var $options = $j('#SocialMessageOptions');
+                                    $options.slideToggle(cubicAnimationFast);
+                                    if ($options.is(':hidden')) {
+                                        $j(this).text('More options »');
+                                    } else {
+                                        $j(this).text('Hide options «');
+                                    }
+                                });
+
+                                if (socialImprovementsFeature) {
+                                    $j("#accountChooser").find('li').each(function(){
+                                        var $li = $j(this);
+                                        //If we're editing a scheduled post with a twitter connector selected
+                                        if(!$li.hasClass("inactive") && $li.attr("data-twitter")==="true") {
+                                            $j("#messageLength").show();
+                                            twitterConnectorsEnabled++; // Keep proper count of twitter ones to handle update of counter/post buttons
+                                        }
+                                    });
+                                }
+
+                                if ($j("#date").val() !== "") {
+                                    //show button when pre-filling value on editing scheduled posts
+                                    if (socialImprovementsFeature) {
+                                        $j("#sendLater").show();
+                                    } else {
+                                        $j("#sendLater").val("Post on " + $j("#date").val());
+                                    }
+
+                                }
+
+                                //run our function initially.
+                                linkifyJs();
+
+                            });
+
+                    </script>
+                </div>
+            </div>
+
+
+
+            <div id="tagFilterscheduled" class="tagfilter-pop-up dropdown-menu" style="display: none;"><input type="text" id="tagFilterSearchscheduled" value=""><div class="scroller"><ul id="tagFilterSelectorscheduled"><li></li></ul></div><a href="#/social#"  style="float: left;">Clear filter</a>  <a href="#/tag" style="float: right;">Manage tags</a></div><div id="messages_module" class="module">
+                <div class="header clearfix">
+                    <h2 id="scheduled_h2">
+                        Scheduled Social Messages
+                    </h2>
+
+
+                    <form id="scheduled_date_range_form" class="inline" onsubmit="new Ajax.Updater(&#39;scheduled_table_div&#39;, &#39;/socialMessage/table/ajax/1&#39;, {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay(&#39;messages_status&#39;, true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$(&#39;scheduled_ajax_urlparams&#39;).value + &#39;&amp;&#39;  + Form.serialize(this) }); return false;" action="#/socialMessage/table/ajax/1" method="post">
+                        <div style="display:none;"><input type="hidden" name="_csrf_token" value="336cf4c4bb01aa9824ffa35228f0bb8d069482be9f32bf0b2196913df05fb2000d4cffec4f7ca618f162b936842e9bcf"></div>
+                        <p class="inline header">
+                            Campaign:<br>
+                            <select name="campaign_filter" id="campaign_filter_messages" onchange="$(&#39;scheduled_date_range_form&#39;).onsubmit();">
+                                <option value="0" selected="selected">All Campaigns</option>
+                                <optgroup label="Current">
+                                    <option value="288">Email Plug-in</option>
+                                    <option value="932">Pre-Pardot Initial Import</option>
+                                    <option value="934">Sync from Salesforce</option>
+                                    <option value="1460">Test Campaign</option>
+                                    <option value="286">Website Tracking</option>
+                                </optgroup>
+                                <optgroup label="Archived"></optgroup>
+                            </select>
+                        </p>
+                        <p class="inline header">
+
+                            <span id="datetext_header">
+                                Date Range  <small>(Based on 12am EDT)</small>:
+                            </span> <br>
+
+                            <select name="dateRange" id="dateRange_messages" onchange="customDates = document.getElementById(&#39;messages_custom_dates&#39;);if(this.value==7) {
+								customDates.removeClassName(&quot;hidden&quot;);
+							 } else {
+							 	$(&#39;scheduled_date_range_form&#39;).onsubmit();
+							 	customDates.addClassName(&quot;hidden&quot;);
+							 }" class="input-auto">
+                                <option value="1">Today</option>
+                                <option value="2">Yesterday</option>
+                                <option value="4">This Month</option>
+                                <option value="10">This Quarter</option>
+                                <option value="11">This Year</option>
+                                <option value="3">Last 7 Days</option>
+                                <option value="14">Last Week</option>
+                                <option value="5">Last Month</option>
+                                <option value="12">Last Quarter</option>
+                                <option value="13">Last Year</option>
+                                <option value="6" selected="selected">All Time</option>
+                                <option value="7">Custom</option>
+                            </select>						<span id="messages_custom_dates" class="datepickerBS inline header hidden">
+                                <input type="text" name="startDate" id="messagesstartDate" value="2006-12-31" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_messagesstartDate">...</button>
+                                <script type="text/javascript">
+    document.getElementById("trigger_messagesstartDate").disabled = false;
+    Calendar.setup({
+      inputField : "messagesstartDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_messagesstartDate"
+    });
+                                </script>
+                                &nbsp;to&nbsp;
+
+                                <input type="text" name="endDate" id="messagesendDate" value="2015-09-29" class="datepicker input-small" size="12"><button type="button" onclick="return false" id="trigger_messagesendDate">...</button>
+                                <script type="text/javascript">
+    document.getElementById("trigger_messagesendDate").disabled = false;
+    Calendar.setup({
+      inputField : "messagesendDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_messagesendDate"
+    });
+                                </script>
+                                &nbsp;
+                                <input type="submit" name="commit" value="Go" class="btn btn-primary">
+                            </span>
+                        </p>
+                    </form>
+
+
+                    <form id="scheduled_filter" class="inline" onsubmit="new Ajax.Updater(&#39;scheduled_table_div&#39;, &#39;/socialMessage/table/ajax/1/dateText/Date+Range%3A+&#39;, {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay(&#39;messages_status&#39;, true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$(&#39;scheduled_ajax_urlparams&#39;).value.replace(&#39;table_filter=&#39;,&#39;&#39;) + &#39;&amp;&#39;  + Form.serialize(this) }); return false;" action="#/socialMessage/table/ajax/1/dateText/Date+Range%3A+" method="post">
+                        <div style="display:none;"><input type="hidden" name="_csrf_token" value="336cf4c4bb01aa9824ffa35228f0bb8d069482be9f32bf0b2196913df05fb2000d4cffec4f7ca618f162b936842e9bcf"></div>
+                        <p class="inline header">
+                            Filter:<br>
+                            <input type="text" name="table_filter" id="scheduled_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout(&#39;$(&quot;scheduled_filter&quot;).onsubmit()&#39;,600);" class="input-medium">
+                        </p>
+                    </form>
+                    <br>
+                    <form id="scheduled_tagFilter" class="aaa inline tag-filter-form" onsubmit="new Ajax.Updater(&#39;scheduled_table_div&#39;, &#39;/socialMessage/table/ajax/1/dateText/Date+Range%3A+/table_filter&#39;, {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay(&#39;messages_status&#39;, true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$(&#39;scheduled_ajax_urlparams&#39;).value.replace(&#39;tagFilter=&#39;,&#39;&#39;) + &#39;&amp;&#39;  + Form.serialize(this) }); return false;" action="#/socialMessage/table/ajax/1/dateText/Date+Range%3A+/table_filter" method="post">
+                        <div style="display:none;"><input type="hidden" name="_csrf_token" value="336cf4c4bb01aa9824ffa35228f0bb8d069482be9f32bf0b2196913df05fb2000d4cffec4f7ca618f162b936842e9bcf"></div>					<p class="inline header" id="tagFilterContainerscheduled"><button  class="btn">Tags <span class="caret"></span></button><span id="tagFilterListscheduled"></span><input type="hidden" id="tagFilterInputscheduled" name="tagFilter" value=""></p>
+                        
+                    </form>
+
+
+
+                    <span class="link_to_create pull-right">
+                        <a href="#/socialMessage/createAjax" id="messages_link_create" class="btn btn-warning"><i class="icon-plus"></i> New social post</a>
+                        <script type="text/javascript">
+	jQuery('a#messages_link_create').click(function() {
+		jQuery("#indicator").show();
+		if(jQuery('html').is('.ie'))
+			toggleDisplay("messages_table_footer", false);
+		jQuery.ajax({
+			url: "/socialMessage/createAjax",
+			beforeSend: function(jqXHR, settings) {
+				// TODO: Compensate for existing data?
+				settings.data += jQuery("#messages_ajax_urlparams").attr('value');
+			},
+			complete: function() {
+				jQuery("#indicator").fadeOut();
+			},
+			success: function(data, textStatus, jqXhr) {
+				jQuery("#messages_status").html(data);
+				toggleDisplay("messages_status", true);
+				new Effect.Highlight('messages_status', {duration:2});
+			}
+		});
+		return false;
+	});
+                        </script>
+                    </span>
+                </div>
+                <div id="messages_wrapper" class="module-wrapper">
+                    <div id="scheduled_table_div">
+
+                        <input type="hidden" id="scheduled_ajax_urlparams" value="sort=social_message.message&amp;order=desc&amp;dateRange=6&amp;view=scheduled&amp;pageSize=5&amp;prefix=messages&amp;startDate=%401167627600&amp;endDate=now&amp;dateText=Date+Range%3A&amp;tagFilter=+&amp;ajaxElement=scheduled&amp;startDate=%401167627600&amp;endDate=now&amp;numResults=14">
+                        <table id="scheduled_table" class="data-table table-bordered">
+                            <thead>
+                                <tr>
+
+
+                                    <th class="first error-status-column">
+
+
+                                    </th>
+
+
+
+
+                                    <th class="sortable sort-down message-column">
+
+                                        <a href="#/social#" onclick="new Ajax.Updater(&#39;scheduled_table_div&#39;, &#39;/socialMessage/table/ajax/1/page/1/order/asc/sort/social_message.message/dateRange/6/view/scheduled/pageSize/5/prefix/messages/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/tagFilter/+/ajaxElement/scheduled&#39;, {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:&#39;_csrf_token=4891cf746a398576fab5ffd2e05944c1ac71b3662eb382d96938f18ad9ea07907e4e51712326ff002a3a6fcdb13fc253&#39;});; return false;">Message</a>
+
+                                        <i class="icon-circle-arrow-down muted"></i>
+                                    </th>
+
+
+                                    <th class="posted-with-column">
+
+                                        Posted With
+                                    </th>
+
+
+
+                                    <th class="scheduled-for-column last">
+
+                                        <a href="#/social#" onclick="new Ajax.Updater(&#39;scheduled_table_div&#39;, &#39;/socialMessage/table/ajax/1/page/1/order/desc/sort/social_message.scheduled_for/dateRange/6/view/scheduled/pageSize/5/prefix/messages/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/tagFilter/+/ajaxElement/scheduled&#39;, {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:&#39;_csrf_token=fd4f9b1a01fab27f2b63576f6849d3d4f023d28d5e838e821a10ee2433c0a53ef405275ffd3f03d6b9f07f076ce40337&#39;});; return false;">Scheduled For</a>
+
+                                    </th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr class="" id="scheduled_row_a0">
+
+                                    <td class="first error-status-column">
+                                        <i class="icon icon-warning-sign text-error vertical-middle"></i>
+                                    </td>
+
+                                    <td>
+                                        <a href="#/socialMessage/read/id/150">Last chance! RSVP for our event at theWit, Chicago tmrw. Eat,...</a>
+                                    </td>
+
+                                    <td>
+                                        <ul id="accountChooser" class="list no-margin no-padding">
+                                            <li>
+                                                <label class="socialConnector">
+                                                    <img src="#/images/twitter-ico.png" height="16" width="16" alt="" style="display: none !important;">
+                                                    Affymetrix
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </td>
+
+                                    <td class="last">
+                                        Sep 30, 2015 1:00 PM
+                                    </td>
+                                </tr>
+                                <tr style="display:none" id="scheduled_row_b0" class="ajax_row">
+                                    <td colspan="4" id="scheduled_row_b_cell0" class="last"></td>
+                                </tr>
+                                <tr class="even" id="scheduled_row_a1">
+
+                                    <td class="first error-status-column">
+                                        <i class="icon icon-warning-sign text-error vertical-middle"></i>
+                                    </td>
+
+                                    <td>
+                                        <a href="#/socialMessage/read/id/186">Join us for breakfast on 10/7 at #ASHG15 to hear Professor Si...</a>
+                                    </td>
+
+                                    <td>
+                                        <ul id="accountChooser" class="list no-margin no-padding">
+                                            <li>
+                                                <label class="socialConnector">
+                                                    <img src="#/images/twitter-ico.png" height="16" width="16" alt="" style="display: none !important;">
+                                                    Affymetrix
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </td>
+
+                                    <td class="last">
+                                        Sep 30, 2015 3:00 PM
+                                    </td>
+                                </tr>
+                                <tr style="display:none" id="scheduled_row_b1" class="ajax_row">
+                                    <td colspan="4" id="scheduled_row_b_cell1" class="last"></td>
+                                </tr>
+                                <tr class="" id="scheduled_row_a2">
+
+                                    <td class="first error-status-column">
+                                        <i class="icon icon-warning-sign text-error vertical-middle"></i>
+                                    </td>
+
+                                    <td>
+                                        <a href="#/socialMessage/read/id/192">Hear Professor Rory Collins discuss the largest genotyping st...</a>
+                                    </td>
+
+                                    <td>
+                                        <ul id="accountChooser" class="list no-margin no-padding">
+                                            <li>
+                                                <label class="socialConnector">
+                                                    <img src="#/images/twitter-ico.png" height="16" width="16" alt="" style="display: none !important;">
+                                                    Affymetrix
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </td>
+
+                                    <td class="last">
+                                        Oct 1, 2015 3:00 PM
+                                    </td>
+                                </tr>
+                                <tr style="display:none" id="scheduled_row_b2" class="ajax_row">
+                                    <td colspan="4" id="scheduled_row_b_cell2" class="last"></td>
+                                </tr>
+                                <tr class="even" id="scheduled_row_a3">
+
+                                    <td class="first error-status-column">
+                                        <i class="icon icon-warning-sign text-error vertical-middle"></i>
+                                    </td>
+
+                                    <td>
+                                        <a href="#/socialMessage/read/id/194">Have some free breakfast and hear Professor Rory Collins disc...</a>
+                                    </td>
+
+                                    <td>
+                                        <ul id="accountChooser" class="list no-margin no-padding">
+                                            <li>
+                                                <label class="socialConnector">
+                                                    <img src="#/images/twitter-ico.png" height="16" width="16" alt="" style="display: none !important;">
+                                                    Affymetrix
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </td>
+
+                                    <td class="last">
+                                        Sep 30, 2015 10:00 PM
+                                    </td>
+                                </tr>
+                                <tr style="display:none" id="scheduled_row_b3" class="ajax_row">
+                                    <td colspan="4" id="scheduled_row_b_cell3" class="last"></td>
+                                </tr>
+                                <tr class="" id="scheduled_row_a4">
+
+                                    <td class="first error-status-column">
+                                        <i class="icon icon-warning-sign text-error vertical-middle"></i>
+                                    </td>
+
+                                    <td>
+                                        <a href="#/socialMessage/read/id/154">Don’t miss our final Tumor Profiling roadshow event of the ye...</a>
+                                    </td>
+
+                                    <td>
+                                        <ul id="accountChooser" class="list no-margin no-padding">
+                                            <li>
+                                                <label class="muted" rel="tooltip" data-original-title="This connector has been deleted">
+                                                    <img src="#/images/linkedin.png" height="16" width="16" alt="" style="display: none !important;">
+                                                    Affymetrix
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </td>
+
+                                    <td class="last">
+                                        Sep 28, 2015 6:00 AM
+                                    </td>
+                                </tr>
+                                <tr style="display:none" id="scheduled_row_b4" class="ajax_row">
+                                    <td colspan="4" id="scheduled_row_b_cell4" class="last"></td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+                        <div class="table-foot clearfix">
+                            <div id="messages_table_footer">
+                                <form id="scheduledform" class="inline messages-pager-form pager-form" onsubmit="new Ajax.Updater(&#39;scheduled_table_div&#39;, &#39;/socialMessage/table/ajax/1/sort/social_message.message/order/desc/dateRange/6/view/scheduled/pageSize/5/prefix/messages/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/tagFilter/+/ajaxElement/scheduled&#39;, {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay(&#39;messages_status&#39;, true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:Form.serialize(this)}); return false;" action="#/socialMessage/table/ajax/1/sort/social_message.message/order/desc/dateRange/6/view/scheduled/pageSize/5/prefix/messages/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/tagFilter/+/ajaxElement/scheduled" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="336cf4c4bb01aa9824ffa35228f0bb8d069482be9f32bf0b2196913df05fb2000d4cffec4f7ca618f162b936842e9bcf"></div>						<ul class="inline pull-right paging">
+                                        <li>
+                                        </li>
+                                        <li>
+                                            Page
+                                            <input type="text" name="page" id="page_scheduled" value="1" class="text-tiny" style="width: 18px;">
+                                            <script>$j(".text-tiny").each(textTinyResize);</script>
+                                            of
+                                            <a class="pager-last" href="#/social#" onclick="cancelAllPendingAjax(); new Ajax.Updater(&#39;scheduled_table_div&#39;, &#39;/socialMessage/table/ajax/1/page/3/sort/social_message.message/order/desc/dateRange/6/view/scheduled/pageSize/5/prefix/messages/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/tagFilter/+/ajaxElement/scheduled&#39;, {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:&#39;_csrf_token=2f2577ba61134b0ce59c164a02e2feb33f1670882537aa00ac3caea7786b7e5c20a1425e43eb72d4ccce8a1e4ac9006b&#39;});; return false;">3</a>
+                                        </li>
+
+                                        <li class="last">
+                                            <a class="pager-next" href="#/social#" onclick="cancelAllPendingAjax(); new Ajax.Updater(&#39;scheduled_table_div&#39;, &#39;/socialMessage/table/ajax/1/page/2/sort/social_message.message/order/desc/dateRange/6/view/scheduled/pageSize/5/prefix/messages/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/tagFilter/+/ajaxElement/scheduled&#39;, {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:&#39;_csrf_token=d9481a046592b8653573d94fc19eed11bf8b9c3c941f47c1b25c6b17ea8b0fafbb10d3b94c1400666170514124b51908&#39;});; return false;">Next »</a>
+                                        </li>
+                                    </ul>
+                                    <p class="inline pull-right">
+                                        Showing
+                                        <select name="pageSize" id="messagespageSize" onchange="$(&quot;scheduledform&quot;).onsubmit();return false;" class="input-auto">
+                                            <option value="5" selected="selected">5</option>
+                                            <option value="10">10</option>
+                                            <option value="15">15</option>
+                                            <option value="25">25</option>
+                                            <option value="50">50</option>
+                                        </select>											 of <strong>14</strong>																															<input type="hidden" name="dateRange" id="messages1_dateRange" value="6">																								<input type="hidden" name="view" id="messages1_view" value="scheduled">																								<input type="hidden" name="mode" id="messages1_mode" value="">																								<input type="hidden" name="tableName" id="messages1_tableName" value="">																								<input type="hidden" name="campaign_id" id="messages1_campaign_id" value="">																								<input type="hidden" name="prospect_id" id="messages1_prospect_id" value="">																								<input type="hidden" name="visitor_id" id="messages1_visitor_id" value="">																								<input type="hidden" name="visit_id" id="messages1_visit_id" value="">																								<input type="hidden" name="user_id" id="messages1_user_id" value="">																								<input type="hidden" name="query" id="messages1_query" value="">																																			<input type="hidden" name="prefix" id="messages1_prefix" value="messages">																								<input type="hidden" name="export" id="messages1_export" value="">																								<input type="hidden" name="startDate" id="messages1_startDate" value="@1167627600">																								<input type="hidden" name="endDate" id="messages1_endDate" value="now">																								<input type="hidden" name="dateText" id="messages1_dateText" value="Date Range:">																								<input type="hidden" name="tagFilter" id="messages1_tagFilter" value=" ">
+                                    </p>
+                                </form>
+                            </div>
+                        </div>
+
+                        <script>
+            (function(){
+                $j(document).ready(function () {
+                    $j("#scheduled_table [rel=tooltip]").tooltip();
+                });
+            })();
+                        </script>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div id="sent">
+
+            <div id="messages_status" style="display:none;" class="ajax_status"></div>
+
+
+
+            <div id="tagFiltersent" class="tagfilter-pop-up dropdown-menu" style="display: none;"><input type="text" id="tagFilterSearchsent" value=""><div class="scroller"><ul id="tagFilterSelectorsent"><li></li></ul></div><a href="#/social#"  style="float: left;">Clear filter</a>  <a href="#/tag" style="float: right;">Manage tags</a></div><div id="messages_module" class="module">
+                <div class="header clearfix">
+                    <h2 id="sent_h2">
+                        Sent Social Messages
+                    </h2>
+
+
+                    <form id="sent_date_range_form" class="inline" onsubmit="new Ajax.Updater(&#39;sent_table_div&#39;, &#39;/socialMessage/table/ajax/1&#39;, {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay(&#39;messages_status&#39;, true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$(&#39;sent_ajax_urlparams&#39;).value + &#39;&amp;&#39;  + Form.serialize(this) }); return false;" action="#/socialMessage/table/ajax/1" method="post">
+                        <div style="display:none;"><input type="hidden" name="_csrf_token" value="336cf4c4bb01aa9824ffa35228f0bb8d069482be9f32bf0b2196913df05fb2000d4cffec4f7ca618f162b936842e9bcf"></div>
+                        <p class="inline header">
+                            Campaign:<br>
+                            <select name="campaign_filter" id="campaign_filter_messages" onchange="$(&#39;sent_date_range_form&#39;).onsubmit();">
+                                <option value="0" selected="selected">All Campaigns</option>
+                                <optgroup label="Current">
+                                    <option value="288">Email Plug-in</option>
+                                    <option value="932">Pre-Pardot Initial Import</option>
+                                    <option value="934">Sync from Salesforce</option>
+                                    <option value="1460">Test Campaign</option>
+                                    <option value="286">Website Tracking</option>
+                                </optgroup>
+                                <optgroup label="Archived"></optgroup>
+                            </select>
+                        </p>
+                        <p class="inline header">
+
+                            <span id="datetext_header">
+                                Date Range  <small>(Based on 12am EDT)</small>:
+                            </span> <br>
+
+                            <select name="dateRange" id="dateRange_messages" onchange="customDates = document.getElementById(&#39;messages_custom_dates&#39;);if(this.value==7) {
+								customDates.removeClassName(&quot;hidden&quot;);
+							 } else {
+							 	$(&#39;sent_date_range_form&#39;).onsubmit();
+							 	customDates.addClassName(&quot;hidden&quot;);
+							 }" class="input-auto">
+                                <option value="1">Today</option>
+                                <option value="2">Yesterday</option>
+                                <option value="4">This Month</option>
+                                <option value="10">This Quarter</option>
+                                <option value="11">This Year</option>
+                                <option value="3">Last 7 Days</option>
+                                <option value="14">Last Week</option>
+                                <option value="5">Last Month</option>
+                                <option value="12">Last Quarter</option>
+                                <option value="13">Last Year</option>
+                                <option value="6" selected="selected">All Time</option>
+                                <option value="7">Custom</option>
+                            </select>						<span id="messages_custom_dates" class="datepickerBS inline header hidden">
+                                <input type="text" name="startDate" id="messagesstartDate" value="2006-12-31" class="datepicker input-small" size="12"><button type="button" disabled="disabled" onclick="return false" id="trigger_messagesstartDate">...</button>
+                                <script type="text/javascript">
+    document.getElementById("trigger_messagesstartDate").disabled = false;
+    Calendar.setup({
+      inputField : "messagesstartDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_messagesstartDate"
+    });
+                                </script>
+                                &nbsp;to&nbsp;
+
+                                <input type="text" name="endDate" id="messagesendDate" value="2015-09-29" class="datepicker input-small" size="12"><button type="button" disabled="disabled" onclick="return false" id="trigger_messagesendDate">...</button>
+                                <script type="text/javascript">
+    document.getElementById("trigger_messagesendDate").disabled = false;
+    Calendar.setup({
+      inputField : "messagesendDate",
+      ifFormat : "%Y-%m-%d",
+      daFormat : "%Y-%m-%d",
+      button : "trigger_messagesendDate"
+    });
+                                </script>
+                                &nbsp;
+                                <input type="submit" name="commit" value="Go" class="btn btn-primary">
+                            </span>
+                        </p>
+                    </form>
+
+
+                    <form id="sent_filter" class="inline" onsubmit="new Ajax.Updater(&#39;sent_table_div&#39;, &#39;/socialMessage/table/ajax/1/dateText/Date+Range%3A+&#39;, {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay(&#39;messages_status&#39;, true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$(&#39;sent_ajax_urlparams&#39;).value.replace(&#39;table_filter=&#39;,&#39;&#39;) + &#39;&amp;&#39;  + Form.serialize(this) }); return false;" action="#/socialMessage/table/ajax/1/dateText/Date+Range%3A+" method="post">
+                        <div style="display:none;"><input type="hidden" name="_csrf_token" value="336cf4c4bb01aa9824ffa35228f0bb8d069482be9f32bf0b2196913df05fb2000d4cffec4f7ca618f162b936842e9bcf"></div>
+                        <p class="inline header">
+                            Filter:<br>
+                            <input type="text" name="table_filter" id="sent_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout(&#39;$(&quot;sent_filter&quot;).onsubmit()&#39;,600);" class="input-medium">
+                        </p>
+                    </form>
+                    <br>
+                    <form id="sent_tagFilter" class="aaa inline tag-filter-form" onsubmit="new Ajax.Updater(&#39;sent_table_div&#39;, &#39;/socialMessage/table/ajax/1/dateText/Date+Range%3A+/table_filter&#39;, {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay(&#39;messages_status&#39;, true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$(&#39;sent_ajax_urlparams&#39;).value.replace(&#39;tagFilter=&#39;,&#39;&#39;) + &#39;&amp;&#39;  + Form.serialize(this) }); return false;" action="#/socialMessage/table/ajax/1/dateText/Date+Range%3A+/table_filter" method="post">
+                        <div style="display:none;"><input type="hidden" name="_csrf_token" value="336cf4c4bb01aa9824ffa35228f0bb8d069482be9f32bf0b2196913df05fb2000d4cffec4f7ca618f162b936842e9bcf"></div>					<p class="inline header" id="tagFilterContainersent"><button  class="btn">Tags <span class="caret"></span></button><span id="tagFilterListsent"></span><input type="hidden" id="tagFilterInputsent" name="tagFilter" value=""></p>
+                        
+                    </form>
+
+
+
+                </div>
+                <div id="messages_wrapper" class="module-wrapper">
+                    <div id="sent_table_div">
+
+                        <input type="hidden" id="sent_ajax_urlparams" value="sort=social_message.message&amp;order=desc&amp;dateRange=6&amp;view=sent&amp;pageSize=5&amp;prefix=messages&amp;startDate=%401167627600&amp;endDate=now&amp;dateText=Date+Range%3A&amp;tagFilter=+&amp;ajaxElement=sent&amp;startDate=%401167627600&amp;endDate=now&amp;numResults=10">
+                        <table id="sent_table" class="data-table table-bordered">
+                            <thead>
+                                <tr>
+
+
+                                    <th class="first error-status-column">
+
+
+                                    </th>
+
+
+
+
+                                    <th class="sortable sort-down message-column">
+
+                                        <a href="#/social#" onclick="new Ajax.Updater(&#39;sent_table_div&#39;, &#39;/socialMessage/table/ajax/1/page/1/order/asc/sort/social_message.message/dateRange/6/view/sent/pageSize/5/prefix/messages/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/tagFilter/+/ajaxElement/sent&#39;, {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:&#39;_csrf_token=05dcfa2466285475cb07fa65ff9076cca2066e8205e5ea3fa8965b25873fbaac78ae73264d6dbe9e433cb4bc072f937d&#39;});; return false;">Message</a>
+
+                                        <i class="icon-circle-arrow-down muted"></i>
+                                    </th>
+
+
+                                    <th class="posted-with-column">
+
+                                        Posted With
+                                    </th>
+
+
+
+                                    <th class="sent-at-column last">
+
+                                        <a href="#/social#" onclick="new Ajax.Updater(&#39;sent_table_div&#39;, &#39;/socialMessage/table/ajax/1/page/1/order/desc/sort/social_message.sent_at/dateRange/6/view/sent/pageSize/5/prefix/messages/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/tagFilter/+/ajaxElement/sent&#39;, {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:&#39;_csrf_token=6dbdd4fa10cad7149d0376f6d3545e038360beab826bc829352c6107b54b56b9e2895b3d1a0702888b8ae2eb153a51b5&#39;});; return false;">Sent At</a>
+
+                                    </th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr class="" id="sent_row_a0">
+
+                                    <td class="first error-status-column">
+                                        <i class="icon icon-warning-sign text-error vertical-middle"></i>
+                                    </td>
+
+                                    <td>
+                                        <a href="#/socialMessage/read/id/152">We’re wrapping up our 2015 Tumor Profiling Roadshow Series, a...</a>
+                                    </td>
+
+                                    <td>
+                                        <ul id="accountChooser" class="list no-margin no-padding">
+                                            <li>
+                                                <label class="muted" rel="tooltip" data-original-title="This connector has been deleted">
+                                                    <img src="#/images/linkedin.png" height="16" width="16" alt="" style="display: none !important;">
+                                                    Affymetrix
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </td>
+
+                                    <td class="last">
+                                        Sep 23, 2015 9:01 AM
+                                    </td>
+                                </tr>
+                                <tr style="display:none" id="sent_row_b0" class="ajax_row">
+                                    <td colspan="4" id="sent_row_b_cell0" class="last"></td>
+                                </tr>
+                                <tr class="even" id="sent_row_a1">
+
+                                    <td class="first error-status-column">
+                                        <i class="icon icon-warning-sign text-error vertical-middle"></i>
+                                    </td>
+
+                                    <td>
+                                        <a href="#/socialMessage/read/id/178">Watch Andrew Slater share his work from @GSK on #pharmacogeno...</a>
+                                    </td>
+
+                                    <td>
+                                        <ul id="accountChooser" class="list no-margin no-padding">
+                                            <li>
+                                                <label class="socialConnector">
+                                                    <img src="#/images/twitter-ico.png" height="16" width="16" alt="" style="display: none !important;">
+                                                    Affymetrix
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </td>
+
+                                    <td class="last">
+                                        Sep 28, 2015 10:00 AM
+                                    </td>
+                                </tr>
+                                <tr style="display:none" id="sent_row_b1" class="ajax_row">
+                                    <td colspan="4" id="sent_row_b_cell1" class="last"></td>
+                                </tr>
+                                <tr class="" id="sent_row_a2">
+
+                                    <td class="first error-status-column">
+                                        <i class="icon icon-warning-sign text-error vertical-middle"></i>
+                                    </td>
+
+                                    <td>
+                                        <a href="#/socialMessage/read/id/148">RSVP now for our event @MDAndersonNews tmrw! Learn from our g...</a>
+                                    </td>
+
+                                    <td>
+                                        <ul id="accountChooser" class="list no-margin no-padding">
+                                            <li>
+                                                <label class="socialConnector">
+                                                    <img src="#/images/twitter-ico.png" height="16" width="16" alt="" style="display: none !important;">
+                                                    Affymetrix
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </td>
+
+                                    <td class="last">
+                                        Sep 28, 2015 8:04 PM
+                                    </td>
+                                </tr>
+                                <tr style="display:none" id="sent_row_b2" class="ajax_row">
+                                    <td colspan="4" id="sent_row_b_cell2" class="last"></td>
+                                </tr>
+                                <tr class="even" id="sent_row_a3">
+
+                                    <td class="first error-status-column">
+                                        <i class="icon icon-warning-sign text-error vertical-middle"></i>
+                                    </td>
+
+                                    <td>
+                                        <a href="#/socialMessage/read/id/118">Look #beyondthegene. Easily visualize #alternativesplicing &amp; ...</a>
+                                    </td>
+
+                                    <td>
+                                        <ul id="accountChooser" class="list no-margin no-padding">
+                                            <li>
+                                                <label class="socialConnector">
+                                                    <img src="#/images/twitter-ico.png" height="16" width="16" alt="" style="display: none !important;">
+                                                    Affymetrix
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </td>
+
+                                    <td class="last">
+                                        Sep 21, 2015 3:14 PM
+                                    </td>
+                                </tr>
+                                <tr style="display:none" id="sent_row_b3" class="ajax_row">
+                                    <td colspan="4" id="sent_row_b_cell3" class="last"></td>
+                                </tr>
+                                <tr class="" id="sent_row_a4">
+
+                                    <td class="first error-status-column">
+                                        <i class="icon icon-warning-sign text-error vertical-middle"></i>
+                                    </td>
+
+                                    <td>
+                                        <a href="#/socialMessage/read/id/146">Join us at @MDAndersonNews Tue Sep 29. Food, drinks, and 3 gu...</a>
+                                    </td>
+
+                                    <td>
+                                        <ul id="accountChooser" class="list no-margin no-padding">
+                                            <li>
+                                                <label class="socialConnector">
+                                                    <img src="#/images/twitter-ico.png" height="16" width="16" alt="" style="display: none !important;">
+                                                    Affymetrix
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </td>
+
+                                    <td class="last">
+                                        Sep 23, 2015 8:57 AM
+                                    </td>
+                                </tr>
+                                <tr style="display:none" id="sent_row_b4" class="ajax_row">
+                                    <td colspan="4" id="sent_row_b_cell4" class="last"></td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+                        <div class="table-foot clearfix">
+                            <div id="messages_table_footer">
+                                <form id="sentform" class="inline messages-pager-form pager-form" onsubmit="new Ajax.Updater(&#39;sent_table_div&#39;, &#39;/socialMessage/table/ajax/1/sort/social_message.message/order/desc/dateRange/6/view/sent/pageSize/5/prefix/messages/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/tagFilter/+/ajaxElement/sent&#39;, {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay(&#39;messages_status&#39;, true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:Form.serialize(this)}); return false;" action="#/socialMessage/table/ajax/1/sort/social_message.message/order/desc/dateRange/6/view/sent/pageSize/5/prefix/messages/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/tagFilter/+/ajaxElement/sent" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="336cf4c4bb01aa9824ffa35228f0bb8d069482be9f32bf0b2196913df05fb2000d4cffec4f7ca618f162b936842e9bcf"></div>						<ul class="inline pull-right paging">
+                                        <li>
+                                        </li>
+                                        <li>
+                                            Page
+                                            <input type="text" name="page" id="page_sent" value="1" class="text-tiny" style="width: 18px;">
+                                            <script>$j(".text-tiny").each(textTinyResize);</script>
+                                            of
+                                            <a class="pager-last" href="#/social#" onclick="cancelAllPendingAjax(); new Ajax.Updater(&#39;sent_table_div&#39;, &#39;/socialMessage/table/ajax/1/page/2/sort/social_message.message/order/desc/dateRange/6/view/sent/pageSize/5/prefix/messages/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/tagFilter/+/ajaxElement/sent&#39;, {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:&#39;_csrf_token=b4da03e99256ae64678514c27b8849db4bd299b8285042d5535884f6a7842275b74e66222ca8e16061518571ab8a31b9&#39;});; return false;">2</a>
+                                        </li>
+
+                                        <li class="last">
+                                            <a class="pager-next" href="#/social#" onclick="cancelAllPendingAjax(); new Ajax.Updater(&#39;sent_table_div&#39;, &#39;/socialMessage/table/ajax/1/page/2/sort/social_message.message/order/desc/dateRange/6/view/sent/pageSize/5/prefix/messages/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/tagFilter/+/ajaxElement/sent&#39;, {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:&#39;_csrf_token=e95e7601e87af171a1300bbc060abb2aa7af4735e7355bee345360147a33cb22bd02aeacf7ace9fa24f1d8634efef3eb&#39;});; return false;">Next »</a>
+                                        </li>
+                                    </ul>
+                                    <p class="inline pull-right">
+                                        Showing
+                                        <select name="pageSize" id="messagespageSize" onchange="$(&quot;sentform&quot;).onsubmit();return false;" class="input-auto">
+                                            <option value="5" selected="selected">5</option>
+                                            <option value="10">10</option>
+                                            <option value="15">15</option>
+                                            <option value="25">25</option>
+                                            <option value="50">50</option>
+                                        </select>											 of <strong>10</strong>																															<input type="hidden" name="dateRange" id="messages1_dateRange" value="6">																								<input type="hidden" name="view" id="messages1_view" value="sent">																								<input type="hidden" name="mode" id="messages1_mode" value="">																								<input type="hidden" name="tableName" id="messages1_tableName" value="">																								<input type="hidden" name="campaign_id" id="messages1_campaign_id" value="">																								<input type="hidden" name="prospect_id" id="messages1_prospect_id" value="">																								<input type="hidden" name="visitor_id" id="messages1_visitor_id" value="">																								<input type="hidden" name="visit_id" id="messages1_visit_id" value="">																								<input type="hidden" name="user_id" id="messages1_user_id" value="">																								<input type="hidden" name="query" id="messages1_query" value="">																																			<input type="hidden" name="prefix" id="messages1_prefix" value="messages">																								<input type="hidden" name="export" id="messages1_export" value="">																								<input type="hidden" name="startDate" id="messages1_startDate" value="@1167627600">																								<input type="hidden" name="endDate" id="messages1_endDate" value="now">																								<input type="hidden" name="dateText" id="messages1_dateText" value="Date Range:">																								<input type="hidden" name="tagFilter" id="messages1_tagFilter" value=" ">
+                                    </p>
+                                </form>
+                            </div>
+                        </div>
+
+                        <script>
+            (function(){
+                $j(document).ready(function () {
+                    $j("#sent_table [rel=tooltip]").tooltip();
+                });
+            })();
+                        </script>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="clear:both;"></div>
+</div>
