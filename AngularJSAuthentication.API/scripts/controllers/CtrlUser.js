@@ -11,13 +11,15 @@ angular.module('anguApp')
   .controller('CtrlUser',  function (peoplesService,$scope, $location, $timeout, $filter, $http, ngTableParams) {
       $scope.showAddUser = false;
       $scope.currentPageStores = {};
-
+      $scope.Add1 = true;
+      $scope.Update1 = true;
       $scope.user = [];
 
       peoplesService.getpeoples().then(function (results) {
           console.log("hiiiiii");
           console.log(results);
           $scope.users = results.data;
+
           console.log($scope.users);
           var init;
           return $scope.stores = $scope.users,
@@ -82,49 +84,92 @@ angular.module('anguApp')
 
 
 
-      //getpeoples
-     // $scope.users =  [
-        // { "firstName": "John", "lastName": "Doe", "emailAdd": "123@com", "role": "Administrator", "prospects": 20, "eCount": 5, "logins": 54 },
-        //{ "firstName": "Anna", "lastName": "D", "emailAdd": "123@com", "role": "Administrator", "prospects": 20, "eCount": 5, "logins": 54 },
-        //{ "firstName": "Isabel", "lastName": "Doe", "emailAdd": "123@com", "role": "Administrator", "prospects": 20, "eCount": 5, "logins": 54 },
-        //{ "firstName": "Abcd", "lastName": "Doe", "emailAdd": "123@com", "role": "Administrator", "prospects": 20, "eCount": 5, "logins": 54 },
-        //{ "firstName": "Sumit", "lastName": "Doe", "emailAdd": "123@com", "role": "Administrator", "prospects": 20, "eCount": 5, "logins": 54 },
-        //{ "firstName": "Ram", "lastName": "Doe", "emailAdd": "123@com", "role": "Administrator", "prospects": 20, "eCount": 5, "logins": 54 },
-        //{ "firstName": "Shyam", "lastName": "Doe", "emailAdd": "123@com", "role": "Administrator", "prospects": 20, "eCount": 5, "logins": 54 },
-        //{ "firstName": "Lukky", "lastName": "Doe", "emailAdd": "123@com", "role": "Administrator", "prospects": 20, "eCount": 5, "logins": 54 },
-        //{ "firstName": "Jin", "lastName": "Doe", "emailAdd": "123@com", "role": "Administrator", "prospects": 20, "eCount": 5, "logins": 54 },
-        //{ "firstName": "Limo", "lastName": "Doe", "emailAdd": "123@com", "role": "Administrator", "prospects": 20, "eCount": 5, "logins": 54 },
-        //{ "firstName": "Google", "lastName": "Doe", "emailAdd": "123@com", "role": "Administrator", "prospects": 20, "eCount": 5, "logins": 54 },
-        //{ "firstName": "Json", "lastName": "Doe", "emailAdd": "123@com", "role": "Administrator", "prospects": 20, "eCount": 5, "logins": 54 },
-        //{ "firstName": "Jam", "lastName": "Doe", "emailAdd": "123@com", "role": "Administrator", "prospects": 20, "eCount": 5, "logins": 54 },
-        //{ "firstName": "Andi", "lastName": "Doe", "emailAdd": "123@com", "role": "Administrator", "prospects": 20, "eCount": 5, "logins": 54 },
-        //{ "firstName": "Justin", "lastName": "Doe", "emailAdd": "123@com", "role": "Administrator", "prospects": 20, "eCount": 5, "logins": 54 },
-        //{ "firstName": "Jumbo", "lastName": "Doe", "emailAdd": "123@com", "role": "Administrator", "prospects": 20, "eCount": 5, "logins": 54 },
-        //{ "firstName": "Jini", "lastName": "D", "emailAdd": "123@com", "role": "Administrator", "prospects": 20, "eCount": 5, "logins": 54 },
-        //{ "firstName": "Jaff", "lastName": "Doe", "emailAdd": "123@com", "role": "Administrator", "prospects": 20, "eCount": 5, "logins": 54 },
-        //{ "firstName": "Jinks", "lastName": "Doe", "emailAdd": "123@com", "role": "Administrator", "prospects": 20, "eCount": 5, "logins": 54 },
-        //{ "firstName": "John", "lastName": "Doe", "emailAdd": "123@com", "role": "Administrator", "prospects": 20, "eCount": 5, "logins": 54 },
-        //{ "firstName": "John", "lastName": "D", "emailAdd": "123@com", "role": "Administrator", "prospects": 20, "eCount": 5, "logins": 54 },
-        //{ "firstName": "John", "lastName": "Doe", "emailAdd": "123@com", "role": "Administrator", "prospects": 20, "eCount": 5, "logins": 54 },
-        //{ "firstName": "John", "lastName": "Doe", "emailAdd": "123@com", "role": "Administrator", "prospects": 20, "eCount": 5, "logins": 54 },
-        //{ "firstName": "John", "lastName": "De", "emailAdd": "123@com", "role": "Administrator", "prospects": 20, "eCount": 5, "logins": 54 },
-        //{ "firstName": "John", "lastName": "De", "emailAdd": "123@com", "role": "Administrator", "prospects": 20, "eCount": 5, "logins": 54 },
-        //{ "firstName": "John", "lastName": "Doe", "emailAdd": "123@com", "role": "Administrator", "prospects": 20, "eCount": 5, "logins": 54 },
-        //{ "firstName": "Perru", "lastName": "e", "emailAdd": "123@com", "role": "Administrator", "prospects": 20, "eCount": 5, "logins": 54 },
-        //{ "firstName": "John", "lastName": "Doe", "emailAdd": "123@com", "role": "Administrator", "prospects": 20, "eCount": 5, "logins": 54 }   
+      //delete people
+      $scope.Delete = function (data) {
+          console.log("Delete Calling");
+          console.log(data);
+          alert(data);
+
+          return $http.delete("http://localhost:26264/" + 'api/people?email=' + data).then(function (results) {
+              return results;
+          });
+      };
+
+
+      //Edit people
+      $scope.Edit = function (data) {
+          $scope.Add1 = false;
+          $scope.Update1 = true;
+          console.log("Edit Calling");
+          $scope.showAddUser = true;
+          //$scope.hideSubmit = true;
+          console.log(data);
+          $scope.people = data;
+         
+
+      };
+      $scope.updateUser = function (data) {
+          console.log("in update user");
+        
+          peoplesService.putpeoples(data).then(function (data) {
+              console.log("After calling putpeople service");
+              console.log(data);
+          });
+          
+
+      }   
+      
 
 
 
 
-     // ];
+
       $scope.AddUser = function (data)
       {
+          $scope.Add1 = true;
+          $scope.Update1 = false;
           console.log("raja");
           console.log(data);
           $scope.showAddUser = true;
           console.log("People");
           var url = "http://localhost:26264/" + "/api/people";
-          var dataToPost = { fisrtName: data.firstName, lastName: data.lastName,  email: data.email, url: data.url, activationEmail: data.activationEmail, phone: data.phone, emailSignature: data.emailSignature, jobTitle: data.jobTitle, updatedDate: data.updatedDate, expirePassword: data.expirePassword, timeZone: data.timeZone };
+          var dataToPost = { 
+              firstName: data.firstName,
+              lastName: data.lastName,
+              jobTitle: data.jobTitle,
+              phoneNumber: data.phone,
+              url:data.url,
+              email:data.email,
+              activateEmail: data.activationEmail,
+              emailSignature :data.textEmailSignature,            
+              activationEmail: data.activationEmail,
+              // updatedDate: data.updatedDate,
+              expirePassword: data.expirePassword,
+              timeZone: data.timeZone,
+              emailConfirmed:data.sendActivationEmail,
+              crmUserName:data.crmUserName,
+              prospects: data.prospectActivity,
+              tags: data.tag
+
+              //data.sendWeeklySearchMarketing,
+              //data.sendEmailAssignedProspect,
+              //data.excludeProspect,
+             
+              //data.limitEmailSending,
+              //data.limitProspectExport,
+              //data.limitProspectImport,
+              //tags:data.tag,
+              //role:data.role,
+              //data.sendDailyProspectsAssE,
+              //data.allVisitors,
+              //data.sendDailyVisitorActivityE,
+              //data.sendStarredProspectA,
+              //data.filterVisitor, 
+              
+               
+              
+          
+          };
           console.log(dataToPost);
 
           $http.post(url, dataToPost)
@@ -146,21 +191,27 @@ angular.module('anguApp')
                   //  console.log(data);
                   $modalInstance.close(data);
               }
-
+              peoplesServiceFactory.getpeoples = _getpeoples;
           })
+
            .error(function (data) {
                console.log("Error Got Heere is ");
                console.log(data);
                // return $scope.showInfoOnSubmit = !0, $scope.revert()
            })
       }
+
+
       $scope.Cancel = function ()
       {
           $scope.showAddUser = false;
       }
-      $scope.callmethod = function () {
 
-        
+
+
+      
+
+      $scope.callmethod = function () {
 
       }
       $scope.callmethod();
@@ -173,7 +224,7 @@ angular.module('anguApp')
   });
 
 
-//app.controller("CtrlUser", ["$scope", '$http', 'ngAuthSettings', "peoplesService", "$modalInstance", function ($scope, $http, ngAuthSettings, peoplesService, $modalInstance) {
+//app.controller("CtrlUser", ["$scope", '$http', 'ngAuthSettings', "datasService", "$modalInstance", function ($scope, $http, ngAuthSettings, peoplesService, $modalInstance) {
 //    console.log("Add People");
 
 //    $scope.PeopleData = {

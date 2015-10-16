@@ -140,7 +140,7 @@
                                 <div class="control-group">
                                     <div class="controls">
                                         <label for="is_password_expirable" class="checkbox">
-                                            <input type="checkbox" name="is_password_expirable" id="is_password_expirable" value="1" ng-model="people.expirePassword">	
+                                            <input type="checkbox" name="is_password_expirable" id="is_password_expirable" value="1" ng-model="people.expirePassword"/>	
                                             						Expire the user's password after 90 days
                                         </label>
                                     </div>
@@ -151,7 +151,7 @@
                                 <div class="control-group required">
                                     <label class="control-label" for="timezone_id">Time Zone</label>
                                     <div class="controls">
-                                        <select name="timezone_id" id="timezone_id" ng-model="people.timeZone">
+                                        <select name="timezone_id" id="timezone_id" ng-model="people.timeZone" >
                                             <!--<option value="Pacific/Midway">(GMT-11:00) Pacific - Midway</option>
                                             <option value="Pacific/Niue">(GMT-11:00) Pacific - Niue</option>
                                             <option value="Pacific/Pago_Pago">(GMT-11:00) Pacific - Pago Pago</option>
@@ -579,7 +579,7 @@
                                     <div class="control-group ">
                                         <label class="control-label" for="crm_username">CRM Username</label>
                                         <div class="controls">
-                                            <select name="crm_username" id="crm_username" ng-model="people.crmUserName>
+                                            <select name="crm_username" id="crm_username" ng-model="people.crmUserName">
                                                 <option value="0"></option>
                                                 <option value="aaron_hou@affymetrix.com.test">aaron_hou@affymetrix.com.test</option>
                                                 <option value="aaron_llanso@affymetrix.com.test">aaron_llanso@affymetrix.com.test</option>
@@ -1076,7 +1076,7 @@
                                 <div class="control-group required ">
                                     <label class="control-label" for="role">Role</label>
                                     <div class="controls">
-                                        <select name="role" id="role">
+                                        <select name="role" id="role"  ng-model="people.role">
                                             <option value="2">Administrator</option>
                                             <option value="3">Marketing</option>
                                             <option value="4">Sales</option>
@@ -1090,8 +1090,8 @@
                                 <div class="control-group ">
                                     <label for="tags" class="control-label">Tags</label>
                                     <div class="controls">
-                                        <!--<input name="tags" class="tagComponent tagComponentReady" id="tags_no_id_User" value="" style="display: none;"><div id="tags_no_id_User_tagsinput" class="tagsinput" style="margin-top: -1px;"><div id="tags_no_id_User_addTag"><input id="tags_no_id_User_tag" value="" data-default="add a tag" class="ui-autocomplete-input" autocomplete="off" style="color: rgb(102, 102, 102); width: 206px;"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span></div><div class="tags_clear"></div></div>-->
-
+                                        <input name="tags" class="tagComponent tagComponentReady" id="tags_no_id_User" value="" style="display: none;"><div id="tags_no_id_User_tagsinput" class="tagsinput" style="margin-top: -1px;"><div id="tags_no_id_User_addTag"><input id="tags_no_id_User_tag" ng-model="people.tag" value="" data-default="add a tag" class="ui-autocomplete-input" autocomplete="off" style="color: rgb(102, 102, 102); width: 206px;"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span></div><div class="tags_clear"></div></div>
+                                       
                                         <span class="help-inline tags-error" style="display:none;" id="error_for_tags"></span>
 
                                     </div>
@@ -1107,8 +1107,8 @@
                                 <div class="control-group">
                                     <div class="controls">
                                         <label class="checkbox" for="is_import_limited">
-                                            <input type="checkbox" name="is_import_limited" id="is_import_limited" value="1" class="limit" data-binding="#import_limit">	
-                                            <input type="text" class="form-control" ng-model="people.firstName" />							Limit prospect import
+                                            	
+                                            <input type="text" class="form-control" ng-model="people.limitProspectImport" />							Limit prospect import
                                         </label>
                                     </div>
                                 </div>
@@ -1116,8 +1116,8 @@
                                 <div class="control-group" id="import_limit" style="display: none">
                                     <div class="controls">
                                         This user may only import
-                                        <input type="text" name="import_limit" id="import_limit" value="" class="input-small">		
-                                        <input type="text" class="form-control" ng-model="people.firstName" />					records at a time.
+                                        	
+                                        <input type="text" class="form-control" ng-model="people.recordsAtaTime" />					records at a time.
                                         <div style="display:none;" class="error" id="error_for_import_limit"></div>
                                     </div>
                                 </div>
@@ -1125,8 +1125,8 @@
                                 <div class="control-group">
                                     <div class="controls">
                                         <label class="checkbox" for="is_export_limited">
-                                            <input type="checkbox" name="is_export_limited" id="is_export_limited" value="1" class="limit" data-binding="#export_limit">	
-                                            <input type="text" class="form-control" ng-model="people.firstName" />							Limit prospect export
+                                            	
+                                            <input type="text" class="form-control" ng-model="people.limitProspectExport" />							Limit prospect export
                                         </label>
                                     </div>
                                 </div>
@@ -1134,8 +1134,8 @@
                                 <div class="control-group" id="export_limit" style="display: none">
                                     <div class="controls">
                                         This user may only export
-                                        <input type="text" name="export_limit" id="export_limit" value="" class="input-small">		
-                                        <input type="text" class="form-control" ng-model="people.firstName" />					records at a time.
+                                       	
+                                        <input type="text" class="form-control" ng-model="people.recordsAtaTime" />					records at a time.
                                         <div style="display:none;" class="error" id="error_for_export_limit"></div>
                                     </div>
                                 </div>
@@ -1143,8 +1143,8 @@
                                 <div class="control-group">
                                     <div class="controls">
                                         <label class="checkbox" for="is_email_limited">
-                                            <input type="checkbox" name="is_email_limited" id="is_email_limited" value="1" class="limit" data-binding="#email_limit">	
-                                            <input type="text" class="form-control" ng-model="people.firstName" />							Limit email sending
+                                            	
+                                            <input type="text" class="form-control" ng-model="people.limitEmailSending" />							Limit email sending
                                         </label>
                                     </div>
                                 </div>
@@ -1152,8 +1152,8 @@
                                 <div class="control-group" id="email_limit" style="display: none">
                                     <div class="controls">
                                         This user may not send emails with more than
-                                        <input type="text" name="email_limit" id="email_limit" value="" class="input-small">		
-                                        <input type="text" class="form-control" ng-model="people.firstName" />					recipients.
+                                    	
+                                        <input type="text" class="form-control" ng-model="people.recipients" />					recipients.
                                         <div style="display:none;" class="error" id="error_for_email_limit"></div>
                                     </div>
                                 </div>
@@ -1167,8 +1167,8 @@
                                 <div class="control-group control-group-short-margin">
                                     <div class="controls">
                                         <label for="send_prospect_activity_email" class="checkbox">
-                                            <input type="text" class="form-control" ng-model="people.firstName" />
-                                            <input type="checkbox" name="send_prospect_activity_email" id="send_prospect_activity_email" value="1" onclick="$j(&quot;#prospect_report_settings&quot;).slideToggle(cubicAnimationFast);" checked="checked">            Send daily prospect activity emails (for my prospects)
+                                            
+                                            <input type="checkbox" name="send_prospect_activity_email" id="send_prospect_activity_email" value="1"  ng-model="people.prospectActivity" checked="checked"/>            Send daily prospect activity emails (for my prospects)
                                         </label>
                                     </div>
                                 </div>
@@ -1177,8 +1177,8 @@
                                     <div class="control-group indent">
                                         <label class="control-label">Exclude prospects with tags</label>
                                         <div class="controls">
-                                            <!--<input name="prospect_filter_tag_names" class="tagComponent tagComponentReady" id="prospect_filter_tag_names" value="" style="display: none;"><div id="prospect_filter_tag_names_tagsinput" class="tagsinput" style="margin-top: -1px;"><div id="prospect_filter_tag_names_addTag"><input id="prospect_filter_tag_names_tag" value="" data-default="add a tag" class="ui-autocomplete-input" autocomplete="off" style="color: rgb(102, 102, 102); width: 206px;"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span></div><div class="tags_clear"></div></div>-->
-
+                                            <input name="prospect_filter_tag_names" class="tagComponent tagComponentReady" id="prospect_filter_tag_names" ng-model="people.excludeProspect" value="" style="display: none;"/></div>
+                                          
                                          
                                         </div>
                                     </div>
@@ -1188,7 +1188,7 @@
                                 <div class="control-group control-group-short-margin">
                                     <div class="controls">
                                         <label for="send_prospect_assign_email" class="checkbox">
-                                            <input type="checkbox" name="send_prospect_assign_email" id="send_prospect_assign_email" value="1" checked="checked">            Send an email when a prospect is assigned
+                                            <input type="checkbox" name="send_prospect_assign_email" id="send_prospect_assign_email" ng-model="people.sendEmailAssignedProspect" value="1" checked="checked" />            Send an email when a prospect is assigned
                                         </label>
                                     </div>
                                 </div>
@@ -1196,8 +1196,8 @@
                                 <div class="control-group control-group-short-margin">
                                     <div class="controls">
                                         <label for="send_message_digest" class="checkbox">
-                                            <input type="checkbox" name="send_message_digest" id="send_message_digest" value="1">   
-                                            <input type="text" class="form-control" ng-model="people.firstName" />         Send daily prospect assignment emails
+                                            <input type="checkbox" name="send_message_digest" id="send_message_digest" ng-model="people.sendDailyProspectsAssE"value="1" />   
+                                                     Send daily prospect assignment emails
                                         </label>
                                     </div>
                                 </div>
@@ -1205,8 +1205,7 @@
                                 <div class="control-group control-group-short-margin">
                                     <div class="controls">
                                         <label for="send_visitor_activity_email" class="checkbox">
-                                            <input type="text" class="form-control" ng-model="people.firstName" />
-                                            <input type="checkbox" name="send_visitor_activity_email" id="send_visitor_activity_email" value="1" onclick="$j(&quot;#visitor_report_settings&quot;).slideToggle(cubicAnimationFast);">            Send daily visitor activity emails
+                                             <input type="checkbox" name="send_visitor_activity_email" id="send_visitor_activity_email" value="1" ng-model="people.sendDailyVisitorActivityE">            Send daily visitor activity emails
                                         </label>
                                     </div>
                                 </div>
@@ -1215,8 +1214,7 @@
                                     <div class="control-group indent control-group-short-margin">
 
                                         <label for="report_all_visitors_true" class="radio">
-                                            <input type="text" class="form-control" ng-model="people.firstName" />
-                                            <input type="radio" name="report_all_visitors" id="report_all_visitors_true" value="true" onclick="$j(&quot;#geo_settings&quot;).slideUp(cubicAnimationFast);" checked="checked">                All visitors
+                                            <input type="radio" name="report_all_visitors" id="report_all_visitors_true" value="true" ng-model="people.allVisitors" checked="checked" />                All visitors
                                         </label>
 
                                     </div>
@@ -1224,8 +1222,8 @@
                                     <div class="control-group indent">
 
                                         <label for="report_all_visitors_false" class="radio">
-                                            <input type="text" class="form-control" ng-model="people.firstName" />
-                                            <input type="radio" name="report_all_visitors" id="report_all_visitors_false" value="false" onclick="$j(&quot;#geo_settings&quot;).slideDown(cubicAnimationFast);">                Filter visitors by geography
+                                            
+                                            <input type="radio" name="report_all_visitors" id="report_all_visitors_false" value="false" ong-model="people.filterVisitor"/>                Filter visitors by geography
                                         </label>
                                         <span class="help-block">You will not receive a daily visitor email if no identified visitors match your geography filter.</span>
 
@@ -1238,103 +1236,102 @@
                                                     <tbody>
                                                         <tr class="ajax_row">
                                                             <td style="border-style:none; color:#666666;" colspan="7">
-                                                                <input type="text" class="form-control" ng-model="people.firstName" />
-                                                                <input type="checkbox" name="filter_settings[]" id="filter_settings_1" value="1" onclick="isChecked1 = this.checked; $j(&quot;.region_1&quot;).each(function(index) { $j(this).attr(&quot;checked&quot;, isChecked1); if(isChecked1) { $j(this).attr(&quot;disabled&quot;, true); } else { $j(this).removeAttr(&quot;disabled&quot;); } });">                <label style="vertical-align: text-top;" for="filter_settings_1" class="inline">All U.S. visitors</label>
+                                                                 <input type="checkbox" name="filter_settings[]" id="filter_settings_1" value="1" ng-model="people.allUsVisitor" />                <label style="vertical-align: text-top;" for="filter_settings_1" class="inline">All U.S. visitors</label>
                                                             </td>
                                                         </tr>
                                                         <tr class="ajax_row">
                                                             <td style="border-style:none; color:#666666;">
-                                                                <input type="text" class="form-control" ng-model="people.firstName" />
+                                                                
                                                                 <input type="checkbox" name="filter_settings[]" id="filter_settings_5" value="5" class="region_1">                    	<label style="vertical-align: text-top;" for="filter_settings_5" class="inline">AL</label>
                                                             </td>
                                                             <td style="border-style:none; color:#666666;">
-                                                                <input type="text" class="form-control" ng-model="people.firstName" />
+                                                                
                                                                 <input type="checkbox" name="filter_settings[]" id="filter_settings_6" value="6" class="region_1">                    	<label style="vertical-align: text-top;" for="filter_settings_6" class="inline">AK</label>
                                                             </td>
                                                             <td style="border-style:none; color:#666666;">
-                                                                <input type="text" class="form-control" ng-model="people.firstName" />
+                                                                
                                                                 <input type="checkbox" name="filter_settings[]" id="filter_settings_7" value="7" class="region_1">                    	<label style="vertical-align: text-top;" for="filter_settings_7" class="inline">AZ</label>
                                                             </td>
                                                             <td style="border-style:none; color:#666666;">
-                                                                <input type="text" class="form-control" ng-model="people.firstName" />
+                                                                
                                                                 <input type="checkbox" name="filter_settings[]" id="filter_settings_8" value="8" class="region_1">                    	<label style="vertical-align: text-top;" for="filter_settings_8" class="inline">AR</label>
                                                             </td>
                                                             <td style="border-style:none; color:#666666;">
-                                                                <input type="text" class="form-control" ng-model="people.firstName" />
+                                                                
                                                                 <input type="checkbox" name="filter_settings[]" id="filter_settings_9" value="9" class="region_1">                    	<label style="vertical-align: text-top;" for="filter_settings_9" class="inline">CA</label>
                                                             </td>
                                                             <td style="border-style:none; color:#666666;">
-                                                                <input type="text" class="form-control" ng-model="people.firstName" />
+                                                                
                                                                 <input type="checkbox" name="filter_settings[]" id="filter_settings_10" value="10" class="region_1">                    	<label style="vertical-align: text-top;" for="filter_settings_10" class="inline">CO</label>
                                                             </td>
                                                             <td style="border-style:none; color:#666666;">
-                                                                <input type="text" class="form-control" ng-model="people.firstName" />
+                                                                
                                                                 <input type="checkbox" name="filter_settings[]" id="filter_settings_11" value="11" class="region_1">                    	<label style="vertical-align: text-top;" for="filter_settings_11" class="inline">CT</label>
                                                             </td>
                                                         </tr>
                                                         <tr class="ajax_row">
                                                             <td style="border-style:none; color:#666666;">
-                                                                <input type="text" class="form-control" ng-model="people.firstName" />
+                                                                
                                                                 <input type="checkbox" name="filter_settings[]" id="filter_settings_12" value="12" class="region_1">                    	<label style="vertical-align: text-top;" for="filter_settings_12" class="inline">DE</label>
                                                             </td>
                                                             <td style="border-style:none; color:#666666;">
-                                                                <input type="text" class="form-control" ng-model="people.firstName" />
+                                                                
                                                                 <input type="checkbox" name="filter_settings[]" id="filter_settings_13" value="13" class="region_1">                    	<label style="vertical-align: text-top;" for="filter_settings_13" class="inline">DC</label>
                                                             </td>
                                                             <td style="border-style:none; color:#666666;">
-                                                                <input type="text" class="form-control" ng-model="people.firstName" />
+                                                                
                                                                 <input type="checkbox" name="filter_settings[]" id="filter_settings_14" value="14" class="region_1">                    	<label style="vertical-align: text-top;" for="filter_settings_14" class="inline">FL</label>
                                                             </td>
                                                             <td style="border-style:none; color:#666666;">
-                                                                <input type="text" class="form-control" ng-model="people.firstName" />
+                                                                
                                                                 <input type="checkbox" name="filter_settings[]" id="filter_settings_15" value="15" class="region_1">                    	<label style="vertical-align: text-top;" for="filter_settings_15" class="inline">GA</label>
                                                             </td>
                                                             <td style="border-style:none; color:#666666;">
-                                                                <input type="text" class="form-control" ng-model="people.firstName" />
+                                                                
                                                                 <input type="checkbox" name="filter_settings[]" id="filter_settings_16" value="16" class="region_1">                    	<label style="vertical-align: text-top;" for="filter_settings_16" class="inline">HI</label>
                                                             </td>
                                                             <td style="border-style:none; color:#666666;">
-                                                                <input type="text" class="form-control" ng-model="people.firstName" />
+                                                                
                                                                 <input type="checkbox" name="filter_settings[]" id="filter_settings_17" value="17" class="region_1">                    	<label style="vertical-align: text-top;" for="filter_settings_17" class="inline">ID</label>
                                                             </td>
                                                             <td style="border-style:none; color:#666666;">
-                                                                <input type="text" class="form-control" ng-model="people.firstName" />
+                                                                
                                                                 <input type="checkbox" name="filter_settings[]" id="filter_settings_18" value="18" class="region_1">                    	<label style="vertical-align: text-top;" for="filter_settings_18" class="inline">IL</label>
                                                             </td>
                                                         </tr>
                                                         <tr class="ajax_row">
                                                             <td style="border-style:none; color:#666666;">
-                                                                <input type="text" class="form-control" ng-model="people.firstName" />
+                                                                
                                                                 <input type="checkbox" name="filter_settings[]" id="filter_settings_19" value="19" class="region_1">                    	<label style="vertical-align: text-top;" for="filter_settings_19" class="inline">IN</label>
                                                             </td>
                                                             <td style="border-style:none; color:#666666;">
-                                                                <input type="text" class="form-control" ng-model="people.firstName" />
+                                                                
                                                                 <input type="checkbox" name="filter_settings[]" id="filter_settings_20" value="20" class="region_1">                    	<label style="vertical-align: text-top;" for="filter_settings_20" class="inline">IA</label>
                                                             </td>
                                                             <td style="border-style:none; color:#666666;">
-                                                                <input type="text" class="form-control" ng-model="people.firstName" />
+                                                                
                                                                 <input type="checkbox" name="filter_settings[]" id="filter_settings_21" value="21" class="region_1">                    	<label style="vertical-align: text-top;" for="filter_settings_21" class="inline">KS</label>
                                                             </td>
                                                             <td style="border-style:none; color:#666666;">
-                                                                <input type="text" class="form-control" ng-model="people.firstName" />
+                                                                
                                                                 <input type="checkbox" name="filter_settings[]" id="filter_settings_22" value="22" class="region_1">                    	<label style="vertical-align: text-top;" for="filter_settings_22" class="inline">KY</label>
                                                             </td>
                                                             <td style="border-style:none; color:#666666;">
-                                                                <input type="text" class="form-control" ng-model="people.firstName" />
+                                                                
                                                                 <input type="checkbox" name="filter_settings[]" id="filter_settings_23" value="23" class="region_1">                    	<label style="vertical-align: text-top;" for="filter_settings_23" class="inline">LA</label>
                                                             </td>
                                                             <td style="border-style:none; color:#666666;">
-                                                                <input type="text" class="form-control" ng-model="people.firstName" />
+                                                                
                                                                 <input type="checkbox" name="filter_settings[]" id="filter_settings_24" value="24" class="region_1">                    	<label style="vertical-align: text-top;" for="filter_settings_24" class="inline">ME</label>
                                                             </td>
                                                             <td style="border-style:none; color:#666666;">
-                                                                <input type="text" class="form-control" ng-model="people.firstName" />
+                                                                
                                                                 <input type="checkbox" name="filter_settings[]" id="filter_settings_25" value="25" class="region_1">                    	<label style="vertical-align: text-top;" for="filter_settings_25" class="inline">MD</label>
                                                             </td>
                                                         </tr>
                                                         <tr class="ajax_row">
                                                             <td style="border-style:none; color:#666666;">
-                                                                <input type="text" class="form-control" ng-model="people.firstName" />
+                                                                
                                                                 <input type="checkbox" name="filter_settings[]" id="filter_settings_26" value="26" class="region_1">                    	<label style="vertical-align: text-top;" for="filter_settings_26" class="inline">MA</label>
                                                             </td>
                                                             <td style="border-style:none; color:#666666;">
@@ -1447,7 +1444,7 @@
                                                     <tbody>
                                                         <tr class="ajax_row">
                                                             <td style="border-style:none; color:#666666;" colspan="3">
-                                                                <input type="checkbox" name="filter_settings[]" id="filter_settings_2" value="2" onclick="isChecked2 = this.checked; $j(&quot;.region_2&quot;).each(function(index) { $j(this).attr(&quot;checked&quot;, isChecked2); if(isChecked2) { $j(this).attr(&quot;disabled&quot;, true); } else { $j(this).removeAttr(&quot;disabled&quot;); } });">                <label style="vertical-align: text-top;" for="filter_settings_2" class="inline">All Canadian visitors</label>
+                                                                <input type="checkbox" name="filter_settings[]" id="filter_settings_2" value="2" >                <label style="vertical-align: text-top;" for="filter_settings_2" class="inline">All Canadian visitors</label>
                                                             </td>
                                                         </tr>
                                                         <tr class="ajax_row">
@@ -1510,7 +1507,7 @@
                                                     <tbody>
                                                         <tr class="ajax_row">
                                                             <td style="border-style:none; color:#666666;" colspan="4">
-                                                                <input type="checkbox" name="filter_settings[]" id="filter_settings_3" value="3" onclick="isChecked3 = this.checked; $j(&quot;.region_3&quot;).each(function(index) { $j(this).attr(&quot;checked&quot;, isChecked3); if(isChecked3) { $j(this).attr(&quot;disabled&quot;, true); } else { $j(this).removeAttr(&quot;disabled&quot;); } });">                <label style="vertical-align: text-top;" for="filter_settings_3" class="inline">All European visitors</label>
+                                                                <input type="checkbox" name="filter_settings[]" id="filter_settings_3" value="3"  >                <label style="vertical-align: text-top;" for="filter_settings_3" class="inline">All European visitors</label>
                                                             </td>
                                                         </tr>
                                                         <tr class="ajax_row">
@@ -1635,7 +1632,7 @@
                                                     <tbody>
                                                         <tr class="ajax_row">
                                                             <td style="border-style:none; color:#666666;" colspan="5">
-                                                                <input type="checkbox" name="filter_settings[]" id="filter_settings_149" value="149" onclick="isChecked149 = this.checked; $j(&quot;.region_149&quot;).each(function(index) { $j(this).attr(&quot;checked&quot;, isChecked149); if(isChecked149) { $j(this).attr(&quot;disabled&quot;, true); } else { $j(this).removeAttr(&quot;disabled&quot;); } });">                <label style="vertical-align: text-top;" for="filter_settings_149" class="inline">All Asian Pacific visitors</label>
+                                                                <input type="checkbox" name="filter_settings[]" id="filter_settings_149" value="149" >                <label style="vertical-align: text-top;" for="filter_settings_149" class="inline">All Asian Pacific visitors</label>
                                                             </td>
                                                         </tr>
                                                         <tr class="ajax_row">
@@ -1696,7 +1693,7 @@
                                                     <tbody>
                                                         <tr class="ajax_row">
                                                             <td style="border-style:none; color:#666666;" colspan="5">
-                                                                <input type="checkbox" name="filter_settings[]" id="filter_settings_150" value="150" onclick="isChecked150 = this.checked; $j(&quot;.region_150&quot;).each(function(index) { $j(this).attr(&quot;checked&quot;, isChecked150); if(isChecked150) { $j(this).attr(&quot;disabled&quot;, true); } else { $j(this).removeAttr(&quot;disabled&quot;); } });">                <label style="vertical-align: text-top;" for="filter_settings_150" class="inline">All Middle Eastern and African visitors</label>
+                                                                <input type="checkbox" name="filter_settings[]" id="filter_settings_150" value="150" >                <label style="vertical-align: text-top;" for="filter_settings_150" class="inline">All Middle Eastern and African visitors</label>
                                                             </td>
                                                         </tr>
                                                         <tr class="ajax_row">
@@ -1842,7 +1839,7 @@
                                                     <tbody>
                                                         <tr class="ajax_row">
                                                             <td style="border-style:none; color:#666666;" colspan="5">
-                                                                <input type="checkbox" name="filter_settings[]" id="filter_settings_151" value="151" onclick="isChecked151 = this.checked; $j(&quot;.region_151&quot;).each(function(index) { $j(this).attr(&quot;checked&quot;, isChecked151); if(isChecked151) { $j(this).attr(&quot;disabled&quot;, true); } else { $j(this).removeAttr(&quot;disabled&quot;); } });">                <label style="vertical-align: text-top;" for="filter_settings_151" class="inline">All Central and South American visitors</label>
+                                                                <input type="checkbox" name="filter_settings[]" id="filter_settings_151" value="151" >                <label style="vertical-align: text-top;" for="filter_settings_151" class="inline">All Central and South American visitors</label>
                                                             </td>
                                                         </tr>
                                                         <tr class="ajax_row">
@@ -1944,7 +1941,7 @@
                                 <div class="control-group control-group-short-margin">
                                     <div class="controls">
                                         <label for="send_starred_prospect_activity_alert" class="checkbox">
-                                            <input type="checkbox" name="send_starred_prospect_activity_alert" id="send_starred_prospect_activity_alert" value="1" checked="checked">            Send starred prospect activity alerts
+                                            <input type="checkbox" name="send_starred_prospect_activity_alert"ng-model="people.sendStarredProspectA" id="send_starred_prospect_activity_alert" value="1" checked="checked">            Send starred prospect activity alerts
                                         </label>
                                     </div>
                                 </div>
@@ -1952,18 +1949,18 @@
                                 <div class="control-group control-group-short-margin">
                                     <div class="controls">
                                         <label for="send_search_marketing_email" class="checkbox">
-                                            <input type="checkbox" name="send_search_marketing_email" id="send_search_marketing_email" value="1">            Send weekly search marketing email (sent on Mondays)
+                                            <input type="checkbox" name="send_search_marketing_email" id="send_search_marketing_email"ng-model="people.sendWeeklySearchMarketing" value="1">            Send weekly search marketing email (sent on Mondays)
                                         </label>
                                     </div>
                                 </div>
 
                                 <div class="form-actions">
-                                    <button id="btnSubmit" class="submit-link btn" ng-click="AddUser(people)">Submit</button>
-
-                                </div>
-
-                                <div class="form-actions">
+                                    <button ng-show="Add1" id="btnSubmit" class="submit-link btn" ng-click="AddUser(people)">Submit</button>
+                                    <button  ng-show="Update1" id="btnupdate" class="update-link btn" ng-click="updateUser(people)">Update</button>
                                     <button id="btnCancel" class="cancel-link btn" ng-click="Cancel()">Cancel</button>
+
+                     
+                                    
                                   
                                 </div>
                             </form>
@@ -1992,7 +1989,7 @@
                                 </a>
                                 <ul class="dropdown-menu">
 
-                                    <li><a href="#" onclick="new Ajax.Updater('us_status', '/tagObject/tagTableAjax', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('us_status', true);new Effect.Highlight('us_status', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('us_table_footer', false); }}, parameters:'ajaxParams='+encodeURIComponent($('user_ajax_urlparams').value) + '&amp;ajaxUrl=user%2Ftable&amp;objectName=Users' + '&amp;_csrf_token=8c4a8b5d07a306560c930f938c4ab83acf530b947435ad3718fe36befd4d8dea6dbce31d45f28a0c5130e44c0cfe36da'});; return false;"><i class="icon-tag"></i> Tag Entire Table</a>						</li>
+                                    <li><a href="#" ><i class="icon-tag"></i> Tag Entire Table</a>						</li>
 
                                     <li><a onclick="location='/user/export?' + $('user_ajax_urlparams').value; return false;" href="#"><i class="icon-download-alt"></i> CSV Export</a>					</li>
 
@@ -2037,7 +2034,7 @@
 
                                             <th class="last-name-column">
 
-                                                <a href="#" onclick="new Ajax.Updater('user_table_div', '/user/table/ajax/1/page/1/order/desc/sort/user.last_name/mode/manage/tableName/user/pageSize/5/prefix/us/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/tagFilter/+/ajaxElement/user', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=3ba74c89dc52e2975085456f3e15777e3619d427ed9927da5437eac34b22aac4f1e9ecaf39bd33b08c6d5eee8e69ac20'});; return false;">Last Name</a>
+                                                <a href="#" >Last Name</a>
 
                                             </th>
 
@@ -2088,44 +2085,44 @@
                                         </tr>
                                     </thead>
 
-                                    <tbody ng-repeat="user in currentPageStores">
-                                        <tr class=""  >
+                                    <tbody ng-repeat="users in currentPageStores">
+                                        <tr  >
 
                                             <td class="first checkbox">
-                                                <input type="checkbox" name="checkbox_user_3258362" id="checkbox_user_3258362" value="3258362" class="datatable-checkbox">
+                                                <input type="checkbox"  name="checkbox_user_3258362" id="checkbox_user_3258362" value="3258362" class="datatable-checkbox">
                                             </td>
 
                                             <td>
-                                                <a href="/user/read/id/3258362">{{user.firstName}} </a>
+                                                <a >{{users.firstName}} </a>
                                             </td>
                                            
                                             <td>
-                                                <a href="/user/read/id/3258362">{{user.lastName}}</a>
+                                                <a >{{users.lastName}}</a>
                                             </td>
 
 
                                             <td>
-                                                <a href="mailto:cchiang@hotmail.com">{{user.emailAdd}}</a>
+                                                <a>{{users.email}}</a>
                                                 <br>
                                             </td>
 
                                             <td>
-                                                {{user.role}}
+                                                {{users.role}}
                                             </td>
 
                                             <td>
-                                                <span id="user_indicator_prospect3258362">{{user.prospects}}</span>
+                                                <span id="user_indicator_prospect3258362">{{users.prospects}}</span>
                                             </td>
 
                                             <td>
-                                                <span id="user_indicator_email3258362">{{user.eCount}}</span>
+                                                <span id="user_indicator_email3258362">{{users.eCount}}</span>
                                             </td>
 
                                             <td>
-                                                {{user.logins}}
+                                                {{users.logins}}
                                             </td>
-                                          <td><button ><i class="icon-edit " title="Edit"></i></button> </td>
-                                            <td><button><i class="icon-trash " title="Edit"></i></button> </td>
+                                          <td><button ><i class="icon-edit " ng-click="Edit(users)" title="Edit"></i></button> </td>
+                                            <td><button><i class="icon-trash " ng-click="Delete(users.email)" title="delete"></i></button> </td>
 
                                             <td class="new-actions last">
 

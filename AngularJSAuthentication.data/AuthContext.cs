@@ -31,7 +31,7 @@ namespace AngularJSAuthentication.API
         People AddPeople(People people);
         People updatePeople(People people);
         List<People> AllPeople();
-        bool DeletePeople(int id);
+        bool DeletePeople(string id);
 
 
     }
@@ -123,25 +123,27 @@ namespace AngularJSAuthentication.API
 
         public People updatePeople(People objCust)
         {
-            People proj = Peoples.Where(x => x.peopleId == objCust.peopleId).FirstOrDefault();
+            People proj = Peoples.Where(x => x.email == objCust.email).FirstOrDefault();
             if (proj != null)
             {
-                //proj.UpdatedDate = DateTime.Now;
-                ////proj.Client = objCust.Client;
-                //proj.PeopleFirstName = objCust.PeopleFirstName;
-                //proj.PeopleLastName = objCust.PeopleLastName;
-                //proj.Email = objCust.Email;                
-                //proj.Department = objCust.Department;
-                //proj.BillableRate = objCust.BillableRate;
+               
+               
+                proj.firstName = objCust.firstName;
+                proj.lastName = objCust.lastName;
+                proj.email = objCust.email;
+                proj.logins = objCust.logins;
+                proj.role = objCust.role;
                 //proj.CostRate = objCust.CostRate;
                 //proj.Permissions = objCust.Permissions;
                 //proj.Type = objCust.Type;
                 //proj.ImageUrl = objCust.ImageUrl;
+                //proj.Client = objCust.Client;
 
-                //proj.CreatedBy = objCust.CreatedBy;
-                //proj.CreatedDate = objCust.CreatedDate;
-                //proj.UpdateBy = objCust.UpdateBy;
-                //proj.EmailConfirmed = objCust.EmailConfirmed;
+                proj.updatedDate = DateTime.Now;
+                proj.createdBy = objCust.createdBy;
+                proj.createdDate = objCust.createdDate;
+                proj.updateBy = objCust.updateBy;
+                proj.emailConfirmed = objCust.emailConfirmed;
                 Peoples.Attach(proj);
                 this.Entry(proj).State = EntityState.Modified;
                 this.SaveChanges();
@@ -154,18 +156,19 @@ namespace AngularJSAuthentication.API
         }
 
 
-        public bool DeletePeople(int id)
+        public bool DeletePeople(string id)
         {
             try
             {
                 People DL = new People();
-                DL.peopleId = id;
-                Entry(DL).State = EntityState.Deleted;
+                People ppl = Peoples.Where(x => x.email == id).FirstOrDefault();
+                //DL.peopleId = ppl.peopleId;
+                Entry(ppl).State = EntityState.Deleted;
 
                 SaveChanges();
                 return true;
             }
-            catch
+            catch(Exception ex)
             {
                 return false;
             }

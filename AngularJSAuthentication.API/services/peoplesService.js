@@ -16,10 +16,13 @@ anguApp.factory('peoplesService', ['$http', function ($http) {
 
 
 
-    var _putpeoples = function () {
-
-        return $http.put(serviceBase + 'api/people').then(function (results) {
+    var _putpeoples = function (data) {
+        //$scope.results = results;
+        console.log("I m in people Servies");
+        console.log(data);
+        return $http.put("http://localhost:26264/" + 'api/people',data).then(function (results) {
             return results;
+           
         });
     };
 
@@ -33,7 +36,7 @@ anguApp.factory('peoplesService', ['$http', function ($http) {
         console.log(data.PeopleID);
 
 
-        return $http.delete(serviceBase + 'api/Peoples/?id=' + data.PeopleID).then(function (results) {
+        return $http.delete(serviceBase + 'api/People/?id=' + data.PeopleID).then(function (results) {
             return results;
         });
     };

@@ -117,7 +117,7 @@ namespace AngularJSAuthentication.API.Controllers
         [ResponseType(typeof(People))]
         [Route("")]
         [AcceptVerbs("Delete")]
-        public void Remove(int id)
+        public void Remove(string email)
         {
             logger.Info("DELETE Peoples: ");
             try
@@ -138,7 +138,7 @@ namespace AngularJSAuthentication.API.Controllers
                     }
                 }
                 logger.Info("User ID : {0} , Company Id : {1}", compid, userid);
-                context.DeletePeople(id);
+                context.DeletePeople(email);
             }
             catch (Exception ex)
             {
