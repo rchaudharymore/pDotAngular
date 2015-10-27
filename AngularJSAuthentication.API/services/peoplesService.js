@@ -5,14 +5,28 @@ anguApp.factory('peoplesService', ['$http', function ($http) {
 
     var peoplesServiceFactory = {};
 
-    var _getpeoples = function () {
-        console.log("calling get people");
-        return $http.get(serviceBase + 'api/People').then(function (results) {
+
+  
+
+    var _getaccounts = function () {
+        console.log("calling get Accounts");
+        return $http.get(serviceBase + 'api/Accounts').then(function (results) {
             return results;
         });
     };
 
-    peoplesServiceFactory.getpeoples = _getpeoples;
+
+   
+
+    var _getgroups = function () {
+        console.log("calling get Groups");
+        return $http.get("http://localhost:26264/" + 'api/Groups').then(function (results) {
+            return results;
+        });
+    };
+
+
+    peoplesServiceFactory.getgroups = _getgroups;
 
 
 

@@ -7,13 +7,13 @@ namespace AngularJSAuthentication.data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class paradot1 : IMigrationMetadata
+    public sealed partial class paradot : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(paradot1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(paradot));
         
         string IMigrationMetadata.Id
         {
-            get { return "201510121332337_paradot1"; }
+            get { return "201510161244240_paradot"; }
         }
         
         string IMigrationMetadata.Source

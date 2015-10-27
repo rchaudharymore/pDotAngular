@@ -43,7 +43,7 @@
                     <div id="us_status" ng-show="showAddUser" style="background-image: none; background-color: rgba(0, 0, 0, 0);" class="ajax_status">
 
                         <div id="us_form_update">
-                            <form class="form form-horizontal" id="user-form-update"  method="post">
+                            <form name ="adduserform"class="form form-horizontal" id="user-form-update"  method="post">
                               
 
 
@@ -1955,7 +1955,7 @@
                                 </div>
 
                                 <div class="form-actions">
-                                    <button ng-show="Add1" id="btnSubmit" class="submit-link btn" ng-click="AddUser(people)">Submit</button>
+                                    <button ng-show="Add1" id="btnSubmit" class="submit-link btn" ng-click="AddUser(people) ">Submit</button>
                                     <button  ng-show="Update1" id="btnupdate" class="update-link btn" ng-click="updateUser(people)">Update</button>
                                     <button id="btnCancel" class="cancel-link btn" ng-click="Cancel()">Cancel</button>
 
@@ -1964,6 +1964,7 @@
                                   
                                 </div>
                             </form>
+                                                                                                        
                         </div>
 
 
@@ -1998,7 +1999,7 @@
 
 
                             <span class="link_to_create pull-right">
-                              <button id="us_link_create" class="btn btn-warning" ng-click="AddUser()"><i class="icon-plus"></i> Add user</button>
+                              <button id="us_link_create" class="btn btn-warning" ng-click="AddUser()"   ><i class="icon-plus"></i> Add user</button>
                              
                                
                             </span>
@@ -2085,7 +2086,7 @@
                                         </tr>
                                     </thead>
 
-                                    <tbody ng-repeat="users in currentPageStores">
+                                    <tbody ng-repeat="user in users">
                                         <tr  >
 
                                             <td class="first checkbox">
@@ -2093,36 +2094,36 @@
                                             </td>
 
                                             <td>
-                                                <a >{{users.firstName}} </a>
+                                                <a >{{user.firstName}} </a>
                                             </td>
                                            
                                             <td>
-                                                <a >{{users.lastName}}</a>
+                                                <a >{{user.lastName}}</a>
                                             </td>
 
 
                                             <td>
-                                                <a>{{users.email}}</a>
+                                                <a>{{user.email}}</a>
                                                 <br>
                                             </td>
 
                                             <td>
-                                                {{users.role}}
+                                                {{user.role}}
                                             </td>
 
                                             <td>
-                                                <span id="user_indicator_prospect3258362">{{users.prospects}}</span>
+                                                <span id="user_indicator_prospect3258362">{{user.prospects}}</span>
                                             </td>
 
                                             <td>
-                                                <span id="user_indicator_email3258362">{{users.eCount}}</span>
+                                                <span id="user_indicator_email3258362">{{user.eCount}}</span>
                                             </td>
 
                                             <td>
-                                                {{users.logins}}
+                                                {{user.logins}}
                                             </td>
-                                          <td><button ><i class="icon-edit " ng-click="Edit(users)" title="Edit"></i></button> </td>
-                                            <td><button><i class="icon-trash " ng-click="Delete(users.email)" title="delete"></i></button> </td>
+                                          <td><button ><i class="icon-edit " ng-click="Edit(user)" title="Edit"></i></button> </td>
+                                            <td><button><i class="icon-trash " ng-click="Delete(user.email)" title="delete"></i></button> </td>
 
                                             <td class="new-actions last">
 

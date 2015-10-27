@@ -1,167 +1,220 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-	<meta charset="utf-8" />
-</head>
+﻿
 <body>
-    <div id="contentWrap">
-        <div id="content">
+    <div id="wrapper">
 
-            <ul id="bread-crumbs" class="breadcrumb">
-                <li>
-                    <a href="/" title="Home"><i class="icon-home"></i></a>
-                </li>
-                <li class="crumb-divider">  </li>
-                <li>
-                    <a href="/administration">Administration</a>
-                </li>
-                <li class="crumb-divider">  </li>
-                <li>
-                    <a href="/user">Users</a>
-                </li>
-            </ul>
+        <div id="contentWrap">
+            <div id="content">
 
-            <h1>User Groups</h1>
+                <ul id="bread-crumbs" class="breadcrumb">
+                    <li>
+                        <a href="/" title="Home"><i class="icon-home"></i></a>
+                    </li>
+                    <li class="crumb-divider">  / </li>
+                    <li>
+                        <a href="/administration">Administration</a>
+                    </li>
+                    <li class="crumb-divider">  / </li>
+                    <li>
+                        <a href="/user">Users</a>
+                    </li>
+                </ul>
 
-            <div class="divider"></div>
+                <h1>User Groups</h1>
 
-
-
-            <div id="center-stage">
+                <div class="divider"></div>
 
 
 
+                <div id="center-stage">
 
 
+                    <div id="groupx">
+
+                        <div id="groupoupx_status" ng-show="showAddGroup" style="display: block; background-image: none; background-color: rgba(0, 0, 0, 0);" class="ajax_status">
+
+                            <div id="gr_form_update">
+                                <form class="form form-horizontal" onsubmit="new Ajax.Updater('gr_form_update', '/group/update', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:Form.serialize(this)}); return false;" action="/group/update" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="a3f4c994ba3fc5c475f53c9723b965475763f57fce720eedadb89f755c9ee32bc3d9f199a659f7d8b539980c9c7d965d"></div>
 
 
+                                    <p class="cancel">
+                                        <span> <a class="cancel-link" ng-click="Cancel()"></a>
+                                        <button type="button" ng-click="Cancel()" class="btn btn-default">Cancel</button></span>
+                                    </p>		<p class="help">
+                                        <a onclick="var w=window.open(this.href);w.focus();return false;" href="http://www.pardot.com/search-results/?q=group"><i class="icon-question-sign icon-bigger" title="Help"></i></a>
+                                    </p>
+
+                                    <h3>Create Group</h3>
+
+                                    <div class="control-group required ">
+                                        <label class="control-label" for="name">Name</label>
+                                        <div class="controls">
+                                            <input type="text" name="name" ng-model="groups.name" id="name" value="" class="text" maxlength="50">					<span class="help-inline" style="display:none;" id="error_for_name"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group ">
+                                        <label for="tags" class="control-label">Tags</label>
+                                        <div class="controls">
+                                            <input type="text" name="name" ng-model="groups.tags" id="name" value="" class="text" maxlength="50">
+                                           
+                                            <span class="help-inline tags-error" style="display:none;" id="error_for_tags"></span>
+
+                                        </div>
+                                    </div>
 
 
-
-
-
-
-
-
-
-
-                <div id="groupx">
-
-                    <div id="groupoupx_status" style="display:none;" class="ajax_status"></div>
-
-
-
-                    <div id="tagFiltergroupx" class="tagfilter-pop-up dropdown-menu" style="display: none;"><input type="text" id="tagFilterSearchgroupx" value=""><div class="scroller"><ul id="tagFilterSelectorgroupx"><li></li></ul></div><a href="#"  style="float: left;">Clear filter</a>  <a href="/tag" style="float: right;">Manage tags</a></div><div id="groupoupx_module" class="module">
-
-                        <div class="header clearfix">
-
-                            <h2 id="groupx_h2"></h2>
-
-
-
-
-
-                            <form id="groupx_filter" class="inline" onsubmit="new Ajax.Updater('groupx_table_div', '/group/table/ajax/1/dateText/Date+Range%3A+', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('groupoupx_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('groupx_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/group/table/ajax/1/dateText/Date+Range%3A+" method="post">
-                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="764eaca250fa0da18bf44ee856a86d9ff68135dcb39110ce82c3d94a4263ff308b3f70ec0fdc5ab167963f2c97f20ccd"></div>
-                                <p class="inline header">
-                                    Filter:<br>
-                                    <input type="text" name="table_filter" id="groupx_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;groupx_filter&quot;).onsubmit()',600);" class="input-medium">
-                                </p>
-                            </form>
-                            <br>
-                            <form id="groupx_tagFilter" class="aaa inline tag-filter-form" onsubmit="new Ajax.Updater('groupx_table_div', '/group/table/ajax/1/dateText/Date+Range%3A+/table_filter', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('groupoupx_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('groupx_ajax_urlparams').value.replace('tagFilter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/group/table/ajax/1/dateText/Date+Range%3A+/table_filter" method="post">
-                                <div style="display:none;"><input type="hidden" name="_csrf_token" value="764eaca250fa0da18bf44ee856a86d9ff68135dcb39110ce82c3d94a4263ff308b3f70ec0fdc5ab167963f2c97f20ccd"></div>					<p class="inline header" id="tagFilterContainergroupx"><button  class="btn">Tags <span class="caret"></span></button><span id="tagFilterListgroupx"></span><input type="hidden" id="tagFilterInputgroupx" name="tagFilter" value=""></p>
-                               
-                            </form>
-
-                            <div class="btn-group pull-right">
-                                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                                    Tools			    <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-
-                                    <li><a href="#" onclick="new Ajax.Updater('groupoupx_status', '/tagObject/tagTableAjax', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('groupoupx_status', true);new Effect.Highlight('groupoupx_status', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('groupoupx_table_footer', false); }}, parameters:'ajaxParams='+encodeURIComponent($('groupx_ajax_urlparams').value) + '&amp;ajaxUrl=group%2Ftable&amp;objectName=User+Groups' + '&amp;_csrf_token=b8b92b7c7dfb3c20ff06dc3298a17596fcd9221436996c0072ead71e03ceca5febd1d7495fe49415f23f6b9ce2552788'});; return false;"><i class="icon-tag"></i> Tag Entire Table</a>						</li>
-
-
-                                </ul>
+                                    <div class="form-actions">
+                                        <input type="submit" ng-click="AddGroup(groups)" name="commit" value="Create group" accesskey="s" class="btn btn-primary">								
+                                        <span>
+                                            <a class="cancel-link" ></a>
+                                            <button type="button" ng-click="Cancel()" class="btn btn-default">Cancel</button>
+                                        </span>
+                                       
+                                    </div>
+                                </form>
                             </div>
-
-
-                            <span class="link_to_create pull-right">
-                                <button id="us_link_create" class="btn btn-warning" ng-click="AddUserGroup()"><i class="icon-plus"></i> Add user group</button>
-                                
-                            </span>
                         </div>
-                        <div id="groupoupx_wrapper" class="module-wrapper">
-                            <div id="groupx_table_div">
-
-
-                                <input type="hidden" id="groupx_ajax_urlparams" value="sort=groupx.name&amp;order=asc&amp;mode=manage&amp;tableName=group&amp;pageSize=5&amp;prefix=gr&amp;startDate=%401167627600&amp;endDate=now&amp;dateText=Date+Range%3A&amp;tagFilter=+&amp;ajaxElement=groupx&amp;numResults=0">
-                                <table id="groupx_table" class="data-table table-bordered">
-                                    <thead>
-                                        <tr>
-
-
-                                            <th class="first checkbox-column checkbox">
-
-
-                                            </th>
 
 
 
-                                            <th class="sortable sort-up name-column">
+                        <div id="tagFiltergroupx" class="tagfilter-pop-up dropdown-menu" style="display: none;"><input type="text" id="tagFilterSearchgroupx" value=""><div class="scroller"><ul id="tagFilterSelectorgroupx"><li>2015</li><li>2015 ashg</li><li>ashg</li><li>ashg 2015</li><li>trivia</li></ul></div><a href="#" onclick="piDataTableTagFilterFactory.clearTags('groupx'); return false;" style="float: left;">Clear filter</a>  <a href="/tag" style="float: right;">Manage tags</a></div><div id="groupoupx_module" class="module">
 
-                                                <a href="#" onclick="new Ajax.Updater('groupx_table_div', '/group/table/ajax/1/page/1/order/desc/sort/groupx.name/mode/manage/tableName/group/pageSize/5/prefix/gr/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/tagFilter/+/ajaxElement/groupx', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=59548098c0cf0e279dea8185494b9347df6b0d2ead31a645d915659b3dc186b22be876cad8c58a59f84194a921208a15'});; return false;">Name</a>
+                            <div class="header clearfix">
 
-                                                <i class="icon-circle-arrow-up muted"></i>
-                                            </th>
-
-
-                                            <th class="users-column">
-
-                                                Users
-                                            </th>
-
-
-
-                                            <th class="updated-column">
-
-                                                <a href="#" onclick="new Ajax.Updater('groupx_table_div', '/group/table/ajax/1/page/1/order/desc/sort/groupx.updated_at/mode/manage/tableName/group/pageSize/5/prefix/gr/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/tagFilter/+/ajaxElement/groupx', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=eee5bf645796c493975af0967625807cfac01016afb28a2b5c4d2936968724b98062860529f4b86d86b0ee609948b487'});; return false;">Updated</a>
-
-                                            </th>
-
-
-                                            <th class="actions-column last">
-
-                                                Actions
-                                            </th>
-                                        </tr>
-                                    </thead>
-
-                                    <tfoot>
-                                        <tr>
-                                            <td colspan="5" class="last">
-                                                There are no user groups for this area.
-                                            </td>
-                                        </tr>
-                                    </tfoot>
-
-
-                                </table>
+                                <h2 id="groupx_h2"></h2>
 
 
 
 
+
+                                <form id="groupx_filter" class="inline" onsubmit="new Ajax.Updater('groupx_table_div', '/group/table/ajax/1/dateText/Date+Range%3A+', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('groupoupx_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('groupx_ajax_urlparams').value.replace('table_filter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/group/table/ajax/1/dateText/Date+Range%3A+" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="276643e196b4d5668ea1b11ea6b372f59fae63c3ef11f0fbb143bc28723bf62151466414b77a9cdc4b8e76755a491872"></div>
+                                    <p class="inline header">
+                                        Filter:<br>
+                                        <input type="text" name="table_filter" id="groupx_table_filter" value="" onkeyup="clearTimeout(hideAllMenusTimeout); hideAllMenusTimeout = setTimeout('$(&quot;groupx_filter&quot;).onsubmit()',600);" class="input-medium">
+                                    </p>
+                                </form>
+                                <br>
+                                <form id="groupx_tagFilter" class="aaa inline tag-filter-form" onsubmit="new Ajax.Updater('groupx_table_div', '/group/table/ajax/1/dateText/Date+Range%3A+/table_filter', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('groupoupx_status', true);}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:$('groupx_ajax_urlparams').value.replace('tagFilter=','') + '&amp;'  + Form.serialize(this) }); return false;" action="/group/table/ajax/1/dateText/Date+Range%3A+/table_filter" method="post">
+                                    <div style="display:none;"><input type="hidden" name="_csrf_token" value="276643e196b4d5668ea1b11ea6b372f59fae63c3ef11f0fbb143bc28723bf62151466414b77a9cdc4b8e76755a491872"></div>					<p class="inline header" id="tagFilterContainergroupx"><button onclick="piDataTableTagFilterFactory.togglePopup('groupx'); return false;" class="btn">Tags <span class="caret"></span></button><span id="tagFilterListgroupx"></span><input type="hidden" id="tagFilterInputgroupx" name="tagFilter" value=""></p>
+                                   
+                                </form>
+
+                                <div class="btn-group pull-right">
+                                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                        Tools			    <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+
+                                        <li><a href="#" onclick="new Ajax.Updater('groupoupx_status', '/tagObject/tagTableAjax', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();toggleDisplay('groupoupx_status', true);new Effect.Highlight('groupoupx_status', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('groupoupx_table_footer', false); }}, parameters:'ajaxParams='+encodeURIComponent($('groupx_ajax_urlparams').value) + '&amp;ajaxUrl=group%2Ftable&amp;objectName=User+Groups' + '&amp;_csrf_token=30b568ce4712f9f8d85df2551048b247ab84f251403e5390308caf86e8d34b3fdcf21bcd7697026f31e8328827ebdc39'});; return false;"><i class="icon-tag"></i> Tag Entire Table</a>						</li>
+
+
+                                    </ul>
+                                </div>
+
+
+                                <span class="link_to_create pull-right">
+                                    <a ng-click="AddGroup()" class="btn btn-warning"><i class="icon-plus"></i> Add user group</a>
+                                    
+                                </span>
+                            </div>
+                            <div id="groupoupx_wrapper" class="module-wrapper">
+                                <div id="groupx_table_div">
+
+
+                                    <input type="hidden" id="groupx_ajax_urlparams" value="sort=groupx.name&amp;order=asc&amp;mode=manage&amp;tableName=group&amp;pageSize=5&amp;prefix=gr&amp;startDate=%401167627600&amp;endDate=now&amp;dateText=Date+Range%3A&amp;tagFilter=+&amp;ajaxElement=groupx&amp;numResults=0">
+                                    <table id="groupx_table" class="data-table table-bordered">
+                                        <thead>
+                                            <tr>
+
+
+                                                <th class="first checkbox-column checkbox">
+
+
+                                                </th>
+
+
+
+                                                <th class="sortable sort-up name-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('groupx_table_div', '/group/table/ajax/1/page/1/order/desc/sort/groupx.name/mode/manage/tableName/group/pageSize/5/prefix/gr/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/tagFilter/+/ajaxElement/groupx', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=4b783b678495610901657ec6a3599f84c66dcf92f3408f10665e07a0a778bffa4f2130943827e5256808a86233ae0f97'});; return false;">Name</a>
+
+                                                    <i class="icon-circle-arrow-up muted"></i>
+                                                </th>
+
+
+                                                <th class="users-column">
+
+                                                    Users
+                                                </th>
+
+
+
+                                                <th class="updated-column">
+
+                                                    <a href="#" onclick="new Ajax.Updater('groupx_table_div', '/group/table/ajax/1/page/1/order/desc/sort/groupx.updated_at/mode/manage/tableName/group/pageSize/5/prefix/gr/startDate/%401167627600/endDate/now/dateText/Date+Range%3A/tagFilter/+/ajaxElement/groupx', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=44231a3ecfb42c66d9285074cf6ce7f7b579d2d5ad7ec8f9ca090beda482a2d510319fa5cf6d1dce8a8de8200bba3902'});; return false;">Updated</a>
+
+                                                </th>
+
+
+                                                <th class="actions-column last">
+
+                                                    Actions
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody ng-repeat="Group in Groups">
+                                            <tr>
+
+
+                                                <td>
+                                                    {{Group.groupId}}
+                                                </td>
+
+                                                <td>
+                                                    <a>{{Group.name}} </a>
+                                                </td>
+
+                                                <td>
+                                                    <a>{{Group.tags}}</a>
+                                                </td>
+
+
+                                                <td>
+                                                    <a>{{Group.users}}</a>
+                                                    <br>
+                                                </td>
+
+                                            </tr>
+
+                                        </tbody>
+
+                                        <!--<tfoot>
+                                            <tr>
+                                                <td colspan="5" class="last">
+                                                    There are no user groups for this area.
+                                                </td>
+                                            </tr>
+                                        </tfoot>-->
+
+
+                                    </table>
+
+
+
+
+                                </div>
                             </div>
                         </div>
                     </div>
+
+
                 </div>
-
-
+                <div style="clear:both;"></div>
             </div>
-            <div style="clear:both;"></div>
         </div>
+
     </div>
 </body>
-</html>
+

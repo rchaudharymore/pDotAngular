@@ -355,8 +355,14 @@ var anguApp = angular.module('anguApp', [
               templateUrl: "views/Admin/CustomObj.html"
           })
           .when("/group", {
-              templateUrl: "views/Admin/Groups.html"
+              templateUrl: "views/Admin/Groups.html",
+              controller: 'CtrlGroup'
+              //controller: 'AboutCtrl'
+
           })
+           .when("/AddGroups", {
+               templateUrl: "views/Groups/createAjax.html"
+           })
           
           .when("/opportunity/configureFields", {
               templateUrl: "views/Admin/OpportunityF.html"

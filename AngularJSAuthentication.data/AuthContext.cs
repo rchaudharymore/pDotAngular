@@ -16,21 +16,23 @@ namespace AngularJSAuthentication.API
      
   
         People getPersonIdfromEmail(string email);
+        
         //IEnumerable<Company> AllCompanies { get; }
         //Company AddCompany(string company);
         //Company PutCompany(Company company);
         //bool DeleteCompany(int id);
         //bool CompanyExists(string companyName);
         //Company GetCompanybyCompanyId(int id);
+        //IEnumerable<People> AllPeoples(int compid);
 
-     
 
 
-        IEnumerable<People> AllPeoples(int compid);
         People GetPeoplebyCompanyId(int id);
         People AddPeople(People people);
+        Groups AddGroups(Groups obj1);
         People updatePeople(People people);
         List<People> AllPeople();
+        List<Groups> AllGroups();
         bool DeletePeople(string id);
 
 
@@ -45,8 +47,9 @@ namespace AngularJSAuthentication.API
         }
 
      
-        public DbSet<People> Peoples { get; set; }       
-     
+        public DbSet<People> Peoples { get; set; }
+        public DbSet<Groups> Groups { get; set; }
+        public DbSet<Accounts> Accounts { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
 
@@ -65,7 +68,7 @@ namespace AngularJSAuthentication.API
             {
                 List<People> person = new List<People>();
                 person = Peoples.ToList();
-                return person ;
+                return person;
             }
             else
 
@@ -75,23 +78,25 @@ namespace AngularJSAuthentication.API
             }
 
         }
-        public IEnumerable<People> AllPeoples(int compid)
-        {
-          
-                if (Peoples.AsEnumerable().Count() > 0)
-                {
-                List<People> person = new List<People>();
-                person = Peoples.Where(e => e.companyId == compid).ToList();
-                return person.AsEnumerable();
-                }
-                else
 
-                {
-                    List<People> people = new List<People>();
-                    return people.AsEnumerable();
-                }
-            
+        public List<Groups> AllGroups()
+        {
+
+            if (Groups.AsEnumerable().Count() > 0)
+            {
+                List<Groups> group = new List<Groups>();
+                group = Groups.ToList();
+                return group;
+            }
+            else
+
+            {
+                List<Groups> group = new List<Groups>();
+                return group;
+            }
+
         }
+     
 
         public People AddPeople(People people)
         {
@@ -107,18 +112,36 @@ namespace AngularJSAuthentication.API
                 people.updatedDate = DateTime.Now;
                 Peoples.Add(people);
                 int id = this.SaveChanges();
-
-                //Projects.Add(project);
-                ////int ProjectID = this.SaveChanges();
-                //project.ProjectID = ProjectID;
                 return people;
             }
             else
             {
-                //objProject.Exception = "Already";
+               
                 return objPeople;
             }
         }
+
+
+
+        public Groups AddGroups(Groups obj1)
+        {
+            //List<Groups> obj = Groups.Where(c => c.name.Trim().Equals(obj1.name.Trim())).ToList();
+            Groups a = new Groups();
+            
+                a.name = obj1.name;
+                a.tags = obj1.tags;
+
+                a.createdBy = obj1.createdBy;
+                a.createdDate = DateTime.Now;
+                a.updatedDate = DateTime.Now;
+            Groups.Add(a);
+                int id = this.SaveChanges();
+
+               
+            
+            return obj1;
+        }
+
 
 
         public People updatePeople(People objCust)
@@ -185,34 +208,5 @@ namespace AngularJSAuthentication.API
         }
 
      
-        //public Company AddCompany(string company)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public Company PutCompany(Company company)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public bool DeleteCompany(int id)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public bool CompanyExists(string companyName)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public Company GetCompanybyCompanyId(int id)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public People GetPeoplebyCompanyId(int id)
-        //{
-        //    throw new NotImplementedException();
-        //}
     }
 }

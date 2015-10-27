@@ -546,7 +546,353 @@
 
 
 
+                        <div ng-show="AddCustomField">
 
+                            <!--Add Custom Field-->
+
+                            <form class="form form-horizontal">
+                               
+                                <p class="cancel">
+                                    <a class="cancel-link" href="#" onclick="if(jQuery(this).parents('.ajax_row').length) {jQuery(this).parents('.ajax_row').hide();} else{toggleDisplay('fld_row_b'); cancelFormClearInnerHTML('fld_row_b'); toggleDisplay('fld_form_update'); cancelFormClearInnerHTML('fld_form_update'); if (navigator.userAgent &amp;&amp; navigator.userAgent.indexOf('MSIE') != -1) {toggleDisplay('fld_table_footer',true); }} return false;">Cancel</a>
+                                </p>		<p class="help">
+                                    <a onclick="var w=window.open(this.href);w.focus();return false;" href="http://www.pardot.com/search-results/?q=field"><i class="icon-question-sign icon-bigger" title="Help"></i></a>
+                                </p>
+
+                                <h3>Create Custom Field</h3>
+
+                                <input type="hidden" name="object_type" id="object_type" value="1">
+                                <div class="control-group required ">
+                                    <label class="control-label" for="name">Name</label>
+                                    <div class="controls">
+                                        <input type="text" ng-model="account.name" name="name" id="name" value="" class="text" maxlength="50" onblur="convertToId(this.value, document.getElementById('unique_id'))">
+                                        <span class="help-inline" style="display:none;" id="error_for_name"></span>
+                                    </div>
+                                </div>
+
+
+                                <div class="control-group required ">
+                                    <label class="control-label" for="type">Type</label>
+                                    <div class="controls">
+                                        <select name="type" ng-model="account.type" id="type-fld-">
+
+                                            <option value="1" selected="selected">Text</option>
+                                            <option value="8">Number</option>
+                                            <option value="12">Date</option>
+                                            <option value="2">Radio Button</option>
+                                            <option value="3">Checkbox</option>
+                                            <option value="4">Dropdown</option>
+                                            <option value="5">Textarea</option>
+                                            <option value="6">Multi-Select</option>
+                                            <option value="14">CRM User</option>
+                                        </select>
+
+                                        <span class="help-inline" style="display:none;" id="error_for_type"></span>
+                                    </div>
+                                </div>
+
+
+                                <div class="control-group required ">
+                                    <label class="control-label" for="unique_id">Custom Field ID</label>
+                                    <div class="controls">
+                                        <input type="text" ng-model="account.fieldId" name="unique_id" id="unique_id" value="" class="text" maxlength="50">					<span class="help-inline" style="display:none;" id="error_for_unique_id"></span>
+                                    </div>
+                                </div>
+
+                                <div id="crm_custom_field_div">
+                                    <div class="control-group control-group-short-margin ">
+                                        <label class="control-label" ng-model="account.fieldName" for="crm_field_fid">
+                                            salesforce.com Field Name
+                                        </label>
+                                        <div class="controls">
+                                            <select name="fldcrm_field_fid" ng-model="accounts.fieldName" id="fldcrm_field_fid">
+                                                <option value="0"></option>
+
+                                                <option value="AccountSource">AccountSource (AccountSource)</option>
+                                                <option value="Account_Type__c">Account_Type__c (Account_Type__c)</option>
+                                                <option value="Affymetrix__c">Affymetrix__c (Affymetrix__c)</option>
+                                                <option value="Anatrace__c">Anatrace__c (Anatrace__c)</option>
+                                                <option value="Application_Date__c">Application_Date__c (Application_Date__c)</option>
+                                                <option value="Array_Products__c">Array_Products__c (Array_Products__c)</option>
+                                                <option value="BillingAddress">BillingAddress (BillingAddress)</option>
+
+
+                                            </select>
+                                            <a title="Refresh CRM field list" href="#" onclick="new Ajax.Updater('crm_custom_field_div', '/field/refreshCrmCustomFieldsAjax/connector_id/762/object_type/1/field_id', {asynchronous:true, evalScripts:true, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();new Effect.Highlight('crm_custom_field_div', {duration:2});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=3dad85869f3d069a1e833c1291b0f244dc18cc43d02e052be893df43cb4589cd61b0ea61ce839157ca6485c1130ccd37'});; return false;"><i class="icon-refresh icon-bigger vertical-middle muted" title="Refresh CRM field list"></i></a>
+                                            <span class="help-inline" style="display:none;" id="error_for_crm_field_fid"></span>
+                                        </div>
+                                    </div>
+
+                                    <script src="/js/animation-options.js?id=2013-12-20"></script>
+
+                                    <script type="text/javascript">
+$j(function(){
+	var valuesCheckbox = $j('input#fldis_use_values');
+	var valuesDiv = $j('#flduse-values');
+	var crmFieldSelect = $j('select#fldcrm_field_fid');
+	var typeSelect = $j('select#type-fld-');
+	var ajaxIndicator = $j('#indicator');
+
+		var enumeratedCrmObjects = {"AccountSource":{"account_field_id":0,"name":"AccountSource","options":["Advertisement","Affymetrix-hosted workshop","Banner Ads","Direct Email to Affymetrix","Email","Employee Referral","External Referral","FatStax App","Inbound 888#","Internal Referral","Lead Retrieval Form","List Purchase","Online Profiling Form","Other","Outbound Email","Partner","Product Literature Request","Promo","Publication List","Published","Research","Search Engine Marketing","Seminar","Service & Support","Telemarketing","Trade Show","UGM","Web","Web Event","Web Feedback form","Web Registration","WebtoLead2","Word of mouth"],"type":4},"Account_Type__c":{"account_field_id":0,"name":"Account_Type__c","options":["ACA","Academic","Biotech","Distributor","IND","Industrial","Molecular Diagnostics (MDx)","Panomics","Pharma","Service Provider"],"type":4},"Array_Products__c":{"account_field_id":0,"name":"Array_Products__c","options":["100K Array","10K Array","Custom","Human","Mouse","Other","Rat","Resequencing","Snp"],"type":[6,3]},"Company_Segment__c":{"account_field_id":0,"name":"Company_Segment__c","options":["Basic Research","Preclinical Research","Clinical Development","Clinical Research","Clinical Diagnostics"],"type":[6,3]},"CSAPP_Affymetrix_Product_Used__c":{"account_field_id":0,"name":"CSAPP_Affymetrix_Product_Used__c","options":["Believes in Lab\/Department","No","Yes","Unknown"],"type":[6,3]},"CurrencyIsoCode":{"account_field_id":0,"name":"CurrencyIsoCode","options":["USD","GBP","DKK","EUR","FIM","DEM","JPY","NOK","SGD","SEK","CHF"],"type":4},"Import_Data_Source__c":{"account_field_id":0,"name":"Import_Data_Source__c","options":["Affymetrix","Anatrace","USB"],"type":[6,3]},"Industry":{"account_field_id":3854,"name":"Industry","options":["Agriculture","Apparel","Banking","Biotechnology","Chemicals","Communications","Construction","Consulting","Education","Electronics","Energy","Engineering","Entertainment","Environmental","Finance","Food & Beverage","Government","Healthcare","Hospitality","Insurance","Machinery","Manufacturing","Media","Not For Profit","Other","Recreation","Retail","Shipping","Technology","Telecommunications","Transportation","Utilities","BPH","CLN","CRO","DIS","GOV","IND","INP","MED","OEM","PUR","RES","UNI"],"type":4},"Instrument__c":{"account_field_id":0,"name":"Instrument__c","options":["417\/427 Arrayer","Affymetrix Spotting","Analysis Workstation","Autloloader","FS450 Dx Fluidics Station","FS400 Fluidics Station","FS450 Fluidics Station","GA2500 GeneChip System","GA2500 Scanner Workstation","GCS3000 GeneChip System","GCS3000 Scanner Workstation","GCS3000 Dx","Hyb Oven","Other"],"type":[6,3]},"Keep_record__c":{"account_field_id":0,"name":"Keep_record__c","options":["Keep","Merge-keep","Merge-delete","Delete"],"type":4},"Ownership":{"account_field_id":3860,"name":"Ownership","options":["Public","Private","Subsidiary","Other"],"type":4},"Partner_Level__c":{"account_field_id":0,"name":"Partner_Level__c","options":["Gold","Silver"],"type":4},"Partner_Type__c":{"account_field_id":0,"name":"Partner_Type__c","options":["Distributor","Reseller"],"type":4},"Primary_Country__c":{"account_field_id":0,"name":"Primary_Country__c","options":["-------------------------------","Algeria","Argentina","Armenia","Australia","Austria","Bahrain","Bangladesh","Belarus","Belgium","Bermuda","Bhutan","Bolivia","Bosnia and Herzegowina","Brazil","Brunei","Bulgaria","Canada","Cayman Islands","Chile","China","Colombia","Costa Rica","Croatia","Cuba","Cyprus","Czech Republic","Denmark","Dubai","Ecuador","Egypt","El Salvador","Estonia","Faroe Islands","Fiji","Finland","France","Georgia","Germany","Ghana","Greece","Guatemala","Hong Kong","Hungary","Iceland","India","Indonesia","Iran (Islamic Republic of)","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Korea, Democratic Peoples Republic of","Korea, Republic of","Kuwait","Latvia","Lebanon","Liechtenstein","Lithuania","Luxembourg","Macedonia","Malaysia","Mali","Malta","Mexico","Moldova","Montenegro","Morocco","Netherlands","Netherlands Antilles","New Zealand","Nigeria","North Korea","Norway","Not Listed","Oman","Pakistan","Panama","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Romania","Russian Federation","Saudi Arabia","Senegal","Singapore","Slovakia","Slovenia","South Africa","South Korea","Spain","Sri Lanka","Sudan","Sweden","Switzerland","Syrian Arab Republic","Taiwan","Tanzania","Thailand","Tunisia","Turkey","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Vatican City","Venezuela","Vietnam","West Indies","Zambia"],"type":4},"Rating":{"account_field_id":3846,"name":"Rating","options":["Hot","Warm","Cold","Information only"],"type":4},"RecordTypeId":{"account_field_id":0,"name":"RecordTypeId","options":{"012600000005A7oAAE":"Partner","012600000005A7uAAE":"Master"},"type":4},"Service_Level__c":{"account_field_id":0,"name":"Service_Level__c","options":["Tier3s","Tier1s","Tier2s","Tier1m","Tier2m","Tier1i","Tier2i","Tier2n","Tier3x"],"type":4},"Software__c":{"account_field_id":0,"name":"Software__c","options":["DMT","GCOS Client","GCOS Dx","GCOS Server","GDAS","GREX","LIMS","MAS","Other"],"type":[6,3]},"Support_Tier_Level__c":{"account_field_id":0,"name":"Support_Tier_Level__c","options":["1","2","3"],"type":4},"Type":{"account_field_id":3850,"name":"Type","options":["Academic","Pharma","Biotech","Industrial","Distributor","Service Provider","Molecular Diagnostics (MDx)","Panomics","ACA","IND"],"type":4}};
+	var enumeratedKeys = [];
+	for (var name in enumeratedCrmObjects) { enumeratedKeys.push(name); }
+
+	var selectedKey = crmFieldSelect.find('option:selected').val();
+	var selectedCrmObjectOptionsCount = 0;
+	var originalValuesDivContent = valuesDiv.html();
+	var currentCrmValuesDivContent = "";
+	var currentValuesDivContent = "";
+	var typeSelectOptionLock = null;
+
+	var formDivId = "#fld_form_update";
+
+	// Keeps track of times when the first blank value is disabled for checkboxes, so we can
+	// re-enable if we switch back to a multiselect.
+	var doEnableBlankValueForMultiselect = false;
+
+	crmFieldSelect.change(function() {
+		valuesDiv.html(originalValuesDivContent);
+		if (crmFieldSelect.find('option:selected')) {
+			$j(formDivId + ' .hide-if-not-enumerated').show();
+			selectedKey = $j(this).val();
+			if ($j.inArray(selectedKey, enumeratedKeys) > -1) {
+				$j(formDivId + ' #sync_crm_field_values').prop('checked', true);
+				selectedCrmObjectOptionsCount = enumeratedCrmObjects[selectedKey].options.length;
+				if (selectedCrmObjectOptionsCount) {
+					ajaxRequestForCrmValues(enumeratedCrmObjects[selectedKey].account_field_id, true);
+				}
+			}
+			else {
+				$j(formDivId + ' #sync_crm_field_values').prop('checked', false);
+				$j(formDivId + ' .hide-if-not-enumerated').hide();
+				unlockTypeAndVarFields();
+				valuesDiv.slideUp(cubicAnimationFast);
+				typeSelect.val('1');  // hard-coded to text
+				valuesCheckbox.prop('checked', false);
+			}
+		}
+		// Reset the blank enable flag
+		doEnableBlankValueForMultiselect = false;
+	});
+	typeSelect.change(function() {
+		if(typeSelectOptionLock) {
+			lockType($j(this), typeSelectOptionLock);
+			valuesDiv.slideDown(cubicAnimationFast);
+			valuesCheckbox.prop('checked', true);
+		}
+	});
+
+	$j(formDivId + ' #sync_crm_field_values').change(toggleCrmSyncInterface);
+
+	function ajaxRequestForCrmValues(account_field_id, responseNeedsPopulation) {
+		var checked = $j(formDivId + ' #sync_crm_field_values').is(':checked');
+		ajaxIndicator.show();
+		$j.ajax({ type: 'POST',
+			url: '/field/addAllCrmValuesAjax',
+			data: {
+				'id' : account_field_id,
+				'value_count' : selectedCrmObjectOptionsCount,
+				'sync_crm_field_values' : checked,
+				'_csrf_token' : 'c54712c5ee0c352101b4931468671ba5a7c64c21fb9eb9d18226961674a8b8048dd2c7066fca4d39696a5f569cbda6b2'
+			},
+			success: function(result){
+				valuesDiv.html(result);
+				postAjaxCleanupAndShowValues(selectedKey, responseNeedsPopulation);
+			}
+		});
+	}
+	function postAjaxCleanupAndShowValues(selectedKey, responseNeedsPopulation) {
+		var typeOptions = enumeratedCrmObjects[selectedKey].type;
+		lockType(typeSelect, typeOptions);
+		valuesCheckbox.prop('checked', true);
+		lockTypeAndVarFields(typeOptions);
+
+		valuesDiv.find('input.customValue').each(function(i) {
+			$j(this).attr('readonly', true);
+			if (i && responseNeedsPopulation) { // first field should be blank
+				$j(this).val(enumeratedCrmObjects[selectedKey].options[i-1]);
+			}
+		});
+		$j(formDivId + ' #custom_field_value_add').hide();
+		valuesDiv.slideDown(cubicAnimationFast);
+		ajaxIndicator.hide();
+
+		currentCrmValuesDivContent = valuesDiv.clone().html();
+		currentValuesDivContent = valuesDiv.clone();
+		currentValuesDivContent.find('span.hide-if-not-crm-synced').hide();
+		currentValuesDivContent.find('span.hide-if-crm-synced').show();
+		currentValuesDivContent = currentValuesDivContent.html();
+	}
+	function lockType(typeSelect, typeOptions) {
+		if(typeOptions) {
+			var currentSelection = typeSelect.val();
+			var setValue = currentSelection;
+			if((typeOptions instanceof Array) && (typeOptions.indexOf(Number(currentSelection)) == -1)) {
+				setValue = typeOptions[0];
+			} else if (!(typeOptions instanceof Array) && currentSelection != typeOptions) {
+				setValue = typeOptions;
+			}
+			typeSelect.val(setValue);
+			// For fields that allow multi-select or checkbox types, we should disable blank
+			// value for checkboxes, and re-enable if the user goes back to a multi-select
+			checkBlankValue();
+		}
+	}
+	function lockTypeAndVarFields(type) {
+		typeSelectOptionLock = type;
+	}
+	function unlockTypeAndVarFields() {
+		typeSelectOptionLock = null;
+	}
+	function toggleCrmSyncInterface() {
+		var checked = $j(formDivId + ' #sync_crm_field_values').is(':checked');
+		if (checked) {
+
+			selectedCrmObjectOptionsCount = enumeratedCrmObjects[selectedKey].options.length;
+			ajaxRequestForCrmValues(enumeratedCrmObjects[selectedKey].account_field_id, true);
+
+		} else {
+			unlockTypeAndVarFields();
+			currentCrmValuesDivContent = valuesDiv.clone().html();
+			valuesDiv.html(currentValuesDivContent);
+			valuesDiv.find('input').each(function(index, value) {
+				$j(value).removeAttr('readonly');
+				$j(value).removeAttr('disabled');
+			});
+		}
+	}
+
+	// Blank value should be disabled for checkboxes, re-enabled for multiselects
+	function checkBlankValue() {
+		var enableCheckbox = valuesDiv.find('a').first();
+		var firstValIsBlank = !valuesDiv.find('input').first().val();
+		if(!firstValIsBlank) {
+			return;
+		} else if (typeSelect.val() == 3){
+			// If blank value is enabled and we're currently disabling it, make sure to re-enable later
+			doEnableBlankValueForMultiselect = disableValue(enableCheckbox);
+		} else if (doEnableBlankValueForMultiselect && typeSelect.val() == 6){
+			enableValue(enableCheckbox);
+			doEnableBlankValueForMultiselect = false; // re-enabled
+		}
+	}
+});
+                                    </script>
+                                </div>
+                                <div class="control-group control-group-short-margin hide-if-not-enumerated">
+                                    <div class="controls">
+                                        <label class="checkbox" for="sync_crm_field_values">
+                                            <input type="checkbox" ng-model="syncWithCRM" name="sync_crm_field_values" id="sync_crm_field_values" value="1">									Keep this field's type and possible values (for dropdowns, radio buttons, checkboxes) in sync with the CRM.
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="control-group control-group-short-margin">
+                                    <div class="controls">
+                                        <label class="checkbox">
+                                            <input type="checkbox" ng-model="account.required" name="is_required" id="is_required" value="1">					Required
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="control-group control-group-short-margin">
+                                    <div class="controls">
+                                        <label class="checkbox" for="is_record_multiple_responses">
+                                            <input type="checkbox" ng-model="account.displayMultiResponces" name="is_record_multiple_responses" id="is_record_multiple_responses" value="1">						Record and display multiple responses (useful for fields that are set to always be displayed like reporting issues)
+                                        </label>
+                                    </div>
+                                </div>
+
+
+                                <div class="control-group ">
+                                    <div class="controls">
+                                        <label for="fldis_use_values" class="checkbox">
+                                            <input type="checkbox" ng-model="account.usePreDefinedValues" name="fldis_use_values" id="fldis_use_values" value="1">					Use pre-defined values (for checkboxes, radio buttons, drop downs, and multi-selects)
+                                        </label>
+                                        <span class="error" style="display:none;" id="error_for_use_values"></span>
+                                    </div>
+                                </div>
+
+
+                                <div class="" style="display:none" id="flduse-values">
+
+                                    <h3>Values</h3>
+
+
+
+
+
+
+                                    <div id="custom_field_value_div__1444806979_91509400" class="control-group hover-control-group control-group-short-margin">
+
+
+                                        <label class="control-label">
+                                            <a title="Add value" href="#" onclick="new Ajax.Updater('custom_field_value_div__1444806979_91509400', '/field/addValueAjax/prefix/fld/value_id/1444806979_91509400/id', {asynchronous:true, evalScripts:true, insertion:Insertion.After, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=44ad394117678528d51dcaf33e5f57fe693b33f6fe2df354e137597db55fcc1922416443681baf94dac54831fbf311a5'});; return false;"><i class="icon-plus icon-bigger muted" title="Add"></i></a>				<a title="Remove value" href="#" onclick="if (window.confirm('Are you sure?')) { var typeVal = jQuery('#type').val(); if((typeVal == 3 || typeVal == 4 || typeVal == 6 || typeVal == 2) &amp;&amp; jQuery('.customValue').size() == 1) {alert('You must have at least one value!'); return false;}; new Ajax.Updater('custom_field_value_div__1444806979_91509400', '/field/removeValueAjax/prefix/fld/value_id/1444806979_91509400/id//ordered_after/0', {asynchronous:true, evalScripts:false, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();new Effect.Fade('custom_field_value_div__1444806979_91509400', {});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=fe408f0b609a66c2c6ee47fd569ae764dae8ce590ddca83c18927a09bbb6e0e22b7eaf6fb9c71ea3fc3655d225f96b86'}); };; return false;"><i class="icon-trash icon-bigger muted" title="Delete"></i></a>
+                                        </label>
+
+                                        <div class="controls">
+
+                                            <input type="text" name="value__1444806979_91509400" id="value__1444806979_91509400" value="" class="text-small customValue" maxlength="50" placeholder="Value">
+                                            <a href="#" onclick="toggleDisplayAnimated('custom_field_toggle_label__1444806979_91509400', null, null, true); return false;">
+                                                <i class="icon-font icon-bigger muted vertical-middle" title="Label"></i>
+                                            </a>
+                                            <span class="inline" style="display:none" id="custom_field_toggle_label__1444806979_91509400">
+                                                <input type="text" name="label__1444806979_91509400" id="label__1444806979_91509400" value="" class="text-small" maxlength="50" placeholder="Label">
+                                            </span>
+
+                                            <input type="hidden" name="value_order_after__1444806979_91509400" id="value_order_after__1444806979_91509400" value="0">
+
+                                            <div style="display:none;" class="error" id="error_for_custom_field_value__1444806979_91509400"></div>
+
+
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div id="custom_field_value_div__1444806979_91519600" class="control-group hover-control-group control-group-short-margin">
+
+
+                                        <label class="control-label">
+                                            <a title="Add value" href="#" onclick="new Ajax.Updater('custom_field_value_div__1444806979_91519600', '/field/addValueAjax/prefix/fld/value_id/1444806979_91519600/id', {asynchronous:true, evalScripts:true, insertion:Insertion.After, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=357f4b9c97a3510e46ea9344255211ac11914c3a3f372baa029143a12b09e74317b166f7c345f349a93a160fd0ecb81f'});; return false;"><i class="icon-plus icon-bigger muted" title="Add"></i></a>				<a title="Remove value" href="#" onclick="if (window.confirm('Are you sure?')) { var typeVal = jQuery('#type').val(); if((typeVal == 3 || typeVal == 4 || typeVal == 6 || typeVal == 2) &amp;&amp; jQuery('.customValue').size() == 1) {alert('You must have at least one value!'); return false;}; new Ajax.Updater('custom_field_value_div__1444806979_91519600', '/field/removeValueAjax/prefix/fld/value_id/1444806979_91519600/id//ordered_after/1444806979_91509400', {asynchronous:true, evalScripts:false, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();new Effect.Fade('custom_field_value_div__1444806979_91519600', {});}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=a1402829c0dc3a83f53caae80bbfb1bbeef437e5114cb9e7d484fa8208c3fb7ed12e3977b61a514f60a4422aa9ac8328'}); };; return false;"><i class="icon-trash icon-bigger muted" title="Delete"></i></a>
+                                        </label>
+
+                                        <div class="controls">
+
+                                            <input type="text" name="value__1444806979_91519600" id="value__1444806979_91519600" value="" class="text-small customValue" maxlength="50" placeholder="Value">
+                                            <a href="#" onclick="toggleDisplayAnimated('custom_field_toggle_label__1444806979_91519600', null, null, true); return false;">
+                                                <i class="icon-font icon-bigger muted vertical-middle" title="Label"></i>
+                                            </a>
+                                            <span class="inline" style="display:none" id="custom_field_toggle_label__1444806979_91519600">
+                                                <input type="text" name="label__1444806979_91519600" id="label__1444806979_91519600" value="" class="text-small" maxlength="50" placeholder="Label">
+                                            </span>
+
+                                            <input type="hidden" name="value_order_after__1444806979_91519600" id="value_order_after__1444806979_91519600" value="1444806979_91509400">
+
+                                            <div style="display:none;" class="error" id="error_for_custom_field_value__1444806979_91519600"></div>
+
+
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="control-group push-top" id="custom_field_value_add">
+                                        <div class="controls">
+                                            <a class="btn" href="#" onclick="new Ajax.Updater('custom_field_value_add', '/field/addValueAjax/id', {asynchronous:true, evalScripts:false, insertion:Insertion.Before, onComplete:function(request, json){$j(&quot;#indicator&quot;).fadeOut();}, onLoading:function(request, json){$j(&quot;#indicator&quot;).show();}, parameters:'_csrf_token=7aaee4b3459dce92840c200f98a9e74da1a744f9854bd06b5eca4d9e3f4bbd1174b422844a0c00c855d5cd14b998b79e'});; return false;"><i class="icon-plus"></i> Add new value</a>
+                                        </div>
+                                    </div>
+
+                                    <div style="display:none;" class="error" id="error_for_custom_field_values_"></div>
+
+                                </div>
+                                <div class="form-actions"><input type="submit" ng-click="AddUser(account)" name="commit" value="+Create Custom Field" accesskey="s" class="btn btn-primary"></div>
+                            </form>
+
+
+
+
+                        </div>
 
 
 

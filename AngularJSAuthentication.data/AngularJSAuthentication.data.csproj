@@ -71,13 +71,9 @@
   <ItemGroup>
     <Compile Include="AuthContext.cs" />
     <Compile Include="AuthRepository.cs" />
-    <Compile Include="Migrations\201510121212546_paradot.cs" />
-    <Compile Include="Migrations\201510121212546_paradot.Designer.cs">
-      <DependentUpon>201510121212546_paradot.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510121332337_paradot1.cs" />
-    <Compile Include="Migrations\201510121332337_paradot1.Designer.cs">
-      <DependentUpon>201510121332337_paradot1.cs</DependentUpon>
+    <Compile Include="Migrations\201510161244240_paradot.cs" />
+    <Compile Include="Migrations\201510161244240_paradot.Designer.cs">
+      <DependentUpon>201510161244240_paradot.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,11 +89,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201510121212546_paradot.resx">
-      <DependentUpon>201510121212546_paradot.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510121332337_paradot1.resx">
-      <DependentUpon>201510121332337_paradot1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201510161244240_paradot.resx">
+      <DependentUpon>201510161244240_paradot.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

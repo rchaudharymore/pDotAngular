@@ -12,30 +12,29 @@ using System.Web.Http.Description;
 namespace AngularJSAuthentication.API.Controllers
 {
     [AllowAnonymous]
-    [RoutePrefix("api/People")]
-    public class PeopleController : ApiController
+    [RoutePrefix("api/Groups")]
+    public class GroupController : ApiController
     {
         iAuthContext context = new AuthContext();
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
         [AllowAnonymous]
         [Route("")]
-        public IEnumerable<People> Get()
+        public IEnumerable<Groups> Get()
         { 
        
-            List<People> person = context.AllPeople();
-           
-            return person;
+            List<Groups> groups = context.AllGroups();
+            return groups;
         }
 
 
-
-        [ResponseType(typeof(People))]
+        //Add Group
+        [ResponseType(typeof(Groups))]
         [Route("")]
         [AcceptVerbs("POST")]
-        public People add(People item)
+        public Groups add(Groups item)
         {
-            logger.Info("Add Peoples: ");
+            logger.Info("Add Groups: ");
             try
             {
 
@@ -54,13 +53,13 @@ namespace AngularJSAuthentication.API.Controllers
                     }
                 }
 
-                item.companyId = compid;
+                item.groupId = compid;
                 if (item == null)
                 {
                     throw new ArgumentNullException("item");
                 }
                 logger.Info("User ID : {0} , Company Id : {1}", compid, userid);
-                context.AddPeople(item);
+                context.AddGroups(item);
                 logger.Info("End  Add Peoples: ");
                 return item;
             }
@@ -72,7 +71,7 @@ namespace AngularJSAuthentication.API.Controllers
             }
         }
 
-        [ResponseType(typeof(People))]
+        [ResponseType(typeof(Groups))]
         [Route("")]
         [AcceptVerbs("PUT")]
         public People Put(People item)
@@ -120,7 +119,14 @@ namespace AngularJSAuthentication.API.Controllers
 
             }
         }
-             
+
+
+
+
+
+
+
+
 
     }
 }

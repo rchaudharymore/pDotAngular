@@ -44,3 +44,7 @@ C:\Users\user\Downloads\AngularJSAuthentication\AngularJSAuthentication\AngularJ
 C:\Users\user\Downloads\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.Model\obj\Debug\AngularJSAuthentication.Model.dll
 C:\Users\user\Downloads\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.Model\obj\Debug\AngularJSAuthentication.Model.pdb
 C:\Users\user\Downloads\AngularJSAuthentication\AngularJSAuthentication\AngularJSAuthentication.Model\obj\Debug\AngularJSAuthentication.Model.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\pDotAngular\pDotAngular\AngularJSAuthentication.Model\bin\Debug\AngularJSAuthentication.Model.dll
+C:\Users\user\Documents\pDotAngular\pDotAngular\AngularJSAuthentication.Model\bin\Debug\AngularJSAuthentication.Model.pdb
+C:\Users\user\Documents\pDotAngular\pDotAngular\AngularJSAuthentication.Model\obj\Debug\AngularJSAuthentication.Model.dll
+C:\Users\user\Documents\pDotAngular\pDotAngular\AngularJSAuthentication.Model\obj\Debug\AngularJSAuthentication.Model.pdb

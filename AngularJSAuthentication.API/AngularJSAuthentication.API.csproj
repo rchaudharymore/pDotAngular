@@ -408,6 +408,7 @@
     <Content Include="scripts\controllers\about.js" />
     <Content Include="scripts\controllers\ckeditor.js" />
     <Content Include="scripts\controllers\config-email.js" />
+    <Content Include="scripts\controllers\CtrlAccounts.js" />
     <Content Include="scripts\controllers\CtrlGroup.js" />
     <Content Include="scripts\controllers\CtrlUser.js" />
     <Content Include="scripts\controllers\main.js" />
@@ -679,6 +680,7 @@
     <Compile Include="AuthContext.cs" />
     <Compile Include="AuthRepository.cs" />
     <Compile Include="Controllers\ConfirmEmailController.cs" />
+    <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\Helper.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
